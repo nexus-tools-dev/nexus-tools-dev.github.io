@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy - Private PDF Toolkit</title>
+<meta name="description" content="Privacy policy of the Private PDF Toolkit browser extension: your files are processed locally and never uploaded.">
+<meta name="robots" content="index, follow">
+<style>
+  :root { --bg:#f6f7f9; --panel:#fff; --text:#16181d; --muted:#5f6672; --line:#d9dde3; --accent:#1f5fd1; --ph-bg:#fff4d6; --ph-text:#6b4a00; color-scheme: light dark; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#14161a; --panel:#1d2026; --text:#eceef2; --muted:#a2a9b5; --line:#343944; --accent:#6ea0ff; --ph-bg:#3a3118; --ph-text:#ffd98a; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.65 system-ui,"Segoe UI",Roboto,sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 32px 20px 64px; }
+  header { display:flex; align-items:center; gap:14px; margin-bottom: 8px; }
+  header svg { flex:none; }
+  h1 { font-size: 28px; line-height:1.2; margin:0; }
+  h2 { font-size: 20px; margin: 36px 0 8px; padding-top: 8px; border-top: 1px solid var(--line); }
+  p, li { margin: 8px 0; }
+  ul { padding-left: 22px; }
+  a { color: var(--accent); }
+  code { background: var(--panel); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; font-size: .92em; }
+  .meta { color: var(--muted); font-size: 14px; }
+  .box { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; margin: 16px 0; }
+  .ph { background: var(--ph-bg); color: var(--ph-text); border-radius: 4px; padding: 0 5px; font-weight: 600; }
+  table { border-collapse: collapse; width: 100%; font-size: 15px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: .03em; }
+  tr:last-child td { border-bottom: 0; }
+  @media (max-width: 560px) { h1 { font-size: 24px; } }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <svg width="48" height="48" viewBox="0 0 128 128" role="img" aria-label="Private PDF Toolkit icon">
+      <defs>
+        <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b7cf0"/><stop offset="1" stop-color="#1748b4"/></linearGradient>
+        <linearGradient id="sh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#17a86b"/><stop offset="1" stop-color="#0c7a49"/></linearGradient>
+      </defs>
+      <rect width="128" height="128" rx="28" fill="url(#bg)"/>
+      <path d="M30 14h42l28 28v62a10 10 0 0 1-10 10H30a10 10 0 0 1-10-10V24a10 10 0 0 1 10-10z" fill="#fff"/>
+      <path d="M72 14v20a8 8 0 0 0 8 8h20z" fill="#bcd2fa"/>
+      <rect x="32" y="52" width="38" height="7" rx="3.5" fill="#c9d6ee"/><rect x="32" y="67" width="30" height="7" rx="3.5" fill="#c9d6ee"/>
+      <path d="M88 62l25 9v18c0 17-12 28-25 34-13-6-25-17-25-34V71z" fill="url(#sh)" stroke="#1d57cc" stroke-width="6" stroke-linejoin="round"/>
+      <rect x="78" y="91" width="20" height="15" rx="3" fill="#fff"/>
+      <path d="M82.500 91v-4.500a5.500 5.500 0 0 1 11 0V91" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="88" cy="98" r="2.400" fill="#0c7a49"/>
+    </svg>
+    <h1>Privacy Policy<br><span style="font-size:18px;font-weight:600;color:var(--muted)">Private PDF Toolkit - Offline</span></h1>
+  </header>
+  <p class="meta">Last updated: 2026-11-04<br>
+  Publisher (data controller for the website and for license support): Nexus Tools, independent software developer (the legal trader details are shown on each extension store page)<br>
+  Contact: <a href="mailto:nexusscrapers.dev@gmail.com">nexusscrapers.dev@gmail.com</a></p>
+
+  <div class="box">
+    <strong>In short.</strong> Private PDF Toolkit processes your files on your own device. We do not collect, receive, store or share your documents or any personal data. There are no analytics, telemetry, advertising, tracking or remote code. The only network request the extension ever makes is a license-key check with our payment provider, and only if you choose to activate a Pro license.
+  </div>
+
+  <h2>1. Your documents</h2>
+  <p>PDF and image files you open in the extension are read and processed locally in your browser (in memory and in a Web Worker started from the extension itself). They are never uploaded, transmitted or sent to any server, by us or by anyone else. Output files are saved by your browser to your device through the normal download mechanism. The extension keeps no copy of your files, their names or their content after you close the tab.</p>
+
+  <h2>2. What is stored on your device</h2>
+  <p>The extension uses the browser's extension storage (the <code>storage</code> permission), and only when you activate a Pro license. It stores a single record containing:</p>
+  <ul>
+    <li>your license key,</li>
+    <li>the time of the last server answer and of the last successful validation, and</li>
+    <li>the validation status (granted, revoked, disabled or invalid).</li>
+  </ul>
+  <p>This record stays on your device. It is deleted when you click "Remove license" in the extension, or when you uninstall the extension. Free users have nothing stored. No document content, file names, settings, usage statistics or identifiers are stored.</p>
+
+  <h2>3. The only network request: license validation</h2>
+  <table>
+    <tr><th>Item</th><th>Detail</th></tr>
+    <tr><td>When</td><td>When you click "Activate" with a license key, and afterwards at most once every 7 days when you open the extension. If the check cannot reach the server, Pro keeps working offline for up to 14 days after the last successful check.</td></tr>
+    <tr><td>Recipient</td><td>Polar.sh (<code>https://api.polar.sh/v1/customer-portal/license-keys/validate</code>), our payment provider and Merchant of Record.</td></tr>
+    <tr><td>What is sent</td><td>Exactly two fields in the request body: your license key and our Polar organization identifier. Cookies and referrer are not sent.</td></tr>
+    <tr><td>What is not sent</td><td>No documents, no file names, no page counts, no browsing history, no account or device identifiers, no analytics.</td></tr>
+    <tr><td>Technical data seen by Polar</td><td>Like any web request, Polar's servers receive your IP address and standard HTTP headers (for example the browser's user-agent). We cannot control this and do not receive it; it is handled under Polar's own privacy policy: <a href="https://polar.sh/legal/privacy" rel="noopener noreferrer">polar.sh/legal/privacy</a>.</td></tr>
+    <tr><td>Purchases</td><td>If you buy a license, you do so on a Polar checkout page that opens in a new tab only when you click "Buy a license". Polar processes the payment and your purchase data (name, email, payment and tax details). We do not receive your payment details.</td></tr>
+  </table>
+  <p><strong>Firefox:</strong> Mozilla treats a license key as "authentication information" transmitted to a third party. In Firefox the extension therefore declares this as an optional data-collection permission, and Firefox asks for your consent when you click "Activate". If you decline, nothing is sent and the license is not activated. No data is requested at install time.</p>
+
+  <h2>4. Permissions explained</h2>
+  <ul>
+    <li><code>storage</code>: keeps the license record described in section 2.</li>
+    <li>Access to <code>https://api.polar.sh/*</code>: used only for the license check in section 3. The extension has no access to any other website.</li>
+  </ul>
+  <p>The extension does not read the pages you visit, your tabs' content, your history or your downloads, and it has no content scripts. It contains no remote code: all code is shipped inside the extension package, and it does not load scripts, fonts or other resources from the internet.</p>
+
+  <h2>5. Data sharing, retention and children</h2>
+  <p>We do not sell, share or transfer user data, because we do not collect any from the extension. We retain nothing from your use of the extension. The extension is not directed at children.</p>
+
+  <h2>6. Your rights (GDPR)</h2>
+  <p>Because we hold no personal data from the extension itself, there is nothing for us to access, correct or delete. For purchase data held by Polar, or to ask any question, use Polar's tools or contact us at <a href="mailto:nexusscrapers.dev@gmail.com">nexusscrapers.dev@gmail.com</a>. You also have the right to lodge a complaint with your data protection authority.</p>
+
+  <h2>7. Changes</h2>
+  <p>If this policy changes materially, the new version will be published at this address with a new "Last updated" date and mentioned in the extension's release notes.</p>
+
+  <p class="meta" style="margin-top:40px">This page is self-contained: it loads no external scripts, fonts, images or trackers.</p>
+</main>
+</body>
+</html>
