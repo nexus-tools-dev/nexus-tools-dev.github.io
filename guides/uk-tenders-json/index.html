@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UK tenders as JSON: Find a Tender and Contracts Finder API (Python)</title>
+<meta name="description" content="Get UK public tenders as JSON or CSV from the Find a Tender and Contracts Finder OCDS APIs: endpoints, filters that fail, rate limits, Python code, a 20-record sample and OGL v3 terms.">
+<link rel="canonical" href="https://nexus-tools-dev.github.io/guides/uk-tenders-json/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Nexus Tools">
+<meta property="og:title" content="UK tenders as JSON: Find a Tender and Contracts Finder API (Python)">
+<meta property="og:description" content="Get UK public tenders as JSON or CSV from the Find a Tender and Contracts Finder OCDS APIs: endpoints, filters that fail, rate limits, Python code, a 20-record sample and OGL v3 terms.">
+<meta property="og:url" content="https://nexus-tools-dev.github.io/guides/uk-tenders-json/">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "UK public tenders as JSON or CSV: Find a Tender and Contracts Finder OCDS APIs, a Python example, and a ready-made dataset", "description": "Get UK public tenders as JSON or CSV from the Find a Tender and Contracts Finder OCDS APIs: endpoints, filters that fail, rate limits, Python code, a 20-record sample and OGL v3 terms.", "inLanguage": "en", "datePublished": "2026-11-04", "dateModified": "2026-11-04", "url": "https://nexus-tools-dev.github.io/guides/uk-tenders-json/", "mainEntityOfPage": "https://nexus-tools-dev.github.io/guides/uk-tenders-json/", "keywords": "Find a Tender API, Contracts Finder API, OCDS, UK public procurement data, Open Government Licence", "author": {"@type": "Organization", "name": "Nexus Tools", "url": "https://nexus-tools-dev.github.io/"}, "publisher": {"@type": "Organization", "name": "Nexus Tools", "url": "https://nexus-tools-dev.github.io/"}}</script>
+<style>
+  :root { --bg:#f6f7f9; --panel:#fff; --text:#16181d; --muted:#5f6672; --line:#d9dde3; --accent:#1f5fd1; --code:#eef0f4; color-scheme: light dark; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#14161a; --panel:#1d2026; --text:#eceef2; --muted:#a2a9b5; --line:#343944; --accent:#6ea0ff; --code:#252932; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.65 system-ui,"Segoe UI",Roboto,sans-serif; }
+  main { max-width: 780px; margin: 0 auto; padding: 40px 20px 64px; }
+  h1 { font-size: 28px; line-height:1.25; margin: 8px 0 8px; }
+  h2 { font-size: 21px; margin: 40px 0 8px; }
+  h3 { font-size: 17px; margin: 24px 0 4px; }
+  .lead { color: var(--muted); margin: 0 0 8px; }
+  .meta { color: var(--muted); font-size: 14px; }
+  a { color: var(--accent); }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px 18px; margin: 16px 0; }
+  pre, code { font: 13.5px/1.5 ui-monospace,SFMono-Regular,Consolas,Menlo,monospace; }
+  code { background: var(--code); padding: 1px 5px; border-radius: 4px; }
+  pre { background: var(--code); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; overflow-x: auto; margin: 12px 0; }
+  pre code { background: none; padding: 0; }
+  .tw { overflow-x: auto; margin: 12px 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { text-align: left; border-bottom: 1px solid var(--line); padding: 6px 8px; vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; white-space: nowrap; }
+  td.n { white-space: nowrap; }
+  ul, ol { padding-left: 22px; }
+  li { margin: 4px 0; }
+  .note { border-left: 3px solid var(--accent); padding: 2px 0 2px 14px; color: var(--muted); }
+  footer { margin-top: 48px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); padding-top: 16px; }
+</style>
+</head>
+<body>
+<main>
+<p class="meta"><a href="../../">Nexus Tools</a> / Data guides</p>
+
+<h1>UK public tenders as JSON or CSV: Find a Tender and Contracts Finder OCDS APIs, a Python example, and a ready-made dataset</h1>
+<p class="lead">How to read UK procurement notices from the two official OCDS APIs yourself, what trips people up (a broken <code>stages</code> filter, many releases per notice, rate limits), and when a normalized feed is worth paying for.</p>
+<p class="meta">Updated: November 2026. API behaviour below was tested live on 4 November 2026.</p>
+
+<h2>The short version</h2>
+<ul>
+<li>The UK has two official notice services, each with a free, key-less API that returns <strong>OCDS</strong> (Open Contracting Data Standard) release packages as JSON: <strong>Find a Tender</strong> and <strong>Contracts Finder</strong>. Both are run by the Cabinet Office and licensed under the Open Government Licence v3.0.</li>
+<li>They differ in URL, filters, rate-limit behaviour and in how a notice is represented. Neither can filter by CPV, keyword or value, so you filter after download.</li>
+<li>If you want one flat schema across both, de-duplication and CPV labels without maintaining a script, we run an Apify Actor for that. Real samples are at the bottom.</li>
+</ul>
+
+<h2>1. The two APIs</h2>
+<div class="tw"><table>
+<tr><th></th><th>Find a Tender</th><th>Contracts Finder</th></tr>
+<tr><th>Endpoint</th><td><code>GET https://www.find-tender.service.gov.uk/api/1.0/ocdsReleasePackages</code></td><td><code>GET https://www.contractsfinder.service.gov.uk/Published/Notices/OCDS/Search</code></td></tr>
+<tr><th>Docs</th><td><a href="https://www.find-tender.service.gov.uk/apidocumentation/1.0/GET-ocdsReleasePackages">GET-ocdsReleasePackages</a></td><td><a href="https://www.contractsfinder.service.gov.uk/apidocumentation/Notices/1/GET-Published-Notice-OCDS-Search">GET-Published-Notice-OCDS-Search</a></td></tr>
+<tr><th>Date filter</th><td><code>updatedFrom</code>, <code>updatedTo</code> as <code>YYYY-MM-DDTHH:MM:SS</code></td><td><code>publishedFrom</code>, <code>publishedTo</code> (ISO 8601)</td></tr>
+<tr><th>Other filters</th><td><code>stages</code> (planning, tender, award), but see below</td><td><code>stages</code> (planning, tender, award, implementation), comma-separated</td></tr>
+<tr><th>Page size</th><td><code>limit</code> 1 to 100, default 100</td><td><code>limit</code> 1 to 100, default 100</td></tr>
+<tr><th>Next page</th><td><code>links.next</code> (URL containing a <code>cursor</code>)</td><td><code>links.next</code> (URL containing a <code>cursor</code>)</td></tr>
+<tr><th>Single notice</th><td>append <code>/104923-2026</code> (notice id) or an <code>ocds-h6vhtk-...</code> process id</td><td>not covered here</td></tr>
+<tr><th>Rate limiting</th><td>documented: <code>429</code> or <code>503</code> with a <code>Retry-After</code> header</td><td>documented: <code>403</code>, wait 5 minutes</td></tr>
+<tr><th>Covers</th><td>Above-threshold procurement for the UK, plus other notice types since the Procurement Act 2023 regime</td><td>Below-threshold opportunities and awards of English buyers and central government</td></tr>
+</table></div>
+
+<p>Minimal requests (both anonymous):</p>
+<pre><code>curl -s "https://www.find-tender.service.gov.uk/api/1.0/ocdsReleasePackages?limit=2&amp;updatedFrom=2026-11-04T00:00:00"
+
+curl -s "https://www.contractsfinder.service.gov.uk/Published/Notices/OCDS/Search?stages=tender&amp;limit=2&amp;publishedFrom=2026-11-04T00:00:00"</code></pre>
+<p>Both return a release package with the same envelope: <code>uri</code>, <code>version</code> (<code>"1.1"</code>), <code>extensions</code>, <code>publishedDate</code>, <code>publisher</code> (Cabinet Office), <code>license</code> (the OGL v3.0 URL), <code>publicationPolicy</code>, <code>releases</code> and <code>links</code>. Releases come newest first.</p>
+
+<h3>Find a Tender: what we found</h3>
+<ul>
+<li><strong>The <code>stages</code> filter is not usable for Procurement Act notices.</strong> In our test (releases updated since 3 November 2026, 100 returned) <code>stages=tender</code> returned 15 releases, none of them with a UK notice type, so it only matches notices of the older regime. <code>stages=tender,award</code> returned <code>200</code> with zero releases. Do not rely on it; filter client-side.</li>
+<li><strong>Every change is a release, so one notice appears many times.</strong> In that 100-release page the tags were: 49 <code>award,contract</code>, 21 <code>tender</code>, 9 <code>awardUpdate,contractUpdate</code>, 8 <code>planning</code>, 8 <code>tenderUpdate</code>, 3 <code>planningUpdate</code>, 2 <code>tenderCancellation</code>. Only 26 of the 100 were UK4 tender notices.</li>
+<li><strong>The notice type is in <code>tender.documents[].noticeType</code></strong> (<code>UK4</code> = tender notice). In our 100-release page, 71 releases had no notice type in <code>tender.documents</code> (including old-regime ones), so do not assume it is always there.</li>
+<li><strong>Values</strong>: a tender release we inspected had only <code>amountGross</code> (no <code>amount</code>) in <code>tender.value</code> and in the lot value. Handle both.</li>
+<li><strong>CPV codes</strong> are in <code>tender.items[].additionalClassifications</code> with <code>scheme: "CPV"</code>; the deadline is <code>tender.tenderPeriod.endDate</code>; regions are NUTS codes (<code>UKK12</code>) in <code>items[].deliveryAddresses[].region</code>.</li>
+<li><strong>Party records contain contact points</strong> (names, e-mail, phone) in <code>parties[].contactPoint</code>. If you store the raw JSON, decide whether you want that personal data.</li>
+<li>Errors are readable: <code>limit=500</code> gives <code>400</code> with "'limit' must not exceed the maximum value"; a malformed date gives "'updatedFrom' must be in the correct format". Unknown parameters are rejected with the list of allowed ones, according to the docs.</li>
+</ul>
+
+<h3>Contracts Finder: what we found</h3>
+<ul>
+<li><code>stages</code> works server-side. Without it the feed is dominated by award notices (86 of the 100 releases we pulled from 4 November were award or award update), so always pass the stage you want.</li>
+<li>Release ids look like <code>&lt;notice uuid&gt;-&lt;version number&gt;</code> and the <code>ocid</code> starts <code>ocds-b5fd17-</code>. The same notice appears once per edit, so keep the highest version per uuid.</li>
+<li>The main CPV code is in <code>tender.classification</code>, further codes in <code>tender.additionalClassifications</code>. Value is in <code>tender.value</code> (<code>amount</code>, <code>currency</code>), the deadline in <code>tender.tenderPeriod.endDate</code>.</li>
+<li>Errors use a different shape from Find a Tender: <code>{"code": 3200, "message": "Incorrect request [limit must be a number greater than 0 and maximum is 100]", ...}</code>.</li>
+<li>Rate limit: the docs say <code>403</code> and to wait five minutes. During exploratory scanning we hit a <code>429</code> with <code>Retry-After: 120</code> after a handful of requests spaced about a second apart; spacing requests by 2.5 seconds ran ten consecutive pages without a limit. Treat <code>403</code>, <code>429</code> and <code>503</code> as "stop and wait".</li>
+<li>Published data can be odd: in one award notice we looked at, the buyer's name was a 32-character hash rather than an organisation name.</li>
+</ul>
+
+<h2>2. DIY: both sources to CSV in Python</h2>
+<p>Tested against both live APIs on 4 November 2026: it returned 91 tender releases (81 from Find a Tender, 10 from Contracts Finder) from the last 24 hours, capped at 5 pages per source. Needs <code>pip install requests</code>. Put a real contact address in the User-Agent.</p>
+<pre><code>import csv
+import time
+from datetime import datetime, timedelta, timezone
+
+import requests
+
+HEADERS = {&quot;User-Agent&quot;: &quot;my-tender-script/1.0 (you@example.com)&quot;}  # identify yourself
+FTS = &quot;https://www.find-tender.service.gov.uk/api/1.0/ocdsReleasePackages&quot;
+CF = &quot;https://www.contractsfinder.service.gov.uk/Published/Notices/OCDS/Search&quot;
+
+
+def pages(url, params, pause, max_pages=5):
+    &quot;&quot;&quot;Follow links.next (a ready-made URL with the cursor) and obey Retry-After on 429/503.&quot;&quot;&quot;
+    next_url, next_params = url, params
+    for _ in range(max_pages):
+        for attempt in range(4):
+            r = requests.get(next_url, params=next_params, headers=HEADERS, timeout=60)
+            if r.status_code in (429, 503):
+                time.sleep(int(r.headers.get(&quot;Retry-After&quot;, 10)) + 1)
+                continue
+            if r.status_code == 403:  # Contracts Finder says: wait 5 minutes
+                raise RuntimeError(&quot;rate limited (403), stop and retry in 5+ minutes&quot;)
+            r.raise_for_status()
+            break
+        else:
+            raise RuntimeError(&quot;service unavailable&quot;)
+        data = r.json()
+        yield from data[&quot;releases&quot;]
+        next_url, next_params = data.get(&quot;links&quot;, {}).get(&quot;next&quot;), None
+        if not next_url:
+            return
+        time.sleep(pause)
+
+
+def row(source, rel):
+    t = rel.get(&quot;tender&quot;, {})
+    value = t.get(&quot;value&quot;) or {}
+    cpvs = [t.get(&quot;classification&quot;)] + (t.get(&quot;additionalClassifications&quot;) or [])  # Contracts Finder
+    for item in t.get(&quot;items&quot;, []):                                                 # Find a Tender
+        cpvs += item.get(&quot;additionalClassifications&quot;) or []
+    cpv = [c[&quot;id&quot;] for c in cpvs if c and c.get(&quot;scheme&quot;) == &quot;CPV&quot;]
+    return {
+        &quot;source&quot;: source,
+        &quot;id&quot;: rel[&quot;id&quot;],
+        &quot;published&quot;: rel[&quot;date&quot;][:10],
+        &quot;title&quot;: t.get(&quot;title&quot;),
+        &quot;buyer&quot;: (rel.get(&quot;buyer&quot;) or {}).get(&quot;name&quot;),
+        &quot;cpv&quot;: &quot;;&quot;.join(dict.fromkeys(cpv)),
+        &quot;value&quot;: value.get(&quot;amount&quot;, value.get(&quot;amountGross&quot;)),  # Find a Tender may give only amountGross
+        &quot;currency&quot;: value.get(&quot;currency&quot;),
+        &quot;deadline&quot;: (t.get(&quot;tenderPeriod&quot;) or {}).get(&quot;endDate&quot;),
+    }
+
+
+since = (datetime.now(timezone.utc) - timedelta(days=1)).strftime(&quot;%Y-%m-%dT%H:%M:%S&quot;)
+rows = []
+
+# Find a Tender: no usable `stages` filter, so keep releases whose tender document is a UK4 tender notice.
+for rel in pages(FTS, {&quot;limit&quot;: 100, &quot;updatedFrom&quot;: since}, pause=1.2):
+    docs = rel.get(&quot;tender&quot;, {}).get(&quot;documents&quot;, [])
+    if any(d.get(&quot;noticeType&quot;) == &quot;UK4&quot; for d in docs):
+        rows.append(row(&quot;find-a-tender&quot;, rel))
+
+# Contracts Finder: `stages=tender` works server-side. Use a longer pause between pages.
+for rel in pages(CF, {&quot;stages&quot;: &quot;tender&quot;, &quot;limit&quot;: 100, &quot;publishedFrom&quot;: since}, pause=2.5):
+    rows.append(row(&quot;contracts-finder&quot;, rel))
+
+with open(&quot;uk_tenders.csv&quot;, &quot;w&quot;, newline=&quot;&quot;, encoding=&quot;utf-8&quot;) as f:
+    w = csv.DictWriter(f, fieldnames=rows[0].keys())
+    w.writeheader()
+    w.writerows(rows)
+print(len(rows), &quot;tender releases&quot;)
+</code></pre>
+<p>It does not de-duplicate notices published on both services, does not keep only the latest Contracts Finder version per notice, and does not handle award notices or values in other shapes. That is the part that grows.</p>
+
+<h2>3. When the Actor saves time</h2>
+<p>The Apify Actor <a href="https://apify.com/nexus-scrapers/uk-public-tenders">UK Public Tenders</a> (by Nexus Scrapers) reads both official APIs and returns one schema. It pays off when you would otherwise maintain the glue code above:</p>
+<ul>
+<li><strong>Both sources, one record per procurement notice.</strong> Notices found on both services are merged (the Find a Tender record wins, the other link is kept in <code>ukAlsoPublishedOn</code>); only the newest version of each Contracts Finder notice is kept.</li>
+<li><strong>Normalized schema v1</strong>, the same one our TED Actor uses: buyer object, dates, money as <code>{amount, currency}</code>, unified notice types (UK codes like <code>UK4</code>, <code>UK6</code> kept in <code>noticeTypeCode</code>), <code>null</code> instead of missing keys. UK-only extras are prefixed <code>uk</code> (OCDS process id, regions, SME/VCSE suitability, framework flag, OCDS link).</li>
+<li><strong>Filters the APIs lack:</strong> keyword, CPV prefix, notice types, value band, region, applied by the Actor on your behalf, up to 10,000 results per run. For rare filters over long periods it reads at most 60 pages per source and says so when it stops early.</li>
+<li><strong>CPV codes with official labels</strong> in any of the 24 EU languages; main CPV and division name.</li>
+<li><strong>Award view</strong> with winning suppliers, awarded value and award date.</li>
+<li><strong>No contact details</strong>: names, e-mails and phone numbers from party records are not copied.</li>
+<li><strong>Scheduling and integrations</strong> through Apify (daily runs, Slack, e-mail, Google Sheets, webhooks, API, MCP); export as JSON, CSV or Excel. Rate-limit handling and back-off are built in.</li>
+</ul>
+<p>Pricing is pay per result: $0.003 per result at the time of writing; the Actor page shows the current price.</p>
+<p class="note">What it does not do: it does not return tender documents (only notice data and links), does not cover Public Contracts Scotland, Sell2Wales or eSourcing NI below-threshold notices, and does not give lot-level detail. For a one-off export of a single stage, the script above is enough.</p>
+
+<h2>4. Real sample: 20 normalized records</h2>
+<p>These 20 records were produced on 4 November 2026 by running the Actor's own source and normalizer code locally against the live APIs, without the Apify platform: 12 tender notices (latest three days, 6 from each service) and 8 award notices (latest ten days, 4 from each service), merged and de-duplicated like the Actor does. They are the newest matches, not hand-picked. One notice contained an organisation e-mail address inside its free-text description; we replaced it with <code>[email removed]</code>. Everything else is unchanged.</p>
+<p>Download: <a href="sample.json">sample.json</a> (full records, UTF-8) and <a href="sample.csv">sample.csv</a> (flattened: lists joined with <code> | </code>, opens in Excel). Free to use under the licence in section 5.</p>
+<div class="tw"><table>
+<tr><th>Notice</th><th>Src</th><th>Type</th><th>Buyer</th><th>Title</th><th>Value</th><th>Winners</th></tr>
+<tr><td class="n"><a href="https://www.contractsfinder.service.gov.uk/Notice/a17cebab-4b5c-4273-8ffc-6d579de4a34d">a17cebab…</a></td><td>CF</td><td>notice</td><td>THE NATIONAL TRUST FOR PLACES OF…</td><td>National Trust - NI - Lead Designer &amp; Multidisciplinary t…</td><td class="n">40,000 GBP</td><td>-</td></tr>
+<tr><td class="n"><a href="https://www.find-tender.service.gov.uk/Notice/104923-2026">104923-2026</a></td><td>FTS</td><td>notice</td><td>Stonewater Limited</td><td>Stoke Road, Henlade</td><td class="n">10,300,000 GBP</td><td>-</td></tr>
+<tr><td class="n"><a href="https://www.contractsfinder.service.gov.uk/Notice/8665d1a9-fc76-4e46-9baa-75eb3710ad2d">8665d1a9…</a></td><td>CF</td><td>notice</td><td>Theatre Royal Plymouth</td><td>Theatre Royal Plymouth - Architect-led Multi-disciplinary…</td><td class="n">750,000 GBP</td><td>-</td></tr>
+<tr><td class="n"><a href="https://www.find-tender.service.gov.uk/Notice/104919-2026">104919-2026</a></td><td>FTS</td><td>notice</td><td>North Northamptonshire Council</td><td>North Northamptonshire Council - Operation &amp; maintenance…</td><td class="n">273,000 GBP</td><td>-</td></tr>
+<tr><td class="n"><a href="https://www.contractsfinder.service.gov.uk/Notice/e3696531-9fcd-4f05-a54c-902f39ee2e65">e3696531…</a></td><td>CF</td><td>notice</td><td>DERBY CITY COUNCIL</td><td>ENQ1406 - LED Screens, Staging, PA Equipment and Lighting…</td><td class="n">95,000 GBP</td><td>-</td></tr>
+<tr><td class="n"><a href="https://www.find-tender.service.gov.uk/Notice/104918-2026">104918-2026</a></td><td>FTS</td><td>notice</td><td>Fermanagh and Omagh District Coun…</td><td>TENDER FOR CAPITAL YOUTH PROGRAMME (ENNISKILLEN ROUND O)…</td><td class="n">162,000 GBP</td><td>-</td></tr>
+<tr><td class="n"><a href="https://www.contractsfinder.service.gov.uk/Notice/81aa3ffe-8a56-4088-a73c-308dde265671">81aa3ffe…</a></td><td>CF</td><td>notice</td><td>Newry, Mourne and Down District C…</td><td>CA18639 - Tender 23/2026 - SUPPLY AND DELIVERY OF WORKSHO…</td><td class="n">-</td><td>-</td></tr>
+<tr><td class="n"><a href="https://www.find-tender.service.gov.uk/Notice/104917-2026">104917-2026</a></td><td>FTS</td><td>notice</td><td>NHS England</td><td>National Education and Training for NHS Talking Therapies…</td><td class="n">125,264,006 GBP</td><td>-</td></tr>
+<tr><td class="n"><a href="https://www.contractsfinder.service.gov.uk/Notice/b6442fed-62cb-4ca9-8081-552bc2c6a85b">b6442fed…</a></td><td>CF</td><td>notice</td><td>North East Lincolnshire Borough C…</td><td>Railway Street Footbridge (20/79/49) Geotechnical Investi…</td><td class="n">90,000 GBP</td><td>-</td></tr>
+<tr><td class="n"><a href="https://www.find-tender.service.gov.uk/Notice/104914-2026">104914-2026</a></td><td>FTS</td><td>notice</td><td>London Borough of Hounslow</td><td>Tender for the Provision of Learning Disability And Autis…</td><td class="n">4,700,000 GBP</td><td>-</td></tr>
+<tr><td class="n"><a href="https://www.contractsfinder.service.gov.uk/Notice/6ea78e35-3ad4-46d9-87f6-edaeda072b40">6ea78e35…</a></td><td>CF</td><td>notice</td><td>Balfour Beatty VINCI JV HS2</td><td>BBV Sublot 4 - HSST1020 - SALTLEY VIADUCT GABION WALL</td><td class="n">1,000,000 GBP</td><td>-</td></tr>
+<tr><td class="n"><a href="https://www.find-tender.service.gov.uk/Notice/104907-2026">104907-2026</a></td><td>FTS</td><td>notice</td><td>VICO HOMES LIMITED</td><td>Kitchen Replacement Programme</td><td class="n">110,180,000 GBP</td><td>-</td></tr>
+<tr><td class="n"><a href="https://www.contractsfinder.service.gov.uk/Notice/429e8abe-3bf6-4361-879f-6eaddddbcd1e">429e8abe…</a></td><td>CF</td><td>award</td><td>South Tyneside Council</td><td>Provision of an attendance collection service for CLA/CIN…</td><td class="n">185,828 GBP</td><td>Welfare Call (LAC) Ltd</td></tr>
+<tr><td class="n"><a href="https://www.find-tender.service.gov.uk/Notice/104925-2026">104925-2026</a></td><td>FTS</td><td>award</td><td>Royal Borough of Greenwich</td><td>Notice of Intention to Award the NextGen School Health an…</td><td class="n">10,014,104 GBP</td><td>BROMLEY HEALTHCARE COMMUNITY INTE…</td></tr>
+<tr><td class="n"><a href="https://www.contractsfinder.service.gov.uk/Notice/a003256f-bd57-4824-b665-d8b4f3d04a9d">a003256f…</a></td><td>CF</td><td>award</td><td>a3b773bedbb680101b84a5305b961983</td><td>Transformation Delivery Services - Transforming and Conne…</td><td class="n">41,400,000 GBP</td><td>KPMG LLP</td></tr>
+<tr><td class="n"><a href="https://www.find-tender.service.gov.uk/Notice/104924-2026">104924-2026</a></td><td>FTS</td><td>award</td><td>London Borough of Brent</td><td>Advocacy Services for Brent and Harrow</td><td class="n">2,224,358 GBP</td><td>POWHER</td></tr>
+<tr><td class="n"><a href="https://www.contractsfinder.service.gov.uk/Notice/9b32358e-2f8e-4fb6-ad3c-e7fc3ba3c275">9b32358e…</a></td><td>CF</td><td>award</td><td>South Tyneside Council</td><td>Contact Centre and CRM Enablement</td><td class="n">55,000 GBP</td><td>PRICE WATERHOUSE COOPERS LLP</td></tr>
+<tr><td class="n"><a href="https://www.find-tender.service.gov.uk/Notice/104922-2026">104922-2026</a></td><td>FTS</td><td>award</td><td>University Hospitals Birmingham N…</td><td>UHB Meteor Park Warehouse Trucks</td><td class="n">166,413 GBP</td><td>Jungheinrich UK Ltd</td></tr>
+<tr><td class="n"><a href="https://www.contractsfinder.service.gov.uk/Notice/488e5053-f49d-4a2e-a10a-55beb9a34570">488e5053…</a></td><td>CF</td><td>award</td><td>NHS England</td><td>Transformation Delivery Services - Establishing Operation…</td><td class="n">41,400,000 GBP</td><td>PA CONSULTING SERVICES LIMITED</td></tr>
+<tr><td class="n"><a href="https://www.find-tender.service.gov.uk/Notice/104921-2026">104921-2026</a></td><td>FTS</td><td>award</td><td>Construction Industry Training Bo…</td><td>Skills and Training 2026 Research (Sept)</td><td class="n">78,150 GBP</td><td>Navigator Insight Limited</td></tr>
+</table></div>
+<p class="meta">FTS = Find a Tender, CF = Contracts Finder. Value is the estimated value for tenders and the awarded value for awards (GBP); blank when the notice states none.</p>
+<p>One Find a Tender record in full (description shortened):</p>
+<pre><code>{
+  &quot;schemaVersion&quot;: &quot;1.0&quot;,
+  &quot;source&quot;: &quot;find-a-tender&quot;,
+  &quot;sourceId&quot;: &quot;104923-2026&quot;,
+  &quot;url&quot;: &quot;https://www.find-tender.service.gov.uk/Notice/104923-2026&quot;,
+  &quot;documentUrls&quot;: {
+    &quot;html&quot;: &quot;https://www.find-tender.service.gov.uk/Notice/104923-2026&quot;,
+    &quot;pdf&quot;: null,
+    &quot;xml&quot;: null
+  },
+  &quot;noticeType&quot;: &quot;contract-notice&quot;,
+  &quot;noticeTypeCode&quot;: &quot;UK4&quot;,
+  &quot;procedureType&quot;: &quot;open&quot;,
+  &quot;contractNature&quot;: &quot;works&quot;,
+  &quot;title&quot;: &quot;Stoke Road, Henlade&quot;,
+  &quot;description&quot;: &quot;This procurement exercise is to support the delivery of 39 mixed-tenure homes on a greenfield site off Stoke Road, Henlade TA3 5FF, south of Henlade Close (Pha…&quot;,
+  &quot;language&quot;: &quot;en&quot;,
+  &quot;buyer&quot;: {
+    &quot;name&quot;: &quot;Stonewater Limited&quot;,
+    &quot;country&quot;: &quot;GB&quot;,
+    &quot;city&quot;: &quot;Leicester&quot;,
+    &quot;nutsCode&quot;: &quot;UKF22&quot;,
+    &quot;buyerType&quot;: &quot;regional-or-local-authority&quot;
+  },
+  &quot;cpvCodes&quot;: [
+    {
+      &quot;code&quot;: &quot;45000000&quot;,
+      &quot;label&quot;: &quot;Construction work&quot;
+    }
+  ],
+  &quot;mainCpv&quot;: &quot;45000000&quot;,
+  &quot;mainCpvDivision&quot;: &quot;Construction work&quot;,
+  &quot;estimatedValue&quot;: {
+    &quot;amount&quot;: 10300000,
+    &quot;currency&quot;: &quot;GBP&quot;
+  },
+  &quot;lots&quot;: 1,
+  &quot;publicationDate&quot;: &quot;2026-11-04&quot;,
+  &quot;submissionDeadline&quot;: &quot;2026-12-16T17:00:00+00:00&quot;,
+  &quot;awardInfo&quot;: null,
+  &quot;placeOfPerformance&quot;: {
+    &quot;country&quot;: &quot;GB&quot;,
+    &quot;city&quot;: null,
+    &quot;nutsCode&quot;: &quot;UKK12&quot;
+  },
+  &quot;scrapedAt&quot;: &quot;2026-11-04T21:56:10+00:00&quot;,
+  &quot;ukOcid&quot;: &quot;ocds-h6vhtk-07b368&quot;,
+  &quot;ukBuyerReference&quot;: &quot;00378-DVP&quot;,
+  &quot;ukProcurementMethodDetails&quot;: &quot;Open procedure&quot;,
+  &quot;ukRegions&quot;: [
+    &quot;South West&quot;
+  ],
+  &quot;ukAboveThreshold&quot;: true,
+  &quot;ukFramework&quot;: null,
+  &quot;ukSuitability&quot;: {
+    &quot;sme&quot;: true,
+    &quot;vcse&quot;: true
+  },
+  &quot;ukOcdsUrl&quot;: &quot;https://www.find-tender.service.gov.uk/api/1.0/ocdsReleasePackages/104923-2026&quot;,
+  &quot;ukAlsoPublishedOn&quot;: []
+}</code></pre>
+
+<h2>5. Data licence and attribution</h2>
+<p>Every release package carries a <code>license</code> field pointing to the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3.0</a>. Under the OGL you may copy, publish, distribute, adapt and use the information commercially, as long as you acknowledge the source and include the attribution statement. Use the standard wording: <em>"Contains public sector information licensed under the Open Government Licence v3.0."</em> Name the publisher too (Cabinet Office, Find a Tender / Contracts Finder). The OGL does not cover personal data protected by data protection law, and notices can include names and contact details, so handle those in line with UK GDPR. CPV labels in the sample come from the EU's CPV 2008 vocabulary (Regulation (EC) No 213/2008), published by the Publications Office of the European Union. This is a summary, not legal advice; read the licence for the exact terms.</p>
+
+<h2>Links</h2>
+<ul>
+<li><a href="https://apify.com/nexus-scrapers/uk-public-tenders">UK Public Tenders Actor on Apify</a></li>
+<li><a href="../ted-tenders-json/">The same guide for EU tenders (TED)</a></li>
+<li><a href="https://www.find-tender.service.gov.uk/apidocumentation/1.0/GET-ocdsReleasePackages">Find a Tender API documentation</a> and <a href="https://www.contractsfinder.service.gov.uk/apidocumentation/Notices/1/GET-Published-Notice-OCDS-Search">Contracts Finder API documentation</a></li>
+</ul>
+
+<footer>Independent guide by Nexus Tools. Not affiliated with or endorsed by the European Union, the UK Government or Apify. Contact: <a href="mailto:nexusscrapers.dev@gmail.com">nexusscrapers.dev@gmail.com</a></footer>
+</main>
+</body>
+</html>

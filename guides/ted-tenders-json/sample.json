@@ -1,0 +1,1160 @@
+[
+  {
+    "schemaVersion": "1.0",
+    "source": "TED",
+    "sourceId": "766723-2026",
+    "url": "https://ted.europa.eu/en/notice/-/detail/766723-2026",
+    "documentUrls": {
+      "html": "https://ted.europa.eu/it/notice/766723-2026/html",
+      "pdf": "https://ted.europa.eu/it/notice/766723-2026/pdf",
+      "xml": "https://ted.europa.eu/en/notice/766723-2026/xml"
+    },
+    "noticeType": "contract-notice",
+    "noticeTypeCode": "cn-standard",
+    "procedureType": "open",
+    "contractNature": "services",
+    "title": "1116 MI 01/01 - AFFIDAMENTO DEL SERVIZIO ATTINENTE ALL'ATTIVIT DI DIREZIONE LAVORI E COORDINAMENTO DELLA SICUREZZA IN FASE DI ESECUZIONE PER LA REALIZZAZIONE DI UN NUOVO PADIGLIONE DETENTIVO PRESSO LA SECONDA CASA DI RECLUSIONE DI MILANO BOLLATE CUP D47E14000150001 lotto 1 DIREZIONE LAVORI lotto 2 COORDINAMENTO DELLA SICUREZZA IN FASE DI ESECUZIONE",
+    "description": "1116 MI 01/01 - AFFIDAMENTO DEL SERVIZIO ATTINENTE ALL'ATTIVIT DI DIREZIONE LAVORI E COORDINAMENTO DELLA SICUREZZA IN FASE DI ESECUZIONE PER LA REALIZZAZIONE DI UN NUOVO PADIGLIONE DETENTIVO PRESSO LA SECONDA CASA DI RECLUSIONE DI MILANO BOLLATE CUP D47E14000150001 lotto 1 DIREZIONE LAVORI lotto 2 COORDINAMENTO DELLA SICUREZZA IN FASE DI ESECUZIONE",
+    "language": "it",
+    "buyer": {
+      "name": "Provveditorato Int.le Opere Pubbliche Lombardia - Emilia Romagna sede di Milano",
+      "country": "IT",
+      "city": "MILANO",
+      "nutsCode": "ITC4C",
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [
+      {
+        "code": "71520000",
+        "label": "Construction supervision services"
+      }
+    ],
+    "mainCpv": "71520000",
+    "mainCpvDivision": "Architectural, construction, engineering and inspection services",
+    "estimatedValue": {
+      "amount": 795867.25,
+      "currency": "EUR"
+    },
+    "lots": 2,
+    "publicationDate": "2026-11-04",
+    "submissionDeadline": "2026-12-04T12:00:00+01:00",
+    "awardInfo": null,
+    "placeOfPerformance": {
+      "country": "IT",
+      "city": "MILANO (MI)",
+      "nutsCode": "ITC4C"
+    },
+    "scrapedAt": "2026-11-04T22:02:44+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "TED",
+    "sourceId": "766718-2026",
+    "url": "https://ted.europa.eu/en/notice/-/detail/766718-2026",
+    "documentUrls": {
+      "html": "https://ted.europa.eu/es/notice/766718-2026/html",
+      "pdf": "https://ted.europa.eu/es/notice/766718-2026/pdf",
+      "xml": "https://ted.europa.eu/en/notice/766718-2026/xml"
+    },
+    "noticeType": "contract-notice",
+    "noticeTypeCode": "cn-standard",
+    "procedureType": "open",
+    "contractNature": "supplies",
+    "title": "El objeto del contrato proyectado consiste en el suministro, instalación y mantenimiento de césped artificial y del equipamiento deportivo del Campo de futbol municipal Viñas Arias de Casarabonela (málaga), mediante la modalidad de renting.",
+    "description": "El objeto del contrato proyectado consiste en el suministro, instalación y mantenimiento de césped artificial y del equipamiento deportivo del Campo de futbol municipal Viñas Arias de Casarabonela (málaga), mediante la modalidad de renting. El césped actual, se encuentra muy deteriorado, imposibilitando una práctica adecuada y poco segura de futbol, siendo su desgaste en algunas zonas extremo.",
+    "language": "es",
+    "buyer": {
+      "name": "Alcaldía del Ayuntamiento de Casarabonela",
+      "country": "ES",
+      "city": "Casarabonela",
+      "nutsCode": "ES617",
+      "buyerType": "local-authority"
+    },
+    "cpvCodes": [
+      {
+        "code": "39293400",
+        "label": "Artificial lawn"
+      }
+    ],
+    "mainCpv": "39293400",
+    "mainCpvDivision": "Furniture (incl. office furniture), furnishings, domestic appliances and cleaning products",
+    "estimatedValue": {
+      "amount": 306042.99,
+      "currency": "EUR"
+    },
+    "lots": 1,
+    "publicationDate": "2026-11-04",
+    "submissionDeadline": "2026-11-23T23:59:00+01:00",
+    "awardInfo": null,
+    "placeOfPerformance": {
+      "country": "ES",
+      "city": null,
+      "nutsCode": "ES617"
+    },
+    "scrapedAt": "2026-11-04T22:02:44+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "TED",
+    "sourceId": "766726-2026",
+    "url": "https://ted.europa.eu/en/notice/-/detail/766726-2026",
+    "documentUrls": {
+      "html": "https://ted.europa.eu/fr/notice/766726-2026/html",
+      "pdf": "https://ted.europa.eu/fr/notice/766726-2026/pdf",
+      "xml": "https://ted.europa.eu/en/notice/766726-2026/xml"
+    },
+    "noticeType": "contract-notice",
+    "noticeTypeCode": "cn-standard",
+    "procedureType": "open",
+    "contractNature": "services",
+    "title": "Prestations d'hôtesses d'accueil pour les besoins de l'EPCI de Corse - Sites de Corse du Sud",
+    "description": "L'accord-cadre sera exécuté par l'émission de bons de commande. Chaque lot fera l'objet d'une attribution séparée. Les prestations sont réglées par des prix unitaires. Les montants estimatifs sont indicatifs et comprennent la totalité des périodes de reconduction",
+    "language": "fr",
+    "buyer": {
+      "name": "Etablissement Public du Commerce et de l'Industrie de Corse",
+      "country": "FR",
+      "city": "Bastia",
+      "nutsCode": "FRM02",
+      "buyerType": "local-authority"
+    },
+    "cpvCodes": [
+      {
+        "code": "79992000",
+        "label": "Reception services"
+      }
+    ],
+    "mainCpv": "79992000",
+    "mainCpvDivision": "Business services: law, marketing, consulting, recruitment, printing and security",
+    "estimatedValue": {
+      "amount": 400000,
+      "currency": "EUR"
+    },
+    "lots": 3,
+    "publicationDate": "2026-11-04",
+    "submissionDeadline": "2026-12-07T16:00:00+01:00",
+    "awardInfo": null,
+    "placeOfPerformance": {
+      "country": "FR",
+      "city": null,
+      "nutsCode": "FRM01"
+    },
+    "scrapedAt": "2026-11-04T22:02:44+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "TED",
+    "sourceId": "766777-2026",
+    "url": "https://ted.europa.eu/en/notice/-/detail/766777-2026",
+    "documentUrls": {
+      "html": "https://ted.europa.eu/es/notice/766777-2026/html",
+      "pdf": "https://ted.europa.eu/es/notice/766777-2026/pdf",
+      "xml": "https://ted.europa.eu/en/notice/766777-2026/xml"
+    },
+    "noticeType": "contract-notice",
+    "noticeTypeCode": "cn-standard",
+    "procedureType": "open",
+    "contractNature": "services",
+    "title": "Servicios para la redacción del proyecto de construcción adaptado del túnel de penetración del ferrocarril en Gijón. Estaciones de Bibio y de Viesques. Obra civil.",
+    "description": "Servicios para la redacción del proyecto de construcción adaptado del túnel de penetración del ferrocarril en Gijón. Estaciones de Bibio y de Viesques. Obra civil.",
+    "language": "es",
+    "buyer": {
+      "name": "Administrador de Infraestructuras Ferroviarias",
+      "country": "ES",
+      "city": "Madrid",
+      "nutsCode": "ES300",
+      "buyerType": "pub-undert-cga"
+    },
+    "cpvCodes": [
+      {
+        "code": "71311230",
+        "label": "Railway engineering services"
+      }
+    ],
+    "mainCpv": "71311230",
+    "mainCpvDivision": "Architectural, construction, engineering and inspection services",
+    "estimatedValue": {
+      "amount": 1729830,
+      "currency": "EUR"
+    },
+    "lots": 1,
+    "publicationDate": "2026-11-04",
+    "submissionDeadline": "2026-12-14T13:00:00+01:00",
+    "awardInfo": null,
+    "placeOfPerformance": {
+      "country": "ES",
+      "city": null,
+      "nutsCode": "ES120"
+    },
+    "scrapedAt": "2026-11-04T22:02:44+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "TED",
+    "sourceId": "766781-2026",
+    "url": "https://ted.europa.eu/en/notice/-/detail/766781-2026",
+    "documentUrls": {
+      "html": "https://ted.europa.eu/de/notice/766781-2026/html",
+      "pdf": "https://ted.europa.eu/de/notice/766781-2026/pdf",
+      "xml": "https://ted.europa.eu/en/notice/766781-2026/xml"
+    },
+    "noticeType": "contract-notice",
+    "noticeTypeCode": "cn-standard",
+    "procedureType": "open",
+    "contractNature": "supplies",
+    "title": "Lieferung eines Feuerwehrfahrzeugs HLF10 nach DIN 14530-26 für die Gemeinde Euerbach",
+    "description": "Lieferung eines Feuerwehrfahrzeugs Hilfeleistungs-Löschgruppenfahrzeug HLF10 nach DIN 14530-26 für die Gemeinde Euerbach",
+    "language": "de",
+    "buyer": {
+      "name": "Gemeinde Euerbach",
+      "country": "DE",
+      "city": "Euerbach",
+      "nutsCode": "DE26B",
+      "buyerType": "local-authority"
+    },
+    "cpvCodes": [
+      {
+        "code": "34144210",
+        "label": "Firefighting vehicles"
+      },
+      {
+        "code": "34139000",
+        "label": "Chassis"
+      }
+    ],
+    "mainCpv": "34144210",
+    "mainCpvDivision": "Transport equipment and auxiliary products to transportation",
+    "estimatedValue": {
+      "amount": 450000,
+      "currency": "EUR"
+    },
+    "lots": 1,
+    "publicationDate": "2026-11-04",
+    "submissionDeadline": "2026-11-19T12:00:00+01:00",
+    "awardInfo": null,
+    "placeOfPerformance": {
+      "country": "DE",
+      "city": null,
+      "nutsCode": "DE26B"
+    },
+    "scrapedAt": "2026-11-04T22:02:44+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "TED",
+    "sourceId": "766970-2026",
+    "url": "https://ted.europa.eu/en/notice/-/detail/766970-2026",
+    "documentUrls": {
+      "html": "https://ted.europa.eu/it/notice/766970-2026/html",
+      "pdf": "https://ted.europa.eu/it/notice/766970-2026/pdf",
+      "xml": "https://ted.europa.eu/en/notice/766970-2026/xml"
+    },
+    "noticeType": "contract-notice",
+    "noticeTypeCode": "cn-standard",
+    "procedureType": "open",
+    "contractNature": "supplies",
+    "title": "Rif. IO - PA SERVICE ESTRATTORI",
+    "description": "Procedura aperta informatizzata per la fornitura in service della durata triennale, eventualmente rinnovabile di un ulteriore anno, di tre estrattori di acidi nucleici, due spettrofotometri, un omogeneizzatore di tessuti, un agitatore termico, relativi kit di estrazione e materiale di consumo da destinare alla S.S.D. Laboratorio Analisi del P.O. Cao dell’ARNAS G. Brotzu.",
+    "language": "it",
+    "buyer": {
+      "name": "AZIENDA OSPEDALIERA G BROTZU",
+      "country": "IT",
+      "city": "Cagliari",
+      "nutsCode": "ITG2F",
+      "buyerType": "regional-authority"
+    },
+    "cpvCodes": [
+      {
+        "code": "38432000",
+        "label": "Analysis apparatus"
+      }
+    ],
+    "mainCpv": "38432000",
+    "mainCpvDivision": "Laboratory, optical and precision equipments (excl. glasses)",
+    "estimatedValue": {
+      "amount": 510000,
+      "currency": "EUR"
+    },
+    "lots": 1,
+    "publicationDate": "2026-11-04",
+    "submissionDeadline": "2026-12-11T12:00:00+01:00",
+    "awardInfo": null,
+    "placeOfPerformance": {
+      "country": "IT",
+      "city": null,
+      "nutsCode": "ITG2F"
+    },
+    "scrapedAt": "2026-11-04T22:02:44+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "TED",
+    "sourceId": "767025-2026",
+    "url": "https://ted.europa.eu/en/notice/-/detail/767025-2026",
+    "documentUrls": {
+      "html": "https://ted.europa.eu/it/notice/767025-2026/html",
+      "pdf": "https://ted.europa.eu/it/notice/767025-2026/pdf",
+      "xml": "https://ted.europa.eu/en/notice/767025-2026/xml"
+    },
+    "noticeType": "contract-notice",
+    "noticeTypeCode": "cn-standard",
+    "procedureType": "open",
+    "contractNature": "services",
+    "title": "SERVIZIO DI RECAPITO DEI DOCUMENTI TRIBUTARI DELLA REGIONE TOSCANA 2027 - 2031",
+    "description": "SERVIZIO DI RECAPITO DEI DOCUMENTI TRIBUTARI DELLA REGIONE TOSCANA 2027 - 2031",
+    "language": "it",
+    "buyer": {
+      "name": "REGIONE TOSCANA - DIREZIONE PROGRAMMAZIONE E BILANCIO - SETTORE POLITICHE FISCALI E RISCOSSIONE",
+      "country": "IT",
+      "city": "Firenze",
+      "nutsCode": "ITI14",
+      "buyerType": "regional-authority"
+    },
+    "cpvCodes": [
+      {
+        "code": "64112000",
+        "label": "Postal services related to letters"
+      }
+    ],
+    "mainCpv": "64112000",
+    "mainCpvDivision": "Postal and telecommunications services",
+    "estimatedValue": {
+      "amount": 9438041.36,
+      "currency": "EUR"
+    },
+    "lots": 1,
+    "publicationDate": "2026-11-04",
+    "submissionDeadline": "2026-12-03T13:00:00+01:00",
+    "awardInfo": null,
+    "placeOfPerformance": {
+      "country": "IT",
+      "city": null,
+      "nutsCode": null
+    },
+    "scrapedAt": "2026-11-04T22:02:44+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "TED",
+    "sourceId": "767161-2026",
+    "url": "https://ted.europa.eu/en/notice/-/detail/767161-2026",
+    "documentUrls": {
+      "html": "https://ted.europa.eu/es/notice/767161-2026/html",
+      "pdf": "https://ted.europa.eu/es/notice/767161-2026/pdf",
+      "xml": "https://ted.europa.eu/en/notice/767161-2026/xml"
+    },
+    "noticeType": "contract-notice",
+    "noticeTypeCode": "cn-standard",
+    "procedureType": "open",
+    "contractNature": "services",
+    "title": "Servicio de revisión y mantenimiento preventivo y correctivo de los aparatos elevadores en los edificios de la Diputación Foral de Álava",
+    "description": "Servicio de revisión y mantenimiento preventivo y correctivo de los aparatos elevadores en los edificios de la Diputación Foral de Álava",
+    "language": "es",
+    "buyer": {
+      "name": "Diputación Foral de Álava - Departamento de Empleo, Comercio, Turismo y Administración Foral",
+      "country": "ES",
+      "city": "Vitoria-Gasteiz",
+      "nutsCode": "ES211",
+      "buyerType": "regional-authority"
+    },
+    "cpvCodes": [
+      {
+        "code": "50750000",
+        "label": "Lift-maintenance services"
+      }
+    ],
+    "mainCpv": "50750000",
+    "mainCpvDivision": "Repair and maintenance services",
+    "estimatedValue": {
+      "amount": 298598.4,
+      "currency": "EUR"
+    },
+    "lots": 2,
+    "publicationDate": "2026-11-04",
+    "submissionDeadline": "2026-12-03T23:59:00+01:00",
+    "awardInfo": null,
+    "placeOfPerformance": {
+      "country": "ES",
+      "city": null,
+      "nutsCode": "ES211"
+    },
+    "scrapedAt": "2026-11-04T22:02:44+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "TED",
+    "sourceId": "767206-2026",
+    "url": "https://ted.europa.eu/en/notice/-/detail/767206-2026",
+    "documentUrls": {
+      "html": "https://ted.europa.eu/fr/notice/767206-2026/html",
+      "pdf": "https://ted.europa.eu/fr/notice/767206-2026/pdf",
+      "xml": "https://ted.europa.eu/en/notice/767206-2026/xml"
+    },
+    "noticeType": "contract-notice",
+    "noticeTypeCode": "cn-standard",
+    "procedureType": "open",
+    "contractNature": "services",
+    "title": "Accord cadre à bon de commande - Réalisation de diagnostics de sols pollués 2027-2030",
+    "description": "Montant HT minimum pour la durée totale du contrat : 40000.0 Euro(s) H.T. L'accord-cadre sera exécuté par l'émission de bons de commande. Les prestations sont réglées par des prix unitaires. Les montants estimatifs sont indicatifs et comprennent la totalité des périodes de reconduction. Dans le cadre d'opérations d'aménagement (jardins familiaux, crèche, école…), la Ville de Rezé est amenée à réaliser : - Des diagnostics de sols afin de s'assurer de la compatibilité de l'état des milieux avec les usages actuels et futurs, et si cela est nécessaire : o La réalisation d'un plan de gestion pour une compatibilité d'usage du projet d'aménagement ; o L'accompagnement lors de la réalisation de travaux ; Ce marché est composé d'1 lot unique. Marché piloté par la Direction Environnement mais usage par plusieurs directions en fonction des projets",
+    "language": "fr",
+    "buyer": {
+      "name": "MAIRIE DE REZE",
+      "country": "FR",
+      "city": "Rezé",
+      "nutsCode": "FRG01",
+      "buyerType": "public-body"
+    },
+    "cpvCodes": [
+      {
+        "code": "90715000",
+        "label": "Pollution investigation services"
+      }
+    ],
+    "mainCpv": "90715000",
+    "mainCpvDivision": "Sewage, refuse, cleaning and environmental services",
+    "estimatedValue": {
+      "amount": 400000,
+      "currency": "EUR"
+    },
+    "lots": 1,
+    "publicationDate": "2026-11-04",
+    "submissionDeadline": "2026-12-02T14:00:00+01:00",
+    "awardInfo": null,
+    "placeOfPerformance": {
+      "country": "FR",
+      "city": null,
+      "nutsCode": "FRG01"
+    },
+    "scrapedAt": "2026-11-04T22:02:44+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "TED",
+    "sourceId": "767495-2026",
+    "url": "https://ted.europa.eu/en/notice/-/detail/767495-2026",
+    "documentUrls": {
+      "html": "https://ted.europa.eu/fr/notice/767495-2026/html",
+      "pdf": "https://ted.europa.eu/fr/notice/767495-2026/pdf",
+      "xml": "https://ted.europa.eu/en/notice/767495-2026/xml"
+    },
+    "noticeType": "contract-notice",
+    "noticeTypeCode": "cn-standard",
+    "procedureType": "open",
+    "contractNature": "services",
+    "title": "ABONNEMENT À DES PÉRIODIQUES ET À DES SOURCES D’INFORMATION SPÉCIALISÉE",
+    "description": "L’accord-cadre a pour objet l’abonnement à des périodiques et à des sources d’information spécialisée. Le marché est conclu sous la forme d’un accord-cadre à bons de commande, conformément aux dispositions des articles R. 2162-1 à R. 2162-6 et R. 2162-13 à R. 2162-14 du code de la commande publique. Seul le lot 1 « Intermédiation pour l’achat et la gestion d’abonnements à des périodiques imprimés et électroniques » fait l’objet de la présente procédure.",
+    "language": "fr",
+    "buyer": {
+      "name": "Assemblée nationale",
+      "country": "FR",
+      "city": "Paris",
+      "nutsCode": "FR101",
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [
+      {
+        "code": "79980000",
+        "label": "Subscription services"
+      }
+    ],
+    "mainCpv": "79980000",
+    "mainCpvDivision": "Business services: law, marketing, consulting, recruitment, printing and security",
+    "estimatedValue": {
+      "amount": 1371204,
+      "currency": "EUR"
+    },
+    "lots": 1,
+    "publicationDate": "2026-11-04",
+    "submissionDeadline": "2026-11-04T12:00:00+01:00",
+    "awardInfo": null,
+    "placeOfPerformance": {
+      "country": "FR",
+      "city": "Paris",
+      "nutsCode": "FR101"
+    },
+    "scrapedAt": "2026-11-04T22:02:44+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "TED",
+    "sourceId": "765701-2026",
+    "url": "https://ted.europa.eu/en/notice/-/detail/765701-2026",
+    "documentUrls": {
+      "html": "https://ted.europa.eu/de/notice/765701-2026/html",
+      "pdf": "https://ted.europa.eu/de/notice/765701-2026/pdf",
+      "xml": "https://ted.europa.eu/en/notice/765701-2026/xml"
+    },
+    "noticeType": "contract-notice",
+    "noticeTypeCode": "cn-standard",
+    "procedureType": "open",
+    "contractNature": "services",
+    "title": "Maßnahme B52HE151500001 - Neubau eines norbayerischen Hochleistungsrechenzentrums (NHR) - Baulogistikplanung LPH 8",
+    "description": "Neubaus eines Hochleistungsrechenzentrums bestehend aus zwei Gebäuden, Rechnergebäude (RG im f.) und Betriebsgebäude (BG im f.), die über eine Brücke im Obergeschoss miteinander verbunden sind sowie den notwendigen Erschließungsmaßnahmen (komplette technische Erschließung). Die Übergabe und Inbetriebnahme der Gebäude soll bis spätestens 2030 erfolgen. Der Auftrag enthält die baulogistische Bauüberwachung während der Ausführungsphase, LPH 8. Parallel zu diesen Baumaßnahmen erfolgen in unmittelbarer Nähe eine weitere Erschließungsmaßnahme mit Parkhausneubau, das Wärmepumpengebäude der ESTW und der Neubau eines Chemiegebäudes (Chemikum II). Alle Baumaßnahmen zusammen können zu Engpässen in der Baustelleneinrichtung und der Erschließung der Baustellen führen, da sich Bauabläufe tangieren und Straßenabschnitte gesperrt werden. Im Falle des Chemikums II, NHRs und der Erschließung Nikolaus-Fiebiger-Straße verlaufen die Baustellen parallel. Neubau eines nordbayerischen Hochleistungsrechenzentrums („NHR“) bestehend aus drei Teilbaumaßnahmen. Im 1. Bauabschnitt ist die Errichtung eines nicht öffentlich zugänglichen Rechnergebäudes („RG“) und eines Betriebsgebäudes („BG“) geplant sowie die Herstellung der notwendigen Erschließung und der Ausbau des bisherigen Datennetzes. Langfristig ist in einem 2. Bauabschnitt die Erweiterung des Betriebsgebäudes vorgesehen (nicht Teil dieser Maßnahme). Das RG dient zur Unterbringung der Rechner und Netzwerke für den allgemeinen Hochschulbetrieb…",
+    "language": "de",
+    "buyer": {
+      "name": "Staatliches Bauamt Erlangen-Nürnberg",
+      "country": "DE",
+      "city": "Erlangen",
+      "nutsCode": "DE252",
+      "buyerType": "regional-authority"
+    },
+    "cpvCodes": [
+      {
+        "code": "71000000",
+        "label": "Architectural, construction, engineering and inspection services"
+      },
+      {
+        "code": "71300000",
+        "label": "Engineering services"
+      },
+      {
+        "code": "71320000",
+        "label": "Engineering design services"
+      }
+    ],
+    "mainCpv": "71000000",
+    "mainCpvDivision": "Architectural, construction, engineering and inspection services",
+    "estimatedValue": {
+      "amount": 301378.15,
+      "currency": "EUR"
+    },
+    "lots": 1,
+    "publicationDate": "2026-11-04",
+    "submissionDeadline": "2026-12-03T10:00:00+01:00",
+    "awardInfo": null,
+    "placeOfPerformance": {
+      "country": "DE",
+      "city": "Erlangen",
+      "nutsCode": "DE252"
+    },
+    "scrapedAt": "2026-11-04T22:02:44+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "TED",
+    "sourceId": "765720-2026",
+    "url": "https://ted.europa.eu/en/notice/-/detail/765720-2026",
+    "documentUrls": {
+      "html": "https://ted.europa.eu/pl/notice/765720-2026/html",
+      "pdf": "https://ted.europa.eu/pl/notice/765720-2026/pdf",
+      "xml": "https://ted.europa.eu/en/notice/765720-2026/xml"
+    },
+    "noticeType": "contract-notice",
+    "noticeTypeCode": "cn-standard",
+    "procedureType": "open",
+    "contractNature": "supplies",
+    "title": "„Zakup autobusów o napędzie elektrycznym wraz z budową niezbędnej infrastruktury oraz samochodów elektrycznych do nadzoru nad funkcjonowaniem komunikacji publicznej – zakup 20 szt. autobusów elektrycznych wraz z infrastrukturą ładowania”",
+    "description": "Przedmiotem zamówienia jest dostawa 12 szt. autobusów elektrycznych klasy MAXI (12 m) oraz 8 sztuk autobusów elektrycznych klasy MEGA (18 m).",
+    "language": "pl",
+    "buyer": {
+      "name": "Zarząd Transportu Miejskiego w Kielcach",
+      "country": "PL",
+      "city": "KIELCE MIASTO NA PRAWACH POWIATU",
+      "nutsCode": "PL721",
+      "buyerType": "public-body"
+    },
+    "cpvCodes": [
+      {
+        "code": "34121100",
+        "label": "Public-service buses"
+      },
+      {
+        "code": "34121400",
+        "label": "Low-floor buses"
+      },
+      {
+        "code": "34144910",
+        "label": "Electric buses"
+      },
+      {
+        "code": "31158000",
+        "label": "Chargers"
+      },
+      {
+        "code": "45232200",
+        "label": "Ancillary works for electricity power lines"
+      }
+    ],
+    "mainCpv": "34121100",
+    "mainCpvDivision": "Transport equipment and auxiliary products to transportation",
+    "estimatedValue": {
+      "amount": 58500000,
+      "currency": "PLN"
+    },
+    "lots": 1,
+    "publicationDate": "2026-11-04",
+    "submissionDeadline": "2026-11-24T11:00:00+01:00",
+    "awardInfo": null,
+    "placeOfPerformance": {
+      "country": "PL",
+      "city": "Kielce",
+      "nutsCode": "PL721"
+    },
+    "scrapedAt": "2026-11-04T22:02:44+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "TED",
+    "sourceId": "766016-2026",
+    "url": "https://ted.europa.eu/en/notice/-/detail/766016-2026",
+    "documentUrls": {
+      "html": "https://ted.europa.eu/pl/notice/766016-2026/html",
+      "pdf": "https://ted.europa.eu/pl/notice/766016-2026/pdf",
+      "xml": "https://ted.europa.eu/en/notice/766016-2026/xml"
+    },
+    "noticeType": "contract-notice",
+    "noticeTypeCode": "cn-social",
+    "procedureType": "open",
+    "contractNature": "services",
+    "title": "Całodobowe świadczenie usług medycznych - KRP I",
+    "description": "1.Przedmiotem zamówienia jest świadczenie usług medycznych w zakresie osób zatrzymanych / doprowadzonych przez Policję w celu wytrzeźwienia i przewidzianych do umieszczenia w policyjnym pomieszczeniu dla osób zatrzymanych dla Komendy Rejonowej Policji Warszawa I. 2.Szczegółowy opis przedmiotu zamówienia zawiera Rozdział XIX SWZ oraz załącznik nr 4 do SWZ. 3.Wymagania w zakresie zatrudnienia na podstawie stosunku pracy w okolicznościach, o których mowa w art. 95 ustawy: 1) Zamawiający wymaga zatrudnienia przez Wykonawcę lub Podwykonawcę na podstawie stosunku pracy osób wykonujących następujące czynności w zakresie realizacji zamówienia: czynności administracyjne, w tym dokonywanie rejestracji pacjentów. 2) w trakcie realizacji zamówienia Zamawiający uprawniony jest do wykonywania czynności kontrolnych wobec Wykonawcy odnośnie do spełniania przez Wykonawcę lub Podwykonawcę wymogu zatrudnienia na podstawie stosunku pracy osób wykonujących czynności wskazane w pkt 1. W celu weryfikacji spełniania tych wymagań Zamawiający uprawniony jest w szczególności do żądania: a) oświadczenia zatrudnionego pracownika, b) oświadczenia wykonawcy lub podwykonawcy o zatrudnieniu pracownika na podstawie umowy o pracę, c) poświadczonej za zgodność z oryginałem kopii umowy o pracę zatrudnionego pracownika, d) innych dokumentów − zawierających informacje, w tym dane osobowe, niezbędne do weryfikacji zatrudnienia na podstawie umowy o pracę, w szczególności imię i nazwisko zatrudnionego pracownika…",
+    "language": "pl",
+    "buyer": {
+      "name": "Komenda Stołeczna Policji",
+      "country": "PL",
+      "city": "Warszawa",
+      "nutsCode": "PL911",
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [
+      {
+        "code": "85120000",
+        "label": "Medical practice and related services"
+      }
+    ],
+    "mainCpv": "85120000",
+    "mainCpvDivision": "Health and social work services",
+    "estimatedValue": {
+      "amount": 4673815,
+      "currency": "PLN"
+    },
+    "lots": 1,
+    "publicationDate": "2026-11-04",
+    "submissionDeadline": "2026-11-19T10:00:00+01:00",
+    "awardInfo": null,
+    "placeOfPerformance": {
+      "country": "PL",
+      "city": "Warszawa",
+      "nutsCode": "PL911"
+    },
+    "scrapedAt": "2026-11-04T22:02:44+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "TED",
+    "sourceId": "763827-2026",
+    "url": "https://ted.europa.eu/en/notice/-/detail/763827-2026",
+    "documentUrls": {
+      "html": "https://ted.europa.eu/fr/notice/763827-2026/html",
+      "pdf": "https://ted.europa.eu/fr/notice/763827-2026/pdf",
+      "xml": "https://ted.europa.eu/en/notice/763827-2026/xml"
+    },
+    "noticeType": "contract-award",
+    "noticeTypeCode": "can-standard",
+    "procedureType": "open",
+    "contractNature": "supplies",
+    "title": "Fourniture de gaz, location et maintenance d’installations associées au profit de l’Unité Nationale de Police Judiciaire de la Gendarmerie Nationale (UNPJ-GN) à Cergy-Pontoise",
+    "description": "Fourniture de gaz, location et maintenance d’installations associées au profit de l’Unité Nationale de Police Judiciaire de la Gendarmerie Nationale (UNPJ-GN) à Cergy-Pontoise",
+    "language": "fr",
+    "buyer": {
+      "name": "COMSOPGN",
+      "country": "FR",
+      "city": "Le Blanc",
+      "nutsCode": "FRB03",
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [
+      {
+        "code": "24111800",
+        "label": "Liquid nitrogen"
+      },
+      {
+        "code": "24111000",
+        "label": "Hydrogen, argon, rare gases, nitrogen and oxygen"
+      },
+      {
+        "code": "24111600",
+        "label": "Hydrogen"
+      },
+      {
+        "code": "31120000",
+        "label": "Generators"
+      }
+    ],
+    "mainCpv": "24111800",
+    "mainCpvDivision": "Chemical products",
+    "estimatedValue": null,
+    "lots": 3,
+    "publicationDate": "2026-11-04",
+    "submissionDeadline": null,
+    "awardInfo": {
+      "winners": [
+        {
+          "name": "MESSER France SAS",
+          "country": "FR"
+        },
+        {
+          "name": "LNI Swissgas France",
+          "country": "FR"
+        }
+      ],
+      "awardedValue": {
+        "amount": 521920,
+        "currency": "EUR"
+      },
+      "awardDate": "2026-08-18"
+    },
+    "placeOfPerformance": {
+      "country": "FR",
+      "city": null,
+      "nutsCode": null
+    },
+    "scrapedAt": "2026-11-04T22:02:44+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "TED",
+    "sourceId": "763848-2026",
+    "url": "https://ted.europa.eu/en/notice/-/detail/763848-2026",
+    "documentUrls": {
+      "html": "https://ted.europa.eu/de/notice/763848-2026/html",
+      "pdf": "https://ted.europa.eu/de/notice/763848-2026/pdf",
+      "xml": "https://ted.europa.eu/en/notice/763848-2026/xml"
+    },
+    "noticeType": "contract-award",
+    "noticeTypeCode": "can-standard",
+    "procedureType": "open",
+    "contractNature": "services",
+    "title": "Rahmenvereinbarung Codeanalyse Open Source Software (CAOS) Los 1",
+    "description": "Rahmenvereinbarung Codeanalyse Open Source Software (CAOS) Los 1",
+    "language": "de",
+    "buyer": {
+      "name": "Bundesrepublik Deutschland, vertreten durch das Bundesministerium des Innern und für Heimat, vertreten durch das Beschaffungsamt des BMI",
+      "country": "DE",
+      "city": "Bonn",
+      "nutsCode": "DEA22",
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [
+      {
+        "code": "72000000",
+        "label": "IT services: consulting, software development, Internet and support"
+      }
+    ],
+    "mainCpv": "72000000",
+    "mainCpvDivision": "IT services: consulting, software development, Internet and support",
+    "estimatedValue": null,
+    "lots": 1,
+    "publicationDate": "2026-11-04",
+    "submissionDeadline": null,
+    "awardInfo": {
+      "winners": [
+        {
+          "name": "mgm security partners GmbH",
+          "country": "DE"
+        }
+      ],
+      "awardedValue": {
+        "amount": 2000000,
+        "currency": "EUR"
+      },
+      "awardDate": "2026-10-01"
+    },
+    "placeOfPerformance": null,
+    "scrapedAt": "2026-11-04T22:02:44+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "TED",
+    "sourceId": "763850-2026",
+    "url": "https://ted.europa.eu/en/notice/-/detail/763850-2026",
+    "documentUrls": {
+      "html": "https://ted.europa.eu/de/notice/763850-2026/html",
+      "pdf": "https://ted.europa.eu/de/notice/763850-2026/pdf",
+      "xml": "https://ted.europa.eu/en/notice/763850-2026/xml"
+    },
+    "noticeType": "contract-award",
+    "noticeTypeCode": "can-standard",
+    "procedureType": "open",
+    "contractNature": "supplies",
+    "title": "Rasterelektronenmikroskop",
+    "description": "Rasterelektronenmikroskop mit EDX entsprechend der Leistungsbeschreibung",
+    "language": "de",
+    "buyer": {
+      "name": "Technische Hochschule Ostwestfalen-Lippe",
+      "country": "DE",
+      "city": "Lemgo",
+      "nutsCode": "DEA45",
+      "buyerType": "regional-authority"
+    },
+    "cpvCodes": [
+      {
+        "code": "38000000",
+        "label": "Laboratory, optical and precision equipments (excl. glasses)"
+      },
+      {
+        "code": "38511100",
+        "label": "Scanning electron microscopes"
+      }
+    ],
+    "mainCpv": "38000000",
+    "mainCpvDivision": "Laboratory, optical and precision equipments (excl. glasses)",
+    "estimatedValue": null,
+    "lots": 1,
+    "publicationDate": "2026-11-04",
+    "submissionDeadline": null,
+    "awardInfo": {
+      "winners": [
+        {
+          "name": "JEOL Germany GmbH",
+          "country": "DE"
+        }
+      ],
+      "awardedValue": {
+        "amount": 190000,
+        "currency": "EUR"
+      },
+      "awardDate": "2026-09-11"
+    },
+    "placeOfPerformance": {
+      "country": "DE",
+      "city": "Lemgo",
+      "nutsCode": "DEA45"
+    },
+    "scrapedAt": "2026-11-04T22:02:44+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "TED",
+    "sourceId": "763855-2026",
+    "url": "https://ted.europa.eu/en/notice/-/detail/763855-2026",
+    "documentUrls": {
+      "html": "https://ted.europa.eu/de/notice/763855-2026/html",
+      "pdf": "https://ted.europa.eu/de/notice/763855-2026/pdf",
+      "xml": "https://ted.europa.eu/en/notice/763855-2026/xml"
+    },
+    "noticeType": "contract-award",
+    "noticeTypeCode": "can-standard",
+    "procedureType": "open",
+    "contractNature": "works",
+    "title": "SG Zeven - KuBiZ Zeven - Bodenbelagsarbeiten",
+    "description": "Gegenstand dieser Ausschreibung sind Bodenbelagsarbeiten. Material und Mengen (ca.-Angaben): Bodenflächen mit Linoleum: ca. 1.050 m2 Bodenflächen mit Parkett: ca. 1.300 m2 Aufgelägte Teppiche: 7 Stk. Ausführungsfristen gemäß Bauzeitenplan.",
+    "language": "de",
+    "buyer": {
+      "name": "Samtgemeinde Zeven",
+      "country": "DE",
+      "city": "Zeven",
+      "nutsCode": "DE937",
+      "buyerType": "local-authority"
+    },
+    "cpvCodes": [
+      {
+        "code": "45000000",
+        "label": "Construction work"
+      },
+      {
+        "code": "45432130",
+        "label": "Floor-covering work"
+      },
+      {
+        "code": "45432100",
+        "label": "Floor laying and covering work"
+      }
+    ],
+    "mainCpv": "45000000",
+    "mainCpvDivision": "Construction work",
+    "estimatedValue": null,
+    "lots": 1,
+    "publicationDate": "2026-11-04",
+    "submissionDeadline": null,
+    "awardInfo": {
+      "winners": [
+        {
+          "name": "Gavrilov Fußbodentechnik GmbH & Co. KG",
+          "country": "DE"
+        }
+      ],
+      "awardedValue": {
+        "amount": 240769.92,
+        "currency": "EUR"
+      },
+      "awardDate": "2026-11-02"
+    },
+    "placeOfPerformance": {
+      "country": "DE",
+      "city": "Zeven",
+      "nutsCode": "DE937"
+    },
+    "scrapedAt": "2026-11-04T22:02:44+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "TED",
+    "sourceId": "763865-2026",
+    "url": "https://ted.europa.eu/en/notice/-/detail/763865-2026",
+    "documentUrls": {
+      "html": "https://ted.europa.eu/pl/notice/763865-2026/html",
+      "pdf": "https://ted.europa.eu/pl/notice/763865-2026/pdf",
+      "xml": "https://ted.europa.eu/en/notice/763865-2026/xml"
+    },
+    "noticeType": "contract-award",
+    "noticeTypeCode": "can-standard",
+    "procedureType": "open",
+    "contractNature": "works",
+    "title": "Wykonanie zastawek oraz zastawek z przepustem w Leśnictwach: Bukowo, Dąbrówka, Bierdzany, Kadłub Turawski, Rzędów w formule zaprojektuj i wybuduj",
+    "description": "Przedmiotem niniejszego zamówienia jest Wykonanie zastawek oraz zastawek z przepustem w Leśnictwach: Bukowo, Dąbrówka, Bierdzany, Kadłub Turawski, Rzędów w formule zaprojektuj i wybuduj. Przedmiot zamówienia obejmuje dwa główne Etapy realizacyjne: 1) ETAP 1 - Prace projektowo-decyzyjne, na który składa się: a) Faza A (Koncepcja) - opracowanie wstępnej Koncepcji Programowo-Przestrzennej wraz z uzyskaniem pisemnej akceptacji Zamawiającego dla wybranego wariantu; b) Faza B (Dokumentacja Projektowa) - opracowanie kompletnej Dokumentacji Projektowej na podstawie PFU (w tym projektu budowlanego i wykonawczego), sporządzenie operatów oraz złożenie w imieniu Zamawiającego kompletnych i prawidłowych wniosków o wydanie decyzji środowiskowej (jeśli wymagana), pozwolenia wodnoprawnego oraz pozwolenia na budowę lub zgłoszenia robót; c) Faza C (Uzyskanie decyzji formalno-prawnych): procedowanie przed właściwymi organami administracji publicznej i uzyskanie w imieniu Zamawiającego wszelkich niezbędnych, prawomocnych i ostatecznych decyzji oraz pozwoleń (w tym pozwolenia wodnoprawnego oraz pozwolenia na budowę / skutecznego zgłoszenia), umożliwiających legalne rozpoczęcie robót. 2) ETAP 2 (Roboty budowlane) na który składa się: a) Faza A - wykonanie wszelkich Robót Budowlanych i ziemnych w oparciu o zatwierdzoną przez Zamawiającego Dokumentację Projektową, zgodnie z wymaganiami PFU, Prawa budowlanego, Prawa wodnego, wymogami ochrony przyrody oraz przekazanie kompletnego, w pełni…",
+    "language": "pl",
+    "buyer": {
+      "name": "Państwowe Gospodarstwo Leśne Lasy Państwowe Nadleśnictwo Turawa",
+      "country": "PL",
+      "city": "Turawa",
+      "nutsCode": "PL524",
+      "buyerType": "public-body"
+    },
+    "cpvCodes": [
+      {
+        "code": "45200000",
+        "label": "Works for complete or part construction and civil engineering work"
+      },
+      {
+        "code": "71320000",
+        "label": "Engineering design services"
+      },
+      {
+        "code": "71322000",
+        "label": "Engineering design services for the construction of civil engineering works"
+      },
+      {
+        "code": "45100000",
+        "label": "Site preparation work"
+      },
+      {
+        "code": "45110000",
+        "label": "Building demolition and wrecking work and earthmoving work"
+      },
+      {
+        "code": "45111000",
+        "label": "Demolition, site preparation and clearance work"
+      },
+      {
+        "code": "45240000",
+        "label": "Construction work for water projects"
+      },
+      {
+        "code": "45246000",
+        "label": "River regulation and flood control works"
+      }
+    ],
+    "mainCpv": "45200000",
+    "mainCpvDivision": "Construction work",
+    "estimatedValue": null,
+    "lots": 1,
+    "publicationDate": "2026-11-04",
+    "submissionDeadline": null,
+    "awardInfo": {
+      "winners": [
+        {
+          "name": "DREW - KOS SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
+          "country": "PL"
+        }
+      ],
+      "awardedValue": {
+        "amount": 1368000,
+        "currency": "PLN"
+      },
+      "awardDate": "2026-10-28"
+    },
+    "placeOfPerformance": {
+      "country": "PL",
+      "city": "Turawa",
+      "nutsCode": "PL524"
+    },
+    "scrapedAt": "2026-11-04T22:02:44+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "TED",
+    "sourceId": "764035-2026",
+    "url": "https://ted.europa.eu/en/notice/-/detail/764035-2026",
+    "documentUrls": {
+      "html": "https://ted.europa.eu/es/notice/764035-2026/html",
+      "pdf": "https://ted.europa.eu/es/notice/764035-2026/pdf",
+      "xml": "https://ted.europa.eu/en/notice/764035-2026/xml"
+    },
+    "noticeType": "contract-award",
+    "noticeTypeCode": "can-standard",
+    "procedureType": "open",
+    "contractNature": "services",
+    "title": "Servicio de Transporte no Sanitario desde el ámbito territorial de la Provincia de Valencia",
+    "description": "Servicio de Transporte no Sanitario desde el ámbito territorial de la Provincia de Valencia",
+    "language": "es",
+    "buyer": {
+      "name": "Dirección General de la Mutual Midat Cyclops, Mutua Colaboradora con la Seguridad Social, nº 1",
+      "country": "ES",
+      "city": "Barcelona",
+      "nutsCode": "ES511",
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [
+      {
+        "code": "60120000",
+        "label": "Taxi services"
+      },
+      {
+        "code": "60170000",
+        "label": "Hire of passenger transport vehicles with driver"
+      },
+      {
+        "code": "64214200",
+        "label": "Telephone switchboard services"
+      }
+    ],
+    "mainCpv": "60120000",
+    "mainCpvDivision": "Transport services (excl. Waste transport)",
+    "estimatedValue": null,
+    "lots": 1,
+    "publicationDate": "2026-11-04",
+    "submissionDeadline": null,
+    "awardInfo": {
+      "winners": [
+        {
+          "name": "TUAXI COOP V",
+          "country": "ES"
+        }
+      ],
+      "awardedValue": {
+        "amount": 169692.1,
+        "currency": "EUR"
+      },
+      "awardDate": "2026-11-02"
+    },
+    "placeOfPerformance": {
+      "country": "ES",
+      "city": null,
+      "nutsCode": "ES523"
+    },
+    "scrapedAt": "2026-11-04T22:02:44+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "TED",
+    "sourceId": "764046-2026",
+    "url": "https://ted.europa.eu/en/notice/-/detail/764046-2026",
+    "documentUrls": {
+      "html": "https://ted.europa.eu/pl/notice/764046-2026/html",
+      "pdf": "https://ted.europa.eu/pl/notice/764046-2026/pdf",
+      "xml": "https://ted.europa.eu/en/notice/764046-2026/xml"
+    },
+    "noticeType": "contract-award",
+    "noticeTypeCode": "can-standard",
+    "procedureType": "open",
+    "contractNature": "works",
+    "title": "Budowa nowych przystanków osobowych na linii kolejowej nr 70 i 75 w celu przywrócenia ruchu pasażerskiego do Staszowa i Połańca",
+    "description": "Budowa nowych przystanków osobowych na linii kolejowej nr 70 i 75 w celu przywrócenia ruchu pasażerskiego do Staszowa i Połańca z podziałem na 6 części Część 1: Budowa przystanku osobowego Chmielnik na linii kolejowej nr 70; Część 2: Budowa przystanku osobowego Raczyce na linii kolejowej nr 70; Część 3: Budowa przystanku osobowego podlesie Tuczępy na linii kolejowej nr 70; Część 4: Budowa przystanku osobowego Staszów Wschodni na linii kolejowej nr 70; Część 5: Budowa przystanku osobowego Połaniec Północny na linii kolejowej nr 75; Część 6: Budowa monitoringu wizyjnego i systemu transmisyjnego dla potrzeb SMW i CSDIP dla przystanków: - Chmielnik w km około 14,660-14,760 na linii kolejowej nr 70 , - Raczyce w km około 25,210-25,310 na linii kolejowej nr 70, - Podlesie Tuczępy w km około 35,530-35,630 na linii kolejowej nr 70; - Połaniec Północny w km około 15,288-15,388 na linii kolejowej nr 75” Zdrój",
+    "language": "pl",
+    "buyer": {
+      "name": "PKP Polskie Linie Kolejowe S.A. Zakład Linii Kolejowych w Kielcach",
+      "country": "PL",
+      "city": "Kielce",
+      "nutsCode": "PL721",
+      "buyerType": "pub-undert"
+    },
+    "cpvCodes": [
+      {
+        "code": "45000000",
+        "label": "Construction work"
+      }
+    ],
+    "mainCpv": "45000000",
+    "mainCpvDivision": "Construction work",
+    "estimatedValue": null,
+    "lots": 6,
+    "publicationDate": "2026-11-04",
+    "submissionDeadline": null,
+    "awardInfo": {
+      "winners": [
+        {
+          "name": "PRIMOST POŁUDNIE Sp. z o.o.",
+          "country": "PL"
+        },
+        {
+          "name": "BUDIMEX KOLEJNICTWO S.A.",
+          "country": "PL"
+        }
+      ],
+      "awardedValue": {
+        "amount": 24250942.72,
+        "currency": "PLN"
+      },
+      "awardDate": "2026-10-05"
+    },
+    "placeOfPerformance": {
+      "country": "PL",
+      "city": null,
+      "nutsCode": "PL721"
+    },
+    "scrapedAt": "2026-11-04T22:02:44+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "TED",
+    "sourceId": "764172-2026",
+    "url": "https://ted.europa.eu/en/notice/-/detail/764172-2026",
+    "documentUrls": {
+      "html": "https://ted.europa.eu/es/notice/764172-2026/html",
+      "pdf": "https://ted.europa.eu/es/notice/764172-2026/pdf",
+      "xml": "https://ted.europa.eu/en/notice/764172-2026/xml"
+    },
+    "noticeType": "contract-award",
+    "noticeTypeCode": "can-standard",
+    "procedureType": "open",
+    "contractNature": "services",
+    "title": "Servicio de traducción e interpretación en los órganos judiciales adscritos a las Gerencias Territoriales del Ministerio de la Presidencia, Justicia y Relaciones con las Cortes y de notas de condena procedentes de Tribunales de la Unión Europea y de los países signatarios del Convenio Europeo de Asistencia Judicial en Materia Penal",
+    "description": "Lotes 1 a 9: El objeto del contrato consiste en la traducción escrita y en la interpretación de declaraciones orales de las personas incursas en procedimientos judiciales y fiscales, que se tramiten por los órganos judiciales, fiscalías, Oficinas de Atención a Víctimas, Institutos de Medicina Legal y Ciencias Forenses, y Delegaciones del Instituto Nacional de Toxicología y Ciencias Forenses adscritos a las Gerencias Territoriales del Ministerio de la Presidencia, Justicia y Relaciones con las Cortes, incluidos los turnos de guardia. Igualmente, se incluyen los lenguajes de signos para personas con discapacidad auditiva. Lote 10: El objeto del contrato consiste en la traducción de las notas de condena procedentes de tribunales de la Unión Europea y de los países signatarios del Convenio Europeo de Asistencia Judicial en Materia Penal.",
+    "language": "es",
+    "buyer": {
+      "name": "Junta de Contratación de la Secretaría de Estado de Justicia",
+      "country": "ES",
+      "city": "Madrid",
+      "nutsCode": "ES300",
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [
+      {
+        "code": "79540000",
+        "label": "Interpretation services"
+      },
+      {
+        "code": "79530000",
+        "label": "Translation services"
+      }
+    ],
+    "mainCpv": "79540000",
+    "mainCpvDivision": "Business services: law, marketing, consulting, recruitment, printing and security",
+    "estimatedValue": {
+      "amount": 106260,
+      "currency": "EUR"
+    },
+    "lots": 1,
+    "publicationDate": "2026-11-04",
+    "submissionDeadline": null,
+    "awardInfo": {
+      "winners": [
+        {
+          "name": "Ofilingua S.L.",
+          "country": "ES"
+        }
+      ],
+      "awardedValue": {
+        "amount": 48300,
+        "currency": "EUR"
+      },
+      "awardDate": "2026-10-30"
+    },
+    "placeOfPerformance": {
+      "country": "ES",
+      "city": null,
+      "nutsCode": "ES111"
+    },
+    "scrapedAt": "2026-11-04T22:02:44+00:00"
+  }
+]

@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TED API: get EU public tenders as JSON or CSV (Python example)</title>
+<meta name="description" content="How to get EU public tenders from TED as JSON or CSV: Search API endpoint, query and sort syntax, 250 and 15,000 limits, field quirks, Python code and a 21-record sample.">
+<link rel="canonical" href="https://nexus-tools-dev.github.io/guides/ted-tenders-json/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Nexus Tools">
+<meta property="og:title" content="TED API: get EU public tenders as JSON or CSV (Python example)">
+<meta property="og:description" content="How to get EU public tenders from TED as JSON or CSV: Search API endpoint, query and sort syntax, 250 and 15,000 limits, field quirks, Python code and a 21-record sample.">
+<meta property="og:url" content="https://nexus-tools-dev.github.io/guides/ted-tenders-json/">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "EU public tenders as JSON or CSV: the TED Search API, a Python example, and a ready-made dataset", "description": "How to get EU public tenders from TED as JSON or CSV: Search API endpoint, query and sort syntax, 250 and 15,000 limits, field quirks, Python code and a 21-record sample.", "inLanguage": "en", "datePublished": "2026-11-04", "dateModified": "2026-11-04", "url": "https://nexus-tools-dev.github.io/guides/ted-tenders-json/", "mainEntityOfPage": "https://nexus-tools-dev.github.io/guides/ted-tenders-json/", "keywords": "TED API, EU tenders JSON, public procurement data, CPV, eForms, Tenders Electronic Daily", "author": {"@type": "Organization", "name": "Nexus Tools", "url": "https://nexus-tools-dev.github.io/"}, "publisher": {"@type": "Organization", "name": "Nexus Tools", "url": "https://nexus-tools-dev.github.io/"}}</script>
+<style>
+  :root { --bg:#f6f7f9; --panel:#fff; --text:#16181d; --muted:#5f6672; --line:#d9dde3; --accent:#1f5fd1; --code:#eef0f4; color-scheme: light dark; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#14161a; --panel:#1d2026; --text:#eceef2; --muted:#a2a9b5; --line:#343944; --accent:#6ea0ff; --code:#252932; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.65 system-ui,"Segoe UI",Roboto,sans-serif; }
+  main { max-width: 780px; margin: 0 auto; padding: 40px 20px 64px; }
+  h1 { font-size: 28px; line-height:1.25; margin: 8px 0 8px; }
+  h2 { font-size: 21px; margin: 40px 0 8px; }
+  h3 { font-size: 17px; margin: 24px 0 4px; }
+  .lead { color: var(--muted); margin: 0 0 8px; }
+  .meta { color: var(--muted); font-size: 14px; }
+  a { color: var(--accent); }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px 18px; margin: 16px 0; }
+  pre, code { font: 13.5px/1.5 ui-monospace,SFMono-Regular,Consolas,Menlo,monospace; }
+  code { background: var(--code); padding: 1px 5px; border-radius: 4px; }
+  pre { background: var(--code); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; overflow-x: auto; margin: 12px 0; }
+  pre code { background: none; padding: 0; }
+  .tw { overflow-x: auto; margin: 12px 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { text-align: left; border-bottom: 1px solid var(--line); padding: 6px 8px; vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; white-space: nowrap; }
+  td.n { white-space: nowrap; }
+  ul, ol { padding-left: 22px; }
+  li { margin: 4px 0; }
+  .note { border-left: 3px solid var(--accent); padding: 2px 0 2px 14px; color: var(--muted); }
+  footer { margin-top: 48px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); padding-top: 16px; }
+</style>
+</head>
+<body>
+<main>
+<p class="meta"><a href="../../">Nexus Tools</a> / Data guides</p>
+
+<h1>EU public tenders as JSON or CSV: the TED Search API, a Python example, and a ready-made dataset</h1>
+<p class="lead">How to pull contract notices and award notices from TED (Tenders Electronic Daily) yourself, which limits and field quirks to expect, and when a normalized feed is worth paying for.</p>
+<p class="meta">Updated: November 2026. API behaviour below was tested live on 4 November 2026.</p>
+
+<h2>The short version</h2>
+<ul>
+<li>TED publishes EU public procurement notices. The official <strong>Search API v3</strong> is free and needs no API key: one <code>POST</code> endpoint, a query language, JSON in and out.</li>
+<li>Doing it yourself is easy for a one-off export. The work is in the details: sorting, pagination beyond 15,000 results, multilingual objects, repeated values and mixed types. This page lists the ones we hit.</li>
+<li>If you want one flat schema, CPV labels, awards and a schedule without maintaining a script, we run an Apify Actor for that. Real samples of its output are at the bottom, free to download.</li>
+</ul>
+
+<h2>1. The official TED Search API</h2>
+<p>Documentation: <a href="https://docs.ted.europa.eu/api/latest/search.html">docs.ted.europa.eu/api/latest/search.html</a>. The docs describe the API as aimed at data reusers and not requiring authentication; that matches what we saw (anonymous requests return <code>200</code>). There is also a Swagger UI at <a href="https://api.ted.europa.eu/swagger-ui/index.html">api.ted.europa.eu/swagger-ui</a> and an OpenAPI file at <a href="https://api.ted.europa.eu/api-v3.yaml">api.ted.europa.eu/api-v3.yaml</a>.</p>
+<p>Endpoint: <code>POST https://api.ted.europa.eu/v3/notices/search</code>. The body is JSON with a <code>query</code> (the "expert query" language), a list of <code>fields</code> to return, and paging parameters.</p>
+<pre><code>curl -s -X POST https://api.ted.europa.eu/v3/notices/search \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+    &quot;query&quot;: &quot;buyer-country=ITA AND classification-cpv=72* AND notice-type=cn-standard AND publication-date&gt;=today(-14) SORT BY publication-date DESC&quot;,
+    &quot;fields&quot;: [&quot;publication-number&quot;, &quot;notice-type&quot;, &quot;buyer-name&quot;, &quot;buyer-country&quot;,
+               &quot;classification-cpv&quot;, &quot;publication-date&quot;, &quot;estimated-value-proc&quot;, &quot;estimated-value-cur-proc&quot;],
+    &quot;limit&quot;: 2,
+    &quot;paginationMode&quot;: &quot;ITERATION&quot;
+  }&#x27;</code></pre>
+<p>Real response from that request, trimmed to one notice (the 39 in <code>totalNoticeCount</code> is what matched on 4 November 2026):</p>
+<pre><code>{
+  &quot;notices&quot;: [
+    {
+      &quot;publication-number&quot;: &quot;766353-2026&quot;,
+      &quot;notice-type&quot;: &quot;cn-standard&quot;,
+      &quot;buyer-name&quot;: { &quot;ita&quot;: [&quot;Società per Azioni Esercizi Aeroportuali S.E.A&quot;] },
+      &quot;buyer-country&quot;: [&quot;ITA&quot;],
+      &quot;classification-cpv&quot;: [&quot;72262000&quot;, &quot;72262000&quot;],
+      &quot;publication-date&quot;: &quot;2026-11-04+01:00&quot;,
+      &quot;estimated-value-proc&quot;: &quot;3156000.00&quot;,
+      &quot;estimated-value-cur-proc&quot;: &quot;EUR&quot;,
+      &quot;links&quot;: { &quot;...&quot;: &quot;per-language HTML / PDF / XML URLs, returned even though not requested&quot; }
+    }
+  ],
+  &quot;totalNoticeCount&quot;: 39,
+  &quot;iterationNextToken&quot;: &quot;AAABoaiWMVYAGJkw...&quot;,
+  &quot;timedOut&quot;: false
+}
+</code></pre>
+
+<h3>Query syntax that worked</h3>
+<div class="tw"><table>
+<tr><th>Goal</th><th>Query</th></tr>
+<tr><td>Country of the buyer (three-letter ISO code)</td><td><code>buyer-country=ITA</code> or <code>buyer-country IN (ITA FRA)</code></td></tr>
+<tr><td>CPV prefix</td><td><code>classification-cpv=72*</code> or <code>classification-cpv IN (72* 45*)</code></td></tr>
+<tr><td>Notice type</td><td><code>notice-type=cn-standard</code>, <code>notice-type IN (can-standard can-social)</code></td></tr>
+<tr><td>Publication date</td><td><code>publication-date&gt;=20261020</code> or <code>publication-date&gt;=today(-7)</code></td></tr>
+<tr><td>Full text</td><td><code>FT~("cybersecurity")</code></td></tr>
+<tr><td>Buyer name word</td><td><code>buyer-name~"comune"</code></td></tr>
+<tr><td>Value</td><td><code>total-value&gt;=1000000</code></td></tr>
+<tr><td>Sort, newest first</td><td>append <code>SORT BY publication-date DESC</code> to the query</td></tr>
+</table></div>
+<p>Combine with <code>AND</code> / <code>OR</code>. A syntax error or unknown field returns <code>HTTP 400</code> with a type such as <code>QUERY_UNKNOWN_FIELD</code> or <code>QUERY_SYNTAX_ERROR</code> and the column of the problem. Adding <code>"checkQuerySyntax": true</code> to the body validates a query without running it (documented in the OpenAPI file).</p>
+
+<h3>Sorting: it goes in the query, not in the body</h3>
+<p>This one cost us time. The request body has no sort parameters, and <strong>unknown body properties are silently ignored</strong>. We sent <code>"sortField": "publication-date", "sortOrder": "DESC"</code> and also <code>ASC</code>, with an invalid field name, and with an invalid order: the results were identical every time, oldest first (by publication number). The documented way is the <code>SORT BY field DESC</code> clause at the end of the expert query. With it, the same request returned notices from the current day first. Without it, "give me the last 50 tenders from the last 14 days" returns the oldest 50 of those 14 days.</p>
+
+<h3>Limits and pagination</h3>
+<ul>
+<li><strong><code>limit</code> is capped at 250.</strong> Asking for 300 returns <code>400 SEARCH_EXCEEDS_MAX_LIMIT</code>. The OpenAPI file adds a second cap of 10,000 fields per page (length of <code>fields</code> times <code>limit</code>).</li>
+<li><strong>Page mode has a 15,000-result window.</strong> The default mode is <code>PAGE_NUMBER</code> and <code>page x limit</code> must stay at or below 15,000, otherwise <code>400 SEARCH_WINDOW_TOO_WIDE</code> (for example page 61 with limit 250).</li>
+<li><strong>Use <code>"paginationMode": "ITERATION"</code> for bigger exports.</strong> Pass the returned <code>iterationNextToken</code> back as <code>iterationNextToken</code> until no more notices come back. We iterated 75 pages (18,750 notices) in one run, past the page-mode window. Per the docs this mode is consistent (a point-in-time snapshot), while page mode can show duplicates or gaps if a new Official Journal issue is released between your requests.</li>
+<li><code>totalNoticeCount</code> tells you how many notices the query matches, so you can size an export before running it. The response also has a <code>timedOut</code> flag; check it.</li>
+<li>We found no documented rate limit and no rate-limit headers. We did see occasional <code>502</code> responses from the CDN in front of the API, so retry with backoff.</li>
+</ul>
+
+<h3>Field quirks worth knowing</h3>
+<p>Fields use eForms business-term names (<code>title-proc</code>, <code>estimated-value-lot</code>...). Asking for a field that does not exist returns <code>400</code> with the full list of supported field names. The shapes are not uniform:</p>
+<ul>
+<li><strong>Dates carry a timezone suffix:</strong> <code>"2026-10-20+02:00"</code>. Cut to 10 characters for a calendar date.</li>
+<li><strong>Text is multilingual objects keyed by three-letter language code:</strong> <code>title-proc</code> is <code>{"ita": "..."}</code>, <code>title-lot</code> is <code>{"ita": ["..."]}</code> (lists), <code>buyer-name</code> is <code>{"ita": ["..."]}</code>. There is no translation: the text is in the buyer's language.</li>
+<li><strong>Same kind of field, different types:</strong> in one live query, <code>estimated-value-proc</code> was a string (<code>"324000.00"</code>), <code>estimated-value-lot</code> a list of strings and <code>total-value</code> an integer.</li>
+<li><strong>Repeated values:</strong> <code>classification-cpv</code> repeats a code once per lot. One notice returned 14 entries for 7 distinct codes. De-duplicate while keeping order.</li>
+<li><strong>HTML entities in text:</strong> 7 of 100 Italian contract notices we queried had titles containing entities such as <code>&amp;#8217;</code> instead of an apostrophe. Run <code>html.unescape</code> if you display titles.</li>
+<li><strong>Country codes</strong> are three-letter (<code>ITA</code>) and returned as lists.</li>
+<li><strong><code>links</code> comes back even if you did not request it,</strong> with one URL per language for HTML and PDF plus an XML URL.</li>
+<li>Value fields depend on the form: contract notices usually fill <code>estimated-value-proc</code>; award notices carry result values and winners in separate fields. Older (pre-eForms) notices have fewer structured fields.</li>
+</ul>
+
+<h2>2. DIY: notices to CSV in Python</h2>
+<p>This script (tested against the live API on 4 November 2026, it returned 39 notices) pages through the results, retries on transient errors, flattens the multilingual fields and writes a CSV. It needs <code>pip install requests</code>.</p>
+<pre><code>import csv
+import html
+import time
+
+import requests
+
+URL = &quot;https://api.ted.europa.eu/v3/notices/search&quot;
+FIELDS = [&quot;publication-number&quot;, &quot;notice-type&quot;, &quot;title-proc&quot;, &quot;buyer-name&quot;, &quot;buyer-country&quot;,
+          &quot;classification-cpv&quot;, &quot;publication-date&quot;, &quot;estimated-value-proc&quot;, &quot;estimated-value-cur-proc&quot;,
+          &quot;deadline-receipt-tender-date-lot&quot;]
+QUERY = &quot;buyer-country=ITA AND classification-cpv=72* AND notice-type=cn-standard AND publication-date&gt;=today(-14) SORT BY publication-date DESC&quot;
+
+
+def first_text(multi, langs=(&quot;eng&quot;, &quot;ita&quot;)):
+    &quot;&quot;&quot;Titles and names come as {&quot;ita&quot;: &quot;...&quot;, &quot;eng&quot;: &quot;...&quot;} (sometimes with a list value).&quot;&quot;&quot;
+    if not isinstance(multi, dict):
+        return multi
+    for lang in (*langs, *multi):
+        if lang in multi:
+            v = multi[lang]
+            return html.unescape(v[0] if isinstance(v, list) else v)  # some titles contain &amp;#8217; etc.
+
+
+def search(query, limit=250):
+    body = {&quot;query&quot;: query, &quot;fields&quot;: FIELDS, &quot;limit&quot;: limit, &quot;paginationMode&quot;: &quot;ITERATION&quot;}
+    while True:
+        for attempt in range(5):
+            r = requests.post(URL, json=body, timeout=60)
+            if r.status_code in (429, 500, 502, 503, 504):
+                time.sleep(2 ** attempt)
+                continue
+            r.raise_for_status()
+            break
+        else:
+            raise RuntimeError(&quot;TED API unavailable&quot;)
+        data = r.json()
+        yield from data[&quot;notices&quot;]
+        token = data.get(&quot;iterationNextToken&quot;)
+        if not token or not data[&quot;notices&quot;]:
+            return
+        body[&quot;iterationNextToken&quot;] = token
+
+
+rows = []
+for n in search(QUERY):
+    rows.append({
+        &quot;id&quot;: n[&quot;publication-number&quot;],
+        &quot;type&quot;: n.get(&quot;notice-type&quot;),
+        &quot;published&quot;: (n.get(&quot;publication-date&quot;) or &quot;&quot;)[:10],       # &quot;2026-10-20+02:00&quot; -&gt; &quot;2026-10-20&quot;
+        &quot;title&quot;: first_text(n.get(&quot;title-proc&quot;)),
+        &quot;buyer&quot;: first_text(n.get(&quot;buyer-name&quot;)),
+        &quot;cpv&quot;: &quot;;&quot;.join(dict.fromkeys(n.get(&quot;classification-cpv&quot;) or [])),  # de-duplicate, order kept
+        &quot;value&quot;: n.get(&quot;estimated-value-proc&quot;),
+        &quot;currency&quot;: n.get(&quot;estimated-value-cur-proc&quot;),
+        &quot;url&quot;: f&quot;https://ted.europa.eu/en/notice/-/detail/{n[&#x27;publication-number&#x27;]}&quot;,
+    })
+
+with open(&quot;ted_tenders.csv&quot;, &quot;w&quot;, newline=&quot;&quot;, encoding=&quot;utf-8&quot;) as f:
+    w = csv.DictWriter(f, fieldnames=rows[0].keys())
+    w.writeheader()
+    w.writerows(rows)
+print(len(rows), &quot;notices&quot;)
+</code></pre>
+
+<h2>3. When the Actor saves time</h2>
+<p>For a one-off look, the script above is enough and free. The Apify Actor <a href="https://apify.com/nexus-scrapers/ted-eu-tenders">TED EU Public Tenders</a> (by Nexus Scrapers) wraps the same official API. It pays off when you would otherwise maintain that code yourself:</p>
+<ul>
+<li><strong>One normalized schema.</strong> Every item has the same keys: a buyer object, ISO 3166 country codes, money as <code>{amount, currency}</code>, dates as <code>YYYY-MM-DD</code>, a deadline with time and offset, unified notice types and procedure types. Missing values are <code>null</code>, never missing keys. The same schema is used by our UK Actor, so EU and UK tenders can go into one table.</li>
+<li><strong>CPV codes with official labels,</strong> deduplicated, in any of the 24 EU languages (<code>cpvLabelLanguage</code>), plus the main CPV and its division name. The labels come from the Publications Office's CPV 2008 vocabulary.</li>
+<li><strong>Award view.</strong> For award notices there is a dataset view with winners (name, country), awarded value and award date.</li>
+<li><strong>Filters as plain inputs</strong> (keywords, countries, CPV prefixes, notice types, date range, deadline, value, buyer name) instead of hand-written expert queries, with an <code>expertQuery</code> escape hatch.</li>
+<li><strong>Scheduling and integrations</strong> through Apify: run daily, then send the dataset to Slack, e-mail, Google Sheets or a webhook, or call it through the Apify API or MCP. Export as JSON, CSV or Excel.</li>
+<li><strong>Retries and pagination</strong> are handled, up to 15,000 results per run.</li>
+</ul>
+<p>Pricing is pay per result: $0.002 per result at the time of writing; the Actor page shows the current price.</p>
+<p class="note">What it does not do: it does not translate notices, does not fetch tender documents (it links to the notice), and does not expose per-lot detail. Titles are passed through as TED returns them. If you only need a single export, use the script above.</p>
+
+<h2>4. Real sample: 21 normalized records</h2>
+<p>These 21 records were produced on 4 November 2026 by running the Actor's own normalizer code on live API responses, locally and without the Apify platform: 13 contract notices (buyers in IT, DE, FR, ES or PL, estimated value at least 100,000, published 4 November 2026) and 8 award notices that name winners (same countries plus NL, published 4 November 2026). They are the first matches of those filters, at most three per country, not hand-picked for quality.</p>
+<p>Download: <a href="sample.json">sample.json</a> (full records, UTF-8) and <a href="sample.csv">sample.csv</a> (flattened: lists joined with <code> | </code>, opens in Excel). Free to use under the licence in section 5.</p>
+<div class="tw"><table>
+<tr><th>Notice</th><th>Type</th><th>Buyer</th><th>Title</th><th>Main CPV label</th><th>Value</th><th>Winners</th></tr>
+<tr><td class="n"><a href="https://ted.europa.eu/en/notice/-/detail/766723-2026">766723-2026</a></td><td>notice</td><td>IT</td><td>1116 MI 01/01 - AFFIDAMENTO DEL SERVIZIO ATTINENTE ALL&#x27;ATTIVIT…</td><td>Construction supervision services</td><td class="n">795,867 EUR</td><td>-</td></tr>
+<tr><td class="n"><a href="https://ted.europa.eu/en/notice/-/detail/766718-2026">766718-2026</a></td><td>notice</td><td>ES</td><td>El objeto del contrato proyectado consiste en el suministro, in…</td><td>Artificial lawn</td><td class="n">306,043 EUR</td><td>-</td></tr>
+<tr><td class="n"><a href="https://ted.europa.eu/en/notice/-/detail/766726-2026">766726-2026</a></td><td>notice</td><td>FR</td><td>Prestations d&#x27;hôtesses d&#x27;accueil pour les besoins de l&#x27;EPCI de…</td><td>Reception services</td><td class="n">400,000 EUR</td><td>-</td></tr>
+<tr><td class="n"><a href="https://ted.europa.eu/en/notice/-/detail/766777-2026">766777-2026</a></td><td>notice</td><td>ES</td><td>Servicios para la redacción del proyecto de construcción adapta…</td><td>Railway engineering services</td><td class="n">1,729,830 EUR</td><td>-</td></tr>
+<tr><td class="n"><a href="https://ted.europa.eu/en/notice/-/detail/766781-2026">766781-2026</a></td><td>notice</td><td>DE</td><td>Lieferung eines Feuerwehrfahrzeugs HLF10 nach DIN 14530-26 für…</td><td>Firefighting vehicles</td><td class="n">450,000 EUR</td><td>-</td></tr>
+<tr><td class="n"><a href="https://ted.europa.eu/en/notice/-/detail/766970-2026">766970-2026</a></td><td>notice</td><td>IT</td><td>Rif. IO - PA SERVICE ESTRATTORI</td><td>Analysis apparatus</td><td class="n">510,000 EUR</td><td>-</td></tr>
+<tr><td class="n"><a href="https://ted.europa.eu/en/notice/-/detail/767025-2026">767025-2026</a></td><td>notice</td><td>IT</td><td>SERVIZIO DI RECAPITO DEI DOCUMENTI TRIBUTARI DELLA REGIONE TOSC…</td><td>Postal services related to letters</td><td class="n">9,438,041 EUR</td><td>-</td></tr>
+<tr><td class="n"><a href="https://ted.europa.eu/en/notice/-/detail/767161-2026">767161-2026</a></td><td>notice</td><td>ES</td><td>Servicio de revisión y mantenimiento preventivo y correctivo de…</td><td>Lift-maintenance services</td><td class="n">298,598 EUR</td><td>-</td></tr>
+<tr><td class="n"><a href="https://ted.europa.eu/en/notice/-/detail/767206-2026">767206-2026</a></td><td>notice</td><td>FR</td><td>Accord cadre à bon de commande - Réalisation de diagnostics de…</td><td>Pollution investigation services</td><td class="n">400,000 EUR</td><td>-</td></tr>
+<tr><td class="n"><a href="https://ted.europa.eu/en/notice/-/detail/767495-2026">767495-2026</a></td><td>notice</td><td>FR</td><td>ABONNEMENT À DES PÉRIODIQUES ET À DES SOURCES D’INFORMATION SPÉ…</td><td>Subscription services</td><td class="n">1,371,204 EUR</td><td>-</td></tr>
+<tr><td class="n"><a href="https://ted.europa.eu/en/notice/-/detail/765701-2026">765701-2026</a></td><td>notice</td><td>DE</td><td>Maßnahme B52HE151500001 - Neubau eines norbayerischen Hochleist…</td><td>Architectural, construction, engi…</td><td class="n">301,378 EUR</td><td>-</td></tr>
+<tr><td class="n"><a href="https://ted.europa.eu/en/notice/-/detail/765720-2026">765720-2026</a></td><td>notice</td><td>PL</td><td>„Zakup autobusów o napędzie elektrycznym wraz z budową niezbędn…</td><td>Public-service buses</td><td class="n">58,500,000 PLN</td><td>-</td></tr>
+<tr><td class="n"><a href="https://ted.europa.eu/en/notice/-/detail/766016-2026">766016-2026</a></td><td>notice</td><td>PL</td><td>Całodobowe świadczenie usług medycznych - KRP I</td><td>Medical practice and related serv…</td><td class="n">4,673,815 PLN</td><td>-</td></tr>
+<tr><td class="n"><a href="https://ted.europa.eu/en/notice/-/detail/763827-2026">763827-2026</a></td><td>award</td><td>FR</td><td>Fourniture de gaz, location et maintenance d’installations asso…</td><td>Liquid nitrogen</td><td class="n">521,920 EUR</td><td>MESSER France SAS; LNI Swissgas France</td></tr>
+<tr><td class="n"><a href="https://ted.europa.eu/en/notice/-/detail/763848-2026">763848-2026</a></td><td>award</td><td>DE</td><td>Rahmenvereinbarung Codeanalyse Open Source Software (CAOS) Los 1</td><td>IT services: consulting, software…</td><td class="n">2,000,000 EUR</td><td>mgm security partners GmbH</td></tr>
+<tr><td class="n"><a href="https://ted.europa.eu/en/notice/-/detail/763850-2026">763850-2026</a></td><td>award</td><td>DE</td><td>Rasterelektronenmikroskop</td><td>Laboratory, optical and precision…</td><td class="n">190,000 EUR</td><td>JEOL Germany GmbH</td></tr>
+<tr><td class="n"><a href="https://ted.europa.eu/en/notice/-/detail/763855-2026">763855-2026</a></td><td>award</td><td>DE</td><td>SG Zeven - KuBiZ Zeven - Bodenbelagsarbeiten</td><td>Construction work</td><td class="n">240,770 EUR</td><td>Gavrilov Fußbodentechnik GmbH &amp; Co. KG</td></tr>
+<tr><td class="n"><a href="https://ted.europa.eu/en/notice/-/detail/763865-2026">763865-2026</a></td><td>award</td><td>PL</td><td>Wykonanie zastawek oraz zastawek z przepustem w Leśnictwach: Bu…</td><td>Works for complete or part constr…</td><td class="n">1,368,000 PLN</td><td>DREW - KOS SPÓŁKA Z OGRANICZONĄ ODPOWIE…</td></tr>
+<tr><td class="n"><a href="https://ted.europa.eu/en/notice/-/detail/764035-2026">764035-2026</a></td><td>award</td><td>ES</td><td>Servicio de Transporte no Sanitario desde el ámbito territorial…</td><td>Taxi services</td><td class="n">169,692 EUR</td><td>TUAXI COOP V</td></tr>
+<tr><td class="n"><a href="https://ted.europa.eu/en/notice/-/detail/764046-2026">764046-2026</a></td><td>award</td><td>PL</td><td>Budowa nowych przystanków osobowych na linii kolejowej nr 70 i…</td><td>Construction work</td><td class="n">24,250,943 PLN</td><td>PRIMOST POŁUDNIE Sp. z o.o.; BUDIMEX KO…</td></tr>
+<tr><td class="n"><a href="https://ted.europa.eu/en/notice/-/detail/764172-2026">764172-2026</a></td><td>award</td><td>ES</td><td>Servicio de traducción e interpretación en los órganos judicial…</td><td>Interpretation services</td><td class="n">48,300 EUR</td><td>Ofilingua S.L.</td></tr>
+</table></div>
+<p>One award record in full (description shortened):</p>
+<pre><code>{
+  &quot;schemaVersion&quot;: &quot;1.0&quot;,
+  &quot;source&quot;: &quot;TED&quot;,
+  &quot;sourceId&quot;: &quot;763827-2026&quot;,
+  &quot;url&quot;: &quot;https://ted.europa.eu/en/notice/-/detail/763827-2026&quot;,
+  &quot;documentUrls&quot;: {
+    &quot;html&quot;: &quot;https://ted.europa.eu/fr/notice/763827-2026/html&quot;,
+    &quot;pdf&quot;: &quot;https://ted.europa.eu/fr/notice/763827-2026/pdf&quot;,
+    &quot;xml&quot;: &quot;https://ted.europa.eu/en/notice/763827-2026/xml&quot;
+  },
+  &quot;noticeType&quot;: &quot;contract-award&quot;,
+  &quot;noticeTypeCode&quot;: &quot;can-standard&quot;,
+  &quot;procedureType&quot;: &quot;open&quot;,
+  &quot;contractNature&quot;: &quot;supplies&quot;,
+  &quot;title&quot;: &quot;Fourniture de gaz, location et maintenance d’installations associées au profit de l’Unité Nationale de Police Judiciaire de la Gendarmerie Nationale (UNPJ-GN) à Cergy-Pontoise&quot;,
+  &quot;description&quot;: &quot;Fourniture de gaz, location et maintenance d’installations associées au profit de l’Unité Nationale de Police Judiciaire de la Gendarmerie Nationale (UNPJ-GN)…&quot;,
+  &quot;language&quot;: &quot;fr&quot;,
+  &quot;buyer&quot;: {
+    &quot;name&quot;: &quot;COMSOPGN&quot;,
+    &quot;country&quot;: &quot;FR&quot;,
+    &quot;city&quot;: &quot;Le Blanc&quot;,
+    &quot;nutsCode&quot;: &quot;FRB03&quot;,
+    &quot;buyerType&quot;: &quot;central-government&quot;
+  },
+  &quot;cpvCodes&quot;: [
+    {
+      &quot;code&quot;: &quot;24111800&quot;,
+      &quot;label&quot;: &quot;Liquid nitrogen&quot;
+    },
+    {
+      &quot;code&quot;: &quot;24111000&quot;,
+      &quot;label&quot;: &quot;Hydrogen, argon, rare gases, nitrogen and oxygen&quot;
+    },
+    {
+      &quot;code&quot;: &quot;24111600&quot;,
+      &quot;label&quot;: &quot;Hydrogen&quot;
+    },
+    {
+      &quot;code&quot;: &quot;31120000&quot;,
+      &quot;label&quot;: &quot;Generators&quot;
+    }
+  ],
+  &quot;mainCpv&quot;: &quot;24111800&quot;,
+  &quot;mainCpvDivision&quot;: &quot;Chemical products&quot;,
+  &quot;estimatedValue&quot;: null,
+  &quot;lots&quot;: 3,
+  &quot;publicationDate&quot;: &quot;2026-11-04&quot;,
+  &quot;submissionDeadline&quot;: null,
+  &quot;awardInfo&quot;: {
+    &quot;winners&quot;: [
+      {
+        &quot;name&quot;: &quot;MESSER France SAS&quot;,
+        &quot;country&quot;: &quot;FR&quot;
+      },
+      {
+        &quot;name&quot;: &quot;LNI Swissgas France&quot;,
+        &quot;country&quot;: &quot;FR&quot;
+      }
+    ],
+    &quot;awardedValue&quot;: {
+      &quot;amount&quot;: 521920,
+      &quot;currency&quot;: &quot;EUR&quot;
+    },
+    &quot;awardDate&quot;: &quot;2026-08-18&quot;
+  },
+  &quot;placeOfPerformance&quot;: {
+    &quot;country&quot;: &quot;FR&quot;,
+    &quot;city&quot;: null,
+    &quot;nutsCode&quot;: null
+  },
+  &quot;scrapedAt&quot;: &quot;2026-11-04T22:02:44+00:00&quot;
+}</code></pre>
+
+<h2>5. Data licence and attribution</h2>
+<p>The <a href="https://ted.europa.eu/en/legal-notice">TED legal notice</a> says the European Commission's reuse policy is implemented by the <a href="https://eur-lex.europa.eu/eli/dec/2011/833/oj">Commission Decision of 12 December 2011 on the reuse of Commission documents (2011/833/EU)</a>, and that, unless otherwise noted, procurement notices published in the Supplement to the Official Journal of the European Union can be freely reused for commercial or non-commercial purposes. In practice: credit the source (for example "Source: TED, Publications Office of the European Union") and indicate if you changed the data. The editorial content of the TED websites is CC BY 4.0. Notices can contain names of natural persons (sole traders, contacts), so handle them in line with GDPR. CPV labels come from the CPV 2008 vocabulary of the Publications Office (Regulation (EC) No 213/2008). This is a summary, not legal advice; read the legal notice for the exact terms.</p>
+
+<h2>Links</h2>
+<ul>
+<li><a href="https://apify.com/nexus-scrapers/ted-eu-tenders">TED EU Public Tenders Actor on Apify</a></li>
+<li><a href="../uk-tenders-json/">The same guide for UK tenders (Find a Tender and Contracts Finder)</a></li>
+<li><a href="https://docs.ted.europa.eu/api/latest/search.html">Official TED Search API documentation</a></li>
+</ul>
+
+<footer>Independent guide by Nexus Tools. Not affiliated with or endorsed by the European Union, the UK Government or Apify. Contact: <a href="mailto:nexusscrapers.dev@gmail.com">nexusscrapers.dev@gmail.com</a></footer>
+</main>
+</body>
+</html>
