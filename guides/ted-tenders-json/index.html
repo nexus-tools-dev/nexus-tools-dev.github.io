@@ -205,7 +205,7 @@ print(len(rows), &quot;notices&quot;)
 <li><strong>Retries and pagination</strong> are handled, up to 15,000 results per run.</li>
 </ul>
 <p>Pricing is pay per result: $0.002 per result at the time of writing; the Actor page shows the current price.</p>
-<p class="note">What it does not do: it does not translate notices, does not fetch tender documents (it links to the notice), and does not expose per-lot detail. Titles are passed through as TED returns them. If you only need a single export, use the script above.</p>
+<p class="note">What it does not do: it does not translate notices, does not fetch tender documents (it links to the notice), and does not expose per-lot detail. If you only need a single export, use the script above.</p>
 
 <h2>4. Real sample: 21 normalized records</h2>
 <p>These 21 records were produced on 4 November 2026 by running the Actor's own normalizer code on live API responses, locally and without the Apify platform: 13 contract notices (buyers in IT, DE, FR, ES or PL, estimated value at least 100,000, published 4 November 2026) and 8 award notices that name winners (same countries plus NL, published 4 November 2026). They are the first matches of those filters, at most three per country, not hand-picked for quality.</p>
