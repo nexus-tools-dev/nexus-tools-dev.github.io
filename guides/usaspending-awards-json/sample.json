@@ -1,0 +1,1904 @@
+[
+  {
+    "schemaVersion": "1.0",
+    "source": "usaspending",
+    "sourceId": "CONT_AWD_36C25627N0231_3600_36C10F23D0004_3600",
+    "url": "https://www.usaspending.gov/award/CONT_AWD_36C25627N0231_3600_36C10F23D0004_3600",
+    "documentUrls": {
+      "html": "https://www.usaspending.gov/award/CONT_AWD_36C25627N0231_3600_36C10F23D0004_3600",
+      "pdf": null,
+      "xml": null
+    },
+    "noticeType": "contract-award",
+    "noticeTypeCode": "C",
+    "procedureType": null,
+    "contractNature": "works",
+    "title": "580-26-403 AE REPLACE ROADS AND SIDEWALKS",
+    "description": "580-26-403 AE REPLACE ROADS AND SIDEWALKS",
+    "language": "en",
+    "buyer": {
+      "name": "Department of Veterans Affairs",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": null,
+    "lots": null,
+    "publicationDate": "2026-11-02",
+    "submissionDeadline": null,
+    "awardInfo": {
+      "winners": [
+        {
+          "name": "ALESIA ARCHITECTURE PC",
+          "country": "US"
+        }
+      ],
+      "awardedValue": {
+        "amount": 471001.16,
+        "currency": "USD"
+      },
+      "awardDate": "2026-11-02"
+    },
+    "placeOfPerformance": {
+      "country": "US",
+      "city": "ELKHORN",
+      "nutsCode": null
+    },
+    "scrapedAt": "2026-11-05T07:38:48+00:00",
+    "usaGeneratedInternalId": "CONT_AWD_36C25627N0231_3600_36C10F23D0004_3600",
+    "usaAwardId": "36C25627N0231",
+    "usaAwardCategory": "contracts",
+    "usaAwardType": "DELIVERY ORDER",
+    "usaApiUrl": "https://api.usaspending.gov/api/v2/awards/CONT_AWD_36C25627N0231_3600_36C10F23D0004_3600/",
+    "usaAwardingAgencyCode": "036",
+    "usaAwardingSubAgency": "Department of Veterans Affairs",
+    "usaAwardingSubAgencyCode": "3600",
+    "usaFundingAgency": "Department of Veterans Affairs",
+    "usaFundingSubAgency": "Department of Veterans Affairs",
+    "usaRecipientUei": "MSBTMNAYAW55",
+    "usaRecipientId": "aae6588a-ca67-1833-93ae-c3d7f2e0f325-C",
+    "usaRecipientLocation": {
+      "country": "US",
+      "state": "NE",
+      "city": "ELKHORN",
+      "county": "DOUGLAS",
+      "zip5": "68022"
+    },
+    "usaPlaceOfPerformance": {
+      "country": "US",
+      "state": "NE",
+      "city": "ELKHORN",
+      "county": "DOUGLAS",
+      "zip5": "68022"
+    },
+    "usaNaics": {
+      "code": "541330",
+      "description": "ENGINEERING SERVICES"
+    },
+    "usaPsc": {
+      "code": "Y1DA",
+      "description": "CONSTRUCTION OF HOSPITALS AND INFIRMARIES"
+    },
+    "usaAssistanceListings": [],
+    "usaPeriodOfPerformance": {
+      "startDate": "2026-11-02",
+      "endDate": "2030-12-31",
+      "lastDateToOrder": null
+    },
+    "usaBaseObligationDate": "2026-11-02",
+    "usaLastModified": "2026-11-02 23:24:01",
+    "usaLoan": null,
+    "usaDetails": null
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "usaspending",
+    "sourceId": "CONT_AWD_75R60226F34034_7526_75R60225D00005_7526",
+    "url": "https://www.usaspending.gov/award/CONT_AWD_75R60226F34034_7526_75R60225D00005_7526",
+    "documentUrls": {
+      "html": "https://www.usaspending.gov/award/CONT_AWD_75R60226F34034_7526_75R60225D00005_7526",
+      "pdf": null,
+      "xml": null
+    },
+    "noticeType": "contract-award",
+    "noticeTypeCode": "C",
+    "procedureType": null,
+    "contractNature": "services",
+    "title": "OFAM78C (FORHP) HRSA-26-037-RURAL COMMUNITIES OPIOID RESPONSE PROGRAM (RCORP)- IMPACT WEB ASSISTED TELECONFERENCE ORC MEETING",
+    "description": "OFAM78C (FORHP) HRSA-26-037-RURAL COMMUNITIES OPIOID RESPONSE PROGRAM (RCORP)- IMPACT WEB ASSISTED TELECONFERENCE ORC MEETING",
+    "language": "en",
+    "buyer": {
+      "name": "Department of Health and Human Services",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": null,
+    "lots": null,
+    "publicationDate": "2026-11-02",
+    "submissionDeadline": null,
+    "awardInfo": {
+      "winners": [
+        {
+          "name": "LOOPER CONSULTING LLC",
+          "country": "US"
+        }
+      ],
+      "awardedValue": {
+        "amount": 365416.81,
+        "currency": "USD"
+      },
+      "awardDate": "2026-07-17"
+    },
+    "placeOfPerformance": {
+      "country": "US",
+      "city": "UPPER MARLBORO",
+      "nutsCode": null
+    },
+    "scrapedAt": "2026-11-05T07:38:48+00:00",
+    "usaGeneratedInternalId": "CONT_AWD_75R60226F34034_7526_75R60225D00005_7526",
+    "usaAwardId": "75R60226F34034",
+    "usaAwardCategory": "contracts",
+    "usaAwardType": "DELIVERY ORDER",
+    "usaApiUrl": "https://api.usaspending.gov/api/v2/awards/CONT_AWD_75R60226F34034_7526_75R60225D00005_7526/",
+    "usaAwardingAgencyCode": "075",
+    "usaAwardingSubAgency": "Health Resources and Services Administration",
+    "usaAwardingSubAgencyCode": "7526",
+    "usaFundingAgency": "Department of Health and Human Services",
+    "usaFundingSubAgency": "Health Resources and Services Administration",
+    "usaRecipientUei": "FGYZY8RHWED6",
+    "usaRecipientId": "fd769c08-fa57-4fda-2c67-823e85a08c3f-C",
+    "usaRecipientLocation": {
+      "country": "US",
+      "state": "MD",
+      "city": "HYATTSVILLE",
+      "county": "PRINCE GEORGE'S",
+      "zip5": "20785"
+    },
+    "usaPlaceOfPerformance": {
+      "country": "US",
+      "state": "MD",
+      "city": "UPPER MARLBORO",
+      "county": "PRINCE GEORGES",
+      "zip5": "20774"
+    },
+    "usaNaics": {
+      "code": "541611",
+      "description": "ADMINISTRATIVE MANAGEMENT AND GENERAL MANAGEMENT CONSULTING SERVICES"
+    },
+    "usaPsc": {
+      "code": "R408",
+      "description": "SUPPORT- PROFESSIONAL: PROGRAM MANAGEMENT/SUPPORT"
+    },
+    "usaAssistanceListings": [],
+    "usaPeriodOfPerformance": {
+      "startDate": "2026-07-16",
+      "endDate": "2026-10-31",
+      "lastDateToOrder": null
+    },
+    "usaBaseObligationDate": "2026-07-17",
+    "usaLastModified": "2026-11-02 22:58:07",
+    "usaLoan": null,
+    "usaDetails": null
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "usaspending",
+    "sourceId": "CONT_AWD_693JF721F000078_6938_47QRAA19D0085_4732",
+    "url": "https://www.usaspending.gov/award/CONT_AWD_693JF721F000078_6938_47QRAA19D0085_4732",
+    "documentUrls": {
+      "html": "https://www.usaspending.gov/award/CONT_AWD_693JF721F000078_6938_47QRAA19D0085_4732",
+      "pdf": null,
+      "xml": null
+    },
+    "noticeType": "contract-award",
+    "noticeTypeCode": "C",
+    "procedureType": null,
+    "contractNature": "services",
+    "title": "TEMPORARY FULL-TIME CONTRACTOR SUPPORT FOR THE MARITIME ADMINISTRATION OFFICE OF BUDGET POSITION TITLE: BUDGET & PROGRAM ANALYST NUMBER OF POSITIONS: THREE (3)…",
+    "description": "TEMPORARY FULL-TIME CONTRACTOR SUPPORT FOR THE MARITIME ADMINISTRATION OFFICE OF BUDGET POSITION TITLE: BUDGET & PROGRAM ANALYST NUMBER OF POSITIONS: THREE (3) PERIOD OF PERFORMANCE: 9/30/2021-9/29/2022",
+    "language": "en",
+    "buyer": {
+      "name": "Department of Transportation",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": null,
+    "lots": null,
+    "publicationDate": "2026-11-02",
+    "submissionDeadline": null,
+    "awardInfo": {
+      "winners": [
+        {
+          "name": "GUIDEHOUSE INC.",
+          "country": "US"
+        }
+      ],
+      "awardedValue": {
+        "amount": 4777508.57,
+        "currency": "USD"
+      },
+      "awardDate": "2021-09-30"
+    },
+    "placeOfPerformance": {
+      "country": "US",
+      "city": "WASHINGTON",
+      "nutsCode": null
+    },
+    "scrapedAt": "2026-11-05T07:38:48+00:00",
+    "usaGeneratedInternalId": "CONT_AWD_693JF721F000078_6938_47QRAA19D0085_4732",
+    "usaAwardId": "693JF721F000078",
+    "usaAwardCategory": "contracts",
+    "usaAwardType": "DELIVERY ORDER",
+    "usaApiUrl": "https://api.usaspending.gov/api/v2/awards/CONT_AWD_693JF721F000078_6938_47QRAA19D0085_4732/",
+    "usaAwardingAgencyCode": "069",
+    "usaAwardingSubAgency": "Maritime Administration",
+    "usaAwardingSubAgencyCode": "6938",
+    "usaFundingAgency": "Department of Transportation",
+    "usaFundingSubAgency": "Maritime Administration",
+    "usaRecipientUei": "N9NJK877QJK9",
+    "usaRecipientId": "a0cb5664-8703-c7dc-a188-4a96f90a16c9-C",
+    "usaRecipientLocation": {
+      "country": "US",
+      "state": "VA",
+      "city": "MC LEAN",
+      "county": "FAIRFAX",
+      "zip5": "22102"
+    },
+    "usaPlaceOfPerformance": {
+      "country": "US",
+      "state": "DC",
+      "city": "WASHINGTON",
+      "county": "DISTRICT OF COLUMBIA",
+      "zip5": "20590"
+    },
+    "usaNaics": {
+      "code": "541611",
+      "description": "ADMINISTRATIVE MANAGEMENT AND GENERAL MANAGEMENT CONSULTING SERVICES"
+    },
+    "usaPsc": {
+      "code": "R408",
+      "description": "SUPPORT- PROFESSIONAL: PROGRAM MANAGEMENT/SUPPORT"
+    },
+    "usaAssistanceListings": [],
+    "usaPeriodOfPerformance": {
+      "startDate": "2021-09-30",
+      "endDate": "2026-11-28",
+      "lastDateToOrder": null
+    },
+    "usaBaseObligationDate": "2021-09-30",
+    "usaLastModified": "2026-11-02 22:03:29",
+    "usaLoan": null,
+    "usaDetails": null
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "usaspending",
+    "sourceId": "CONT_AWD_80AFRC21C0001_8000_-NONE-_-NONE-",
+    "url": "https://www.usaspending.gov/award/CONT_AWD_80AFRC21C0001_8000_-NONE-_-NONE-",
+    "documentUrls": {
+      "html": "https://www.usaspending.gov/award/CONT_AWD_80AFRC21C0001_8000_-NONE-_-NONE-",
+      "pdf": null,
+      "xml": null
+    },
+    "noticeType": "contract-award",
+    "noticeTypeCode": "D",
+    "procedureType": null,
+    "contractNature": "services",
+    "title": "RESEARCH FACILITIES AND ENGINEERING SUPPORT SERVICES (RF&ESS)",
+    "description": "RESEARCH FACILITIES AND ENGINEERING SUPPORT SERVICES (RF&ESS)",
+    "language": "en",
+    "buyer": {
+      "name": "National Aeronautics and Space Administration",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": null,
+    "lots": null,
+    "publicationDate": "2026-11-02",
+    "submissionDeadline": null,
+    "awardInfo": {
+      "winners": [
+        {
+          "name": "ASRC FEDERAL SYSTEM SOLUTIONS LLC",
+          "country": "US"
+        }
+      ],
+      "awardedValue": {
+        "amount": 65752741.05,
+        "currency": "USD"
+      },
+      "awardDate": "2020-11-04"
+    },
+    "placeOfPerformance": {
+      "country": "US",
+      "city": "BELTSVILLE",
+      "nutsCode": null
+    },
+    "scrapedAt": "2026-11-05T07:38:48+00:00",
+    "usaGeneratedInternalId": "CONT_AWD_80AFRC21C0001_8000_-NONE-_-NONE-",
+    "usaAwardId": "80AFRC21C0001",
+    "usaAwardCategory": "contracts",
+    "usaAwardType": "DEFINITIVE CONTRACT",
+    "usaApiUrl": "https://api.usaspending.gov/api/v2/awards/CONT_AWD_80AFRC21C0001_8000_-NONE-_-NONE-/",
+    "usaAwardingAgencyCode": "080",
+    "usaAwardingSubAgency": "National Aeronautics and Space Administration",
+    "usaAwardingSubAgencyCode": "8000",
+    "usaFundingAgency": "National Aeronautics and Space Administration",
+    "usaFundingSubAgency": "National Aeronautics and Space Administration",
+    "usaRecipientUei": "FD7JDCJ4AMF9",
+    "usaRecipientId": "72067fac-0ca1-c385-07a1-3db3b8f3411f-C",
+    "usaRecipientLocation": {
+      "country": "US",
+      "state": "MD",
+      "city": "BELTSVILLE",
+      "county": "PRINCE GEORGE'S",
+      "zip5": "20705"
+    },
+    "usaPlaceOfPerformance": {
+      "country": "US",
+      "state": "MD",
+      "city": "BELTSVILLE",
+      "county": "PRINCE GEORGES",
+      "zip5": "20705"
+    },
+    "usaNaics": {
+      "code": "541513",
+      "description": "COMPUTER FACILITIES MANAGEMENT SERVICES"
+    },
+    "usaPsc": {
+      "code": "DF10",
+      "description": "IT AND TELECOM - IT MANAGEMENT AS A SERVICE"
+    },
+    "usaAssistanceListings": [],
+    "usaPeriodOfPerformance": {
+      "startDate": "2020-11-04",
+      "endDate": "2027-01-04",
+      "lastDateToOrder": null
+    },
+    "usaBaseObligationDate": "2020-11-04",
+    "usaLastModified": "2026-11-02 20:34:34",
+    "usaLoan": null,
+    "usaDetails": null
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "usaspending",
+    "sourceId": "CONT_AWD_80ARC026F7005_8000_80ARC018D0010_8000",
+    "url": "https://www.usaspending.gov/award/CONT_AWD_80ARC026F7005_8000_80ARC018D0010_8000",
+    "documentUrls": {
+      "html": "https://www.usaspending.gov/award/CONT_AWD_80ARC026F7005_8000_80ARC018D0010_8000",
+      "pdf": null,
+      "xml": null
+    },
+    "noticeType": "contract-award",
+    "noticeTypeCode": "C",
+    "procedureType": null,
+    "contractNature": "services",
+    "title": "TECHNICAL SERVICES TASK ORDER UNDER NASA ADVANCED COMPUTING SERVICES (NACS) CONTRACT",
+    "description": "TECHNICAL SERVICES TASK ORDER UNDER NASA ADVANCED COMPUTING SERVICES (NACS) CONTRACT",
+    "language": "en",
+    "buyer": {
+      "name": "National Aeronautics and Space Administration",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": null,
+    "lots": null,
+    "publicationDate": "2026-11-02",
+    "submissionDeadline": null,
+    "awardInfo": {
+      "winners": [
+        {
+          "name": "INUTEQ, LLC",
+          "country": "US"
+        }
+      ],
+      "awardedValue": {
+        "amount": 2839195.74,
+        "currency": "USD"
+      },
+      "awardDate": "2026-06-30"
+    },
+    "placeOfPerformance": {
+      "country": "US",
+      "city": "MOUNTAIN VIEW",
+      "nutsCode": null
+    },
+    "scrapedAt": "2026-11-05T07:38:48+00:00",
+    "usaGeneratedInternalId": "CONT_AWD_80ARC026F7005_8000_80ARC018D0010_8000",
+    "usaAwardId": "80ARC026F7005",
+    "usaAwardCategory": "contracts",
+    "usaAwardType": "DELIVERY ORDER",
+    "usaApiUrl": "https://api.usaspending.gov/api/v2/awards/CONT_AWD_80ARC026F7005_8000_80ARC018D0010_8000/",
+    "usaAwardingAgencyCode": "080",
+    "usaAwardingSubAgency": "National Aeronautics and Space Administration",
+    "usaAwardingSubAgencyCode": "8000",
+    "usaFundingAgency": "National Aeronautics and Space Administration",
+    "usaFundingSubAgency": "National Aeronautics and Space Administration",
+    "usaRecipientUei": "NBEWZB8LQ8Z5",
+    "usaRecipientId": "83253a28-d5e4-17db-0aa6-15d2c71ba1fa-C",
+    "usaRecipientLocation": {
+      "country": "US",
+      "state": "MD",
+      "city": "BELTSVILLE",
+      "county": "PRINCE GEORGE'S",
+      "zip5": "20705"
+    },
+    "usaPlaceOfPerformance": {
+      "country": "US",
+      "state": "CA",
+      "city": "MOUNTAIN VIEW",
+      "county": "SANTA CLARA",
+      "zip5": "94035"
+    },
+    "usaNaics": {
+      "code": "541513",
+      "description": "COMPUTER FACILITIES MANAGEMENT SERVICES"
+    },
+    "usaPsc": {
+      "code": "DB01",
+      "description": "IT AND TELECOM - HIGH PERFORMANCE COMPUTING (HPC) SUPPORT SERVICES (LABOR)"
+    },
+    "usaAssistanceListings": [],
+    "usaPeriodOfPerformance": {
+      "startDate": "2026-07-01",
+      "endDate": "2027-06-30",
+      "lastDateToOrder": null
+    },
+    "usaBaseObligationDate": "2026-06-30",
+    "usaLastModified": "2026-11-02 20:25:06",
+    "usaLoan": null,
+    "usaDetails": null
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "usaspending",
+    "sourceId": "CONT_AWD_89303925CEM000058_8900_-NONE-_-NONE-",
+    "url": "https://www.usaspending.gov/award/CONT_AWD_89303925CEM000058_8900_-NONE-_-NONE-",
+    "documentUrls": {
+      "html": "https://www.usaspending.gov/award/CONT_AWD_89303925CEM000058_8900_-NONE-_-NONE-",
+      "pdf": null,
+      "xml": null
+    },
+    "noticeType": "contract-award",
+    "noticeTypeCode": "D",
+    "procedureType": null,
+    "contractNature": "services",
+    "title": "THE UNITED STATES DEPARTMENT OF ENERGY, HANFORD FIELD OFFICE, REQUIRES RADIOLOGICAL/NON RADIOLOGICAL LAUNDERING AND DECONTAMINATION SERVICES TO SUPPORT THE…",
+    "description": "THE UNITED STATES DEPARTMENT OF ENERGY, HANFORD FIELD OFFICE, REQUIRES RADIOLOGICAL/NON RADIOLOGICAL LAUNDERING AND DECONTAMINATION SERVICES TO SUPPORT THE ENTIRE HANFORD SITE IN RICHLAND, WASHINGTON.",
+    "language": "en",
+    "buyer": {
+      "name": "Department of Energy",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": null,
+    "lots": null,
+    "publicationDate": "2026-11-02",
+    "submissionDeadline": null,
+    "awardInfo": {
+      "winners": [
+        {
+          "name": "UNITECH SERVICES GROUP, INC.",
+          "country": "US"
+        }
+      ],
+      "awardedValue": {
+        "amount": 7480000,
+        "currency": "USD"
+      },
+      "awardDate": "2025-03-14"
+    },
+    "placeOfPerformance": {
+      "country": "US",
+      "city": "RICHLAND",
+      "nutsCode": null
+    },
+    "scrapedAt": "2026-11-05T07:38:48+00:00",
+    "usaGeneratedInternalId": "CONT_AWD_89303925CEM000058_8900_-NONE-_-NONE-",
+    "usaAwardId": "89303925CEM000058",
+    "usaAwardCategory": "contracts",
+    "usaAwardType": "DEFINITIVE CONTRACT",
+    "usaApiUrl": "https://api.usaspending.gov/api/v2/awards/CONT_AWD_89303925CEM000058_8900_-NONE-_-NONE-/",
+    "usaAwardingAgencyCode": "089",
+    "usaAwardingSubAgency": "Department of Energy",
+    "usaAwardingSubAgencyCode": "8900",
+    "usaFundingAgency": "Department of Energy",
+    "usaFundingSubAgency": "Department of Energy",
+    "usaRecipientUei": "J7CBDG1JJ675",
+    "usaRecipientId": "ba58ccc4-3aa4-d6d4-3fff-dce9ab00d1b2-C",
+    "usaRecipientLocation": {
+      "country": "US",
+      "state": "WA",
+      "city": "RICHLAND",
+      "county": "BENTON",
+      "zip5": "99354"
+    },
+    "usaPlaceOfPerformance": {
+      "country": "US",
+      "state": "WA",
+      "city": "RICHLAND",
+      "county": "BENTON",
+      "zip5": "99354"
+    },
+    "usaNaics": {
+      "code": "812332",
+      "description": "INDUSTRIAL LAUNDERERS"
+    },
+    "usaPsc": {
+      "code": "S209",
+      "description": "HOUSEKEEPING- LAUNDRY/DRYCLEANING"
+    },
+    "usaAssistanceListings": [],
+    "usaPeriodOfPerformance": {
+      "startDate": "2025-05-01",
+      "endDate": "2027-04-30",
+      "lastDateToOrder": null
+    },
+    "usaBaseObligationDate": "2025-03-14",
+    "usaLastModified": "2026-11-02 19:50:30",
+    "usaLoan": null,
+    "usaDetails": null
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "usaspending",
+    "sourceId": "CONT_AWD_47PK1724F0034_4740_47PK0121D0025_4740",
+    "url": "https://www.usaspending.gov/award/CONT_AWD_47PK1724F0034_4740_47PK0121D0025_4740",
+    "documentUrls": {
+      "html": "https://www.usaspending.gov/award/CONT_AWD_47PK1724F0034_4740_47PK0121D0025_4740",
+      "pdf": null,
+      "xml": null
+    },
+    "noticeType": "contract-award",
+    "noticeTypeCode": "C",
+    "procedureType": null,
+    "contractNature": "works",
+    "title": "DCMA - 2ND FLOOR TENANT IMPROVEMENTS",
+    "description": "DCMA - 2ND FLOOR TENANT IMPROVEMENTS",
+    "language": "en",
+    "buyer": {
+      "name": "General Services Administration",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": null,
+    "lots": null,
+    "publicationDate": "2026-11-02",
+    "submissionDeadline": null,
+    "awardInfo": {
+      "winners": [
+        {
+          "name": "LEGEND CONSTRUCTION AND PAINTING INC",
+          "country": "US"
+        }
+      ],
+      "awardedValue": {
+        "amount": 2111604.66,
+        "currency": "USD"
+      },
+      "awardDate": "2024-08-30"
+    },
+    "placeOfPerformance": {
+      "country": "US",
+      "city": "SAN JOSE",
+      "nutsCode": null
+    },
+    "scrapedAt": "2026-11-05T07:38:48+00:00",
+    "usaGeneratedInternalId": "CONT_AWD_47PK1724F0034_4740_47PK0121D0025_4740",
+    "usaAwardId": "47PK1724F0034",
+    "usaAwardCategory": "contracts",
+    "usaAwardType": "DELIVERY ORDER",
+    "usaApiUrl": "https://api.usaspending.gov/api/v2/awards/CONT_AWD_47PK1724F0034_4740_47PK0121D0025_4740/",
+    "usaAwardingAgencyCode": "047",
+    "usaAwardingSubAgency": "Public Buildings Service",
+    "usaAwardingSubAgencyCode": "4740",
+    "usaFundingAgency": "Department of Defense",
+    "usaFundingSubAgency": "Washington Headquarters Services",
+    "usaRecipientUei": "V79BMWJ66XC6",
+    "usaRecipientId": "785183ca-f8e7-5f41-f43f-05004cad07b6-C",
+    "usaRecipientLocation": {
+      "country": "US",
+      "state": "CA",
+      "city": "GRASS VALLEY",
+      "county": "NEVADA",
+      "zip5": "95949"
+    },
+    "usaPlaceOfPerformance": {
+      "country": "US",
+      "state": "CA",
+      "city": "SAN JOSE",
+      "county": "SANTA CLARA",
+      "zip5": "95113"
+    },
+    "usaNaics": {
+      "code": "236220",
+      "description": "COMMERCIAL AND INSTITUTIONAL BUILDING CONSTRUCTION"
+    },
+    "usaPsc": {
+      "code": "Z2AA",
+      "description": "REPAIR OR ALTERATION OF OFFICE BUILDINGS"
+    },
+    "usaAssistanceListings": [],
+    "usaPeriodOfPerformance": {
+      "startDate": "2024-10-30",
+      "endDate": "2027-01-28",
+      "lastDateToOrder": null
+    },
+    "usaBaseObligationDate": "2024-08-30",
+    "usaLastModified": "2026-11-02 19:43:58",
+    "usaLoan": null,
+    "usaDetails": null
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "usaspending",
+    "sourceId": "CONT_AWD_89233124CNA000330_8900_-NONE-_-NONE-",
+    "url": "https://www.usaspending.gov/award/CONT_AWD_89233124CNA000330_8900_-NONE-_-NONE-",
+    "documentUrls": {
+      "html": "https://www.usaspending.gov/award/CONT_AWD_89233124CNA000330_8900_-NONE-_-NONE-",
+      "pdf": null,
+      "xml": null
+    },
+    "noticeType": "contract-award",
+    "noticeTypeCode": "D",
+    "procedureType": null,
+    "contractNature": "services",
+    "title": "ENTRY CONTROL AND PROTECTIVE SERVICES (ECAPS II)",
+    "description": "ENTRY CONTROL AND PROTECTIVE SERVICES (ECAPS II)",
+    "language": "en",
+    "buyer": {
+      "name": "Department of Energy",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": null,
+    "lots": null,
+    "publicationDate": "2026-11-02",
+    "submissionDeadline": null,
+    "awardInfo": {
+      "winners": [
+        {
+          "name": "MONTECH INC",
+          "country": "US"
+        }
+      ],
+      "awardedValue": {
+        "amount": 1816050.62,
+        "currency": "USD"
+      },
+      "awardDate": "2024-02-14"
+    },
+    "placeOfPerformance": {
+      "country": "US",
+      "city": "KIRTLAND AFB",
+      "nutsCode": null
+    },
+    "scrapedAt": "2026-11-05T07:38:48+00:00",
+    "usaGeneratedInternalId": "CONT_AWD_89233124CNA000330_8900_-NONE-_-NONE-",
+    "usaAwardId": "89233124CNA000330",
+    "usaAwardCategory": "contracts",
+    "usaAwardType": "DEFINITIVE CONTRACT",
+    "usaApiUrl": "https://api.usaspending.gov/api/v2/awards/CONT_AWD_89233124CNA000330_8900_-NONE-_-NONE-/",
+    "usaAwardingAgencyCode": "089",
+    "usaAwardingSubAgency": "Department of Energy",
+    "usaAwardingSubAgencyCode": "8900",
+    "usaFundingAgency": "Department of Energy",
+    "usaFundingSubAgency": "Department of Energy",
+    "usaRecipientUei": "ZLQWLEQ5HJ49",
+    "usaRecipientId": "c21f8ec8-032f-1e88-10aa-6816ede104c9-C",
+    "usaRecipientLocation": {
+      "country": "US",
+      "state": "NM",
+      "city": "ALBUQUERQUE",
+      "county": "BERNALILLO",
+      "zip5": "87106"
+    },
+    "usaPlaceOfPerformance": {
+      "country": "US",
+      "state": "NM",
+      "city": "KIRTLAND AFB",
+      "county": "BERNALILLO",
+      "zip5": "87117"
+    },
+    "usaNaics": {
+      "code": "561612",
+      "description": "SECURITY GUARDS AND PATROL SERVICES"
+    },
+    "usaPsc": {
+      "code": "R430",
+      "description": "SUPPORT- PROFESSIONAL: PHYSICAL SECURITY AND BADGING"
+    },
+    "usaAssistanceListings": [],
+    "usaPeriodOfPerformance": {
+      "startDate": "2024-02-14",
+      "endDate": "2027-02-27",
+      "lastDateToOrder": null
+    },
+    "usaBaseObligationDate": "2024-02-14",
+    "usaLastModified": "2026-11-02 18:55:02",
+    "usaLoan": null,
+    "usaDetails": null
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "usaspending",
+    "sourceId": "CONT_AWD_36C26122P0080_3600_-NONE-_-NONE-",
+    "url": "https://www.usaspending.gov/award/CONT_AWD_36C26122P0080_3600_-NONE-_-NONE-",
+    "documentUrls": {
+      "html": "https://www.usaspending.gov/award/CONT_AWD_36C26122P0080_3600_-NONE-_-NONE-",
+      "pdf": null,
+      "xml": null
+    },
+    "noticeType": "contract-award",
+    "noticeTypeCode": "B",
+    "procedureType": null,
+    "contractNature": "services",
+    "title": "MEDICAL COURIER SERVICES",
+    "description": "MEDICAL COURIER SERVICES",
+    "language": "en",
+    "buyer": {
+      "name": "Department of Veterans Affairs",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": null,
+    "lots": null,
+    "publicationDate": "2026-11-02",
+    "submissionDeadline": null,
+    "awardInfo": {
+      "winners": [
+        {
+          "name": "CROSSTOWN COURIER SERVICE INC",
+          "country": "US"
+        }
+      ],
+      "awardedValue": {
+        "amount": 1931609.28,
+        "currency": "USD"
+      },
+      "awardDate": "2021-10-19"
+    },
+    "placeOfPerformance": {
+      "country": "US",
+      "city": "SAN FRANCISCO",
+      "nutsCode": null
+    },
+    "scrapedAt": "2026-11-05T07:38:48+00:00",
+    "usaGeneratedInternalId": "CONT_AWD_36C26122P0080_3600_-NONE-_-NONE-",
+    "usaAwardId": "36C26122P0080",
+    "usaAwardCategory": "contracts",
+    "usaAwardType": "PURCHASE ORDER",
+    "usaApiUrl": "https://api.usaspending.gov/api/v2/awards/CONT_AWD_36C26122P0080_3600_-NONE-_-NONE-/",
+    "usaAwardingAgencyCode": "036",
+    "usaAwardingSubAgency": "Department of Veterans Affairs",
+    "usaAwardingSubAgencyCode": "3600",
+    "usaFundingAgency": "Department of Veterans Affairs",
+    "usaFundingSubAgency": "Department of Veterans Affairs",
+    "usaRecipientUei": "G9F7J6E7JC66",
+    "usaRecipientId": "7b212573-3a1a-22e3-090d-734d5eb6df58-C",
+    "usaRecipientLocation": {
+      "country": "US",
+      "state": "MA",
+      "city": "CHICOPEE",
+      "county": "HAMPDEN",
+      "zip5": "01013"
+    },
+    "usaPlaceOfPerformance": {
+      "country": "US",
+      "state": "CA",
+      "city": "SAN FRANCISCO",
+      "county": "SAN FRANCISCO",
+      "zip5": "94121"
+    },
+    "usaNaics": {
+      "code": "492210",
+      "description": "LOCAL MESSENGERS AND LOCAL DELIVERY"
+    },
+    "usaPsc": {
+      "code": "R602",
+      "description": "SUPPORT- ADMINISTRATIVE: COURIER/MESSENGER"
+    },
+    "usaAssistanceListings": [],
+    "usaPeriodOfPerformance": {
+      "startDate": "2021-11-01",
+      "endDate": "2027-04-30",
+      "lastDateToOrder": null
+    },
+    "usaBaseObligationDate": "2021-10-19",
+    "usaLastModified": "2026-11-02 18:50:09",
+    "usaLoan": null,
+    "usaDetails": null
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "usaspending",
+    "sourceId": "CONT_AWD_75F40124F19030_7524_75F40120A00018_7524",
+    "url": "https://www.usaspending.gov/award/CONT_AWD_75F40124F19030_7524_75F40120A00018_7524",
+    "documentUrls": {
+      "html": "https://www.usaspending.gov/award/CONT_AWD_75F40124F19030_7524_75F40120A00018_7524",
+      "pdf": null,
+      "xml": null
+    },
+    "noticeType": "contract-award",
+    "noticeTypeCode": "A",
+    "procedureType": null,
+    "contractNature": "services",
+    "title": "CDER-OND-24-C-1627 - PREGNANCY EXPOSURE REGISTRY ENROLLMENT PROJECT",
+    "description": "CDER-OND-24-C-1627 - PREGNANCY EXPOSURE REGISTRY ENROLLMENT PROJECT",
+    "language": "en",
+    "buyer": {
+      "name": "Department of Health and Human Services",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": null,
+    "lots": null,
+    "publicationDate": "2026-11-02",
+    "submissionDeadline": null,
+    "awardInfo": {
+      "winners": [
+        {
+          "name": "WESTAT, INC.",
+          "country": "US"
+        }
+      ],
+      "awardedValue": {
+        "amount": 477837,
+        "currency": "USD"
+      },
+      "awardDate": "2024-05-15"
+    },
+    "placeOfPerformance": {
+      "country": "US",
+      "city": "ROCKVILLE",
+      "nutsCode": null
+    },
+    "scrapedAt": "2026-11-05T07:38:48+00:00",
+    "usaGeneratedInternalId": "CONT_AWD_75F40124F19030_7524_75F40120A00018_7524",
+    "usaAwardId": "75F40124F19030",
+    "usaAwardCategory": "contracts",
+    "usaAwardType": "BPA CALL",
+    "usaApiUrl": "https://api.usaspending.gov/api/v2/awards/CONT_AWD_75F40124F19030_7524_75F40120A00018_7524/",
+    "usaAwardingAgencyCode": "075",
+    "usaAwardingSubAgency": "Food and Drug Administration",
+    "usaAwardingSubAgencyCode": "7524",
+    "usaFundingAgency": "Department of Health and Human Services",
+    "usaFundingSubAgency": "Food and Drug Administration",
+    "usaRecipientUei": "NVUWAFWQ57S5",
+    "usaRecipientId": "1a05eb77-da74-5790-7cc1-11f261fd252e-C",
+    "usaRecipientLocation": {
+      "country": "US",
+      "state": "MD",
+      "city": "ROCKVILLE",
+      "county": "MONTGOMERY",
+      "zip5": "20850"
+    },
+    "usaPlaceOfPerformance": {
+      "country": "US",
+      "state": "MD",
+      "city": "ROCKVILLE",
+      "county": "MONTGOMERY",
+      "zip5": "20850"
+    },
+    "usaNaics": {
+      "code": "541820",
+      "description": "PUBLIC RELATIONS AGENCIES"
+    },
+    "usaPsc": {
+      "code": "B599",
+      "description": "SPECIAL STUDIES/ANALYSIS- OTHER"
+    },
+    "usaAssistanceListings": [],
+    "usaPeriodOfPerformance": {
+      "startDate": "2024-05-15",
+      "endDate": "2027-05-14",
+      "lastDateToOrder": null
+    },
+    "usaBaseObligationDate": "2024-05-15",
+    "usaLastModified": "2026-11-02 18:40:34",
+    "usaLoan": null,
+    "usaDetails": null
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "usaspending",
+    "sourceId": "CONT_AWD_140P2125F0178_1443_140P2121A0026_1443",
+    "url": "https://www.usaspending.gov/award/CONT_AWD_140P2125F0178_1443_140P2121A0026_1443",
+    "documentUrls": {
+      "html": "https://www.usaspending.gov/award/CONT_AWD_140P2125F0178_1443_140P2121A0026_1443",
+      "pdf": null,
+      "xml": null
+    },
+    "noticeType": "contract-award",
+    "noticeTypeCode": "A",
+    "procedureType": null,
+    "contractNature": "services",
+    "title": "PROVIDE TECHNICAL, ADMINISTRATIVE, AND REGULATORY SUPPORT SERVICES TO THE NPS ENVIRONMENTAL COMPLIANCE AND CLEANUP BRANCH (ECCB) RELATED TO THE MANAGEMENT OF…",
+    "description": "PROVIDE TECHNICAL, ADMINISTRATIVE, AND REGULATORY SUPPORT SERVICES TO THE NPS ENVIRONMENTAL COMPLIANCE AND CLEANUP BRANCH (ECCB) RELATED TO THE MANAGEMENT OF CONTAMINATED SITES AND ENVIRONMENTAL COMPLIANCE.",
+    "language": "en",
+    "buyer": {
+      "name": "Department of the Interior",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": null,
+    "lots": null,
+    "publicationDate": "2026-11-02",
+    "submissionDeadline": null,
+    "awardInfo": {
+      "winners": [
+        {
+          "name": "VANASSE HANGEN BRUSTLIN INC",
+          "country": "US"
+        }
+      ],
+      "awardedValue": {
+        "amount": 490609.24,
+        "currency": "USD"
+      },
+      "awardDate": "2025-09-26"
+    },
+    "placeOfPerformance": {
+      "country": "US",
+      "city": "WILLIAMSBURG",
+      "nutsCode": null
+    },
+    "scrapedAt": "2026-11-05T07:38:48+00:00",
+    "usaGeneratedInternalId": "CONT_AWD_140P2125F0178_1443_140P2121A0026_1443",
+    "usaAwardId": "140P2125F0178",
+    "usaAwardCategory": "contracts",
+    "usaAwardType": "BPA CALL",
+    "usaApiUrl": "https://api.usaspending.gov/api/v2/awards/CONT_AWD_140P2125F0178_1443_140P2121A0026_1443/",
+    "usaAwardingAgencyCode": "014",
+    "usaAwardingSubAgency": "Departmental Offices",
+    "usaAwardingSubAgencyCode": "1406",
+    "usaFundingAgency": "Department of the Interior",
+    "usaFundingSubAgency": "Departmental Offices",
+    "usaRecipientUei": "KJQHMKR62UJ3",
+    "usaRecipientId": "778a7585-99b7-44ef-2669-fe34bf6e0b22-C",
+    "usaRecipientLocation": {
+      "country": "US",
+      "state": "VA",
+      "city": "WILLIAMSBURG",
+      "county": "JAMES CITY",
+      "zip5": "23185"
+    },
+    "usaPlaceOfPerformance": {
+      "country": "US",
+      "state": "VA",
+      "city": "WILLIAMSBURG",
+      "county": "JAMES CITY",
+      "zip5": "23185"
+    },
+    "usaNaics": {
+      "code": "541620",
+      "description": "ENVIRONMENTAL CONSULTING SERVICES"
+    },
+    "usaPsc": {
+      "code": "F999",
+      "description": "OTHER ENVIRONMENTAL SERVICES"
+    },
+    "usaAssistanceListings": [],
+    "usaPeriodOfPerformance": {
+      "startDate": "2025-09-28",
+      "endDate": "2026-09-28",
+      "lastDateToOrder": null
+    },
+    "usaBaseObligationDate": "2025-09-26",
+    "usaLastModified": "2026-11-02 18:37:14",
+    "usaLoan": null,
+    "usaDetails": null
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "usaspending",
+    "sourceId": "CONT_AWD_91990021F0387_9100_91990021D0004_9100",
+    "url": "https://www.usaspending.gov/award/CONT_AWD_91990021F0387_9100_91990021D0004_9100",
+    "documentUrls": {
+      "html": "https://www.usaspending.gov/award/CONT_AWD_91990021F0387_9100_91990021D0004_9100",
+      "pdf": null,
+      "xml": null
+    },
+    "noticeType": "contract-award",
+    "noticeTypeCode": "C",
+    "procedureType": null,
+    "contractNature": "services",
+    "title": "DEPARTMENT OF EDUCATIONS IES REQUIRES ONE OR MORE CONTRACTORS TO ASSIST IES IN CONDUCTING EVALUATIONS OF POLICIES, PROGRAMS AND STRATEGIES DESIGNED TO IMPROVE…",
+    "description": "DEPARTMENT OF EDUCATIONS IES REQUIRES ONE OR MORE CONTRACTORS TO ASSIST IES IN CONDUCTING EVALUATIONS OF POLICIES, PROGRAMS AND STRATEGIES DESIGNED TO IMPROVE ENGLISH LEARNING",
+    "language": "en",
+    "buyer": {
+      "name": "Department of Education",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": null,
+    "lots": null,
+    "publicationDate": "2026-11-02",
+    "submissionDeadline": null,
+    "awardInfo": {
+      "winners": [
+        {
+          "name": "WESTAT, INC.",
+          "country": "US"
+        }
+      ],
+      "awardedValue": {
+        "amount": 2999905,
+        "currency": "USD"
+      },
+      "awardDate": "2021-09-29"
+    },
+    "placeOfPerformance": {
+      "country": "US",
+      "city": "ARLINGTON",
+      "nutsCode": null
+    },
+    "scrapedAt": "2026-11-05T07:38:48+00:00",
+    "usaGeneratedInternalId": "CONT_AWD_91990021F0387_9100_91990021D0004_9100",
+    "usaAwardId": "91990021F0387",
+    "usaAwardCategory": "contracts",
+    "usaAwardType": "DELIVERY ORDER",
+    "usaApiUrl": "https://api.usaspending.gov/api/v2/awards/CONT_AWD_91990021F0387_9100_91990021D0004_9100/",
+    "usaAwardingAgencyCode": "091",
+    "usaAwardingSubAgency": "Department of Education",
+    "usaAwardingSubAgencyCode": "9100",
+    "usaFundingAgency": "Department of Education",
+    "usaFundingSubAgency": "Department of Education",
+    "usaRecipientUei": "NVUWAFWQ57S5",
+    "usaRecipientId": "1a05eb77-da74-5790-7cc1-11f261fd252e-C",
+    "usaRecipientLocation": {
+      "country": "US",
+      "state": "MD",
+      "city": "ROCKVILLE",
+      "county": "MONTGOMERY",
+      "zip5": "20850"
+    },
+    "usaPlaceOfPerformance": {
+      "country": "US",
+      "state": "VA",
+      "city": "ARLINGTON",
+      "county": "ARLINGTON",
+      "zip5": "22202"
+    },
+    "usaNaics": {
+      "code": "541720",
+      "description": "RESEARCH AND DEVELOPMENT IN THE SOCIAL SCIENCES AND HUMANITIES"
+    },
+    "usaPsc": {
+      "code": "R410",
+      "description": "SUPPORT- PROFESSIONAL: PROGRAM EVALUATION/REVIEW/DEVELOPMENT"
+    },
+    "usaAssistanceListings": [],
+    "usaPeriodOfPerformance": {
+      "startDate": "2021-09-29",
+      "endDate": "2024-11-28",
+      "lastDateToOrder": null
+    },
+    "usaBaseObligationDate": "2021-09-29",
+    "usaLastModified": "2026-11-02 18:24:06",
+    "usaLoan": null,
+    "usaDetails": null
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "usaspending",
+    "sourceId": "CONT_AWD_47PM0024C0001_4740_-NONE-_-NONE-",
+    "url": "https://www.usaspending.gov/award/CONT_AWD_47PM0024C0001_4740_-NONE-_-NONE-",
+    "documentUrls": {
+      "html": "https://www.usaspending.gov/award/CONT_AWD_47PM0024C0001_4740_-NONE-_-NONE-",
+      "pdf": null,
+      "xml": null
+    },
+    "noticeType": "contract-award",
+    "noticeTypeCode": "D",
+    "procedureType": null,
+    "contractNature": "works",
+    "title": "IRA: PROVIDE LABOR, MATERIALS, SUPERVISION, AND EQUIPMENT TO CONSTRUCT THE NEW CISA HQ BUILDING. SERVICES INCLUDE, BUT ARE NOT LIMITED: CIVIL AND SITE WORK…",
+    "description": "IRA: PROVIDE LABOR, MATERIALS, SUPERVISION, AND EQUIPMENT TO CONSTRUCT THE NEW CISA HQ BUILDING. SERVICES INCLUDE, BUT ARE NOT LIMITED: CIVIL AND SITE WORK CONSISTING OF HEAVY EARTH WORK, ETC.EXCAVATION, STABILIZATION OF EXISTING SLOPE, FOUNDATIONS",
+    "language": "en",
+    "buyer": {
+      "name": "General Services Administration",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": null,
+    "lots": null,
+    "publicationDate": "2026-11-02",
+    "submissionDeadline": null,
+    "awardInfo": {
+      "winners": [
+        {
+          "name": "CLARK CONSTRUCTION GROUP LLC",
+          "country": "US"
+        }
+      ],
+      "awardedValue": {
+        "amount": 616833356.58,
+        "currency": "USD"
+      },
+      "awardDate": "2024-08-16"
+    },
+    "placeOfPerformance": {
+      "country": "US",
+      "city": "WASHINGTON",
+      "nutsCode": null
+    },
+    "scrapedAt": "2026-11-05T07:38:48+00:00",
+    "usaGeneratedInternalId": "CONT_AWD_47PM0024C0001_4740_-NONE-_-NONE-",
+    "usaAwardId": "47PM0024C0001",
+    "usaAwardCategory": "contracts",
+    "usaAwardType": "DEFINITIVE CONTRACT",
+    "usaApiUrl": "https://api.usaspending.gov/api/v2/awards/CONT_AWD_47PM0024C0001_4740_-NONE-_-NONE-/",
+    "usaAwardingAgencyCode": "047",
+    "usaAwardingSubAgency": "Public Buildings Service",
+    "usaAwardingSubAgencyCode": "4740",
+    "usaFundingAgency": "General Services Administration",
+    "usaFundingSubAgency": "Public Buildings Service",
+    "usaRecipientUei": "QQBXQR679KM9",
+    "usaRecipientId": "8470bfbc-50af-251d-d192-3059c5b82618-C",
+    "usaRecipientLocation": {
+      "country": "US",
+      "state": "MD",
+      "city": "BETHESDA",
+      "county": "MONTGOMERY",
+      "zip5": "20814"
+    },
+    "usaPlaceOfPerformance": {
+      "country": "US",
+      "state": "DC",
+      "city": "WASHINGTON",
+      "county": "DISTRICT OF COLUMBIA",
+      "zip5": "20032"
+    },
+    "usaNaics": {
+      "code": "236220",
+      "description": "COMMERCIAL AND INSTITUTIONAL BUILDING CONSTRUCTION"
+    },
+    "usaPsc": {
+      "code": "Y1AA",
+      "description": "CONSTRUCTION OF OFFICE BUILDINGS"
+    },
+    "usaAssistanceListings": [],
+    "usaPeriodOfPerformance": {
+      "startDate": "2024-08-16",
+      "endDate": "2028-04-17",
+      "lastDateToOrder": null
+    },
+    "usaBaseObligationDate": "2024-08-16",
+    "usaLastModified": "2026-11-02 18:20:32",
+    "usaLoan": null,
+    "usaDetails": null
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "usaspending",
+    "sourceId": "CONT_AWD_693KA922F00145_6920_DTFAWA10A00147_6920",
+    "url": "https://www.usaspending.gov/award/CONT_AWD_693KA922F00145_6920_DTFAWA10A00147_6920",
+    "documentUrls": {
+      "html": "https://www.usaspending.gov/award/CONT_AWD_693KA922F00145_6920_DTFAWA10A00147_6920",
+      "pdf": null,
+      "xml": null
+    },
+    "noticeType": "contract-award",
+    "noticeTypeCode": "A",
+    "procedureType": null,
+    "contractNature": "services",
+    "title": "EFAST PA 22-063-NV ADMINISTRATIVE SUPPORT FOR THE FAA OFFICE OF CIVIL RIGHTS (ACR)",
+    "description": "EFAST PA 22-063-NV ADMINISTRATIVE SUPPORT FOR THE FAA OFFICE OF CIVIL RIGHTS (ACR)",
+    "language": "en",
+    "buyer": {
+      "name": "Department of Transportation",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": null,
+    "lots": null,
+    "publicationDate": "2026-11-02",
+    "submissionDeadline": null,
+    "awardInfo": {
+      "winners": [
+        {
+          "name": "BELLAMY MANAGEMENT SERVICES LLC",
+          "country": "US"
+        }
+      ],
+      "awardedValue": {
+        "amount": 1936720.24,
+        "currency": "USD"
+      },
+      "awardDate": "2022-07-11"
+    },
+    "placeOfPerformance": {
+      "country": "US",
+      "city": "WASHINGTON",
+      "nutsCode": null
+    },
+    "scrapedAt": "2026-11-05T07:38:48+00:00",
+    "usaGeneratedInternalId": "CONT_AWD_693KA922F00145_6920_DTFAWA10A00147_6920",
+    "usaAwardId": "693KA922F00145",
+    "usaAwardCategory": "contracts",
+    "usaAwardType": "BPA CALL",
+    "usaApiUrl": "https://api.usaspending.gov/api/v2/awards/CONT_AWD_693KA922F00145_6920_DTFAWA10A00147_6920/",
+    "usaAwardingAgencyCode": "069",
+    "usaAwardingSubAgency": "Federal Aviation Administration",
+    "usaAwardingSubAgencyCode": "6920",
+    "usaFundingAgency": "Department of Transportation",
+    "usaFundingSubAgency": "Federal Aviation Administration",
+    "usaRecipientUei": "FD33DMJ8LPM8",
+    "usaRecipientId": "c9903dfd-ce3d-9280-53e7-c141df73aa5b-C",
+    "usaRecipientLocation": {
+      "country": "US",
+      "state": "DC",
+      "city": "WASHINGTON",
+      "county": "DISTRICT OF COLUMBIA",
+      "zip5": "20024"
+    },
+    "usaPlaceOfPerformance": {
+      "country": "US",
+      "state": "DC",
+      "city": "WASHINGTON",
+      "county": "DISTRICT OF COLUMBIA",
+      "zip5": "20597"
+    },
+    "usaNaics": {
+      "code": "541511",
+      "description": "CUSTOM COMPUTER PROGRAMMING SERVICES"
+    },
+    "usaPsc": {
+      "code": "R499",
+      "description": "SUPPORT- PROFESSIONAL: OTHER"
+    },
+    "usaAssistanceListings": [],
+    "usaPeriodOfPerformance": {
+      "startDate": "2022-07-11",
+      "endDate": "2027-09-22",
+      "lastDateToOrder": null
+    },
+    "usaBaseObligationDate": "2022-07-11",
+    "usaLastModified": "2026-11-02 18:12:18",
+    "usaLoan": null,
+    "usaDetails": null
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "usaspending",
+    "sourceId": "ASST_NON_1934942-31-25_417",
+    "url": "https://www.usaspending.gov/award/ASST_NON_1934942-31-25_417",
+    "documentUrls": {
+      "html": "https://www.usaspending.gov/award/ASST_NON_1934942-31-25_417",
+      "pdf": null,
+      "xml": null
+    },
+    "noticeType": "contract-award",
+    "noticeTypeCode": "GRANT",
+    "procedureType": null,
+    "contractNature": null,
+    "title": "PURPOSE: TO SUPPORT A MASTER CLASS SERIES FOR ASPIRING CLASSICAL MUSIC SINGERS.",
+    "description": "PURPOSE: TO SUPPORT A MASTER CLASS SERIES FOR ASPIRING CLASSICAL MUSIC SINGERS.",
+    "language": "en",
+    "buyer": {
+      "name": "National Endowment for the Arts",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": null,
+    "lots": null,
+    "publicationDate": "2026-11-03",
+    "submissionDeadline": null,
+    "awardInfo": {
+      "winners": [
+        {
+          "name": "COALITION FOR AFRICAN AMERICANS IN THE PERFORMING ARTS INCORPORATED",
+          "country": "US"
+        }
+      ],
+      "awardedValue": {
+        "amount": 33696,
+        "currency": "USD"
+      },
+      "awardDate": "2025-01-17"
+    },
+    "placeOfPerformance": {
+      "country": "US",
+      "city": null,
+      "nutsCode": null
+    },
+    "scrapedAt": "2026-11-05T07:38:53+00:00",
+    "usaGeneratedInternalId": "ASST_NON_1934942-31-25_417",
+    "usaAwardId": "1934942-31-25",
+    "usaAwardCategory": "grants",
+    "usaAwardType": "GRANT",
+    "usaApiUrl": "https://api.usaspending.gov/api/v2/awards/ASST_NON_1934942-31-25_417/",
+    "usaAwardingAgencyCode": "417",
+    "usaAwardingSubAgency": "National Endowment for the Arts",
+    "usaAwardingSubAgencyCode": "5920",
+    "usaFundingAgency": "National Endowment for the Arts",
+    "usaFundingSubAgency": "National Endowment for the Arts",
+    "usaRecipientUei": "F9YJGM8HNG45",
+    "usaRecipientId": "686fcc4c-e467-24a6-95f4-753887d2cedd-R",
+    "usaRecipientLocation": {
+      "country": "US",
+      "state": "MD",
+      "city": "ACCOKEEK",
+      "county": "CHARLES",
+      "zip5": "20607"
+    },
+    "usaPlaceOfPerformance": {
+      "country": "US",
+      "state": "MD",
+      "city": null,
+      "county": null,
+      "zip5": null
+    },
+    "usaNaics": null,
+    "usaPsc": null,
+    "usaAssistanceListings": [
+      {
+        "number": "45.024",
+        "title": "PROMOTION OF THE ARTS GRANTS TO ORGANIZATIONS AND INDIVIDUALS"
+      }
+    ],
+    "usaPeriodOfPerformance": {
+      "startDate": "2025-01-01",
+      "endDate": "2026-01-31",
+      "lastDateToOrder": null
+    },
+    "usaBaseObligationDate": "2025-01-17",
+    "usaLastModified": "2026-11-03 21:11:34",
+    "usaLoan": null,
+    "usaDetails": null
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "usaspending",
+    "sourceId": "ASST_NON_1927853-62-24_417",
+    "url": "https://www.usaspending.gov/award/ASST_NON_1927853-62-24_417",
+    "documentUrls": {
+      "html": "https://www.usaspending.gov/award/ASST_NON_1927853-62-24_417",
+      "pdf": null,
+      "xml": null
+    },
+    "noticeType": "contract-award",
+    "noticeTypeCode": "GRANT",
+    "procedureType": null,
+    "contractNature": null,
+    "title": "PURPOSE: TO SUPPORT A GRANT PROGRAM FOR NONPROFIT ORGANIZATIONS IN BALTIMORE MARYLAND.&NBSP;",
+    "description": "PURPOSE: TO SUPPORT A GRANT PROGRAM FOR NONPROFIT ORGANIZATIONS IN BALTIMORE MARYLAND.&NBSP;",
+    "language": "en",
+    "buyer": {
+      "name": "National Endowment for the Arts",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": null,
+    "lots": null,
+    "publicationDate": "2026-11-03",
+    "submissionDeadline": null,
+    "awardInfo": {
+      "winners": [
+        {
+          "name": "BALTIMORE OFFICE OF PROMOTIONS & THE ARTS, INC.",
+          "country": "US"
+        }
+      ],
+      "awardedValue": {
+        "amount": 32355.29,
+        "currency": "USD"
+      },
+      "awardDate": "2024-06-17"
+    },
+    "placeOfPerformance": {
+      "country": "US",
+      "city": null,
+      "nutsCode": null
+    },
+    "scrapedAt": "2026-11-05T07:38:53+00:00",
+    "usaGeneratedInternalId": "ASST_NON_1927853-62-24_417",
+    "usaAwardId": "1927853-62-24",
+    "usaAwardCategory": "grants",
+    "usaAwardType": "GRANT",
+    "usaApiUrl": "https://api.usaspending.gov/api/v2/awards/ASST_NON_1927853-62-24_417/",
+    "usaAwardingAgencyCode": "417",
+    "usaAwardingSubAgency": "National Endowment for the Arts",
+    "usaAwardingSubAgencyCode": "5920",
+    "usaFundingAgency": "National Endowment for the Arts",
+    "usaFundingSubAgency": "National Endowment for the Arts",
+    "usaRecipientUei": "JDLJU1JFCK61",
+    "usaRecipientId": "8584e57e-9159-7c36-6ed1-27bbf56605c8-C",
+    "usaRecipientLocation": {
+      "country": "US",
+      "state": "MD",
+      "city": "BALTIMORE",
+      "county": "BALTIMORE (CITY)",
+      "zip5": "21202"
+    },
+    "usaPlaceOfPerformance": {
+      "country": "US",
+      "state": "MD",
+      "city": null,
+      "county": null,
+      "zip5": null
+    },
+    "usaNaics": null,
+    "usaPsc": null,
+    "usaAssistanceListings": [
+      {
+        "number": "45.024",
+        "title": "PROMOTION OF THE ARTS GRANTS TO ORGANIZATIONS AND INDIVIDUALS"
+      }
+    ],
+    "usaPeriodOfPerformance": {
+      "startDate": "2024-06-01",
+      "endDate": "2024-12-31",
+      "lastDateToOrder": null
+    },
+    "usaBaseObligationDate": "2024-06-17",
+    "usaLastModified": "2026-11-03 21:11:34",
+    "usaLoan": null,
+    "usaDetails": null
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "usaspending",
+    "sourceId": "ASST_NON_1903690-22-C-22_417",
+    "url": "https://www.usaspending.gov/award/ASST_NON_1903690-22-C-22_417",
+    "documentUrls": {
+      "html": "https://www.usaspending.gov/award/ASST_NON_1903690-22-C-22_417",
+      "pdf": null,
+      "xml": null
+    },
+    "noticeType": "contract-award",
+    "noticeTypeCode": "COOPERATIVE AGREEMENT",
+    "procedureType": null,
+    "contractNature": null,
+    "title": "PURPOSE: TO SUPPORT THE IMPLEMENTATION OF THE CREATIVE FORCES COMMUNITY ENGAGEMENT GRANT PROGRAM.",
+    "description": "PURPOSE: TO SUPPORT THE IMPLEMENTATION OF THE CREATIVE FORCES COMMUNITY ENGAGEMENT GRANT PROGRAM.",
+    "language": "en",
+    "buyer": {
+      "name": "National Endowment for the Arts",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": null,
+    "lots": null,
+    "publicationDate": "2026-11-03",
+    "submissionDeadline": null,
+    "awardInfo": {
+      "winners": [
+        {
+          "name": "MID-AMERICA ARTS ALLIANCE",
+          "country": "US"
+        }
+      ],
+      "awardedValue": {
+        "amount": 1453729,
+        "currency": "USD"
+      },
+      "awardDate": "2022-06-08"
+    },
+    "placeOfPerformance": {
+      "country": "US",
+      "city": null,
+      "nutsCode": null
+    },
+    "scrapedAt": "2026-11-05T07:38:53+00:00",
+    "usaGeneratedInternalId": "ASST_NON_1903690-22-C-22_417",
+    "usaAwardId": "1903690-22-C-22",
+    "usaAwardCategory": "grants",
+    "usaAwardType": "COOPERATIVE AGREEMENT",
+    "usaApiUrl": "https://api.usaspending.gov/api/v2/awards/ASST_NON_1903690-22-C-22_417/",
+    "usaAwardingAgencyCode": "417",
+    "usaAwardingSubAgency": "National Endowment for the Arts",
+    "usaAwardingSubAgencyCode": "5920",
+    "usaFundingAgency": "National Endowment for the Arts",
+    "usaFundingSubAgency": "National Endowment for the Arts",
+    "usaRecipientUei": "NQX7N5A68JU9",
+    "usaRecipientId": "64fed94d-950b-c507-be51-648ea6470160-C",
+    "usaRecipientLocation": {
+      "country": "US",
+      "state": "MO",
+      "city": "KANSAS CITY",
+      "county": "JACKSON",
+      "zip5": "64108"
+    },
+    "usaPlaceOfPerformance": {
+      "country": "US",
+      "state": "MO",
+      "city": null,
+      "county": null,
+      "zip5": null
+    },
+    "usaNaics": null,
+    "usaPsc": null,
+    "usaAssistanceListings": [
+      {
+        "number": "45.024",
+        "title": "PROMOTION OF THE ARTS GRANTS TO ORGANIZATIONS AND INDIVIDUALS"
+      }
+    ],
+    "usaPeriodOfPerformance": {
+      "startDate": "2022-10-01",
+      "endDate": "2025-09-30",
+      "lastDateToOrder": null
+    },
+    "usaBaseObligationDate": "2022-06-08",
+    "usaLastModified": "2026-11-03 21:11:34",
+    "usaLoan": null,
+    "usaDetails": null
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "usaspending",
+    "sourceId": "ASST_NON_AO222501X443G028_012",
+    "url": "https://www.usaspending.gov/award/ASST_NON_AO222501X443G028_012",
+    "documentUrls": {
+      "html": "https://www.usaspending.gov/award/ASST_NON_AO222501X443G028_012",
+      "pdf": null,
+      "xml": null
+    },
+    "noticeType": "contract-award",
+    "noticeTypeCode": "GRANT",
+    "procedureType": null,
+    "contractNature": null,
+    "title": "HELPING TRIBAL COMMUNITIES START NEW GARDENS, FARMS, RANCHES OR OTHERENDEAVORS THAT PROMOTE COMMUNITY FOOD SECURITY, RESILIENCY, AND ECONOMICDIVERSITY, WHILE…",
+    "description": "HELPING TRIBAL COMMUNITIES START NEW GARDENS, FARMS, RANCHES OR OTHERENDEAVORS THAT PROMOTE COMMUNITY FOOD SECURITY, RESILIENCY, AND ECONOMICDIVERSITY, WHILE UPHOLDING TRADITIONAL KNOWLEDGE AND TRADITIONAL WAYS OFSECURING FOOD",
+    "language": "en",
+    "buyer": {
+      "name": "Department of Agriculture",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": null,
+    "lots": null,
+    "publicationDate": "2026-11-03",
+    "submissionDeadline": null,
+    "awardInfo": {
+      "winners": [
+        {
+          "name": "UNIVERSITY OF ALASKA FAIRBANKS",
+          "country": "US"
+        }
+      ],
+      "awardedValue": {
+        "amount": 730585,
+        "currency": "USD"
+      },
+      "awardDate": "2022-09-30"
+    },
+    "placeOfPerformance": {
+      "country": "US",
+      "city": null,
+      "nutsCode": null
+    },
+    "scrapedAt": "2026-11-05T07:38:53+00:00",
+    "usaGeneratedInternalId": "ASST_NON_AO222501X443G028_012",
+    "usaAwardId": "AO222501X443G028",
+    "usaAwardCategory": "grants",
+    "usaAwardType": "GRANT",
+    "usaApiUrl": "https://api.usaspending.gov/api/v2/awards/ASST_NON_AO222501X443G028_012/",
+    "usaAwardingAgencyCode": "012",
+    "usaAwardingSubAgency": "Office of Partnerships and Public Engagement",
+    "usaAwardingSubAgencyCode": "12BC",
+    "usaFundingAgency": "Department of Agriculture",
+    "usaFundingSubAgency": "Office of Partnerships and Public Engagement",
+    "usaRecipientUei": "FDLEQSJ8FF63",
+    "usaRecipientId": "569c2448-3ce6-f2a2-0e2b-5d95a748f551-C",
+    "usaRecipientLocation": {
+      "country": "US",
+      "state": "AK",
+      "city": "FAIRBANKS",
+      "county": "FAIRBANKS NORTH STAR",
+      "zip5": "99775"
+    },
+    "usaPlaceOfPerformance": {
+      "country": "US",
+      "state": "AK",
+      "city": null,
+      "county": "FAIRBANKS NORTH STAR",
+      "zip5": null
+    },
+    "usaNaics": null,
+    "usaPsc": null,
+    "usaAssistanceListings": [
+      {
+        "number": "10.443",
+        "title": "OUTREACH AND ASSISTANCE FOR SOCIALLY DISADVANTAGED AND VETERAN FARMERS AND RANCHERS"
+      },
+      {
+        "number": "10.443",
+        "title": "OUTREACH AND ASSISTANCE FOR VETERAN FARMERS AND RANCHERS PROGRAM"
+      }
+    ],
+    "usaPeriodOfPerformance": {
+      "startDate": "2022-09-29",
+      "endDate": "2025-09-28",
+      "lastDateToOrder": null
+    },
+    "usaBaseObligationDate": "2022-09-30",
+    "usaLastModified": "2026-11-03 19:15:45",
+    "usaLoan": null,
+    "usaDetails": null
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "usaspending",
+    "sourceId": "ASST_NON_AP24WSNWRC00C026_012",
+    "url": "https://www.usaspending.gov/award/ASST_NON_AP24WSNWRC00C026_012",
+    "documentUrls": {
+      "html": "https://www.usaspending.gov/award/ASST_NON_AP24WSNWRC00C026_012",
+      "pdf": null,
+      "xml": null
+    },
+    "noticeType": "contract-award",
+    "noticeTypeCode": "COOPERATIVE AGREEMENT",
+    "procedureType": null,
+    "contractNature": null,
+    "title": "THE PURPOSE OF THIS AWARD IS TO CONDUCT RESEARCH ON AMPLIFICATION ASSAYS IN WILD CERVIDS AND OTHER NEW TEST METHODS. ACTIVITIES TO BE PERFORMED INCLUDE…",
+    "description": "THE PURPOSE OF THIS AWARD IS TO CONDUCT RESEARCH ON AMPLIFICATION ASSAYS IN WILD CERVIDS AND OTHER NEW TEST METHODS. ACTIVITIES TO BE PERFORMED INCLUDE DEVELOPMENT OF CRISPR-ELISA AMPLIFICATION ASSAY (CLISA) FOR THE DETECTION OF CWD AS OUTLINED IN PRIORITY AREA #3, WE PROPOSE TO DEVELOP A CRISPR BASED ELISA AMPLIFICATION ASSAY (CLISA) FOR DETECTION OF CWD FROM SAMPLES. ASSAY CONDITIONS WILL BE OPTIMIZED, AND SENSITIVITY AND SPECIFICITY OF THE ASSAY WILL BE DETERMINED.; TESTING OF DIFFERENT SAMPLE TYPES WITH CLISA DIFFERENT SAMPLE TYPES SUCH AS OBEX, RETROPHARYNGEAL LYMPH NODES, AND OTHER SAMPLES INCLUDING NASAL SWABS AND FECES AS AVAILABLE FROM HUNTER-KILLED DEER WILL BE TESTED BY THIS NEWLY DEVELOPED AMPLIFICATION ASSAY. THE AIM IS TO BE ABLE TO DETECT CWD RAPIDLY IN SAMPLES COLLECTED FROM WILD CERVIDS. FOR THIS, SAMPLES WILL BE SPIKED WITH RECOMBINANT PRPC AND PROCESSED USING STANDARD METHODS; COMPARISON OF CLISA WITH ELISA USING CLINICAL SAMPLES PERFORMANCE OF NOVEL AMPLIFICATION METHOD (CLISA) WILL BE COMPARED WITH ELISA (BIO-RAD). THIS METHOD IS CURRENTLY BEING USED IN OUR LAB AT THE AVDL TO TEST SAMPLES FOR CWD. SAMPLES RECEIVED AT THE AVDL FOR SURVEILLANCE TES TING FROM CLIENTS INCLUDING GEORGIA DEPARTMENT OF NATURAL RESOURCES, AND SAMPLES RECEIVED AT THE UMN VDL (MINNESOTA IS A CWD POSITIVE STATE) WILL BE TESTED BY BOTH THE METHODS SUCCESSFUL COMPLETION OF THIS PROJECT WILL LEAD TO DEVELOPMENT OF A NOVEL AMPLIFICATION ASSAY WHICH HARNESSES THE POWER OF CRISPR…",
+    "language": "en",
+    "buyer": {
+      "name": "Department of Agriculture",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": null,
+    "lots": null,
+    "publicationDate": "2026-11-03",
+    "submissionDeadline": null,
+    "awardInfo": {
+      "winners": [
+        {
+          "name": "UNIVERSITY OF GEORGIA",
+          "country": "US"
+        }
+      ],
+      "awardedValue": {
+        "amount": 247764,
+        "currency": "USD"
+      },
+      "awardDate": "2024-08-29"
+    },
+    "placeOfPerformance": {
+      "country": "US",
+      "city": "ATHENS",
+      "nutsCode": null
+    },
+    "scrapedAt": "2026-11-05T07:38:53+00:00",
+    "usaGeneratedInternalId": "ASST_NON_AP24WSNWRC00C026_012",
+    "usaAwardId": "AP24WSNWRC00C026",
+    "usaAwardCategory": "grants",
+    "usaAwardType": "COOPERATIVE AGREEMENT",
+    "usaApiUrl": "https://api.usaspending.gov/api/v2/awards/ASST_NON_AP24WSNWRC00C026_012/",
+    "usaAwardingAgencyCode": "012",
+    "usaAwardingSubAgency": "Animal and Plant Health Inspection Service",
+    "usaAwardingSubAgencyCode": "12K3",
+    "usaFundingAgency": "Department of Agriculture",
+    "usaFundingSubAgency": "Animal and Plant Health Inspection Service",
+    "usaRecipientUei": "Q2LKTLYJM4P8",
+    "usaRecipientId": "41978dcd-498c-8ab8-89bf-c6abd4f48389-C",
+    "usaRecipientLocation": {
+      "country": "US",
+      "state": "GA",
+      "city": "ATHENS",
+      "county": "CLARKE",
+      "zip5": "30602"
+    },
+    "usaPlaceOfPerformance": {
+      "country": "US",
+      "state": "GA",
+      "city": "ATHENS",
+      "county": "CLARKE",
+      "zip5": "30602"
+    },
+    "usaNaics": null,
+    "usaPsc": null,
+    "usaAssistanceListings": [
+      {
+        "number": "10.028",
+        "title": "WILDLIFE SERVICES"
+      }
+    ],
+    "usaPeriodOfPerformance": {
+      "startDate": "2024-09-15",
+      "endDate": "2026-09-14",
+      "lastDateToOrder": null
+    },
+    "usaBaseObligationDate": "2024-08-29",
+    "usaLastModified": "2026-11-03 19:14:45",
+    "usaLoan": null,
+    "usaDetails": null
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "usaspending",
+    "sourceId": "ASST_NON_AP24PPQFO000C072_012",
+    "url": "https://www.usaspending.gov/award/ASST_NON_AP24PPQFO000C072_012",
+    "documentUrls": {
+      "html": "https://www.usaspending.gov/award/ASST_NON_AP24PPQFO000C072_012",
+      "pdf": null,
+      "xml": null
+    },
+    "noticeType": "contract-award",
+    "noticeTypeCode": "COOPERATIVE AGREEMENT",
+    "procedureType": null,
+    "contractNature": null,
+    "title": "1. AWARD PURPOSE: THE PRIMARY PURPOSE OF THIS AGREEMENT IS TO SUPPORT THE MASS PRODUCTION, DISTRIBUTION, AND EVALUATION OF LILIOCERIS EGENA A NEW BIOLOGICAL…",
+    "description": "1. AWARD PURPOSE: THE PRIMARY PURPOSE OF THIS AGREEMENT IS TO SUPPORT THE MASS PRODUCTION, DISTRIBUTION, AND EVALUATION OF LILIOCERIS EGENA A NEW BIOLOGICAL CONTROL AGENT OF AIR POTATO. THE COOPERATOR PROPOSES TO INCREASE THE BEETLE LABORATORY REARING CAPACITY, RELEASE AND ESTABLISH THROUGHOUT THE INVADED RANGE, MONITOR AND EXAMINE THEIR IMPACT AND SAFETY ON THE TARGET WEED. THE OVERALL GOAL IS A REDUCTION IN THE COMPETITIVENESS OF AIR POTATO IN AGRICULTURAL AND NATURAL ENVIRONMENTS. 2. ACTIVITIES TO BE PERFORMED: THE COOPERATOR WILL MAINTAIN LABORATORY COLONIES OF THE AIR POTATO BIOLOGICAL CONTROL AGENT, L. EGENA; DEVELOP METHODS TO OPTIMIZE L. EGENA NON-QUARANTINE COLONY PRODUCTION; INVESTIGATE METHODS FOR MOST EFFICIENTLY CONDUCTING FIELD RELEASES OF L. EGENA; DETERMINE WHETHER L. EGENA WILL OVIPOSIT ON BULBILS ON THE VINE, OR ONLY POST-DEHISCENT BULBILS; MONITOR FOR ESTABLISHMENT OF PERSISTENT L. EGENA POPULATIONS WITHIN RELEASE SITES, DISPERSAL WITHIN RELEASE SITES, AND DISPERSAL FROM RELEASE SITES TO NEIGHBORING POPULATIONS OF AIR POTATO VINE; AND TEST WHETHER COMMON MOSQUITO PESTICIDES WILL BE AS TOXIC TO L. EGENA AS THEY ARE TO L. CHENI. 3. DELIVERABLES AND EXPECTED OUTCOMES: BIOLOGICAL CONTROL IS THE SAFEST AND MOST SUSTAINABLE METHOD FOR CONTROLLING LANDSCAPE SCALE INVASIVE WEEDS. ON THE FRONT END, BIOLOGICAL CONTROL CAN BE VERY EXPENSIVE DUE TO THE COST OF LOCATING, IDENTIFYING, AND TESTING POTENTIAL BIOCONTROL AGENTS. ONCE AGENTS ARE RELEASED, THE ECONOMIC…",
+    "language": "en",
+    "buyer": {
+      "name": "Department of Agriculture",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": null,
+    "lots": null,
+    "publicationDate": "2026-11-03",
+    "submissionDeadline": null,
+    "awardInfo": {
+      "winners": [
+        {
+          "name": "DEPARTMENT OF AGRICULTURE & CONSUMER SERVICES FLORIDA",
+          "country": "US"
+        }
+      ],
+      "awardedValue": {
+        "amount": 258666,
+        "currency": "USD"
+      },
+      "awardDate": "2024-05-06"
+    },
+    "placeOfPerformance": {
+      "country": "US",
+      "city": null,
+      "nutsCode": null
+    },
+    "scrapedAt": "2026-11-05T07:38:53+00:00",
+    "usaGeneratedInternalId": "ASST_NON_AP24PPQFO000C072_012",
+    "usaAwardId": "AP24PPQFO000C072",
+    "usaAwardCategory": "grants",
+    "usaAwardType": "COOPERATIVE AGREEMENT",
+    "usaApiUrl": "https://api.usaspending.gov/api/v2/awards/ASST_NON_AP24PPQFO000C072_012/",
+    "usaAwardingAgencyCode": "012",
+    "usaAwardingSubAgency": "Animal and Plant Health Inspection Service",
+    "usaAwardingSubAgencyCode": "12K3",
+    "usaFundingAgency": "Department of Agriculture",
+    "usaFundingSubAgency": "Animal and Plant Health Inspection Service",
+    "usaRecipientUei": "J73TRBXFJKK5",
+    "usaRecipientId": "3bde9bde-f57d-7e6e-ce8f-c94dfefc13f8-C",
+    "usaRecipientLocation": {
+      "country": "US",
+      "state": "FL",
+      "city": "TALLAHASSEE",
+      "county": "LEON",
+      "zip5": "32399"
+    },
+    "usaPlaceOfPerformance": {
+      "country": "US",
+      "state": "FL",
+      "city": null,
+      "county": null,
+      "zip5": null
+    },
+    "usaNaics": null,
+    "usaPsc": null,
+    "usaAssistanceListings": [
+      {
+        "number": "10.025",
+        "title": "ANIMAL DISEASE AND ANIMAL CARE"
+      },
+      {
+        "number": "10.025",
+        "title": "PLANT AND ANIMAL DISEASE, PEST CONTROL, AND ANIMAL CARE"
+      }
+    ],
+    "usaPeriodOfPerformance": {
+      "startDate": "2024-05-01",
+      "endDate": "2025-04-30",
+      "lastDateToOrder": null
+    },
+    "usaBaseObligationDate": "2024-05-06",
+    "usaLastModified": "2026-11-03 19:14:45",
+    "usaLoan": null,
+    "usaDetails": null
+  }
+]

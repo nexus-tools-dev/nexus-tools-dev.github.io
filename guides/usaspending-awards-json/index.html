@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>USAspending API: federal awards as JSON or CSV (Python example)</title>
+<meta name="description" content="How to get US federal contracts and grants from the USAspending API as JSON or CSV: 100-row pages, the 10,000 window, the one-category 422 rule, the DoD 90-day lag, new F-codes, Python code and a 20-record sample.">
+<link rel="canonical" href="https://nexus-tools-dev.github.io/guides/usaspending-awards-json/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Nexus Tools">
+<meta property="og:title" content="USAspending API: federal awards as JSON or CSV (Python example)">
+<meta property="og:description" content="How to get US federal contracts and grants from the USAspending API as JSON or CSV: 100-row pages, the 10,000 window, the one-category 422 rule, the DoD 90-day lag, new F-codes, Python code and a 20-record sample.">
+<meta property="og:url" content="https://nexus-tools-dev.github.io/guides/usaspending-awards-json/">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "US federal awards as JSON or CSV: the USAspending API, its 10,000-result window, a Python example and a free sample", "description": "How to get US federal contracts and grants from the USAspending API as JSON or CSV: 100-row pages, the 10,000 window, the one-category 422 rule, the DoD 90-day lag, new F-codes, Python code and a 20-record sample.", "inLanguage": "en", "datePublished": "2026-11-05", "dateModified": "2026-11-05", "url": "https://nexus-tools-dev.github.io/guides/usaspending-awards-json/", "mainEntityOfPage": "https://nexus-tools-dev.github.io/guides/usaspending-awards-json/", "keywords": "USAspending API, federal awards JSON, federal contracts data, grants data, DoD data lag, Python", "author": {"@type": "Organization", "name": "Nexus Tools", "url": "https://nexus-tools-dev.github.io/"}, "publisher": {"@type": "Organization", "name": "Nexus Tools", "url": "https://nexus-tools-dev.github.io/"}}</script>
+<style>
+  :root { --bg:#f6f7f9; --panel:#fff; --text:#16181d; --muted:#5f6672; --line:#d9dde3; --accent:#1f5fd1; --code:#eef0f4; color-scheme: light dark; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#14161a; --panel:#1d2026; --text:#eceef2; --muted:#a2a9b5; --line:#343944; --accent:#6ea0ff; --code:#252932; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.65 system-ui,"Segoe UI",Roboto,sans-serif; }
+  main { max-width: 780px; margin: 0 auto; padding: 40px 20px 64px; }
+  h1 { font-size: 28px; line-height:1.25; margin: 8px 0 8px; }
+  h2 { font-size: 21px; margin: 40px 0 8px; }
+  h3 { font-size: 17px; margin: 24px 0 4px; }
+  .lead { color: var(--muted); margin: 0 0 8px; }
+  .meta { color: var(--muted); font-size: 14px; }
+  a { color: var(--accent); }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px 18px; margin: 16px 0; }
+  pre, code { font: 13.5px/1.5 ui-monospace,SFMono-Regular,Consolas,Menlo,monospace; }
+  code { background: var(--code); padding: 1px 5px; border-radius: 4px; }
+  pre { background: var(--code); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; overflow-x: auto; margin: 12px 0; }
+  pre code { background: none; padding: 0; }
+  .tw { overflow-x: auto; margin: 12px 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { text-align: left; border-bottom: 1px solid var(--line); padding: 6px 8px; vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; white-space: nowrap; }
+  td.n { white-space: nowrap; }
+  ul, ol { padding-left: 22px; }
+  li { margin: 4px 0; }
+  .note { border-left: 3px solid var(--accent); padding: 2px 0 2px 14px; color: var(--muted); }
+  footer { margin-top: 48px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); padding-top: 16px; }
+  p code, li code, td code { overflow-wrap: anywhere; }</style>
+</head>
+<body>
+<main>
+<p class="meta"><a href="../../">Nexus Tools</a> / Data guides</p>
+
+<h1>US federal awards as JSON or CSV: the USAspending API, its 10,000-result window, a Python example and a free sample</h1>
+<p class="lead">How to pull federal contract and grant awards from USAspending yourself, which limits and errors to expect (including a type-code change that started this month), and when a normalized feed is worth paying for.</p>
+<p class="meta">Updated: November 2026. API behaviour below was tested live on 5 November 2026.</p>
+
+
+<h2>The short version</h2>
+<ul>
+<li>USAspending.gov is the US government's public record of federal spending: contracts, grants, loans and other assistance, one record per award. Its API is free, needs no key and answers JSON. The award search is a single <code>POST</code> endpoint.</li>
+<li>The things that bite: <strong>100 rows per page and a 10,000-result window</strong>, <strong>one award category per request</strong> (mixing types gives <code>HTTP 422</code>), a sort field that must also be in <code>fields</code>, a <strong>Department of Defense data lag of about 90 days</strong>, and, new this month, <strong>assistance award type codes that changed on 1 October 2026</strong>.</li>
+<li>If you want one flat schema across categories, a shared format with EU, UK and SAM.gov notices and no code to maintain, we run an Apify Actor for that. A real sample of its output is at the bottom, free to download.</li>
+</ul>
+
+<h2>1. The USAspending API</h2>
+<p>Documentation: <a href="https://api.usaspending.gov/docs/endpoints">api.usaspending.gov/docs/endpoints</a>. The API contracts live in the open-source repository <a href="https://github.com/fedspendingtransparency/usaspending-api">fedspendingtransparency/usaspending-api</a>. The base URL is <code>https://api.usaspending.gov</code>, anonymous, JSON in and out. We found no documented rate limit and no rate-limit headers; calls take 1.5 to 5 seconds, so pace yourself anyway.</p>
+<p>Main endpoints we used:</p>
+<div class="tw"><table>
+<tr><th>Endpoint</th><th>What it does</th></tr>
+<tr><td><code>POST /api/v2/search/spending_by_award/</code></td><td>Search awards. Body: <code>filters</code>, <code>fields</code>, <code>sort</code>, <code>order</code>, <code>limit</code>, <code>page</code>.</td></tr>
+<tr><td><code>POST /api/v2/search/spending_by_award_count/</code></td><td>Counts per category for the same <code>filters</code>. Cheap, use it to size a query.</td></tr>
+<tr><td><code>GET /api/v2/awards/&lt;generated_internal_id&gt;/</code></td><td>One award in full detail (competition, set-aside, parent contract, options value).</td></tr>
+<tr><td><code>GET /api/v2/awards/last_updated/</code></td><td>Date of the last data refresh. It returned <code>11/04/2026</code> on 5 November.</td></tr>
+</table></div>
+
+<h3>Limits we hit, with the exact errors</h3>
+<ul>
+<li><strong><code>limit</code> maximum is 100.</strong> <code>limit: 101</code> returns <code>HTTP 422</code> with <code>Field 'limit' value '101' is above max '100'</code>.</li>
+<li><strong>The 10,000-result window.</strong> On a query with more than 10,000 matches, <code>hasNext</code> turns <code>false</code> at page 100. Pages after that were still served in our test (page 101 returned 100 rows with <code>hasNext: false</code>), but that is undocumented behaviour. The reliable approach is to split the date range until each window holds fewer than 10,000 awards, checking the count first. A normal week is 10,000 to 50,000 contract actions (a week in late October 2026 had 11,159 contracts and 1,600 IDVs), so you will need windows for "everything".</li>
+<li><strong>One award category per request.</strong> Mixing contract and grant codes returns <code>HTTP 422</code>: <code>'award_type_codes' must only contain types from one group.</code> The groups are <code>contracts</code> (A, B, C, D), <code>idvs</code> (IDV_*), <code>grants</code> (02 to 05, and F001, F002), <code>loans</code> (07, 08, F003, F004), <code>other_financial_assistance</code> (06, 10, F006, F007) and <code>direct_payments</code> (09, 11, -1, F005, F008 to F010). The error body lists them all.</li>
+<li><strong>The sort field must be in <code>fields</code>.</strong> Sorting by <code>Award Amount</code> without requesting it returns <code>HTTP 400</code>: <code>Sort value 'Award Amount' not found in requested fields</code>.</li>
+<li><strong>Earliest date is 2007-10-01.</strong> A start date before that returns <code>HTTP 422</code> (<code>start_date cannot be earlier than '2007-10-01'</code>). For older data the API points to the bulk download endpoints.</li>
+<li><strong>"Action Date" is not a usable field.</strong> Asking for it returned <code>null</code> in every row. The practical "newest" fields are <code>Last Modified Date</code> (the latest update to the award record) and <code>Base Obligation Date</code> (when the base award was signed).</li>
+</ul>
+
+<h3>What "date" means: the <code>date_type</code> trap</h3>
+<p><code>time_period</code> takes a <code>date_type</code>: <code>action_date</code> (the default: any transaction in the window, so it also returns modifications of awards signed years ago), <code>new_awards_only</code>, <code>date_signed</code> or <code>last_modified_date</code>. If you want "new contracts this week", use <code>new_awards_only</code>, otherwise old contracts keep reappearing every time they are modified.</p>
+
+<h3>The Department of Defense lag</h3>
+<p>DoD contract data is published with a delay of about 90 days, so DoD barely appears in recent windows. Counts of <em>new</em> DoD contract awards from the count endpoint on 5 November 2026:</p>
+<div class="tw"><table>
+<tr><th>Window (new awards, DoD)</th><th>Contracts</th></tr>
+<tr><td>16 to 23 July 2026</td><td class="n">77,543</td></tr>
+<tr><td>24 to 31 July 2026</td><td class="n">1,084</td></tr>
+<tr><td>1 to 8 August 2026</td><td class="n">103</td></tr>
+<tr><td>1 to 8 September 2026</td><td class="n">4</td></tr>
+<tr><td>1 to 8 October 2026</td><td class="n">0</td></tr>
+<tr><td>29 October to 5 November 2026</td><td class="n">0</td></tr>
+</table></div>
+<p>For the same last week, all agencies together had 7,569 new contract awards. So a "last 7 days" run is a civilian-agency picture, and anything you compute about total federal obligations is biased unless you account for this. Check the window against <code>awards/last_updated</code> and against DoD separately.</p>
+
+<h3>New in October 2026: assistance type codes changed</h3>
+<p>This one costs you silently. The award-type groups returned by the API now include <code>F001</code> to <code>F010</code> codes, and awards made since 1 October 2026 use them. Counting 22 October to 5 November: <code>["F001","F002"]</code> returned 1,599 grants and <code>["F003","F004"]</code> 2,946 loans, while the old codes <code>["02","03","04","05"]</code> and <code>["07","08"]</code> returned <strong>zero</strong>. For September 2026 it is the other way round (20,389 grants under the old codes). Contracts and IDVs keep their A to D and IDV_* codes. If your code has the old list hard-coded, include both lists in the same request (they are in the same group, so no 422).</p>
+
+<h3>Field shapes</h3>
+<ul>
+<li>Fields differ by category: loans have <code>Loan Value</code> and <code>Subsidy Cost</code> and return <code>Award Amount: null</code>; grants have <code>Assistance Listings</code>; IDVs have <code>Last Date to Order</code>.</li>
+<li><code>Award Amount</code> is the total obligated so far, not the contract ceiling (the ceiling and options value are in the detail endpoint).</li>
+<li><code>NAICS</code>, <code>PSC</code>, <code>Recipient Location</code> and <code>Primary Place of Performance</code> are objects, not strings.</li>
+<li>Descriptions are upper case, as published. The detail endpoint also lists executive officers with their pay; you do not need it for market data and it is personal data.</li>
+</ul>
+
+<h2>2. DIY: contract awards to CSV in Python</h2>
+<p>This script counts first, then pages through the newest contract actions of the last week with an obligation of at least 250,000 USD, and writes a CSV. Tested on 5 November 2026: the count said 1,949 contracts, the loop (limited to 3 pages for the demo) wrote 300 rows. It needs <code>pip install requests</code>.</p>
+<pre><code>import csv
+import time
+from datetime import date, timedelta
+
+import requests
+
+BASE = &quot;https://api.usaspending.gov/api/v2&quot;
+FIELDS = [&quot;Award ID&quot;, &quot;Recipient Name&quot;, &quot;Recipient UEI&quot;, &quot;Awarding Agency&quot;, &quot;Awarding Sub Agency&quot;,
+          &quot;Description&quot;, &quot;Award Amount&quot;, &quot;Base Obligation Date&quot;, &quot;Last Modified Date&quot;,
+          &quot;NAICS&quot;, &quot;PSC&quot;, &quot;generated_internal_id&quot;]          # the sort field must be in this list
+FILTERS = {
+    &quot;award_type_codes&quot;: [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;],               # ONE group only: contracts (mixing groups = HTTP 422)
+    &quot;time_period&quot;: [{&quot;start_date&quot;: (date.today() - timedelta(days=7)).isoformat(),
+                     &quot;end_date&quot;: date.today().isoformat(),
+                     &quot;date_type&quot;: &quot;action_date&quot;}],
+    &quot;award_amounts&quot;: [{&quot;lower_bound&quot;: 250000}],
+}
+
+
+def post(path, body):
+    for attempt in range(5):
+        r = requests.post(f&quot;{BASE}{path}&quot;, json=body, timeout=60)
+        if r.status_code in (429, 500, 502, 503, 504):
+            time.sleep(2 ** attempt)
+            continue
+        r.raise_for_status()                                 # 422 = bad limit or mixed award groups
+        return r.json()
+    raise RuntimeError(&quot;USAspending unavailable&quot;)
+
+
+counts = post(&quot;/search/spending_by_award_count/&quot;, {&quot;filters&quot;: FILTERS})[&quot;results&quot;]
+print(&quot;matches per category:&quot;, counts)                      # check this BEFORE paging: &gt; 10,000 needs date windows
+
+rows, page = [], 1
+while page &lt;= 3:                                             # 3 pages x 100 rows for the demo; hasNext ends at page 100
+    data = post(&quot;/search/spending_by_award/&quot;, {
+        &quot;filters&quot;: FILTERS, &quot;fields&quot;: FIELDS, &quot;sort&quot;: &quot;Last Modified Date&quot;, &quot;order&quot;: &quot;desc&quot;,
+        &quot;limit&quot;: 100, &quot;page&quot;: page})                         # limit above 100 = HTTP 422
+    rows += data[&quot;results&quot;]
+    if not data[&quot;page_metadata&quot;][&quot;hasNext&quot;]:
+        break
+    page += 1
+    time.sleep(0.5)                                          # be polite; no rate limit is documented
+
+with open(&quot;usaspending_awards.csv&quot;, &quot;w&quot;, newline=&quot;&quot;, encoding=&quot;utf-8&quot;) as f:
+    w = csv.DictWriter(f, fieldnames=FIELDS, extrasaction=&quot;ignore&quot;)
+    w.writeheader()
+    for r in rows:
+        r[&quot;NAICS&quot;] = (r.get(&quot;NAICS&quot;) or {}).get(&quot;code&quot;)      # NAICS and PSC come back as objects
+        r[&quot;PSC&quot;] = (r.get(&quot;PSC&quot;) or {}).get(&quot;code&quot;)
+        w.writerow(r)
+print(len(rows), &quot;awards&quot;)
+</code></pre>
+
+<h2>3. When the Actor saves time</h2>
+<p>For a one-off export the script above is enough and free. The Apify Actor <a href="https://apify.com/nexus-scrapers/usaspending-awards">USAspending Federal Awards</a> (by Nexus Scrapers) wraps the same official API. It pays off when you would otherwise maintain that code:</p>
+<ul>
+<li><strong>One normalized schema</strong> shared with our TED, UK and SAM.gov Actors: <code>awardInfo</code> with winners and awarded value as <code>{amount, currency}</code>, ISO country codes, dates as <code>YYYY-MM-DD</code>, missing values as <code>null</code>. USAspending-specific data (agency codes, recipient UEI, NAICS and PSC with descriptions, assistance listings, period of performance) sits in extra <code>usa*</code> keys.</li>
+<li><strong>Windowing beyond 10,000 results:</strong> the Actor counts, splits the date range and reads newest first, up to 50,000 results per run, with retries and polite pacing.</li>
+<li><strong>Filters as plain inputs:</strong> category, award type codes, keyword, awarding agency, sub-agency, recipient name or UEI, NAICS, PSC, state, amount range, date window and date type.</li>
+<li><strong>Optional detail enrichment</strong> (competition, set-aside, parent contract, number of offers) with one extra call per award, and no officer names or compensation.</li>
+<li><strong>Scheduling and integrations</strong> through Apify: daily runs into Slack, e-mail, Google Sheets or a webhook; export as JSON, CSV or Excel; API and MCP access.</li>
+</ul>
+<p>Pricing is pay per result; the Actor page shows the current price.</p>
+<p class="note">Limits: one category per run (the API's rule), no sub-awards, no recipient profiles, no bulk-archive downloads for full-year dumps, and the Department of Defense lag above applies to the Actor too. Foreign places of performance are not filterable. The Actor's assistance categories were updated on 5 November 2026 to send the new F-codes as well as the old ones; contracts and IDVs were never affected.</p>
+
+<h2>4. Real sample: 20 normalized records</h2>
+<p>These 20 records were produced on 5 November 2026 by running the Actor's own code locally on live API responses (no Apify platform involved): 14 contract awards of at least 250,000 USD (at most two per agency, last modified on 2 November 2026) and 6 grants or cooperative agreements from two agencies, last modified on 3 November 2026, all signed between 2022 and 2025 (a modification refreshes the modified date). They are the first matches in that order, not hand-picked for quality. Loans are not included, because recipients of small-business loans are often sole traders named after a person. A scrub pass over every text field found no e-mail address or phone number to remove.</p>
+<p>Download: <a href="sample.json">sample.json</a> (full records, UTF-8) and <a href="sample.csv">sample.csv</a> (flattened, lists joined with <code> | </code>, opens in Excel). Free to use under the notes in section 5. Note that "Obligated" is money committed so far, not the contract ceiling.</p>
+<div class="tw"><table>
+<tr><th>Award</th><th>Category / type</th><th>Awarding agency</th><th>Recipient</th><th>Description</th><th>Obligated USD</th><th>Modified</th></tr>
+<tr><td class="n"><a href="https://www.usaspending.gov/award/CONT_AWD_36C25627N0231_3600_36C10F23D0004_3600">36C25627N0231</a></td><td>contracts / Delivery Order</td><td>Department of Veterans Affa…</td><td>Alesia Architecture Pc</td><td>580-26-403 ae replace roads and sidewal…</td><td class="n">471,001</td><td class="n">2026-11-02</td></tr>
+<tr><td class="n"><a href="https://www.usaspending.gov/award/CONT_AWD_75R60226F34034_7526_75R60225D00005_7526">75R60226F34034</a></td><td>contracts / Delivery Order</td><td>Department of Health and Hu…</td><td>Looper Consulting Llc</td><td>Ofam78c (forhp) hrsa-26-037-rural commu…</td><td class="n">365,417</td><td class="n">2026-11-02</td></tr>
+<tr><td class="n"><a href="https://www.usaspending.gov/award/CONT_AWD_693JF721F000078_6938_47QRAA19D0085_4732">693JF721F000078</a></td><td>contracts / Delivery Order</td><td>Department of Transportation</td><td>Guidehouse Inc.</td><td>Temporary full-time contractor support…</td><td class="n">4,777,509</td><td class="n">2026-11-02</td></tr>
+<tr><td class="n"><a href="https://www.usaspending.gov/award/CONT_AWD_80AFRC21C0001_8000_-NONE-_-NONE-">80AFRC21C0001</a></td><td>contracts / Definitive Contract</td><td>National Aeronautics and Sp…</td><td>Asrc Federal System Solutions Llc</td><td>Research facilities and engineering sup…</td><td class="n">65,752,741</td><td class="n">2026-11-02</td></tr>
+<tr><td class="n"><a href="https://www.usaspending.gov/award/CONT_AWD_80ARC026F7005_8000_80ARC018D0010_8000">80ARC026F7005</a></td><td>contracts / Delivery Order</td><td>National Aeronautics and Sp…</td><td>Inuteq, Llc</td><td>Technical services task order under nas…</td><td class="n">2,839,196</td><td class="n">2026-11-02</td></tr>
+<tr><td class="n"><a href="https://www.usaspending.gov/award/CONT_AWD_89303925CEM000058_8900_-NONE-_-NONE-">89303925CEM000058</a></td><td>contracts / Definitive Contract</td><td>Department of Energy</td><td>Unitech Services Group, Inc.</td><td>The united states department of energy,…</td><td class="n">7,480,000</td><td class="n">2026-11-02</td></tr>
+<tr><td class="n"><a href="https://www.usaspending.gov/award/CONT_AWD_47PK1724F0034_4740_47PK0121D0025_4740">47PK1724F0034</a></td><td>contracts / Delivery Order</td><td>General Services Administra…</td><td>Legend Construction And Painting…</td><td>Dcma - 2nd floor tenant improvements</td><td class="n">2,111,605</td><td class="n">2026-11-02</td></tr>
+<tr><td class="n"><a href="https://www.usaspending.gov/award/CONT_AWD_89233124CNA000330_8900_-NONE-_-NONE-">89233124CNA000330</a></td><td>contracts / Definitive Contract</td><td>Department of Energy</td><td>Montech Inc</td><td>Entry control and protective services (…</td><td class="n">1,816,051</td><td class="n">2026-11-02</td></tr>
+<tr><td class="n"><a href="https://www.usaspending.gov/award/CONT_AWD_36C26122P0080_3600_-NONE-_-NONE-">36C26122P0080</a></td><td>contracts / Purchase Order</td><td>Department of Veterans Affa…</td><td>Crosstown Courier Service Inc</td><td>Medical courier services</td><td class="n">1,931,609</td><td class="n">2026-11-02</td></tr>
+<tr><td class="n"><a href="https://www.usaspending.gov/award/CONT_AWD_75F40124F19030_7524_75F40120A00018_7524">75F40124F19030</a></td><td>contracts / Bpa Call</td><td>Department of Health and Hu…</td><td>Westat, Inc.</td><td>Cder-ond-24-c-1627 - pregnancy exposure…</td><td class="n">477,837</td><td class="n">2026-11-02</td></tr>
+<tr><td class="n"><a href="https://www.usaspending.gov/award/CONT_AWD_140P2125F0178_1443_140P2121A0026_1443">140P2125F0178</a></td><td>contracts / Bpa Call</td><td>Department of the Interior</td><td>Vanasse Hangen Brustlin Inc</td><td>Provide technical, administrative, and…</td><td class="n">490,609</td><td class="n">2026-11-02</td></tr>
+<tr><td class="n"><a href="https://www.usaspending.gov/award/CONT_AWD_91990021F0387_9100_91990021D0004_9100">91990021F0387</a></td><td>contracts / Delivery Order</td><td>Department of Education</td><td>Westat, Inc.</td><td>Department of educations ies requires o…</td><td class="n">2,999,905</td><td class="n">2026-11-02</td></tr>
+<tr><td class="n"><a href="https://www.usaspending.gov/award/CONT_AWD_47PM0024C0001_4740_-NONE-_-NONE-">47PM0024C0001</a></td><td>contracts / Definitive Contract</td><td>General Services Administra…</td><td>Clark Construction Group Llc</td><td>Ira: provide labor, materials, supervis…</td><td class="n">616,833,357</td><td class="n">2026-11-02</td></tr>
+<tr><td class="n"><a href="https://www.usaspending.gov/award/CONT_AWD_693KA922F00145_6920_DTFAWA10A00147_6920">693KA922F00145</a></td><td>contracts / Bpa Call</td><td>Department of Transportation</td><td>Bellamy Management Services Llc</td><td>Efast pa 22-063-nv administrative suppo…</td><td class="n">1,936,720</td><td class="n">2026-11-02</td></tr>
+<tr><td class="n"><a href="https://www.usaspending.gov/award/ASST_NON_1934942-31-25_417">1934942-31-25</a></td><td>grants / Grant</td><td>National Endowment for the…</td><td>Coalition For African Americans I…</td><td>Purpose: to support a master class seri…</td><td class="n">33,696</td><td class="n">2026-11-03</td></tr>
+<tr><td class="n"><a href="https://www.usaspending.gov/award/ASST_NON_1927853-62-24_417">1927853-62-24</a></td><td>grants / Grant</td><td>National Endowment for the…</td><td>Baltimore Office Of Promotions &amp;…</td><td>Purpose: to support a grant program for…</td><td class="n">32,355</td><td class="n">2026-11-03</td></tr>
+<tr><td class="n"><a href="https://www.usaspending.gov/award/ASST_NON_1903690-22-C-22_417">1903690-22-C-22</a></td><td>grants / Cooperative Agreement</td><td>National Endowment for the…</td><td>Mid-America Arts Alliance</td><td>Purpose: to support the implementation…</td><td class="n">1,453,729</td><td class="n">2026-11-03</td></tr>
+<tr><td class="n"><a href="https://www.usaspending.gov/award/ASST_NON_AO222501X443G028_012">AO222501X443G028</a></td><td>grants / Grant</td><td>Department of Agriculture</td><td>University Of Alaska Fairbanks</td><td>Helping tribal communities start new ga…</td><td class="n">730,585</td><td class="n">2026-11-03</td></tr>
+<tr><td class="n"><a href="https://www.usaspending.gov/award/ASST_NON_AP24WSNWRC00C026_012">AP24WSNWRC00C026</a></td><td>grants / Cooperative Agreement</td><td>Department of Agriculture</td><td>University Of Georgia</td><td>The purpose of this award is to conduct…</td><td class="n">247,764</td><td class="n">2026-11-03</td></tr>
+<tr><td class="n"><a href="https://www.usaspending.gov/award/ASST_NON_AP24PPQFO000C072_012">AP24PPQFO000C072</a></td><td>grants / Cooperative Agreement</td><td>Department of Agriculture</td><td>Department Of Agriculture &amp; Consu…</td><td>1. award purpose: the primary purpose o…</td><td class="n">258,666</td><td class="n">2026-11-03</td></tr>
+</table></div>
+<p>One contract award record, trimmed to the main fields:</p>
+<pre><code>{
+  &quot;sourceId&quot;: &quot;CONT_AWD_693JF721F000078_6938_47QRAA19D0085_4732&quot;,
+  &quot;url&quot;: &quot;https://www.usaspending.gov/award/CONT_AWD_693JF721F000078_6938_47QRAA19D0085_4732&quot;,
+  &quot;noticeType&quot;: &quot;contract-award&quot;,
+  &quot;noticeTypeCode&quot;: &quot;C&quot;,
+  &quot;contractNature&quot;: &quot;services&quot;,
+  &quot;title&quot;: &quot;TEMPORARY FULL-TIME CONTRACTOR SUPPORT FOR THE MARITIME ADMINISTRATION OFFICE OF BUDGET POSITION TITLE: BUDGET &amp; PROGRAM ANALYST NUMBER OF POSITIONS: THREE (3)…&quot;,
+  &quot;buyer&quot;: {
+    &quot;name&quot;: &quot;Department of Transportation&quot;,
+    &quot;country&quot;: &quot;US&quot;,
+    &quot;city&quot;: null,
+    &quot;nutsCode&quot;: null,
+    &quot;buyerType&quot;: &quot;central-government&quot;
+  },
+  &quot;publicationDate&quot;: &quot;2026-11-02&quot;,
+  &quot;awardInfo&quot;: {
+    &quot;winners&quot;: [
+      {
+        &quot;name&quot;: &quot;GUIDEHOUSE INC.&quot;,
+        &quot;country&quot;: &quot;US&quot;
+      }
+    ],
+    &quot;awardedValue&quot;: {
+      &quot;amount&quot;: 4777508.57,
+      &quot;currency&quot;: &quot;USD&quot;
+    },
+    &quot;awardDate&quot;: &quot;2021-09-30&quot;
+  },
+  &quot;placeOfPerformance&quot;: {
+    &quot;country&quot;: &quot;US&quot;,
+    &quot;city&quot;: &quot;WASHINGTON&quot;,
+    &quot;nutsCode&quot;: null
+  },
+  &quot;usaAwardId&quot;: &quot;693JF721F000078&quot;,
+  &quot;usaAwardCategory&quot;: &quot;contracts&quot;,
+  &quot;usaAwardType&quot;: &quot;DELIVERY ORDER&quot;,
+  &quot;usaAwardingSubAgency&quot;: &quot;Maritime Administration&quot;,
+  &quot;usaRecipientUei&quot;: &quot;N9NJK877QJK9&quot;,
+  &quot;usaNaics&quot;: {
+    &quot;code&quot;: &quot;541611&quot;,
+    &quot;description&quot;: &quot;ADMINISTRATIVE MANAGEMENT AND GENERAL MANAGEMENT CONSULTING SERVICES&quot;
+  },
+  &quot;usaPsc&quot;: {
+    &quot;code&quot;: &quot;R408&quot;,
+    &quot;description&quot;: &quot;SUPPORT- PROFESSIONAL: PROGRAM MANAGEMENT/SUPPORT&quot;
+  },
+  &quot;usaPeriodOfPerformance&quot;: {
+    &quot;startDate&quot;: &quot;2021-09-30&quot;,
+    &quot;endDate&quot;: &quot;2026-11-28&quot;,
+    &quot;lastDateToOrder&quot;: null
+  },
+  &quot;usaLastModified&quot;: &quot;2026-11-02 22:03:29&quot;
+}</code></pre>
+
+<h2>5. Data licence and terms</h2>
+<p>USAspending.gov is the official US federal spending website, run under the DATA Act. We found no licence or terms statement on <code>api.usaspending.gov</code> itself, and the site is a JavaScript application, so we could not read its notices in a script. What we could verify: the API's source repository is released under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>, and the records are federal spending data published for public reuse. Works created by US federal employees as part of their duties are in the public domain under <a href="https://www.law.cornell.edu/uscode/text/17/105">17 U.S.C. 105</a>, but data about awards also comes from recipients and agencies' systems; if your use is commercial or you republish at scale, read the <a href="https://www.usaspending.gov/about">About page</a> and the site's data notes, and credit "USAspending.gov" as the source. This is a summary, not legal advice.</p>
+<p>Personal data: recipients are mostly organisations, but individuals and sole traders can be recipients (loans, some assistance). The Actor does not copy street addresses or executive officer names and pay; our sample contains organisations only.</p>
+
+
+<h2>Links</h2>
+<ul>
+<li><a href="https://apify.com/nexus-scrapers/usaspending-awards">USAspending Federal Awards Actor on Apify</a></li>
+<li><a href="https://api.usaspending.gov/docs/endpoints">Official USAspending API documentation</a></li>
+<li><a href="../sam-gov-opportunities-json/">The companion guide for open opportunities: SAM.gov</a></li>
+<li><a href="../ted-tenders-json/">The same kind of guide for EU tenders (TED)</a></li>
+</ul>
+
+<footer>Independent guide by Nexus Tools. Not affiliated with or endorsed by the US Government, USAspending.gov or Apify. Contact: <a href="mailto:nexusscrapers.dev@gmail.com">nexusscrapers.dev@gmail.com</a></footer>
+</main>
+</body>
+</html>
