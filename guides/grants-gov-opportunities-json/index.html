@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grants.gov API: US federal grants as JSON or CSV (Python)</title>
+<meta name="description" content="How to get US federal grant opportunities from the Grants.gov API as JSON or CSV: search2 and fetchOpportunity without a key, filter traps, string amounts, the XML extract, the HHS non-endorsement notice, Python code and a 20-record sample.">
+<link rel="canonical" href="https://nexus-tools-dev.github.io/guides/grants-gov-opportunities-json/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Nexus Tools">
+<meta property="og:title" content="Grants.gov API: US federal grants as JSON or CSV (Python)">
+<meta property="og:description" content="How to get US federal grant opportunities from the Grants.gov API as JSON or CSV: search2 and fetchOpportunity without a key, filter traps, string amounts, the XML extract, the HHS non-endorsement notice, Python code and a 20-record sample.">
+<meta property="og:url" content="https://nexus-tools-dev.github.io/guides/grants-gov-opportunities-json/">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "US federal grant opportunities as JSON or CSV: the Grants.gov API, a Python example and a free sample", "description": "How to get US federal grant opportunities from the Grants.gov API as JSON or CSV: search2 and fetchOpportunity without a key, filter traps, string amounts, the XML extract, the HHS non-endorsement notice, Python code and a 20-record sample.", "inLanguage": "en", "datePublished": "2026-11-05", "dateModified": "2026-11-05", "url": "https://nexus-tools-dev.github.io/guides/grants-gov-opportunities-json/", "mainEntityOfPage": "https://nexus-tools-dev.github.io/guides/grants-gov-opportunities-json/", "keywords": "Grants.gov API, federal grants JSON, search2, fetchOpportunity, ALN, CFDA, grant opportunities data, Python", "author": {"@type": "Organization", "name": "Nexus Tools", "url": "https://nexus-tools-dev.github.io/"}, "publisher": {"@type": "Organization", "name": "Nexus Tools", "url": "https://nexus-tools-dev.github.io/"}}</script>
+<style>
+  :root { --bg:#f6f7f9; --panel:#fff; --text:#16181d; --muted:#5f6672; --line:#d9dde3; --accent:#1f5fd1; --code:#eef0f4; color-scheme: light dark; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#14161a; --panel:#1d2026; --text:#eceef2; --muted:#a2a9b5; --line:#343944; --accent:#6ea0ff; --code:#252932; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.65 system-ui,"Segoe UI",Roboto,sans-serif; }
+  main { max-width: 780px; margin: 0 auto; padding: 40px 20px 64px; }
+  h1 { font-size: 28px; line-height:1.25; margin: 8px 0 8px; }
+  h2 { font-size: 21px; margin: 40px 0 8px; }
+  h3 { font-size: 17px; margin: 24px 0 4px; }
+  .lead { color: var(--muted); margin: 0 0 8px; }
+  .meta { color: var(--muted); font-size: 14px; }
+  a { color: var(--accent); }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px 18px; margin: 16px 0; }
+  pre, code { font: 13.5px/1.5 ui-monospace,SFMono-Regular,Consolas,Menlo,monospace; }
+  code { background: var(--code); padding: 1px 5px; border-radius: 4px; }
+  pre { background: var(--code); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; overflow-x: auto; margin: 12px 0; }
+  pre code { background: none; padding: 0; }
+  .tw { overflow-x: auto; margin: 12px 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { text-align: left; border-bottom: 1px solid var(--line); padding: 6px 8px; vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; white-space: nowrap; }
+  td.n { white-space: nowrap; }
+  ul, ol { padding-left: 22px; }
+  li { margin: 4px 0; }
+  .note { border-left: 3px solid var(--accent); padding: 2px 0 2px 14px; color: var(--muted); }
+  footer { margin-top: 48px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); padding-top: 16px; }
+  p code, li code, td code { overflow-wrap: anywhere; }</style>
+</head>
+<body>
+<main>
+<p class="meta"><a href="../../">Nexus Tools</a> / Data guides</p>
+
+<h1>US federal grant opportunities as JSON or CSV: the Grants.gov API, a Python example and a free sample</h1>
+<p class="lead">How to pull federal grant opportunities from Grants.gov yourself, which filters silently return nothing, how to get amounts and the real deadline, what the terms of service require, and when a normalized feed is worth paying for.</p>
+<p class="meta">Updated: November 2026. API behaviour below was tested live on 5 November 2026.</p>
+
+
+<p class="note">This product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services.</p>
+
+<h2>The short version</h2>
+<ul>
+<li>Grants.gov lists US federal grant opportunities. Its official API has <strong>two <code>POST</code> endpoints that need no authentication</strong>: <code>search2</code> (the list) and <code>fetchOpportunity</code> (the detail of one opportunity). The terms of service allow you to "search, display, analyze, retrieve, view and otherwise get" the data, and ask for a visible non-endorsement notice (quoted above and in section 5).</li>
+<li>The search response is only a thin list. Amounts, eligibility, description and the real closing date need <strong>one extra call per opportunity</strong>. Several filters behave in ways that are not obvious: a bare department code like <code>HHS</code> matches nothing, only one ALN number can be filtered at once, and amounts are strings.</li>
+<li>For a bulk or full-history load there is also a daily XML extract (about 78 MB). This page shows both, a script tested today and a free 20-record sample of normalized output.</li>
+</ul>
+
+<h2>1. The Grants.gov API</h2>
+<p>Documentation: <a href="https://www.grants.gov/api/api-guide">grants.gov/api/api-guide</a>; the guide states that authentication is not required for <code>search2</code> and <code>fetchOpportunity</code>. Production host <code>https://api.grants.gov</code>. Both endpoints take <code>POST</code> with a JSON body; a plain <code>GET</code> returns <code>HTTP 403</code> with an empty body, which is just the gateway.</p>
+<pre><code>curl -s -X POST https://api.grants.gov/v1/api/search2 \
+  -H "Content-Type: application/json" \
+  -d '{"keyword": "", "oppStatuses": "posted", "sortBy": "openDate|desc", "rows": 2}'</code></pre>
+<p>The response has <code>data.hitCount</code> (858 posted opportunities on 5 November 2026) and <code>data.oppHits[]</code>. One hit, as returned:</p>
+<pre><code>{"id": "364212", "number": "NHTSA-693JJ927R000007-FY27",
+ "title": "State Process for Informing Consumers of Recalls Program",
+ "agencyCode": "DOT-NHTSA", "agency": "National Highway Traffic Safety Administration",
+ "openDate": "11/04/2026", "closeDate": "02/04/2027", "oppStatus": "posted",
+ "docType": "synopsis", "cfdaList": ["20.614"]}</code></pre>
+<p>Each response also carries facet blocks (agencies, eligibilities, funding categories) and a token, so it weighs 11 to 14 KB regardless of <code>rows</code>.</p>
+
+<h3>Counts by status on 5 November 2026</h3>
+<div class="tw"><table>
+<tr><th><code>oppStatuses</code></th><th>Opportunities</th></tr>
+<tr><td>posted</td><td class="n">858</td></tr>
+<tr><td>forecasted</td><td class="n">588</td></tr>
+<tr><td>closed</td><td class="n">8,670</td></tr>
+<tr><td>archived</td><td class="n">73,555</td></tr>
+</table></div>
+<p>Without <code>oppStatuses</code>, the default is posted plus forecasted. Pass several statuses pipe-separated: <code>"posted|forecasted"</code>. An unknown status or filter value returns 0 hits, not an error.</p>
+
+<h3>Filters: what works and what silently returns zero</h3>
+<div class="tw"><table>
+<tr><th>Goal</th><th>What worked</th><th>Trap</th></tr>
+<tr><td>Agency</td><td><code>"agencies": "HHS-NIH11"</code> or <code>"HHS*"</code> (420 posted)</td><td>A bare department code <code>HHS</code> returned <strong>0</strong>. Use the exact code or a trailing wildcard.</td></tr>
+<tr><td>ALN / CFDA number</td><td><code>"cfda": "93.855"</code>, or a prefix such as <code>93.5*</code></td><td>Only <strong>one</strong> value: <code>"93.855|93.859"</code> returned 0 (so did a comma list).</td></tr>
+<tr><td>Posted in the last N days</td><td><code>"dateRange": 30</code>; other integers also worked</td><td>Counts days since posting, not a date range.</td></tr>
+<tr><td>Sort</td><td><code>"sortBy": "openDate|desc"</code> or <code>"closeDate|asc"</code></td><td>-</td></tr>
+<tr><td>Keyword</td><td><code>"keyword": "cybersecurity"</code></td><td>Several words behave as AND; we did not find a phrase operator.</td></tr>
+<tr><td>Funding instrument, category, eligibility</td><td>pipe-separated code lists (OR)</td><td>Eligibility uses numeric codes from the facet block.</td></tr>
+</table></div>
+
+<h3>Paging</h3>
+<ul>
+<li><code>rows</code> is not capped at 100: <code>rows: 5000</code> returned all 858 posted hits in one response. <code>startRecordNum</code> pages, and a start past the end returns an empty list.</li>
+<li>There is no "updated since" filter, so to detect changes you must keep what you saw and compare.</li>
+</ul>
+
+<h3>The detail call</h3>
+<p><code>POST /v1/api/fetchOpportunity</code> with <code>{"opportunityId": 364212}</code> returns a <code>synopsis</code> block (posted, closed, archived) and/or a <code>forecast</code> block, plus the ALN programs, agency details, attachments and application packages. Things to know:</p>
+<ul>
+<li><strong>Amounts are strings:</strong> <code>"1500000"</code>, <code>"none"</code>, an empty string or absent. <code>estimatedFunding</code> (total program funding) and <code>awardCeiling</code> are different things; the award ceiling alone understates a big program.</li>
+<li><strong>Dates are text:</strong> <code>"Feb 04, 2027 12:00:00 AM EST"</code>. The midnight is a placeholder; the true cut-off time is in the announcement text. The search list uses another format, <code>MM/DD/YYYY</code>.</li>
+<li><strong>Descriptions are HTML.</strong></li>
+<li><strong>Errors can arrive as HTTP 200.</strong> An unknown id returns <code>errorcode 0</code> and a "no record found" message; check the body.</li>
+<li><strong>The contact fields can hold a person.</strong> The detail record carries a contact name, e-mail and phone; usually a program mailbox, sometimes a named officer. And <code>synopsis.agencyName</code> can contain that person's name instead of the agency, as it did for the NHTSA opportunity above, so take the agency from the search hit.</li>
+<li>A record posted after a forecast carries both blocks; <code>docType</code> tells you which is current.</li>
+<li>About 0.8 to 1.2 seconds per detail call. We found no documented rate limit; the terms reserve the right to block clients that "exceed or circumvent" limits, so keep a low concurrency (we use 4 in flight at about 5 starts per second).</li>
+</ul>
+
+<h3>The daily XML extract, for bulk loads</h3>
+<p><a href="https://www.grants.gov/xml-extract">grants.gov/xml-extract</a> lists the last seven daily files, <code>GrantsDBExtract&lt;YYYYMMDD&gt;v2.zip</code>, 78.4 MB each, rebuilt at about 04:40 US Eastern (the 4 November file is stamped 04:43:01 AM EST). One request gives you everything with amounts, instead of one detail call per opportunity. The cost is a bigger download and an XML parse, which is a poor trade for a small query and a good one for a full load.</p>
+
+<h2>2. DIY: posted opportunities to CSV in Python</h2>
+<p>This script (tested against the live API on 5 November 2026: 858 posted opportunities, 10 rows written) searches, fetches the detail of each hit, converts the string amounts and text dates and writes a CSV. It needs <code>pip install requests</code>.</p>
+<pre><code>import csv
+import re
+import time
+from datetime import datetime
+from html import unescape
+
+import requests
+
+BASE = &quot;https://api.grants.gov/v1/api&quot;
+S = requests.Session()
+S.headers[&quot;User-Agent&quot;] = &quot;my-grants-script/1.0&quot;
+
+
+def post(path, body):
+    for attempt in range(5):
+        r = S.post(f&quot;{BASE}/{path}&quot;, json=body, timeout=60)
+        if r.status_code in (429, 500, 502, 503, 504):
+            time.sleep(2 ** attempt)
+            continue
+        r.raise_for_status()
+        j = r.json()
+        if j.get(&quot;errorcode&quot;, 0) != 0:                  # errors can come back as HTTP 200
+            raise RuntimeError(j.get(&quot;msg&quot;))
+        return j[&quot;data&quot;]
+    raise RuntimeError(&quot;Grants.gov unavailable&quot;)
+
+
+def money(v):
+    &quot;&quot;&quot;Amounts are strings: &quot;1500000&quot;, &quot;none&quot;, &quot;&quot; or missing.&quot;&quot;&quot;
+    try:
+        return float(v)
+    except (TypeError, ValueError):
+        return None
+
+
+def day(s):
+    &quot;&quot;&quot;&#x27;Feb 04, 2027 12:00:00 AM EST&#x27; -&gt; &#x27;2027-02-04&#x27;&quot;&quot;&quot;
+    try:
+        return datetime.strptime(s[:12], &quot;%b %d, %Y&quot;).date().isoformat() if s else None
+    except ValueError:
+        return None
+
+
+# 1) Search: no key needed. Dates in the hits are MM/DD/YYYY. The agency filter needs &quot;HHS*&quot; or &quot;HHS-NIH11&quot;, not &quot;HHS&quot;.
+hits = post(&quot;search2&quot;, {&quot;keyword&quot;: &quot;&quot;, &quot;oppStatuses&quot;: &quot;posted&quot;, &quot;agencies&quot;: &quot;&quot;,
+                        &quot;sortBy&quot;: &quot;openDate|desc&quot;, &quot;rows&quot;: 10, &quot;startRecordNum&quot;: 0})
+print(hits[&quot;hitCount&quot;], &quot;posted opportunities&quot;)
+
+rows = []
+for h in hits[&quot;oppHits&quot;]:
+    # 2) One detail call per opportunity gives description, amounts, eligibility, the real deadline.
+    d = post(&quot;fetchOpportunity&quot;, {&quot;opportunityId&quot;: int(h[&quot;id&quot;])})
+    syn = d.get(&quot;synopsis&quot;) or d.get(&quot;forecast&quot;) or {}
+    desc = re.sub(r&quot;\s+&quot;, &quot; &quot;, re.sub(r&quot;&lt;[^&gt;]+&gt;&quot;, &quot; &quot;, unescape(syn.get(&quot;synopsisDesc&quot;) or syn.get(&quot;forecastDesc&quot;) or &quot;&quot;))).strip()
+    rows.append({
+        &quot;id&quot;: h[&quot;id&quot;], &quot;number&quot;: h[&quot;number&quot;], &quot;title&quot;: h[&quot;title&quot;], &quot;agency&quot;: h[&quot;agency&quot;],
+        &quot;posted&quot;: day(syn.get(&quot;postingDate&quot;)), &quot;deadline&quot;: day(syn.get(&quot;responseDate&quot;)),
+        &quot;total_funding&quot;: money(syn.get(&quot;estimatedFunding&quot;)), &quot;award_ceiling&quot;: money(syn.get(&quot;awardCeiling&quot;)),
+        &quot;aln&quot;: &quot;;&quot;.join(h.get(&quot;cfdaList&quot;) or []), &quot;description&quot;: desc[:300],
+        &quot;url&quot;: f&quot;https://www.grants.gov/search-results-detail/{h[&#x27;id&#x27;]}&quot;,
+    })
+    time.sleep(0.3)                                      # no documented limit; the terms allow blocking clients that exceed or circumvent limits
+
+with open(&quot;grants_gov.csv&quot;, &quot;w&quot;, newline=&quot;&quot;, encoding=&quot;utf-8&quot;) as f:
+    w = csv.DictWriter(f, fieldnames=rows[0].keys())
+    w.writeheader()
+    w.writerows(rows)
+print(len(rows), &quot;rows written&quot;)
+</code></pre>
+
+<h2>3. When the Actor saves time</h2>
+<p>For a one-off export, the script is enough and free. The Apify Actor <a href="https://apify.com/nexus-scrapers/grants-gov-opportunities">Grants.gov Opportunities</a> (by Nexus Scrapers) wraps the same two official endpoints. It pays off when you would otherwise maintain that code:</p>
+<ul>
+<li><strong>One normalized schema</strong> shared with our TED, UK, SAM.gov and USAspending Actors: money as <code>{amount, currency}</code> (numbers, never <code>"none"</code> strings), dates as <code>YYYY-MM-DD</code>, a buyer object, missing values as <code>null</code>. Grant-specific data (opportunity number, status, ALN programs, funding instruments, eligibility, cost sharing, award floor and ceiling, attachments) sits in extra <code>grants*</code> keys, and the funding basis (total program funding or award ceiling) is named in the record.</li>
+<li><strong>Detail merge in one run:</strong> list and detail calls, polite pacing and retries handled, HTML turned into text (shortened to 1,500 characters).</li>
+<li><strong>Filters as plain inputs:</strong> keyword, statuses, agencies (department code or exact code, the wildcard handled for you), ALN, categories, eligibilities, instruments, posting window, "closing within N days" and a funding range.</li>
+<li><strong>Contacts are off by default</strong> (an <code>includeContact</code> input adds them as published). </li>
+<li><strong>Scheduling and integrations</strong> through Apify: daily runs into Slack, e-mail, Google Sheets or a webhook; export as JSON, CSV or Excel; API and MCP access.</li>
+</ul>
+<p>Pricing is pay per result; the Actor page shows the current price.</p>
+<p class="note">Limits: it does not use the XML extract, so a full-history dump is not its job; amount filters need one detail call per opportunity (it examines up to 500); it does not submit applications or download application packages; the deadline is a date only. If you need a single list, use the script. This guide is independent: This product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services.</p>
+
+<h2>4. Real sample: 20 normalized records</h2>
+<p>These 20 records were produced on 5 November 2026 by running the Actor's own code locally on live API responses (no Apify platform involved): 16 posted opportunities (newest first, at most two per agency) and 4 forecasts. They are the first matches in that order, not hand-picked for quality. Contacts are not included; a scrub pass over every text field found no e-mail address or phone number to remove. Descriptions are shortened to 1,500 characters and converted from HTML to text, which is the Actor's only change to the content; amounts and dates are reformatted. One forecast has no funding amount (<code>null</code>), as published.</p>
+<p>Download: <a href="sample.json">sample.json</a> (full records, UTF-8) and <a href="sample.csv">sample.csv</a> (flattened, lists joined with <code> | </code>, opens in Excel). Free to use under the notes in section 5.</p>
+<div class="tw"><table>
+<tr><th>Opportunity</th><th>Status</th><th>Agency</th><th>Title</th><th>First ALN</th><th>Funding</th><th>Deadline</th></tr>
+<tr><td class="n"><a href="https://www.grants.gov/search-results-detail/364212">364212</a></td><td>posted</td><td>National Highway Traffic Safe…</td><td>State Process for Informing Consumers of Recalls Pr…</td><td class="n">20.614</td><td class="n">1,500,000 USD</td><td class="n">2027-02-04</td></tr>
+<tr><td class="n"><a href="https://www.grants.gov/search-results-detail/362952">362952</a></td><td>posted</td><td>National Institutes of Health</td><td>Systems Biology of Infection and Inflammation in Ch…</td><td class="n">93.121</td><td class="n">26,000,000 USD</td><td class="n">2027-02-18</td></tr>
+<tr><td class="n"><a href="https://www.grants.gov/search-results-detail/364213">364213</a></td><td>posted</td><td>ACC-APG-Aberdeen Division A</td><td>APEX Accelerator-Option Period for Existing Award R…</td><td class="n">12.002</td><td class="n">1,500,000 USD</td><td class="n">2027-07-04</td></tr>
+<tr><td class="n"><a href="https://www.grants.gov/search-results-detail/364217">364217</a></td><td>posted</td><td>Food and Drug Administration</td><td>Development and Maintenance of Human and Animal Foo…</td><td class="n">93.103</td><td class="n">6,500,000 USD</td><td class="n">-</td></tr>
+<tr><td class="n"><a href="https://www.grants.gov/search-results-detail/364218">364218</a></td><td>posted</td><td>Food and Drug Administration</td><td>National Produce Safety Partnership Program</td><td class="n">93.103</td><td class="n">34,000,000 USD</td><td class="n">-</td></tr>
+<tr><td class="n"><a href="https://www.grants.gov/search-results-detail/360551">360551</a></td><td>posted</td><td>National Institutes of Health</td><td>George M. O’Brien Urology Cooperative Research Cent…</td><td class="n">93.KRC</td><td class="n">5,200,000 USD</td><td class="n">2027-02-01</td></tr>
+<tr><td class="n"><a href="https://www.grants.gov/search-results-detail/364205">364205</a></td><td>posted</td><td>National Aeronautics and Spac…</td><td>Fiscal Year 2027 Teams Engaging Affiliated Museums…</td><td class="n">43.008</td><td class="n">4,000,000 USD</td><td class="n">2027-02-01</td></tr>
+<tr><td class="n"><a href="https://www.grants.gov/search-results-detail/364197">364197</a></td><td>posted</td><td>Bureau of Justice Assistance</td><td>OJP FY 2026 Special Attorneys Program Round 11</td><td class="n">16.076</td><td class="n">3,000,000 USD</td><td class="n">2026-11-17</td></tr>
+<tr><td class="n"><a href="https://www.grants.gov/search-results-detail/364196">364196</a></td><td>posted</td><td>Geological Survey</td><td>USGS Cooperative Landslide Hazard Mapping and Asses…</td><td class="n">15.821</td><td class="n">1,000,000 USD</td><td class="n">2027-02-01</td></tr>
+<tr><td class="n"><a href="https://www.grants.gov/search-results-detail/364202">364202</a></td><td>posted</td><td>Environmental Protection Agen…</td><td>FY27 Guidelines for Brownfield Cleanup Grants</td><td class="n">66.818</td><td class="n">14,000,000 USD</td><td class="n">2027-01-21</td></tr>
+<tr><td class="n"><a href="https://www.grants.gov/search-results-detail/364201">364201</a></td><td>posted</td><td>Environmental Protection Agen…</td><td>FY27 Guidelines for Brownfield Revolving Loan Fund…</td><td class="n">66.818</td><td class="n">10,000,000 USD</td><td class="n">2027-01-21</td></tr>
+<tr><td class="n"><a href="https://www.grants.gov/search-results-detail/364195">364195</a></td><td>posted</td><td>National Endowment for the Hu…</td><td>Endowments for Advancing the Humanities</td><td class="n">45.043</td><td class="n">10,000,000 USD</td><td class="n">2027-01-13</td></tr>
+<tr><td class="n"><a href="https://www.grants.gov/search-results-detail/364190">364190</a></td><td>posted</td><td>Geological Survey</td><td>Cooperative Agreement for affiliated Partner with R…</td><td class="n">15.808</td><td class="n">490,000 USD</td><td class="n">2026-12-02</td></tr>
+<tr><td class="n"><a href="https://www.grants.gov/search-results-detail/364134">364134</a></td><td>posted</td><td>Administration for Children a…</td><td>Residential Services for Unaccompanied Alien Childr…</td><td class="n">93.676</td><td class="n">280,000,000 USD</td><td class="n">2026-12-29</td></tr>
+<tr><td class="n"><a href="https://www.grants.gov/search-results-detail/364174">364174</a></td><td>posted</td><td>National Energy Technology La…</td><td>Grid Supply Chain Alternatives to Lead Energy Domin…</td><td class="n">81.122</td><td class="n">237,000,000 USD</td><td class="n">2027-02-08</td></tr>
+<tr><td class="n"><a href="https://www.grants.gov/search-results-detail/364188">364188</a></td><td>posted</td><td>National Aeronautics and Spac…</td><td>Established Program to Stimulate Competitive Resear…</td><td class="n">43.016</td><td class="n">21,000,000 USD</td><td class="n">2027-02-01</td></tr>
+<tr><td class="n"><a href="https://www.grants.gov/search-results-detail/364173">364173</a></td><td>forecasted</td><td>Substance Abuse and Mental He…</td><td>First Responders-Comprehensive Addiction and Recove…</td><td class="n">93.490</td><td class="n">20,000,000 USD</td><td class="n">-</td></tr>
+<tr><td class="n"><a href="https://www.grants.gov/search-results-detail/364156">364156</a></td><td>forecasted</td><td>Administration for Community…</td><td>National Center for Law and Elder Rights</td><td class="n">93.048</td><td class="n">1,500,000 USD</td><td class="n">-</td></tr>
+<tr><td class="n"><a href="https://www.grants.gov/search-results-detail/364150">364150</a></td><td>forecasted</td><td>Administration for Community…</td><td>University Centers for Developmental Disabilities i…</td><td class="n">93.632</td><td class="n">26,419,764 USD</td><td class="n">-</td></tr>
+<tr><td class="n"><a href="https://www.grants.gov/search-results-detail/364123">364123</a></td><td>forecasted</td><td>National Institutes of Health</td><td>Learning Disabilities Research Centers</td><td class="n">93.865</td><td class="n">-</td><td class="n">-</td></tr>
+</table></div>
+<p>One opportunity in full (description omitted):</p>
+<pre><code>{
+  &quot;sourceId&quot;: &quot;364213&quot;,
+  &quot;url&quot;: &quot;https://www.grants.gov/search-results-detail/364213&quot;,
+  &quot;noticeType&quot;: &quot;contract-notice&quot;,
+  &quot;noticeTypeCode&quot;: &quot;synopsis&quot;,
+  &quot;title&quot;: &quot;APEX Accelerator-Option Period for Existing Award Recipients&quot;,
+  &quot;buyer&quot;: {
+    &quot;name&quot;: &quot;ACC-APG-Aberdeen Division A&quot;,
+    &quot;country&quot;: &quot;US&quot;,
+    &quot;city&quot;: null,
+    &quot;nutsCode&quot;: null,
+    &quot;buyerType&quot;: &quot;central-government&quot;
+  },
+  &quot;estimatedValue&quot;: {
+    &quot;amount&quot;: 1500000,
+    &quot;currency&quot;: &quot;USD&quot;
+  },
+  &quot;publicationDate&quot;: &quot;2026-11-04&quot;,
+  &quot;submissionDeadline&quot;: &quot;2027-07-04&quot;,
+  &quot;grantsOpportunityNumber&quot;: &quot;DOW2027APEXACCELERATORCLOSED&quot;,
+  &quot;grantsStatus&quot;: &quot;posted&quot;,
+  &quot;grantsAgencyCode&quot;: &quot;DOD-AMC-ACCAPGADA&quot;,
+  &quot;grantsAln&quot;: [
+    {
+      &quot;code&quot;: &quot;12.002&quot;,
+      &quot;title&quot;: &quot;Procurement Technical Assistance For Business Firms&quot;
+    }
+  ],
+  &quot;grantsCategory&quot;: {
+    &quot;code&quot;: &quot;D&quot;,
+    &quot;description&quot;: &quot;Discretionary&quot;
+  },
+  &quot;grantsFundingInstruments&quot;: [
+    {
+      &quot;id&quot;: &quot;CA&quot;,
+      &quot;description&quot;: &quot;Cooperative Agreement&quot;
+    }
+  ],
+  &quot;grantsEstimatedValueBasis&quot;: &quot;awardCeiling&quot;,
+  &quot;grantsEstimatedTotalFunding&quot;: null,
+  &quot;grantsAwardCeiling&quot;: {
+    &quot;amount&quot;: 1500000,
+    &quot;currency&quot;: &quot;USD&quot;
+  },
+  &quot;grantsAwardFloor&quot;: {
+    &quot;amount&quot;: 60000,
+    &quot;currency&quot;: &quot;USD&quot;
+  },
+  &quot;grantsExpectedAwards&quot;: 88,
+  &quot;grantsCostSharing&quot;: true
+}</code></pre>
+<p>Read the "Funding" column with care: it is total program funding where the announcement states one, and the award ceiling otherwise (the <code>grantsEstimatedValueBasis</code> field says which). It is not what one applicant receives.</p>
+
+<h2>5. Data licence and terms</h2>
+<p>The data is public US federal government information published by Grants.gov, operated by the U.S. Department of Health and Human Services (HHS) Office of Grants. There is no separate data licence; use of the API is governed by the <a href="https://www.grants.gov/api/terms-conditions">Grants.gov API Terms of Service</a>. In short:</p>
+<ul>
+<li>You may use the API to "search, display, analyze, retrieve, view and otherwise get" information from grants data.</li>
+<li><strong>Attribution is required.</strong> Services that use the API should display this notice prominently: <em>This product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services.</em></li>
+<li>You may use the Grants.gov name to identify the source, but not to imply endorsement.</li>
+<li>You may not modify or falsely represent the content and still claim HHS Grants.gov as the source. Shortening a description or reformatting a date is presentation; do not alter the meaning of an announcement. Always link back to the opportunity page.</li>
+<li>Grants.gov may limit access and may block clients that attempt to exceed or circumvent limits. The API is provided as is; the terms also contain warranty, liability and indemnification clauses.</li>
+</ul>
+<p>This is a summary, not legal advice; the terms can change, so read the page itself. Personal data: contact names, e-mails and phones in announcements are officials' business contacts; our sample omits them.</p>
+
+
+<h2>Links</h2>
+<ul>
+<li><a href="https://apify.com/nexus-scrapers/grants-gov-opportunities">Grants.gov Opportunities Actor on Apify</a></li>
+<li><a href="https://www.grants.gov/api/api-guide">Official Grants.gov API guide</a></li>
+<li><a href="https://www.grants.gov/api/terms-conditions">Grants.gov API Terms of Service</a></li>
+<li><a href="../usaspending-awards-json/">What was actually awarded: the USAspending guide</a></li>
+<li><a href="../sam-gov-opportunities-json/">US federal contract opportunities: the SAM.gov guide</a></li>
+</ul>
+
+<footer>Independent guide by Nexus Tools. Not affiliated with or endorsed by the U.S. Department of Health and Human Services, Grants.gov or Apify. Contact: <a href="mailto:nexusscrapers.dev@gmail.com">nexusscrapers.dev@gmail.com</a></footer>
+</main>
+</body>
+</html>

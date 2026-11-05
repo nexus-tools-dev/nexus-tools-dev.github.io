@@ -1,0 +1,1592 @@
+[
+  {
+    "schemaVersion": "1.0",
+    "nctId": "NCT07807280",
+    "url": "https://clinicaltrials.gov/study/NCT07807280",
+    "briefTitle": "C-Carbs: A CGM-guided Approach to Teaching Carb Awareness",
+    "officialTitle": "A Novel Approach to Teaching Carb Awareness to Vulnerable Patients With Type 1 Diabetes",
+    "acronym": "C-Carbs",
+    "overallStatus": "RECRUITING",
+    "whyStopped": null,
+    "phases": [
+      "NA"
+    ],
+    "studyType": "INTERVENTIONAL",
+    "briefSummary": "The goal of this randomized study is to learn whether a CGM-guided insulin dosing education program can help adults with diabetes improve how they dose mealtime insulin. The main question it aims to answer is:\n\n1\\. Does CGM-guided insulin dosing education improve insulin dosing behaviors and glycemic outcomes in adults with diabetes who do not routinely use carbohydrate counting?\n\nParticipants will be randomly assigned to either the C-CARBS intervention or usual care. Participants will complete study visits, questionnaires, and meal and insulin logs, and CGM data will be collected to evaluate changes in insulin dosing behaviors and glycemic outcomes.",
+    "conditions": [
+      "Type 1 Diabetes"
+    ],
+    "interventions": [
+      {
+        "type": "BEHAVIORAL",
+        "name": "C-Carbs Program"
+      }
+    ],
+    "leadSponsor": "University of California, Los Angeles",
+    "leadSponsorClass": "OTHER",
+    "collaborators": [],
+    "enrollment": 40,
+    "enrollmentType": "ESTIMATED",
+    "startDate": "2026-11-16",
+    "startDateType": "ESTIMATED",
+    "primaryCompletionDate": "2028-05-31",
+    "completionDate": "2028-11-30",
+    "firstPostedDate": "2026-09-08",
+    "lastUpdatePostedDate": "2026-11-04",
+    "statusVerifiedDate": "2026-08",
+    "locationsCount": 1,
+    "locationCountries": [
+      "United States"
+    ],
+    "locations": [
+      {
+        "facility": "University of California Los Angeles",
+        "city": "Los Angeles",
+        "state": "California",
+        "country": "United States",
+        "status": "RECRUITING"
+      }
+    ],
+    "minimumAge": "18 Years",
+    "maximumAge": null,
+    "ageGroups": [
+      "ADULT",
+      "OLDER_ADULT"
+    ],
+    "sex": "ALL",
+    "healthyVolunteers": false,
+    "hasResults": false,
+    "scrapedAt": "2026-11-05T07:48:30+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "nctId": "NCT05867927",
+    "url": "https://clinicaltrials.gov/study/NCT05867927",
+    "briefTitle": "GENERATE - Next GENERATion of GynEcological Surgery - Robotic Assisted Surgery in Gynecological Indications",
+    "officialTitle": "GENERATE - Next GENERATion of GynEcological Surgery - Robotic Assisted Surgery in Gynecological Indications - A Prospective, Non-interventional, Multi-center, Post Market Clinical Study",
+    "acronym": "GENERATE",
+    "overallStatus": "RECRUITING",
+    "whyStopped": null,
+    "phases": [],
+    "studyType": "OBSERVATIONAL",
+    "briefSummary": "GENERATE - Next GENERATion of GynEcological Surgery - Robotic Assisted Surgery in Gynecological Indications\n\nGenerate real-world evidence in the use of the da Vinci Surgical Systems for gynecological indications within the German health care system.",
+    "conditions": [
+      "GYN Disorders"
+    ],
+    "interventions": [
+      {
+        "type": "DEVICE",
+        "name": "Robotic-assisted surgery (da Vinci)"
+      },
+      {
+        "type": "DEVICE",
+        "name": "Non-da Vinci Surgery"
+      }
+    ],
+    "leadSponsor": "Intuitive Surgical",
+    "leadSponsorClass": "INDUSTRY",
+    "collaborators": [],
+    "enrollment": 1250,
+    "enrollmentType": "ESTIMATED",
+    "startDate": "2023-10-25",
+    "startDateType": "ACTUAL",
+    "primaryCompletionDate": "2028-02",
+    "completionDate": "2028-07",
+    "firstPostedDate": "2023-05-22",
+    "lastUpdatePostedDate": "2026-11-04",
+    "statusVerifiedDate": "2026-11",
+    "locationsCount": 15,
+    "locationCountries": [
+      "Germany"
+    ],
+    "locations": [
+      {
+        "facility": "Albertinen Krankenhaus Hamburg",
+        "city": "Hamburg",
+        "state": "Free and Hanseatic City of Hamburg",
+        "country": "Germany",
+        "status": "ACTIVE_NOT_RECRUITING"
+      },
+      {
+        "facility": "St. Josefs-Hospital Wiesbaden",
+        "city": "Wiesbaden",
+        "state": "Hesse",
+        "country": "Germany",
+        "status": "ACTIVE_NOT_RECRUITING"
+      },
+      {
+        "facility": "Charité - Universitätsmedizin Berlin - Klinik für Gynäkologie",
+        "city": "Berlin",
+        "state": null,
+        "country": "Germany",
+        "status": "ACTIVE_NOT_RECRUITING"
+      },
+      {
+        "facility": "Augusta-Kranken-Anstalt Bochum",
+        "city": "Bochum",
+        "state": null,
+        "country": "Germany",
+        "status": "ACTIVE_NOT_RECRUITING"
+      },
+      {
+        "facility": "Sana Kliniken Coburg",
+        "city": "Coburg",
+        "state": null,
+        "country": "Germany",
+        "status": "ACTIVE_NOT_RECRUITING"
+      }
+    ],
+    "minimumAge": "18 Years",
+    "maximumAge": null,
+    "ageGroups": [
+      "ADULT",
+      "OLDER_ADULT"
+    ],
+    "sex": "FEMALE",
+    "healthyVolunteers": false,
+    "hasResults": false,
+    "scrapedAt": "2026-11-05T07:48:30+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "nctId": "NCT07719582",
+    "url": "https://clinicaltrials.gov/study/NCT07719582",
+    "briefTitle": "Effectivity of P1821, a Novel Tongue Strengthening and Endurance Enhancing Speech Flow Exercise",
+    "officialTitle": "Effectivity of P1821, a Novel Tongue Strengthening and Endurance Enhancing Speech Flow Exercise",
+    "acronym": null,
+    "overallStatus": "RECRUITING",
+    "whyStopped": null,
+    "phases": [
+      "NA"
+    ],
+    "studyType": "INTERVENTIONAL",
+    "briefSummary": "The P1821 initiative constitutes an innovative intervention specifically engineered to enhance tongue muscular strength and endurance. The primary objective of this research study is to ascertain whether the integration of a proactive tongue strengthening exercise regimen, utilizing a Non-Significant Risk (NSR) Device, contributes to an observable improvement in speech fluency.",
+    "conditions": [
+      "Ankyloglossia",
+      "Impairment of Speech",
+      "Slurred Speech"
+    ],
+    "interventions": [
+      {
+        "type": "DEVICE",
+        "name": "P1821"
+      }
+    ],
+    "leadSponsor": "Dream Video LLC",
+    "leadSponsorClass": "OTHER",
+    "collaborators": [
+      {
+        "name": "Dream Holdings Research",
+        "class": "UNKNOWN"
+      }
+    ],
+    "enrollment": 100,
+    "enrollmentType": "ESTIMATED",
+    "startDate": "2026-11-01",
+    "startDateType": "ACTUAL",
+    "primaryCompletionDate": "2029-01-01",
+    "completionDate": "2030-01-01",
+    "firstPostedDate": "2026-07-22",
+    "lastUpdatePostedDate": "2026-11-04",
+    "statusVerifiedDate": "2026-11",
+    "locationsCount": 1,
+    "locationCountries": [
+      "United States"
+    ],
+    "locations": [
+      {
+        "facility": "N/A - Remote Study",
+        "city": "Naples",
+        "state": "Florida",
+        "country": "United States",
+        "status": "RECRUITING"
+      }
+    ],
+    "minimumAge": null,
+    "maximumAge": null,
+    "ageGroups": [
+      "CHILD",
+      "ADULT",
+      "OLDER_ADULT"
+    ],
+    "sex": "ALL",
+    "healthyVolunteers": true,
+    "hasResults": false,
+    "scrapedAt": "2026-11-05T07:48:30+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "nctId": "NCT07915284",
+    "url": "https://clinicaltrials.gov/study/NCT07915284",
+    "briefTitle": "Platelet Transfusion Thresholds in Non-Bleeding Patients",
+    "officialTitle": "Platelet Transfusion Thresholds and Clinical Outcomes in Non-Bleeding Patients Admitted to Pediatric Intensive Care Unit at Sohag University Hospitals",
+    "acronym": null,
+    "overallStatus": "NOT_YET_RECRUITING",
+    "whyStopped": null,
+    "phases": [],
+    "studyType": "OBSERVATIONAL",
+    "briefSummary": "This is a study of platelet transfusion thresholds in patients with thrombocytopenia without bleeding and benifits of transfusion in those critically ill patients to prevent bleeding",
+    "conditions": [
+      "Non Bleeding Patients With Thrombocytopenia"
+    ],
+    "interventions": [
+      {
+        "type": "OTHER",
+        "name": "Platlet transfusion"
+      }
+    ],
+    "leadSponsor": "Sohag University",
+    "leadSponsorClass": "OTHER",
+    "collaborators": [],
+    "enrollment": 30,
+    "enrollmentType": "ESTIMATED",
+    "startDate": "2026-10-30",
+    "startDateType": "ESTIMATED",
+    "primaryCompletionDate": "2027-09-10",
+    "completionDate": "2027-09-15",
+    "firstPostedDate": "2026-11-04",
+    "lastUpdatePostedDate": "2026-11-04",
+    "statusVerifiedDate": "2026-10",
+    "locationsCount": 1,
+    "locationCountries": [
+      "Egypt"
+    ],
+    "locations": [
+      {
+        "facility": "Sohag University Hospital",
+        "city": "Sohag",
+        "state": null,
+        "country": "Egypt",
+        "status": null
+      }
+    ],
+    "minimumAge": "1 Month",
+    "maximumAge": "18 Years",
+    "ageGroups": [
+      "CHILD",
+      "ADULT"
+    ],
+    "sex": "ALL",
+    "healthyVolunteers": false,
+    "hasResults": false,
+    "scrapedAt": "2026-11-05T07:48:30+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "nctId": "NCT07703878",
+    "url": "https://clinicaltrials.gov/study/NCT07703878",
+    "briefTitle": "A Study to Evaluate the Safety and Antitumor Activity of GS-1206 in Adults With Solid Tumors",
+    "officialTitle": "A Phase 1 Study to Evaluate the Safety, Tolerability, and Antitumor Activity of GS-1206 in Adults With Solid Tumors",
+    "acronym": null,
+    "overallStatus": "RECRUITING",
+    "whyStopped": null,
+    "phases": [
+      "PHASE1"
+    ],
+    "studyType": "INTERVENTIONAL",
+    "briefSummary": "The goal of this clinical study is to learn more about the study drug GS-1206, including its safety, tolerability, and antitumor activity in adult participants with solid tumors.",
+    "conditions": [
+      "Solid Tumor"
+    ],
+    "interventions": [
+      {
+        "type": "DRUG",
+        "name": "GS-1206"
+      }
+    ],
+    "leadSponsor": "Gilead Sciences",
+    "leadSponsorClass": "INDUSTRY",
+    "collaborators": [],
+    "enrollment": 302,
+    "enrollmentType": "ESTIMATED",
+    "startDate": "2026-07-17",
+    "startDateType": "ACTUAL",
+    "primaryCompletionDate": "2029-09",
+    "completionDate": "2029-09",
+    "firstPostedDate": "2026-07-15",
+    "lastUpdatePostedDate": "2026-11-04",
+    "statusVerifiedDate": "2026-11",
+    "locationsCount": 4,
+    "locationCountries": [
+      "United States"
+    ],
+    "locations": [
+      {
+        "facility": "START Midwest, LLC",
+        "city": "Grand Rapids",
+        "state": "Michigan",
+        "country": "United States",
+        "status": "RECRUITING"
+      },
+      {
+        "facility": "NEXT Oncology Dallas",
+        "city": "Dallas",
+        "state": "Texas",
+        "country": "United States",
+        "status": "RECRUITING"
+      },
+      {
+        "facility": "NEXT Oncology",
+        "city": "San Antonio",
+        "state": "Texas",
+        "country": "United States",
+        "status": "RECRUITING"
+      },
+      {
+        "facility": "START San Antonio, LLC",
+        "city": "San Antonio",
+        "state": "Texas",
+        "country": "United States",
+        "status": "RECRUITING"
+      }
+    ],
+    "minimumAge": "18 Years",
+    "maximumAge": null,
+    "ageGroups": [
+      "ADULT",
+      "OLDER_ADULT"
+    ],
+    "sex": "ALL",
+    "healthyVolunteers": false,
+    "hasResults": false,
+    "scrapedAt": "2026-11-05T07:48:30+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "nctId": "NCT07226843",
+    "url": "https://clinicaltrials.gov/study/NCT07226843",
+    "briefTitle": "A Study of LY4584180 in Adult Participants With Previously Treated Blood Cancers",
+    "officialTitle": "NOVA-BCL6-1, A First-in-Human, Multicenter Phase 1a/1b Study to Investigate Safety, Tolerability, Pharmacokinetics, and Efficacy of LY4584180 in Adult Participants With Previously Treated Hematologic Malignancies",
+    "acronym": null,
+    "overallStatus": "RECRUITING",
+    "whyStopped": null,
+    "phases": [
+      "PHASE1"
+    ],
+    "studyType": "INTERVENTIONAL",
+    "briefSummary": "The main purpose of this study is to evaluate safety and efficacy, and measure how much LY4584180 gets into the bloodstream and how long it takes the body to eliminate it in patients with previously treated blood cancers. For each participant, the study could last about 9 months or possibly longer including screening.",
+    "conditions": [
+      "Lymphoma, Non-Hodgkin's",
+      "Lymphoma, Diffuse Large B-Cell",
+      "Follicular Lymphoma"
+    ],
+    "interventions": [
+      {
+        "type": "DRUG",
+        "name": "LY4584180"
+      },
+      {
+        "type": "DRUG",
+        "name": "Rituximab"
+      }
+    ],
+    "leadSponsor": "Eli Lilly and Company",
+    "leadSponsorClass": "INDUSTRY",
+    "collaborators": [],
+    "enrollment": 460,
+    "enrollmentType": "ESTIMATED",
+    "startDate": "2026-04-17",
+    "startDateType": "ACTUAL",
+    "primaryCompletionDate": "2028-09",
+    "completionDate": "2030-02",
+    "firstPostedDate": "2025-11-12",
+    "lastUpdatePostedDate": "2026-11-04",
+    "statusVerifiedDate": "2026-11",
+    "locationsCount": 46,
+    "locationCountries": [
+      "United States",
+      "France",
+      "Germany",
+      "Italy",
+      "Japan",
+      "Poland",
+      "Spain",
+      "United Kingdom"
+    ],
+    "locations": [
+      {
+        "facility": "Mayo Clinic - Scottsdale",
+        "city": "Scottsdale",
+        "state": "Arizona",
+        "country": "United States",
+        "status": "RECRUITING"
+      },
+      {
+        "facility": "City of Hope",
+        "city": "Duarte",
+        "state": "California",
+        "country": "United States",
+        "status": "RECRUITING"
+      },
+      {
+        "facility": "University of California, Los Angeles (UCLA) - Medical Center",
+        "city": "Los Angeles",
+        "state": "California",
+        "country": "United States",
+        "status": "RECRUITING"
+      },
+      {
+        "facility": "University of California, San Francisco (UCSF) - Helen Diller Family Comprehensive Cancer Center",
+        "city": "San Francisco",
+        "state": "California",
+        "country": "United States",
+        "status": "RECRUITING"
+      },
+      {
+        "facility": "Colorado Blood Cancer Institute",
+        "city": "Denver",
+        "state": "Colorado",
+        "country": "United States",
+        "status": "RECRUITING"
+      }
+    ],
+    "minimumAge": "18 Years",
+    "maximumAge": null,
+    "ageGroups": [
+      "ADULT",
+      "OLDER_ADULT"
+    ],
+    "sex": "ALL",
+    "healthyVolunteers": false,
+    "hasResults": false,
+    "scrapedAt": "2026-11-05T07:48:30+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "nctId": "NCT07916558",
+    "url": "https://clinicaltrials.gov/study/NCT07916558",
+    "briefTitle": "Impact of Parasternal and Rectointercostal Blocks on Extubation Time",
+    "officialTitle": "\"The Effect of Ultrasound-Guided Parasternal and Rectointercostal Block Application on Postoperative Extubation Timing in Open Heart Surgery: A 2-Year Retrospective Cohort Study\"",
+    "acronym": null,
+    "overallStatus": "NOT_YET_RECRUITING",
+    "whyStopped": null,
+    "phases": [],
+    "studyType": "OBSERVATIONAL",
+    "briefSummary": "\"Postoperative pain constitutes a major recovery challenge in patients undergoing open-heart surgery with median sternotomy and chest tube insertion (subxiphoid/intercostal). This study aimed to evaluate the effect of parasternal and rectointercostal block administration-performed to achieve pain control and reduce the postoperative analgesic burden-on patient postoperative recovery and extubation time.\"",
+    "conditions": [
+      "Postoperative Pain",
+      "Extubation Time"
+    ],
+    "interventions": [],
+    "leadSponsor": "Samsun University",
+    "leadSponsorClass": "OTHER",
+    "collaborators": [],
+    "enrollment": 40,
+    "enrollmentType": "ESTIMATED",
+    "startDate": "2026-10-26",
+    "startDateType": "ESTIMATED",
+    "primaryCompletionDate": "2026-11-02",
+    "completionDate": "2026-11-10",
+    "firstPostedDate": "2026-11-04",
+    "lastUpdatePostedDate": "2026-11-04",
+    "statusVerifiedDate": "2026-10",
+    "locationsCount": 1,
+    "locationCountries": [
+      "Turkey (Türkiye)"
+    ],
+    "locations": [
+      {
+        "facility": "Samsun City Hospital",
+        "city": "Samsun",
+        "state": null,
+        "country": "Turkey (Türkiye)",
+        "status": null
+      }
+    ],
+    "minimumAge": null,
+    "maximumAge": null,
+    "ageGroups": [
+      "CHILD",
+      "ADULT",
+      "OLDER_ADULT"
+    ],
+    "sex": "ALL",
+    "healthyVolunteers": false,
+    "hasResults": false,
+    "scrapedAt": "2026-11-05T07:48:30+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "nctId": "NCT06362733",
+    "url": "https://clinicaltrials.gov/study/NCT06362733",
+    "briefTitle": "Modified Pivotal Response Treatment for Insistence on Sameness in Autistic Youth",
+    "officialTitle": "Modified Pivotal Response Treatment for Insistence on Sameness in Autistic Youth",
+    "acronym": "M-PRT-IS",
+    "overallStatus": "RECRUITING",
+    "whyStopped": null,
+    "phases": [
+      "NA"
+    ],
+    "studyType": "INTERVENTIONAL",
+    "briefSummary": "The purpose of this open label trial is to examine the preliminary feasibility, acceptability, and effectiveness of a 12-week behavioral intervention program (1 hour/week) to treat insistence on sameness (e.g., difficulty tolerating changes in routine) in youth with autism spectrum disorder (ASD). Treatment will be delivered via secure telemedicine platform and consist of a combination of parent-training and parent-mediated intervention with the child.",
+    "conditions": [
+      "Autism Spectrum Disorder",
+      "Restricted Behavior",
+      "Autism"
+    ],
+    "interventions": [
+      {
+        "type": "BEHAVIORAL",
+        "name": "Modified Pivotal Response Treatment for Insistence on Sameness in Autistic Youth"
+      }
+    ],
+    "leadSponsor": "Stanford University",
+    "leadSponsorClass": "OTHER",
+    "collaborators": [],
+    "enrollment": 44,
+    "enrollmentType": "ESTIMATED",
+    "startDate": "2024-07-11",
+    "startDateType": "ACTUAL",
+    "primaryCompletionDate": "2028-07-01",
+    "completionDate": "2028-07-01",
+    "firstPostedDate": "2024-04-12",
+    "lastUpdatePostedDate": "2026-11-04",
+    "statusVerifiedDate": "2026-11",
+    "locationsCount": 1,
+    "locationCountries": [
+      "United States"
+    ],
+    "locations": [
+      {
+        "facility": "401 Quarry Road (Remote Study)",
+        "city": "Stanford",
+        "state": "California",
+        "country": "United States",
+        "status": "RECRUITING"
+      }
+    ],
+    "minimumAge": "4 Years",
+    "maximumAge": "17 Years",
+    "ageGroups": [
+      "CHILD"
+    ],
+    "sex": "ALL",
+    "healthyVolunteers": true,
+    "hasResults": false,
+    "scrapedAt": "2026-11-05T07:48:30+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "nctId": "NCT07770633",
+    "url": "https://clinicaltrials.gov/study/NCT07770633",
+    "briefTitle": "Negative Pressure Wound Therapy Devices in Total Knee Arthroplasty",
+    "officialTitle": "Randomized Controlled Clinical Trial for Closed Incision Negative Pressure Wound Therapy (NPWT) Devices in Total Knee Arthroplasty (TKA)",
+    "acronym": null,
+    "overallStatus": "NOT_YET_RECRUITING",
+    "whyStopped": null,
+    "phases": [
+      "NA"
+    ],
+    "studyType": "INTERVENTIONAL",
+    "briefSummary": "This study is a single-center, prospective, randomized, open-label clinical trial evaluating three commercially available closed-incision negative pressure wound therapy (ciNPWT) devices: NPseal, PICO, and Prevena, in adult patients undergoing primary total knee arthroplasty (TKA) who meet predefined high-risk criteria for wound complications.\n\nA total of approximately 300 participants will be enrolled and randomized in a 1:1:1 fashion to receive one of the three study dressings applied over the closed surgical incision at the end of the procedure. All participants will otherwise receive standard perioperative and postoperative care. The primary follow-up period will extend through 90 days after surgery.\n\nThe primary objective is to compare the incidence of 90-day surgical site complications, including superficial infection, wound dehiscence, seroma, and hematoma, across the three dressing groups. Secondary objectives include evaluation of device usability, patient experience, and device-related issues (such as loss of seal, alarms, tubing or pump problems, fluid saturation, and premature dressing changes), as well as assessment of the interaction between skin closure method and device performance.\n\nResearch-specific activities are limited to eligibility confirmation, informed consent, randomization, administration of a brief postoperative patient survey at approximately postoperative day 7 and/or dressing removal, provider assessment of the dressing at removal, and collection of clinical outcomes from the medical record. No additional blood draws, imaging, or invasive procedures are required for participation.\n\nThis study is designed to address a gap in the literature by providing head-to-head comparative data on commonly used ciNPWT systems in a high-risk primary TKA population, with the goal of informing postoperative wound management strategies in clinical practice.",
+    "conditions": [
+      "Wound Surgical",
+      "Diabetes",
+      "Obesity",
+      "Chronic Kidney Diseases",
+      "Smoking"
+    ],
+    "interventions": [
+      {
+        "type": "DEVICE",
+        "name": "NP Seal"
+      },
+      {
+        "type": "DEVICE",
+        "name": "PICO"
+      },
+      {
+        "type": "DEVICE",
+        "name": "Prevena"
+      }
+    ],
+    "leadSponsor": "The Cleveland Clinic",
+    "leadSponsorClass": "OTHER",
+    "collaborators": [
+      {
+        "name": "Stryker Instruments",
+        "class": "INDUSTRY"
+      }
+    ],
+    "enrollment": 300,
+    "enrollmentType": "ESTIMATED",
+    "startDate": "2026-11-09",
+    "startDateType": "ESTIMATED",
+    "primaryCompletionDate": "2029-12",
+    "completionDate": "2030-12",
+    "firstPostedDate": "2026-08-18",
+    "lastUpdatePostedDate": "2026-11-04",
+    "statusVerifiedDate": "2026-11",
+    "locationsCount": 0,
+    "locationCountries": [],
+    "locations": [],
+    "minimumAge": "18 Years",
+    "maximumAge": null,
+    "ageGroups": [
+      "ADULT",
+      "OLDER_ADULT"
+    ],
+    "sex": "ALL",
+    "healthyVolunteers": true,
+    "hasResults": false,
+    "scrapedAt": "2026-11-05T07:48:30+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "nctId": "NCT07917364",
+    "url": "https://clinicaltrials.gov/study/NCT07917364",
+    "briefTitle": "Asprosin and miRNA Expression in Young Women With Metabolic Syndrome",
+    "officialTitle": "Association Between Serum Asprosin Concentration and Expression of Selected miRNAs With Risk Factors and Components of Metabolic Syndrome in Young Women: Diagnostic Perspectives",
+    "acronym": "ASPRO-MetS",
+    "overallStatus": "RECRUITING",
+    "whyStopped": null,
+    "phases": [],
+    "studyType": "OBSERVATIONAL",
+    "briefSummary": "Metabolic syndrome is a major risk factor for cardiovascular disease and type 2 diabetes, and its prevalence in young adults is increasing. Early identification of individuals at risk may improve prevention strategies. This observational, cross-sectional case-control study investigates the relationship between serum asprosin concentration, the expression of six selected circulating microRNAs, and the components and risk factors of metabolic syndrome in young women aged 18 to 35 years. Two equally sized groups will be compared: women meeting NCEP ATP III criteria for metabolic syndrome and healthy age-matched controls. Participants attend a single study visit during which fasting blood samples, anthropometric and body composition measurements, blood pressure, and validated questionnaires assessing physical activity, diet, sleep quality, perceived stress, and quality of life are collected. The study aims to determine whether asprosin and the selected microRNA profile have diagnostic value as biomarkers of metabolic syndrome in this population.",
+    "conditions": [
+      "Metabolic Syndrome",
+      "Insulin Resistance",
+      "Obesity, Abdominal",
+      "Dyslipidemias"
+    ],
+    "interventions": [
+      {
+        "type": "DIAGNOSTIC_TEST",
+        "name": "Biomarker panel (asprosin, microRNA, BDNF, cortisol)"
+      },
+      {
+        "type": "OTHER",
+        "name": "Clinical and questionnaire assessment"
+      }
+    ],
+    "leadSponsor": "University of Applied Sciences in Nowy Targ",
+    "leadSponsorClass": "OTHER",
+    "collaborators": [
+      {
+        "name": "University of Physical Education in Krakow, Poland",
+        "class": "UNKNOWN"
+      },
+      {
+        "name": "Maj Institute of Pharmacology, Polish Academy of Sciences (CEPHARES), Poland",
+        "class": "UNKNOWN"
+      }
+    ],
+    "enrollment": 110,
+    "enrollmentType": "ESTIMATED",
+    "startDate": "2026-11",
+    "startDateType": "ESTIMATED",
+    "primaryCompletionDate": "2027-03",
+    "completionDate": "2027-03",
+    "firstPostedDate": "2026-11-04",
+    "lastUpdatePostedDate": "2026-11-04",
+    "statusVerifiedDate": "2026-11",
+    "locationsCount": 1,
+    "locationCountries": [
+      "Poland"
+    ],
+    "locations": [
+      {
+        "facility": "Institute of Medicine, University of Applied Sciences in Nowy Targ, Kokoszków 71, 34-400 Nowy Targ, Poland",
+        "city": "Nowy Targ",
+        "state": "Lesser Poland Voivodeship",
+        "country": "Poland",
+        "status": "RECRUITING"
+      }
+    ],
+    "minimumAge": "18 Years",
+    "maximumAge": "35 Years",
+    "ageGroups": [
+      "ADULT"
+    ],
+    "sex": "FEMALE",
+    "healthyVolunteers": true,
+    "hasResults": false,
+    "scrapedAt": "2026-11-05T07:48:30+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "nctId": "NCT07915115",
+    "url": "https://clinicaltrials.gov/study/NCT07915115",
+    "briefTitle": "Computer-Assisted Vocabulary Intervention for Spanish-English Bilingual Children With Developmental Language Disorder",
+    "officialTitle": "A Randomized Controlled Trial of Computer-Assisted Bilingual Vocabulary Intervention in Emergent Bilinguals With Developmental Language Disorder",
+    "acronym": "CABVI",
+    "overallStatus": "NOT_YET_RECRUITING",
+    "whyStopped": null,
+    "phases": [
+      "NA"
+    ],
+    "studyType": "INTERVENTIONAL",
+    "briefSummary": "This study will examine whether computer-assisted vocabulary instruction in Spanish and English helps young bilingual children with developmental language disorder learn and use vocabulary. It will include 120 Spanish-English bilingual children in kindergarten or first grade. Eighty children with developmental language disorder will be assigned by chance to bilingual computer-assisted vocabulary instruction, English-only computer-assisted vocabulary instruction, or usual English-language school services. Forty children with typical language development will receive bilingual instruction without random assignment, providing a developmental comparison.\n\nThe program teaches 36 vocabulary concepts through 24 small-group sessions, ordinarily over about six weeks. School-calendar disruptions may extend the schedule. Vocabulary will be assessed in both languages before intervention, immediately afterward, and approximately six weeks after the final session. The primary outcomes are naming and defining the taught concepts in each language.\n\nThe implementation component anticipates 15 unique school speech-language pathologists or appropriately supervised speech-language pathology assistants across five project years, with a planning target of approximately 3 new clinicians per year. Annual recruitment may vary with eligible caseloads. This component examines delivery fidelity, feasibility, clinician confidence, usability and satisfaction. Teacher and parent feedback about children's vocabulary use, communication confidence and engagement will also be collected after intervention and at follow-up where feasible.",
+    "conditions": [
+      "Developmental Language Disorder"
+    ],
+    "interventions": [
+      {
+        "type": "BEHAVIORAL",
+        "name": "Bilingual computer-assisted vocabulary intervention (CABVI)"
+      },
+      {
+        "type": "BEHAVIORAL",
+        "name": "English-only computer-assisted vocabulary intervention (CABVI)"
+      },
+      {
+        "type": "BEHAVIORAL",
+        "name": "Usual English-language school services"
+      }
+    ],
+    "leadSponsor": "Texas Christian University",
+    "leadSponsorClass": "OTHER",
+    "collaborators": [
+      {
+        "name": "National Institute on Minority Health and Health Disparities (NIMHD)",
+        "class": "NIH"
+      },
+      {
+        "name": "National Institute on Deafness and Other Communication Disorders (NIDCD)",
+        "class": "NIH"
+      }
+    ],
+    "enrollment": 135,
+    "enrollmentType": "ESTIMATED",
+    "startDate": "2026-11-01",
+    "startDateType": "ESTIMATED",
+    "primaryCompletionDate": "2031-04",
+    "completionDate": "2031-04",
+    "firstPostedDate": "2026-11-04",
+    "lastUpdatePostedDate": "2026-11-04",
+    "statusVerifiedDate": "2026-10",
+    "locationsCount": 0,
+    "locationCountries": [],
+    "locations": [],
+    "minimumAge": "5 Years",
+    "maximumAge": null,
+    "ageGroups": [
+      "CHILD",
+      "ADULT",
+      "OLDER_ADULT"
+    ],
+    "sex": "ALL",
+    "healthyVolunteers": true,
+    "hasResults": false,
+    "scrapedAt": "2026-11-05T07:48:30+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "nctId": "NCT07139132",
+    "url": "https://clinicaltrials.gov/study/NCT07139132",
+    "briefTitle": "The AHA Oneida Study",
+    "officialTitle": "Transforming Risk Factors in a High Stroke Risk Native American Population Through a Cultural Nutritional Program",
+    "acronym": null,
+    "overallStatus": "RECRUITING",
+    "whyStopped": null,
+    "phases": [
+      "NA"
+    ],
+    "studyType": "INTERVENTIONAL",
+    "briefSummary": "The purpose of this clinical trial is to learn whether a cultural nutritional program can change stroke risk factors, cognitive decline, and learn how school education programs about nutrition can improve health in the Oneida Nation.\n\nParticipants will undergo:\n\n* A carotid ultrasound\n* Cognitive testing\n* Health assessment\n* Blood work\n* Health wellness coaching\n\nParticipants can expect to be in the study for 1 year.",
+    "conditions": [
+      "Oneida Nation Members"
+    ],
+    "interventions": [
+      {
+        "type": "BEHAVIORAL",
+        "name": "Health Wellness Coaching"
+      },
+      {
+        "type": "DIAGNOSTIC_TEST",
+        "name": "Carotid ultrasound"
+      },
+      {
+        "type": "BEHAVIORAL",
+        "name": "School-age nutritional education program"
+      },
+      {
+        "type": "DIAGNOSTIC_TEST",
+        "name": "Cognitive Testing"
+      },
+      {
+        "type": "DIAGNOSTIC_TEST",
+        "name": "Blood work"
+      }
+    ],
+    "leadSponsor": "University of Wisconsin, Madison",
+    "leadSponsorClass": "OTHER",
+    "collaborators": [
+      {
+        "name": "American Heart Association",
+        "class": "OTHER"
+      }
+    ],
+    "enrollment": 95,
+    "enrollmentType": "ESTIMATED",
+    "startDate": "2025-09-11",
+    "startDateType": "ACTUAL",
+    "primaryCompletionDate": "2027-09",
+    "completionDate": "2027-09",
+    "firstPostedDate": "2025-08-24",
+    "lastUpdatePostedDate": "2026-11-04",
+    "statusVerifiedDate": "2026-11",
+    "locationsCount": 2,
+    "locationCountries": [
+      "United States"
+    ],
+    "locations": [
+      {
+        "facility": "University of Wisconsin - Madison",
+        "city": "Madison",
+        "state": "Wisconsin",
+        "country": "United States",
+        "status": "RECRUITING"
+      },
+      {
+        "facility": "Oneida Nation Reservation",
+        "city": "Oneida",
+        "state": "Wisconsin",
+        "country": "United States",
+        "status": "RECRUITING"
+      }
+    ],
+    "minimumAge": "7 Years",
+    "maximumAge": "85 Years",
+    "ageGroups": [
+      "CHILD",
+      "ADULT",
+      "OLDER_ADULT"
+    ],
+    "sex": "ALL",
+    "healthyVolunteers": true,
+    "hasResults": false,
+    "scrapedAt": "2026-11-05T07:48:30+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "nctId": "NCT07144150",
+    "url": "https://clinicaltrials.gov/study/NCT07144150",
+    "briefTitle": "EVERO Drug-coated Balloon (DCB) Randomized Trial",
+    "officialTitle": "Advance Evero™ 18 Everolimus-Coated Percutaneous Transluminal Angioplasty (PTA) Balloon Catheter Versus Paclitaxel-coated Ballons in Patients With Femoropopliteal Disease (EVERO Trial)",
+    "acronym": null,
+    "overallStatus": "RECRUITING",
+    "whyStopped": null,
+    "phases": [
+      "NA"
+    ],
+    "studyType": "INTERVENTIONAL",
+    "briefSummary": "The primary objective of the study is to evaluate the long-term safety and effectiveness of the Advance Evero™ 18 Everolimus-coated Percutaneous Transluminal Angioplasty Balloon Catheter (hereafter referred to as the Evero drug-coated balloon \\[DCB\\]) in the treatment of the femoropopliteal artery lesions in patients with peripheral arterial disease (PAD). Specifically, the Randomized-Controlled Trial (RCT) is designed to demonstrate non-inferior safety and non-inferior effectiveness of the Evero DCB when compared to commercially available paclitaxel DCBs (pDCBs).",
+    "conditions": [
+      "Peripheral Vascular Disease",
+      "Peripheral Arterial Disease"
+    ],
+    "interventions": [
+      {
+        "type": "COMBINATION_PRODUCT",
+        "name": "Evero DCB"
+      },
+      {
+        "type": "COMBINATION_PRODUCT",
+        "name": "Paclitaxel DCB"
+      }
+    ],
+    "leadSponsor": "Cook Research Incorporated",
+    "leadSponsorClass": "INDUSTRY",
+    "collaborators": [],
+    "enrollment": 410,
+    "enrollmentType": "ESTIMATED",
+    "startDate": "2026-04-17",
+    "startDateType": "ACTUAL",
+    "primaryCompletionDate": "2028-09",
+    "completionDate": "2032-10",
+    "firstPostedDate": "2025-08-27",
+    "lastUpdatePostedDate": "2026-11-04",
+    "statusVerifiedDate": "2026-11",
+    "locationsCount": 15,
+    "locationCountries": [
+      "United States"
+    ],
+    "locations": [
+      {
+        "facility": "Long Beach Veterans Administration Hospital/SCIRE Research",
+        "city": "Long Beach",
+        "state": "California",
+        "country": "United States",
+        "status": "RECRUITING"
+      },
+      {
+        "facility": "Yale New Haven Hospital",
+        "city": "New Haven",
+        "state": "Connecticut",
+        "country": "United States",
+        "status": "RECRUITING"
+      },
+      {
+        "facility": "Medstar Georgetown University Hopsital",
+        "city": "Washington D.C.",
+        "state": "District of Columbia",
+        "country": "United States",
+        "status": "RECRUITING"
+      },
+      {
+        "facility": "The Cardiac and Vascular Institute",
+        "city": "Gainesville",
+        "state": "Florida",
+        "country": "United States",
+        "status": "RECRUITING"
+      },
+      {
+        "facility": "First Coast Cardiovascular Institute",
+        "city": "Jacksonville",
+        "state": "Florida",
+        "country": "United States",
+        "status": "RECRUITING"
+      }
+    ],
+    "minimumAge": "18 Years",
+    "maximumAge": null,
+    "ageGroups": [
+      "ADULT",
+      "OLDER_ADULT"
+    ],
+    "sex": "ALL",
+    "healthyVolunteers": false,
+    "hasResults": false,
+    "scrapedAt": "2026-11-05T07:48:30+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "nctId": "NCT07174336",
+    "url": "https://clinicaltrials.gov/study/NCT07174336",
+    "briefTitle": "A Study of Tersolisib (LY4064809/STX-478) With Other Anti-Cancer Treatments in Participants With Advanced Breast Cancer With a Genetic Change (PIK3CA)",
+    "officialTitle": "A Phase 2, Randomized, Open-Label Dose Optimization and Phase 3, Randomized, Double-Blind, Placebo-Controlled Study of LY4064809 Combined With a CDK4/6 Inhibitor and Endocrine Therapy in Adults With HR+, HER2-Advanced Breast Cancer With a PIK3CA Mutation Who Received No Prior Treatment for Advanced Breast Cancer (PIKALO-2)",
+    "acronym": null,
+    "overallStatus": "RECRUITING",
+    "whyStopped": null,
+    "phases": [
+      "PHASE3"
+    ],
+    "studyType": "INTERVENTIONAL",
+    "briefSummary": "The purpose of the study is to assess the efficacy and safety of the addition of Tersolisib (LY4064809/STX-478) to other anti-cancer drugs as first treatment for advanced hormone receptor-positive (HR+)/human epidermal growth factor receptor 2-negative (HER2-) breast cancer. Participants can remain in the study as long as the drug is helping the cancer without unbearable side effects.",
+    "conditions": [
+      "Breast Neoplasms",
+      "Neoplasm Metastasis"
+    ],
+    "interventions": [
+      {
+        "type": "DRUG",
+        "name": "LY4064809"
+      },
+      {
+        "type": "DRUG",
+        "name": "Placebo"
+      },
+      {
+        "type": "DRUG",
+        "name": "Ribociclib"
+      },
+      {
+        "type": "DRUG",
+        "name": "Palbociclib"
+      },
+      {
+        "type": "DRUG",
+        "name": "Abemaciclib"
+      },
+      {
+        "type": "DRUG",
+        "name": "Anastrozole"
+      },
+      {
+        "type": "DRUG",
+        "name": "Letrozole"
+      },
+      {
+        "type": "DRUG",
+        "name": "Exemestane"
+      },
+      {
+        "type": "DRUG",
+        "name": "Fulvestrant"
+      }
+    ],
+    "leadSponsor": "Eli Lilly and Company",
+    "leadSponsorClass": "INDUSTRY",
+    "collaborators": [
+      {
+        "name": "Pfizer",
+        "class": "INDUSTRY"
+      }
+    ],
+    "enrollment": 800,
+    "enrollmentType": "ESTIMATED",
+    "startDate": "2025-12-22",
+    "startDateType": "ACTUAL",
+    "primaryCompletionDate": "2029-05",
+    "completionDate": "2033-05",
+    "firstPostedDate": "2025-09-15",
+    "lastUpdatePostedDate": "2026-11-04",
+    "statusVerifiedDate": "2026-11",
+    "locationsCount": 364,
+    "locationCountries": [
+      "United States",
+      "Argentina",
+      "Australia",
+      "Belgium",
+      "Brazil",
+      "Canada",
+      "China",
+      "France",
+      "Germany",
+      "Greece",
+      "Ireland",
+      "Italy",
+      "Japan",
+      "Singapore",
+      "South Korea",
+      "Spain",
+      "Taiwan",
+      "Turkey (Türkiye)",
+      "United Kingdom"
+    ],
+    "locations": [
+      {
+        "facility": "Alaska Oncology and Hematology",
+        "city": "Anchorage",
+        "state": "Alaska",
+        "country": "United States",
+        "status": "RECRUITING"
+      },
+      {
+        "facility": "Ironwood Cancer & Research Centers",
+        "city": "Chandler",
+        "state": "Arizona",
+        "country": "United States",
+        "status": "RECRUITING"
+      },
+      {
+        "facility": "St. Joseph's Hospital and Medical Center",
+        "city": "Phoenix",
+        "state": "Arizona",
+        "country": "United States",
+        "status": "NOT_YET_RECRUITING"
+      },
+      {
+        "facility": "Mayo Clinic in Arizona - Phoenix",
+        "city": "Phoenix",
+        "state": "Arizona",
+        "country": "United States",
+        "status": "NOT_YET_RECRUITING"
+      },
+      {
+        "facility": "The University of Arizona Cancer Center - North Campus",
+        "city": "Tucson",
+        "state": "Arizona",
+        "country": "United States",
+        "status": "RECRUITING"
+      }
+    ],
+    "minimumAge": "18 Years",
+    "maximumAge": null,
+    "ageGroups": [
+      "ADULT",
+      "OLDER_ADULT"
+    ],
+    "sex": "ALL",
+    "healthyVolunteers": false,
+    "hasResults": false,
+    "scrapedAt": "2026-11-05T07:48:31+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "nctId": "NCT07060807",
+    "url": "https://clinicaltrials.gov/study/NCT07060807",
+    "briefTitle": "A Clinical Study of Patritumab Deruxtecan to Treat Breast Cancer (MK-1022-016)",
+    "officialTitle": "An Open-label, Randomized, Phase 3 Study to Evaluate Patritumab Deruxtecan Monotherapy Versus Treatment of Physician's Choice in Hormone Receptor-positive, HER2-negative Unresectable Locally Advanced or Metastatic Breast Cancer (HERTHENA-Breast04).",
+    "acronym": null,
+    "overallStatus": "RECRUITING",
+    "whyStopped": null,
+    "phases": [
+      "PHASE3"
+    ],
+    "studyType": "INTERVENTIONAL",
+    "briefSummary": "Researchers are looking for other ways to treat breast cancer (BC) that is hormone receptor-positive and human epidermal growth factor receptor 2-negative (HR+/HER2-) and either unresectable locally advanced or metastatic.\n\n* HR positive (HR+) means the cancer cells have proteins that attach to estrogen or progesterone (hormones) which help the cancer to grow and spread\n* HER2 negative (HER2-) means the cancer cells have a low amount of a protein called HER2\n* Unresectable locally advanced means the cancer cannot be completely removed by surgery and has spread into nearby tissue or muscles\n* Metastatic means the cancer has spread to other parts of the body\n\nTreatment for this type of breast cancer usually includes endocrine therapy (ET) and sometimes a second treatment. The main goal of this study is to learn if people who receive patritumab deruxtecan (also known as HER3-DXd and MK-1022) live longer overall or without the cancer growing/spreading, compared to people who receive chemotherapy or a different drug called trastuzumab deruxtecan.",
+    "conditions": [
+      "Breast Neoplasms"
+    ],
+    "interventions": [
+      {
+        "type": "BIOLOGICAL",
+        "name": "Patritumab deruxtecan"
+      },
+      {
+        "type": "DRUG",
+        "name": "Paclitaxel"
+      },
+      {
+        "type": "DRUG",
+        "name": "Nab-paclitaxel"
+      },
+      {
+        "type": "DRUG",
+        "name": "Capecitabine"
+      },
+      {
+        "type": "DRUG",
+        "name": "Pegylated liposomal doxorubicin"
+      },
+      {
+        "type": "BIOLOGICAL",
+        "name": "Trastuzumab deruxtecan"
+      },
+      {
+        "type": "DRUG",
+        "name": "Rescue Medication"
+      }
+    ],
+    "leadSponsor": "Merck Sharp & Dohme LLC",
+    "leadSponsorClass": "INDUSTRY",
+    "collaborators": [
+      {
+        "name": "Daiichi Sankyo",
+        "class": "INDUSTRY"
+      }
+    ],
+    "enrollment": 1000,
+    "enrollmentType": "ESTIMATED",
+    "startDate": "2025-07-21",
+    "startDateType": "ACTUAL",
+    "primaryCompletionDate": "2033-07-14",
+    "completionDate": "2033-07-14",
+    "firstPostedDate": "2025-07-11",
+    "lastUpdatePostedDate": "2026-11-03",
+    "statusVerifiedDate": "2026-10",
+    "locationsCount": 206,
+    "locationCountries": [
+      "United States",
+      "Argentina",
+      "Australia",
+      "Brazil",
+      "Canada",
+      "Chile",
+      "China",
+      "Colombia",
+      "France",
+      "Germany",
+      "Greece",
+      "Hong Kong",
+      "Hungary",
+      "Israel",
+      "Italy",
+      "Japan",
+      "Mexico",
+      "Peru",
+      "Poland",
+      "South Korea",
+      "Spain",
+      "Taiwan",
+      "Thailand",
+      "Turkey (Türkiye)",
+      "United Kingdom",
+      "Vietnam"
+    ],
+    "locations": [
+      {
+        "facility": "Southern Cancer Center (SCC) ( Site 8000)",
+        "city": "Daphne",
+        "state": "Alabama",
+        "country": "United States",
+        "status": "RECRUITING"
+      },
+      {
+        "facility": "The University of Arizona Cancer Center - North Campus ( Site 0055)",
+        "city": "Tucson",
+        "state": "Arizona",
+        "country": "United States",
+        "status": "RECRUITING"
+      },
+      {
+        "facility": "Los Angeles Hematology Oncology Medical Group ( Site 0026)",
+        "city": "Los Angeles",
+        "state": "California",
+        "country": "United States",
+        "status": "RECRUITING"
+      },
+      {
+        "facility": "Hoag Memorial Hospital Presbyterian ( Site 0025)",
+        "city": "Newport Beach",
+        "state": "California",
+        "country": "United States",
+        "status": "RECRUITING"
+      },
+      {
+        "facility": "St. Marys Hospital and Regional Medical Center-SCL Health Cancer Centers of Colorado ( Site 0021)",
+        "city": "Grand Junction",
+        "state": "Colorado",
+        "country": "United States",
+        "status": "RECRUITING"
+      }
+    ],
+    "minimumAge": "18 Years",
+    "maximumAge": null,
+    "ageGroups": [
+      "ADULT",
+      "OLDER_ADULT"
+    ],
+    "sex": "ALL",
+    "healthyVolunteers": false,
+    "hasResults": false,
+    "scrapedAt": "2026-11-05T07:48:31+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "nctId": "NCT07173751",
+    "url": "https://clinicaltrials.gov/study/NCT07173751",
+    "briefTitle": "ROSETTA Breast-01: The Effects and Safety of Pumitamig in Patients With Triple-Negative Breast Cancer",
+    "officialTitle": "A Phase III, Multisite, Randomized, Double-Blind Trial of BNT327 in Combination With Chemotherapy Versus Placebo With Chemotherapy in Patients With Previously Untreated Locally Recurrent Inoperable or Metastatic TNBC Determined Ineligible for PD(L)1 Therapy Based on PD-L1 Negative Disease",
+    "acronym": null,
+    "overallStatus": "RECRUITING",
+    "whyStopped": null,
+    "phases": [
+      "PHASE3"
+    ],
+    "studyType": "INTERVENTIONAL",
+    "briefSummary": "This is a Phase III trial where participants will be randomized to two treatment groups, which means participants will be assigned by equal chance to a treatment group. This trial will be double-blinded, which means neither the participants nor the trial doctors will know which of the two treatments the participants actually receive. Participants will receive either the trial drug with chemotherapy or placebo (which looks like the trial drug but does not have any drug in it) with chemotherapy.",
+    "conditions": [
+      "Breast Neoplasms"
+    ],
+    "interventions": [
+      {
+        "type": "DRUG",
+        "name": "Pumitamig"
+      },
+      {
+        "type": "DRUG",
+        "name": "Nab-paclitaxel/Paclitaxel"
+      },
+      {
+        "type": "DRUG",
+        "name": "Gemcitabine"
+      },
+      {
+        "type": "DRUG",
+        "name": "Carboplatin"
+      },
+      {
+        "type": "DRUG",
+        "name": "Eribulin"
+      },
+      {
+        "type": "DRUG",
+        "name": "Matching placebo"
+      }
+    ],
+    "leadSponsor": "BioNTech SE",
+    "leadSponsorClass": "INDUSTRY",
+    "collaborators": [
+      {
+        "name": "Bristol-Myers Squibb",
+        "class": "INDUSTRY"
+      }
+    ],
+    "enrollment": 558,
+    "enrollmentType": "ESTIMATED",
+    "startDate": "2025-10-30",
+    "startDateType": "ACTUAL",
+    "primaryCompletionDate": "2029-12",
+    "completionDate": "2030-09",
+    "firstPostedDate": "2025-09-15",
+    "lastUpdatePostedDate": "2026-10-30",
+    "statusVerifiedDate": "2026-10",
+    "locationsCount": 224,
+    "locationCountries": [
+      "United States",
+      "Argentina",
+      "Australia",
+      "Belgium",
+      "Brazil",
+      "Canada",
+      "China",
+      "Czechia",
+      "Georgia",
+      "Germany",
+      "Italy",
+      "Japan",
+      "Mexico",
+      "Netherlands",
+      "Poland",
+      "Singapore",
+      "South Korea",
+      "Spain",
+      "United Kingdom"
+    ],
+    "locations": [
+      {
+        "facility": "Highlands Oncology Group",
+        "city": "Springdale",
+        "state": "Arkansas",
+        "country": "United States",
+        "status": "RECRUITING"
+      },
+      {
+        "facility": "University Of California - San Diego Moores Cancer Center",
+        "city": "La Jolla",
+        "state": "California",
+        "country": "United States",
+        "status": "RECRUITING"
+      },
+      {
+        "facility": "Cancer and Blood Specialty Clinic (CBSC)",
+        "city": "Los Alamitos",
+        "state": "California",
+        "country": "United States",
+        "status": "RECRUITING"
+      },
+      {
+        "facility": "Cedar Sinai - Samuel Oschin Cancer Center",
+        "city": "Los Angeles",
+        "state": "California",
+        "country": "United States",
+        "status": "RECRUITING"
+      },
+      {
+        "facility": "Stanford University School of Medicine - Stanford Cancer Institute (SCI) - Stanford Women's Cancer Center",
+        "city": "Palo Alto",
+        "state": "California",
+        "country": "United States",
+        "status": "RECRUITING"
+      }
+    ],
+    "minimumAge": "18 Years",
+    "maximumAge": null,
+    "ageGroups": [
+      "ADULT",
+      "OLDER_ADULT"
+    ],
+    "sex": "ALL",
+    "healthyVolunteers": false,
+    "hasResults": false,
+    "scrapedAt": "2026-11-05T07:48:31+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "nctId": "NCT00679042",
+    "url": "https://clinicaltrials.gov/study/NCT00679042",
+    "briefTitle": "Islet Transplantation in Type 1 Diabetic Patients Using the University of Illinois at Chicago (UIC) Protocol",
+    "officialTitle": "Islet Transplantation in Type 1 Diabetic Patients Using the UIC Protocol, Phase 3",
+    "acronym": null,
+    "overallStatus": "COMPLETED",
+    "whyStopped": null,
+    "phases": [
+      "PHASE3"
+    ],
+    "studyType": "INTERVENTIONAL",
+    "briefSummary": "In an earlier Phase 1/2 clinical trial using the Edmonton Protocol of steroid free immunosuppression, investigators at University of Illinois at Chicago (UIC) demonstrated the safety of islet preparation, iset transplantation, and medical treatment at UIC. Therefore, the primary purpose of the present Phase 3 clinical trial is to demonstrate the safety and efficacy of allogeneic islet transplantation in improving glycemic control in Type 1 diabetic patients using the UIC protocol that was developed and proven effective during the Phase 1/2 clinical trial.",
+    "conditions": [
+      "Type 1 Diabetes Mellitus"
+    ],
+    "interventions": [
+      {
+        "type": "BIOLOGICAL",
+        "name": "Islets of Langerhans transplantation"
+      }
+    ],
+    "leadSponsor": "CellTrans Inc.",
+    "leadSponsorClass": "INDUSTRY",
+    "collaborators": [],
+    "enrollment": 21,
+    "enrollmentType": "ACTUAL",
+    "startDate": "2007-09-05",
+    "startDateType": "ACTUAL",
+    "primaryCompletionDate": "2017-07-19",
+    "completionDate": "2026-07-01",
+    "firstPostedDate": "2008-05-16",
+    "lastUpdatePostedDate": "2026-11-04",
+    "statusVerifiedDate": "2026-10",
+    "locationsCount": 1,
+    "locationCountries": [
+      "United States"
+    ],
+    "locations": [
+      {
+        "facility": "University of Illinois at Chicago Medical Center",
+        "city": "Chicago",
+        "state": "Illinois",
+        "country": "United States",
+        "status": null
+      }
+    ],
+    "minimumAge": "18 Years",
+    "maximumAge": "75 Years",
+    "ageGroups": [
+      "ADULT",
+      "OLDER_ADULT"
+    ],
+    "sex": "ALL",
+    "healthyVolunteers": false,
+    "hasResults": true,
+    "scrapedAt": "2026-11-05T07:48:32+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "nctId": "NCT04828785",
+    "url": "https://clinicaltrials.gov/study/NCT04828785",
+    "briefTitle": "Food As MedicinE for Diabetes",
+    "officialTitle": "Food is Medicine: A Randomized Clinical Trial of Medically Tailored Meals For Individuals With Type 2 Diabetes Mellitus and Food Insecurity",
+    "acronym": "FAME-D",
+    "overallStatus": "COMPLETED",
+    "whyStopped": null,
+    "phases": [
+      "NA"
+    ],
+    "studyType": "INTERVENTIONAL",
+    "briefSummary": "The investigators propose a single-site, open-label, Phase II, community-based randomized clinical explanatory trial to test the efficacy of a medically tailored meal (MTM) interventions for adults with food insecurity and T2DM (Type 2 Diabetes Mellitus). While the efficacy of MTM needs to be established, given the nature of the population served by MTM, it is important to design the study to enhance the external validity/generalizability of the findings as much as possible. The investigators will recruit 200 participants from the referral list of Community Servings, a Boston-based MTM provider, and randomly assign them to MTM (N=100) or usual care + monthly food subsidy (N=100). MTM intervention will consist of 6 months of weekly delivery of 10 ready-to-eat meals (approximately half an individual's weekly food intake), along with telephone-based lifestyle intervention that prepares participants for the post-treatment period. The usual care + food subsidy recipients will receive usual care along with 6 months of a $40/month food subsidy.",
+    "conditions": [
+      "Diabetes Mellitus, Type 2"
+    ],
+    "interventions": [
+      {
+        "type": "OTHER",
+        "name": "MTM"
+      },
+      {
+        "type": "OTHER",
+        "name": "Food Subsidy"
+      }
+    ],
+    "leadSponsor": "University of North Carolina, Chapel Hill",
+    "leadSponsorClass": "OTHER",
+    "collaborators": [
+      {
+        "name": "National Institute of Diabetes and Digestive and Kidney Diseases (NIDDK)",
+        "class": "NIH"
+      },
+      {
+        "name": "Community Servings",
+        "class": "OTHER"
+      },
+      {
+        "name": "Massachusetts General Hospital",
+        "class": "OTHER"
+      }
+    ],
+    "enrollment": 215,
+    "enrollmentType": "ACTUAL",
+    "startDate": "2021-07-02",
+    "startDateType": "ACTUAL",
+    "primaryCompletionDate": "2025-09-11",
+    "completionDate": "2026-02-12",
+    "firstPostedDate": "2021-04-02",
+    "lastUpdatePostedDate": "2026-11-03",
+    "statusVerifiedDate": "2026-04",
+    "locationsCount": 1,
+    "locationCountries": [
+      "United States"
+    ],
+    "locations": [
+      {
+        "facility": "University of North Carolina at Chapel Hill",
+        "city": "Chapel Hill",
+        "state": "North Carolina",
+        "country": "United States",
+        "status": null
+      }
+    ],
+    "minimumAge": "18 Years",
+    "maximumAge": null,
+    "ageGroups": [
+      "ADULT",
+      "OLDER_ADULT"
+    ],
+    "sex": "ALL",
+    "healthyVolunteers": false,
+    "hasResults": true,
+    "scrapedAt": "2026-11-05T07:48:32+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "nctId": "NCT05923827",
+    "url": "https://clinicaltrials.gov/study/NCT05923827",
+    "briefTitle": "Omnipod® 5 With Libre 2 vs. MDI for Type 1 Diabetes in Children and Adults",
+    "officialTitle": "Randomized Controlled Trial to Demonstrate the Efficacy of the Omnipod® 5 System When Compared to Multiple Daily Injections for Treatment of Type 1 Diabetes (RADIANT)",
+    "acronym": "RADIANT",
+    "overallStatus": "COMPLETED",
+    "whyStopped": null,
+    "phases": [
+      "NA"
+    ],
+    "studyType": "INTERVENTIONAL",
+    "briefSummary": "This study is a randomized, controlled trial to evaluate the efficacy and safety of the Omnipod® 5 System with the FreeStyle Libre 2 continuous glucose monitor compared to Multiple Daily Injections (MDI) along with the FreeStyle Libre 2 continuous glucose monitor in children and adults with type 1 diabetes.",
+    "conditions": [
+      "Diabetes Mellitus, Type 1"
+    ],
+    "interventions": [
+      {
+        "type": "DEVICE",
+        "name": "Omnipod 5 System"
+      }
+    ],
+    "leadSponsor": "Insulet Corporation",
+    "leadSponsorClass": "INDUSTRY",
+    "collaborators": [],
+    "enrollment": 189,
+    "enrollmentType": "ACTUAL",
+    "startDate": "2023-09-11",
+    "startDateType": "ACTUAL",
+    "primaryCompletionDate": "2024-08-16",
+    "completionDate": "2026-02-12",
+    "firstPostedDate": "2023-06-28",
+    "lastUpdatePostedDate": "2026-11-03",
+    "statusVerifiedDate": "2026-10",
+    "locationsCount": 19,
+    "locationCountries": [
+      "Belgium",
+      "France",
+      "United Kingdom"
+    ],
+    "locations": [
+      {
+        "facility": "Cliniques Universitaires Saint-Luc",
+        "city": "Brussels",
+        "state": null,
+        "country": "Belgium",
+        "status": null
+      },
+      {
+        "facility": "Universitaire Ziekenhuizen Leuven",
+        "city": "Leuven",
+        "state": null,
+        "country": "Belgium",
+        "status": null
+      },
+      {
+        "facility": "Centre Hospitalier Universitaire Côte de Nacre",
+        "city": "Caen",
+        "state": null,
+        "country": "France",
+        "status": null
+      },
+      {
+        "facility": "CHU Grenoble Aples",
+        "city": "Grenoble",
+        "state": null,
+        "country": "France",
+        "status": null
+      },
+      {
+        "facility": "Hospices Civils de Lyon",
+        "city": "Lyon",
+        "state": null,
+        "country": "France",
+        "status": null
+      }
+    ],
+    "minimumAge": "4 Years",
+    "maximumAge": "70 Years",
+    "ageGroups": [
+      "CHILD",
+      "ADULT",
+      "OLDER_ADULT"
+    ],
+    "sex": "ALL",
+    "healthyVolunteers": false,
+    "hasResults": true,
+    "scrapedAt": "2026-11-05T07:48:32+00:00"
+  }
+]

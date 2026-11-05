@@ -1,0 +1,2518 @@
+[
+  {
+    "schemaVersion": "1.0",
+    "source": "grants-gov",
+    "sourceId": "364212",
+    "url": "https://www.grants.gov/search-results-detail/364212",
+    "documentUrls": {
+      "html": "https://www.grants.gov/search-results-detail/364212",
+      "pdf": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355535",
+      "xml": null
+    },
+    "noticeType": "contract-notice",
+    "noticeTypeCode": "synopsis",
+    "procedureType": null,
+    "contractNature": null,
+    "title": "State Process for Informing Consumers of Recalls Program",
+    "description": "The objective of the State Process for Informing Consumers of Recalls Grant program is to establish a recall notification program in a state to improve traffic safety in the following areas: developing a methodology for determining open recalls on motor vehicles, informing owners and lessees of the open recalls at the time of registration, and evaluating through the analysis of completed recalls the performance of the notification program. The State shall develop and implement a process for informing each applicable owner and lessee of a motor vehicle of any open recall on the vehicle at the time of registration in the State. The State shall also report to NHTSA what processes and methodologies were used to achieve its goal to notify owners of safety recalls. NHTSA will review those processes and potentially share, in part, or as a whole, with other stakeholders for future implementation. The funding opportunities are awarded on a competitive basis for projects that will meet the conditions of the grant.",
+    "language": "en",
+    "buyer": {
+      "name": "National Highway Traffic Safety Administration",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": {
+      "amount": 1500000,
+      "currency": "USD"
+    },
+    "lots": null,
+    "publicationDate": "2026-11-04",
+    "submissionDeadline": "2027-02-04",
+    "awardInfo": null,
+    "placeOfPerformance": null,
+    "scrapedAt": "2026-11-05T07:44:14+00:00",
+    "grantsOpportunityNumber": "NHTSA-693JJ927R000007-FY27",
+    "grantsStatus": "posted",
+    "grantsAgencyCode": "DOT-NHTSA",
+    "grantsTopAgency": {
+      "code": "DOT",
+      "name": "Department of Transportation"
+    },
+    "grantsAln": [
+      {
+        "code": "20.614",
+        "title": "National Highway Traffic Safety Administration (NHTSA) Discretionary Safety Grants and Cooperative Agreements"
+      }
+    ],
+    "grantsCategory": {
+      "code": "D",
+      "description": "Discretionary"
+    },
+    "grantsFundingInstruments": [
+      {
+        "id": "G",
+        "description": "Grant"
+      }
+    ],
+    "grantsActivityCategories": [
+      {
+        "id": "CP",
+        "description": "Consumer Protection"
+      }
+    ],
+    "grantsEstimatedValueBasis": "totalProgramFunding",
+    "grantsEstimatedTotalFunding": {
+      "amount": 1500000,
+      "currency": "USD"
+    },
+    "grantsAwardCeiling": {
+      "amount": 1500000,
+      "currency": "USD"
+    },
+    "grantsAwardFloor": {
+      "amount": 300000,
+      "currency": "USD"
+    },
+    "grantsExpectedAwards": 5,
+    "grantsCostSharing": false,
+    "grantsEligibility": {
+      "applicantTypes": [
+        {
+          "id": "25",
+          "description": "Others (see text field entitled \"Additional Information on Eligibility\" for clarification)"
+        },
+        {
+          "id": "00",
+          "description": "State governments"
+        }
+      ],
+      "additionalInfo": "An eligible applicant is a State agency that has the authority to register motor vehicles for use on public roads that demonstrates it has the infrastructure in place, as well as the necessary staff and support, to carry out the responsibilities of administering, coordinating, and implementing the activities of this NOFO."
+    },
+    "grantsForecast": null,
+    "grantsArchiveDate": "2027-03-06",
+    "grantsLastUpdated": "2026-11-04",
+    "grantsAttachments": [
+      {
+        "name": "State Process for Informing Consumers of Recalls Program NOFO_Final 11.4.2026 - 695JJ927R000007.pdf",
+        "folder": "Full Announcement",
+        "mimeType": "application/pdf",
+        "sizeBytes": 4243557,
+        "url": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355535"
+      }
+    ],
+    "grantsContact": null,
+    "grantsDetailsIncluded": true
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "grants-gov",
+    "sourceId": "362952",
+    "url": "https://www.grants.gov/search-results-detail/362952",
+    "documentUrls": {
+      "html": "https://www.grants.gov/search-results-detail/362952",
+      "pdf": null,
+      "xml": null
+    },
+    "noticeType": "contract-notice",
+    "noticeTypeCode": "synopsis",
+    "procedureType": null,
+    "contractNature": null,
+    "title": "Systems Biology of Infection and Inflammation in Chronic Diseases (U19 Clinical Trial Not Allowed)",
+    "description": "The purpose of this notice of funding opportunity (NOFO) is to support the advancement of systems-level understanding of the link between infectious pathogens and inflammatory pathways that result in predisposition, onset and progression of chronic diseases. The NOFO will stimulate integration of clinical and patient data, large-scale omics datasets, advanced Artificial Intelligence (AI) and computational modeling to prevent, treat, and mitigate the combined impact of chronic diseases, inflammation, and infections.",
+    "language": "en",
+    "buyer": {
+      "name": "National Institutes of Health",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": {
+      "amount": 26000000,
+      "currency": "USD"
+    },
+    "lots": null,
+    "publicationDate": "2026-11-04",
+    "submissionDeadline": "2027-02-18",
+    "awardInfo": null,
+    "placeOfPerformance": null,
+    "scrapedAt": "2026-11-05T07:44:14+00:00",
+    "grantsOpportunityNumber": "RFA-AI-28-014",
+    "grantsStatus": "posted",
+    "grantsAgencyCode": "HHS-NIH11",
+    "grantsTopAgency": {
+      "code": "HHS",
+      "name": "Department of Health and Human Services"
+    },
+    "grantsAln": [
+      {
+        "code": "93.121",
+        "title": "Oral Diseases and Disorders Research"
+      },
+      {
+        "code": "93.172",
+        "title": "Human Genome Research"
+      },
+      {
+        "code": "93.543",
+        "title": "Vision Research - Research Projects"
+      },
+      {
+        "code": "93.8AM",
+        "title": "National Institute of Allergy and Infectious Diseases-Antimicrobial Resistance"
+      },
+      {
+        "code": "93.8RP",
+        "title": "National Institute of Allergy and Infectious Diseases- Research Projects"
+      },
+      {
+        "code": "93.8TD",
+        "title": "National Institute of Allergy and Infectious Diseases-Tickborne Diseases"
+      },
+      {
+        "code": "93.ADR",
+        "title": "NIH Office for Research on Women's Health - Office of Autoimmune Research"
+      },
+      {
+        "code": "93.AGR",
+        "title": "National Institute on Aging Research Projects"
+      },
+      {
+        "code": "93.AR1",
+        "title": "Arthritis, Musculoskeletal and Skin Diseases Research - Research Projects"
+      },
+      {
+        "code": "93.DSS",
+        "title": "NIH Office of Data Science Strategy (ODSS)"
+      },
+      {
+        "code": "93.HL2",
+        "title": "National Heart, Lung, and Blood Institute - Research Projects"
+      }
+    ],
+    "grantsCategory": {
+      "code": "D",
+      "description": "Discretionary"
+    },
+    "grantsFundingInstruments": [
+      {
+        "id": "CA",
+        "description": "Cooperative Agreement"
+      }
+    ],
+    "grantsActivityCategories": [
+      {
+        "id": "HL",
+        "description": "Health"
+      }
+    ],
+    "grantsEstimatedValueBasis": "totalProgramFunding",
+    "grantsEstimatedTotalFunding": {
+      "amount": 26000000,
+      "currency": "USD"
+    },
+    "grantsAwardCeiling": {
+      "amount": 2500000,
+      "currency": "USD"
+    },
+    "grantsAwardFloor": null,
+    "grantsExpectedAwards": 10,
+    "grantsCostSharing": false,
+    "grantsEligibility": {
+      "applicantTypes": [
+        {
+          "id": "23",
+          "description": "Small businesses"
+        },
+        {
+          "id": "05",
+          "description": "Independent school districts"
+        },
+        {
+          "id": "11",
+          "description": "Native American tribal organizations (other than Federally recognized tribal governments)"
+        },
+        {
+          "id": "00",
+          "description": "State governments"
+        },
+        {
+          "id": "08",
+          "description": "Public housing authorities/Indian housing authorities"
+        },
+        {
+          "id": "02",
+          "description": "City or township governments"
+        },
+        {
+          "id": "01",
+          "description": "County governments"
+        },
+        {
+          "id": "20",
+          "description": "Private institutions of higher education"
+        },
+        {
+          "id": "07",
+          "description": "Native American tribal governments (Federally recognized)"
+        },
+        {
+          "id": "06",
+          "description": "Public and State controlled institutions of higher education"
+        },
+        {
+          "id": "12",
+          "description": "Nonprofits having a 501(c)(3) status with the IRS, other than institutions of higher education"
+        },
+        {
+          "id": "25",
+          "description": "Others (see text field entitled \"Additional Information on Eligibility\" for clarification)"
+        },
+        {
+          "id": "04",
+          "description": "Special district governments"
+        },
+        {
+          "id": "22",
+          "description": "For profit organizations other than small businesses"
+        },
+        {
+          "id": "13",
+          "description": "Nonprofits that do not have a 501(c)(3) status with the IRS, other than institutions of higher education"
+        }
+      ],
+      "additionalInfo": "Other Eligible ApplicantsIndian/Native American Tribal Governments (Other than Federally Recognized);Eligible Agencies of the Federal Government;U.S. Territory or Possession;Faith-based or Community-based Organizations;Regional Organizations;Non-domestic (non-U.S.) Entities (Foreign Institutions)."
+    },
+    "grantsForecast": null,
+    "grantsArchiveDate": "2027-04-18",
+    "grantsLastUpdated": "2026-11-04",
+    "grantsAttachments": [
+      {
+        "name": "RFA-AI-28-014-Full-Announcement.html",
+        "folder": "Full Announcement",
+        "mimeType": "text/html;charset=UTF-8",
+        "sizeBytes": 227322,
+        "url": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355533"
+      }
+    ],
+    "grantsContact": null,
+    "grantsDetailsIncluded": true
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "grants-gov",
+    "sourceId": "364213",
+    "url": "https://www.grants.gov/search-results-detail/364213",
+    "documentUrls": {
+      "html": "https://www.grants.gov/search-results-detail/364213",
+      "pdf": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355539",
+      "xml": null
+    },
+    "noticeType": "contract-notice",
+    "noticeTypeCode": "synopsis",
+    "procedureType": null,
+    "contractNature": null,
+    "title": "APEX Accelerator-Option Period for Existing Award Recipients",
+    "description": "This funding opportunity is for existing APEX Accelerators to maintain an APEX Accelerator to serve as a resource for large and small businesses, including newly started businesses, to obtain procurement technical assistance. The FY27 performance and financial reporting templates will be distributed at a later date.",
+    "language": "en",
+    "buyer": {
+      "name": "ACC-APG-Aberdeen Division A",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": {
+      "amount": 1500000,
+      "currency": "USD"
+    },
+    "lots": null,
+    "publicationDate": "2026-11-04",
+    "submissionDeadline": "2027-07-04",
+    "awardInfo": null,
+    "placeOfPerformance": null,
+    "scrapedAt": "2026-11-05T07:44:14+00:00",
+    "grantsOpportunityNumber": "DOW2027APEXACCELERATORCLOSED",
+    "grantsStatus": "posted",
+    "grantsAgencyCode": "DOD-AMC-ACCAPGADA",
+    "grantsTopAgency": {
+      "code": "DOD",
+      "name": "Department of Defense"
+    },
+    "grantsAln": [
+      {
+        "code": "12.002",
+        "title": "Procurement Technical Assistance For Business Firms"
+      }
+    ],
+    "grantsCategory": {
+      "code": "D",
+      "description": "Discretionary"
+    },
+    "grantsFundingInstruments": [
+      {
+        "id": "CA",
+        "description": "Cooperative Agreement"
+      }
+    ],
+    "grantsActivityCategories": [
+      {
+        "id": "BC",
+        "description": "Business and Commerce"
+      }
+    ],
+    "grantsEstimatedValueBasis": "awardCeiling",
+    "grantsEstimatedTotalFunding": null,
+    "grantsAwardCeiling": {
+      "amount": 1500000,
+      "currency": "USD"
+    },
+    "grantsAwardFloor": {
+      "amount": 60000,
+      "currency": "USD"
+    },
+    "grantsExpectedAwards": 88,
+    "grantsCostSharing": true,
+    "grantsEligibility": {
+      "applicantTypes": [
+        {
+          "id": "06",
+          "description": "Public and State controlled institutions of higher education"
+        },
+        {
+          "id": "01",
+          "description": "County governments"
+        },
+        {
+          "id": "04",
+          "description": "Special district governments"
+        },
+        {
+          "id": "00",
+          "description": "State governments"
+        },
+        {
+          "id": "07",
+          "description": "Native American tribal governments (Federally recognized)"
+        },
+        {
+          "id": "02",
+          "description": "City or township governments"
+        },
+        {
+          "id": "12",
+          "description": "Nonprofits having a 501(c)(3) status with the IRS, other than institutions of higher education"
+        }
+      ],
+      "additionalInfo": "See funding opportunity for details."
+    },
+    "grantsForecast": null,
+    "grantsArchiveDate": "2027-07-31",
+    "grantsLastUpdated": "2026-11-04",
+    "grantsAttachments": [
+      {
+        "name": "Attachment 1 Certification of Cost Matching Funds APEX.pdf",
+        "folder": "Full Announcement",
+        "mimeType": "application/pdf",
+        "sizeBytes": 56140,
+        "url": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355539"
+      },
+      {
+        "name": "Attachment 12 Program Income.pdf",
+        "folder": "Full Announcement",
+        "mimeType": "application/pdf",
+        "sizeBytes": 45946,
+        "url": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355542"
+      },
+      {
+        "name": "Attachment 3 Letter of Commitment.pdf",
+        "folder": "Full Announcement",
+        "mimeType": "application/pdf",
+        "sizeBytes": 143927,
+        "url": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355540"
+      },
+      {
+        "name": "Attachment 4 Program Execution Strategy.pdf",
+        "folder": "Full Announcement",
+        "mimeType": "application/pdf",
+        "sizeBytes": 131819,
+        "url": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355538"
+      },
+      {
+        "name": "FY27 Budget.xlsx",
+        "folder": "Full Announcement",
+        "mimeType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "sizeBytes": 698775,
+        "url": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355537"
+      },
+      {
+        "name": "Goals Proposal 4.0 Template.xlsx",
+        "folder": "Full Announcement",
+        "mimeType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "sizeBytes": 143593,
+        "url": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355536"
+      },
+      {
+        "name": "FY27 NOFO APEX ACCELERATOR.pdf",
+        "folder": "Full Announcement",
+        "mimeType": "application/pdf",
+        "sizeBytes": 593127,
+        "url": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355552"
+      },
+      {
+        "name": "Award Specific Terms and Conditions Version 7 November 2026.pdf",
+        "folder": "Full Announcement",
+        "mimeType": "application/pdf",
+        "sizeBytes": 303070,
+        "url": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355551"
+      },
+      {
+        "name": "APEX Accelerator General Terms and Conditions Version 4.0 September 2025.pdf",
+        "folder": "Full Announcement",
+        "mimeType": "application/pdf",
+        "sizeBytes": 919576,
+        "url": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355549"
+      },
+      {
+        "name": "TRACK CHANGES Award Specific Terms and Conditions Version 7.pdf",
+        "folder": "Full Announcement",
+        "mimeType": "application/pdf",
+        "sizeBytes": 439113,
+        "url": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355550"
+      },
+      {
+        "name": "Guidelines_how_to_conduct_distressed_area_analysis[1].pptx",
+        "folder": "Other Supporting Documents",
+        "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "sizeBytes": 2894344,
+        "url": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355548"
+      },
+      {
+        "name": "Guidelines_how_to_conduct_a_Statewide_Coverage_analysis[1].pptx",
+        "folder": "Other Supporting Documents",
+        "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "sizeBytes": 1376922,
+        "url": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355547"
+      }
+    ],
+    "grantsContact": null,
+    "grantsDetailsIncluded": true
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "grants-gov",
+    "sourceId": "364217",
+    "url": "https://www.grants.gov/search-results-detail/364217",
+    "documentUrls": {
+      "html": "https://www.grants.gov/search-results-detail/364217",
+      "pdf": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355553",
+      "xml": null
+    },
+    "noticeType": "contract-notice",
+    "noticeTypeCode": "synopsis",
+    "procedureType": null,
+    "contractNature": null,
+    "title": "Development and Maintenance of Human and Animal Food Rapid Response Teams",
+    "description": "The purpose of this Notice of Funding Opportunity (NOFO) is to develop and maintain Rapid Response Teams (RRTs) to facilitate long-term improvements and innovation within the national integrated food safety system by unifying and coordinating federal, state, and local human and animal food (HAF) emergency response efforts including: 1) Strengthening the link among epidemiology, lab, and environmental health/regulatory components and supporting foodborne illness detection, investigation, control, and prevention efforts; 2) Improving States' regulatory and surveillance HAF protection and prevention programs through the development and continued use of Incident Command System (ICS)/National Incident Management System (NIMS) principles and a Unified Command structure to conduct integrated responses to all-hazards HAF emergencies, rapidly identifying and removing tainted food from commerce, and conducting root cause investigations to inform future prevention efforts; 3) Addressing supporting components, such as training, data sharing, data analysis, communications, continuous process improvement, and development of best practices and other resources to support national response capacity/capability development; and 4) Identifying and implementing innovative approaches in alignment with presidential initiatives to Make America Healthy Again (MAHA) and Make Our Children Healthy Again (MOCHA) with the aim of reducing long term implications of foodborne illness through prevention…",
+    "language": "en",
+    "buyer": {
+      "name": "Food and Drug Administration",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": {
+      "amount": 6500000,
+      "currency": "USD"
+    },
+    "lots": null,
+    "publicationDate": "2026-11-04",
+    "submissionDeadline": null,
+    "awardInfo": null,
+    "placeOfPerformance": null,
+    "scrapedAt": "2026-11-05T07:44:14+00:00",
+    "grantsOpportunityNumber": "PAR-27-014",
+    "grantsStatus": "posted",
+    "grantsAgencyCode": "HHS-FDA",
+    "grantsTopAgency": {
+      "code": "HHS",
+      "name": "Department of Health and Human Services"
+    },
+    "grantsAln": [
+      {
+        "code": "93.103",
+        "title": "Food and Drug Administration Research"
+      }
+    ],
+    "grantsCategory": {
+      "code": "D",
+      "description": "Discretionary"
+    },
+    "grantsFundingInstruments": [
+      {
+        "id": "CA",
+        "description": "Cooperative Agreement"
+      }
+    ],
+    "grantsActivityCategories": [
+      {
+        "id": "AG",
+        "description": "Agriculture"
+      },
+      {
+        "id": "CP",
+        "description": "Consumer Protection"
+      },
+      {
+        "id": "FN",
+        "description": "Food and Nutrition"
+      },
+      {
+        "id": "HL",
+        "description": "Health"
+      }
+    ],
+    "grantsEstimatedValueBasis": "totalProgramFunding",
+    "grantsEstimatedTotalFunding": {
+      "amount": 6500000,
+      "currency": "USD"
+    },
+    "grantsAwardCeiling": {
+      "amount": 360000,
+      "currency": "USD"
+    },
+    "grantsAwardFloor": null,
+    "grantsExpectedAwards": 28,
+    "grantsCostSharing": false,
+    "grantsEligibility": {
+      "applicantTypes": [
+        {
+          "id": "25",
+          "description": "Others (see text field entitled \"Additional Information on Eligibility\" for clarification)"
+        }
+      ],
+      "additionalInfo": "Eligibility for this funding opportunity is limited to state human and animal food regulatory programs listed here: manufactured food regulatory programs, retail food regulatory programs, produce regulatory programs, and animal food regulatory programs that meet the eligibility criteria below may apply for funding under this cooperative agreement. Competition is limited to these programs. Only one application is allowed per state. Jurisdictions interested in involving multiple state entities (within their jurisdiction) should internally coordinate and choose one (1) entity to apply. Eligible state human and animal food regulatory programs should discuss who is best suited to lead development of new RRTs. States that have existing RRTs should continue to maintain their RRTs using the existing program lead team and infrastructure developed through prior RRT cooperative agreement investments.Applicants will be categorized under one of two (2) focus areas: RRT Development or RRT Maintenance (see eligibility criteria and funding ceilings (maximum amount that may be requested)). Applicants must indicate the focus area applicable in the application. Passing up to 20% of these total base awards to partners is allowable. Additionally, funding will be offered to Maintenance RRT states, ONLY, as subawards for prevention projects related to MAHA objectives that exceed the minimum required for a grantee's funding level, up to a maximum of three (3) subawards of $20,000 per state. RRT…"
+    },
+    "grantsForecast": null,
+    "grantsArchiveDate": null,
+    "grantsLastUpdated": "2026-11-04",
+    "grantsAttachments": [
+      {
+        "name": "Full Announcement PAR-27-014.pdf",
+        "folder": "Full Announcement",
+        "mimeType": "application/pdf",
+        "sizeBytes": 325549,
+        "url": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355553"
+      }
+    ],
+    "grantsContact": null,
+    "grantsDetailsIncluded": true
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "grants-gov",
+    "sourceId": "364218",
+    "url": "https://www.grants.gov/search-results-detail/364218",
+    "documentUrls": {
+      "html": "https://www.grants.gov/search-results-detail/364218",
+      "pdf": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355554",
+      "xml": null
+    },
+    "noticeType": "contract-notice",
+    "noticeTypeCode": "synopsis",
+    "procedureType": null,
+    "contractNature": null,
+    "title": "National Produce Safety Partnership Program",
+    "description": "This funding opportunity aims to improve the safety of fresh produce and prevent produce-related illnesses.",
+    "language": "en",
+    "buyer": {
+      "name": "Food and Drug Administration",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": {
+      "amount": 34000000,
+      "currency": "USD"
+    },
+    "lots": null,
+    "publicationDate": "2026-11-04",
+    "submissionDeadline": null,
+    "awardInfo": null,
+    "placeOfPerformance": null,
+    "scrapedAt": "2026-11-05T07:44:14+00:00",
+    "grantsOpportunityNumber": "PAR-27-010",
+    "grantsStatus": "posted",
+    "grantsAgencyCode": "HHS-FDA",
+    "grantsTopAgency": {
+      "code": "HHS",
+      "name": "Department of Health and Human Services"
+    },
+    "grantsAln": [
+      {
+        "code": "93.103",
+        "title": "Food and Drug Administration Research"
+      }
+    ],
+    "grantsCategory": {
+      "code": "D",
+      "description": "Discretionary"
+    },
+    "grantsFundingInstruments": [
+      {
+        "id": "CA",
+        "description": "Cooperative Agreement"
+      }
+    ],
+    "grantsActivityCategories": [
+      {
+        "id": "AG",
+        "description": "Agriculture"
+      },
+      {
+        "id": "CP",
+        "description": "Consumer Protection"
+      },
+      {
+        "id": "FN",
+        "description": "Food and Nutrition"
+      },
+      {
+        "id": "HL",
+        "description": "Health"
+      }
+    ],
+    "grantsEstimatedValueBasis": "totalProgramFunding",
+    "grantsEstimatedTotalFunding": {
+      "amount": 34000000,
+      "currency": "USD"
+    },
+    "grantsAwardCeiling": {
+      "amount": 12000000,
+      "currency": "USD"
+    },
+    "grantsAwardFloor": null,
+    "grantsExpectedAwards": 56,
+    "grantsCostSharing": false,
+    "grantsEligibility": {
+      "applicantTypes": [
+        {
+          "id": "25",
+          "description": "Others (see text field entitled \"Additional Information on Eligibility\" for clarification)"
+        }
+      ],
+      "additionalInfo": "This funding opportunity is available only to state and territory government agencies with actual or potential regulatory oversight and responsibility over their respective jurisdiction's farms, produce commodities, and activities covered under FDA's Produce Safety Rule (21 CFR Part 112)."
+    },
+    "grantsForecast": null,
+    "grantsArchiveDate": null,
+    "grantsLastUpdated": "2026-11-04",
+    "grantsAttachments": [
+      {
+        "name": "Full Announcement PAR-27-010.pdf",
+        "folder": "Full Announcement",
+        "mimeType": "application/pdf",
+        "sizeBytes": 367309,
+        "url": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355554"
+      }
+    ],
+    "grantsContact": null,
+    "grantsDetailsIncluded": true
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "grants-gov",
+    "sourceId": "360551",
+    "url": "https://www.grants.gov/search-results-detail/360551",
+    "documentUrls": {
+      "html": "https://www.grants.gov/search-results-detail/360551",
+      "pdf": null,
+      "xml": null
+    },
+    "noticeType": "contract-notice",
+    "noticeTypeCode": "synopsis",
+    "procedureType": null,
+    "contractNature": null,
+    "title": "George M. O’Brien Urology Cooperative Research Centers Program (U54 Clinical Trial Optional)",
+    "description": "This Notice of Funding Opportunity (NOFO) seeks support for continuation of the NIDDK George M. O'Brien Urology Cooperative Research Centers (U54). The Urology Cooperative Research Centers foster impactful, multi-disciplinary research through collaborations within and outside the Centers and serve as a national resource for the urology research community.",
+    "language": "en",
+    "buyer": {
+      "name": "National Institutes of Health",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": {
+      "amount": 5200000,
+      "currency": "USD"
+    },
+    "lots": null,
+    "publicationDate": "2026-11-03",
+    "submissionDeadline": "2027-02-01",
+    "awardInfo": null,
+    "placeOfPerformance": null,
+    "scrapedAt": "2026-11-05T07:44:14+00:00",
+    "grantsOpportunityNumber": "RFA-DK-28-314",
+    "grantsStatus": "posted",
+    "grantsAgencyCode": "HHS-NIH11",
+    "grantsTopAgency": {
+      "code": "HHS",
+      "name": "Department of Health and Human Services"
+    },
+    "grantsAln": [
+      {
+        "code": "93.KRC",
+        "title": "Diabetes, Digestive, Kidney Extramural Research - Research Centers"
+      }
+    ],
+    "grantsCategory": {
+      "code": "D",
+      "description": "Discretionary"
+    },
+    "grantsFundingInstruments": [
+      {
+        "id": "CA",
+        "description": "Cooperative Agreement"
+      }
+    ],
+    "grantsActivityCategories": [
+      {
+        "id": "HL",
+        "description": "Health"
+      }
+    ],
+    "grantsEstimatedValueBasis": "totalProgramFunding",
+    "grantsEstimatedTotalFunding": {
+      "amount": 5200000,
+      "currency": "USD"
+    },
+    "grantsAwardCeiling": {
+      "amount": 750000,
+      "currency": "USD"
+    },
+    "grantsAwardFloor": null,
+    "grantsExpectedAwards": 5,
+    "grantsCostSharing": false,
+    "grantsEligibility": {
+      "applicantTypes": [
+        {
+          "id": "01",
+          "description": "County governments"
+        },
+        {
+          "id": "25",
+          "description": "Others (see text field entitled \"Additional Information on Eligibility\" for clarification)"
+        },
+        {
+          "id": "05",
+          "description": "Independent school districts"
+        },
+        {
+          "id": "13",
+          "description": "Nonprofits that do not have a 501(c)(3) status with the IRS, other than institutions of higher education"
+        },
+        {
+          "id": "23",
+          "description": "Small businesses"
+        },
+        {
+          "id": "00",
+          "description": "State governments"
+        },
+        {
+          "id": "20",
+          "description": "Private institutions of higher education"
+        },
+        {
+          "id": "07",
+          "description": "Native American tribal governments (Federally recognized)"
+        },
+        {
+          "id": "06",
+          "description": "Public and State controlled institutions of higher education"
+        },
+        {
+          "id": "12",
+          "description": "Nonprofits having a 501(c)(3) status with the IRS, other than institutions of higher education"
+        },
+        {
+          "id": "04",
+          "description": "Special district governments"
+        },
+        {
+          "id": "22",
+          "description": "For profit organizations other than small businesses"
+        },
+        {
+          "id": "08",
+          "description": "Public housing authorities/Indian housing authorities"
+        },
+        {
+          "id": "11",
+          "description": "Native American tribal organizations (other than Federally recognized tribal governments)"
+        },
+        {
+          "id": "02",
+          "description": "City or township governments"
+        }
+      ],
+      "additionalInfo": "Other Eligible ApplicantsIndian/Native American Tribal Governments (Other than Federally Recognized);Eligible Agencies of the Federal Government;U.S. Territory or Possession;Faith-based or Community-based Organizations;Regional Organizations;Non-domestic (non-U.S.) Entities (Foreign Institutions)."
+    },
+    "grantsForecast": null,
+    "grantsArchiveDate": "2027-04-01",
+    "grantsLastUpdated": "2026-11-03",
+    "grantsAttachments": [
+      {
+        "name": "RFA-DK-28-314-Full-Announcement.html",
+        "folder": "Full Announcement",
+        "mimeType": "text/html;charset=UTF-8",
+        "sizeBytes": 246063,
+        "url": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355527"
+      }
+    ],
+    "grantsContact": null,
+    "grantsDetailsIncluded": true
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "grants-gov",
+    "sourceId": "364205",
+    "url": "https://www.grants.gov/search-results-detail/364205",
+    "documentUrls": {
+      "html": "https://www.grants.gov/search-results-detail/364205",
+      "pdf": null,
+      "xml": null
+    },
+    "noticeType": "contract-notice",
+    "noticeTypeCode": "synopsis",
+    "procedureType": null,
+    "contractNature": null,
+    "title": "Fiscal Year 2027 Teams Engaging Affiliated Museums and Informal Institutions (TEAM II) STEM Innovator",
+    "description": "NASA's Office of STEM Engagement (OSTEM), through the Next Gen STEM Project, invites proposals for the FY 2027 Teams Engaging Affiliated Museums and Informal Institutions (TEAM II) STEM Innovator opportunity. TEAM II supports informal education programs that connect learners to NASA missions and aerospace careers through immersive, mission-connected experiences that build STEM identity, technical skills, career awareness, and problem-solving. Eligible lead applicants are U.S.-based nonprofit Informal Education Institutions, including science museums and centers, planetariums, libraries, and youth-serving organizations. Projects must serve youth in grades 5-8 as the primary audience and may also engage youth in grades 9-12, families, communities, and education partners.",
+    "language": "en",
+    "buyer": {
+      "name": "National Aeronautics and Space Administration",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": {
+      "amount": 4000000,
+      "currency": "USD"
+    },
+    "lots": null,
+    "publicationDate": "2026-11-03",
+    "submissionDeadline": "2027-02-01",
+    "awardInfo": null,
+    "placeOfPerformance": null,
+    "scrapedAt": "2026-11-05T07:44:14+00:00",
+    "grantsOpportunityNumber": "NNH27ZHA002C",
+    "grantsStatus": "posted",
+    "grantsAgencyCode": "NASA",
+    "grantsTopAgency": {
+      "code": "NASA",
+      "name": "National Aeronautics and Space Administration"
+    },
+    "grantsAln": [
+      {
+        "code": "43.008",
+        "title": "Office of Stem Engagement (OSTEM)"
+      }
+    ],
+    "grantsCategory": {
+      "code": "D",
+      "description": "Discretionary"
+    },
+    "grantsFundingInstruments": [
+      {
+        "id": "CA",
+        "description": "Cooperative Agreement"
+      }
+    ],
+    "grantsActivityCategories": [
+      {
+        "id": "ED",
+        "description": "Education"
+      }
+    ],
+    "grantsEstimatedValueBasis": "totalProgramFunding",
+    "grantsEstimatedTotalFunding": {
+      "amount": 4000000,
+      "currency": "USD"
+    },
+    "grantsAwardCeiling": {
+      "amount": 250000,
+      "currency": "USD"
+    },
+    "grantsAwardFloor": null,
+    "grantsExpectedAwards": 16,
+    "grantsCostSharing": false,
+    "grantsEligibility": {
+      "applicantTypes": [
+        {
+          "id": "25",
+          "description": "Others (see text field entitled \"Additional Information on Eligibility\" for clarification)"
+        }
+      ],
+      "additionalInfo": "U.S.-based nonprofit Informal Education Institutions (IEIs), including science museums/centers, planetariums, libraries, and other nonprofit youth-serving informal education organizations. A state, local, or federally recognized tribal government agency or higher education institution may lead only if it is also an eligible IEI or submits on behalf of an integrated eligible IEI. A NASA Center may lead only in its capacity as a NASA Visitor Center."
+    },
+    "grantsForecast": null,
+    "grantsArchiveDate": "2027-03-03",
+    "grantsLastUpdated": "2026-11-03",
+    "grantsAttachments": [],
+    "grantsContact": null,
+    "grantsDetailsIncluded": true
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "grants-gov",
+    "sourceId": "364197",
+    "url": "https://www.grants.gov/search-results-detail/364197",
+    "documentUrls": {
+      "html": "https://www.grants.gov/search-results-detail/364197",
+      "pdf": null,
+      "xml": null
+    },
+    "noticeType": "contract-notice",
+    "noticeTypeCode": "synopsis",
+    "procedureType": null,
+    "contractNature": null,
+    "title": "OJP FY 2026 Special Attorneys Program Round 11",
+    "description": "This is a notice of funding opportunity (NOFO) for the OJP FY 2026 Special Attorneys Program. This program will support state, local, Tribal, and territorial prosecuting agencies to assign or hire qualified prosecutors to serve full-time or part-time (on a case-by-case basis) as Special Attorneys under the direction of the National Fraud Enforcement Division or the Criminal Division, or to serve as Special Assistant United States Attorneys (SAUSAs) within a United States Attorney’s Office. Funds under this program can also be used to hire criminal investigators, as well as analysts, forensic accountants, and other staff who help with collection or analysis of law enforcement investigative information, to provide further investigative support. These “cross-designated” prosecutors, criminal investigators, and other investigative support staff will remain employees of their home agencies but will investigate and prosecute assigned fraud and other crimes committed by aliens within the United States (hereafter referred to as “criminal aliens”) for the duration of their appointment under this program. Cross-designated prosecutors, criminal investigators, and other investigative support staff may also be assigned cases involving drug or human trafficking committed within the United States. The National Fraud Enforcement Division, Criminal Division, and United States Attorney’s Offices will coordinate with selected prosecutor offices on a case-by-case basis to address logistics and…",
+    "language": "en",
+    "buyer": {
+      "name": "Bureau of Justice Assistance",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": {
+      "amount": 3000000,
+      "currency": "USD"
+    },
+    "lots": null,
+    "publicationDate": "2026-11-02",
+    "submissionDeadline": "2026-11-17",
+    "awardInfo": null,
+    "placeOfPerformance": null,
+    "scrapedAt": "2026-11-05T07:44:14+00:00",
+    "grantsOpportunityNumber": "O-BJA-2026-172812",
+    "grantsStatus": "posted",
+    "grantsAgencyCode": "USDOJ-OJP-BJA",
+    "grantsTopAgency": {
+      "code": "USDOJ",
+      "name": "Department of Justice"
+    },
+    "grantsAln": [
+      {
+        "code": "16.076",
+        "title": "Law Enforcement Support for Combatting Criminal Aliens, Drug, and Human Trafficking"
+      }
+    ],
+    "grantsCategory": {
+      "code": "D",
+      "description": "Discretionary"
+    },
+    "grantsFundingInstruments": [
+      {
+        "id": "CA",
+        "description": "Cooperative Agreement"
+      }
+    ],
+    "grantsActivityCategories": [
+      {
+        "id": "LJL",
+        "description": "Law, Justice and Legal Services"
+      }
+    ],
+    "grantsEstimatedValueBasis": "awardCeiling",
+    "grantsEstimatedTotalFunding": null,
+    "grantsAwardCeiling": {
+      "amount": 3000000,
+      "currency": "USD"
+    },
+    "grantsAwardFloor": null,
+    "grantsExpectedAwards": null,
+    "grantsCostSharing": false,
+    "grantsEligibility": {
+      "applicantTypes": [
+        {
+          "id": "01",
+          "description": "County governments"
+        },
+        {
+          "id": "25",
+          "description": "Others (see text field entitled \"Additional Information on Eligibility\" for clarification)"
+        },
+        {
+          "id": "02",
+          "description": "City or township governments"
+        },
+        {
+          "id": "07",
+          "description": "Native American tribal governments (Federally recognized)"
+        },
+        {
+          "id": "00",
+          "description": "State governments"
+        }
+      ],
+      "additionalInfo": "Other Units of Local Government: For the purposes of this NOFO, other units of local government include towns, boroughs, parishes, villages, or other general purpose political subdivisions of a state."
+    },
+    "grantsForecast": null,
+    "grantsArchiveDate": null,
+    "grantsLastUpdated": "2026-11-02",
+    "grantsAttachments": [],
+    "grantsContact": null,
+    "grantsDetailsIncluded": true
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "grants-gov",
+    "sourceId": "364196",
+    "url": "https://www.grants.gov/search-results-detail/364196",
+    "documentUrls": {
+      "html": "https://www.grants.gov/search-results-detail/364196",
+      "pdf": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355512",
+      "xml": null
+    },
+    "noticeType": "contract-notice",
+    "noticeTypeCode": "synopsis",
+    "procedureType": null,
+    "contractNature": null,
+    "title": "USGS Cooperative Landslide Hazard Mapping and Assessment Program Announcement for Fiscal Year 2027",
+    "description": "The U.S. Geological Survey (USGS) Landslide Hazards Program announces a funding opportunity under the Cooperative Landslide Hazard Mapping and Assessment Program, established by the National Landslide Preparedness Act (Public Law 116-323). This program provides resources to assist state, local, Tribal, and territorial governments in reducing landslide risk through hazard mapping, risk assessments, public education, and interagency coordination. Landslides occur in every U.S. state and territory, often with little warning, causing fatalities, disrupting transportation and commerce, and inflicting billions of dollars in damage annually. Without proactive measures, communities remain vulnerable to catastrophic losses and prolonged recovery periods. This program addresses these challenges by funding projects that: Enhance Risk Assessments: Develop detailed landslide hazard maps and analyses to identify high-risk areas. Improve Community Preparedness: Deliver outreach campaigns, workshops, and educational materials that empower residents and decision-makers to recognize warning signs and prepare for landslide events. Promote Collaboration: Build partnerships among government agencies, universities, and local organizations to share knowledge and resources for effective risk reduction. This program fulfills statutory requirements under the National Landslide Preparedness Act and advances Federal priorities related to scientific integrity, state and local preparedness, hazard…",
+    "language": "en",
+    "buyer": {
+      "name": "Geological Survey",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": {
+      "amount": 1000000,
+      "currency": "USD"
+    },
+    "lots": null,
+    "publicationDate": "2026-11-02",
+    "submissionDeadline": "2027-02-01",
+    "awardInfo": null,
+    "placeOfPerformance": null,
+    "scrapedAt": "2026-11-05T07:44:14+00:00",
+    "grantsOpportunityNumber": "G27AS00381",
+    "grantsStatus": "posted",
+    "grantsAgencyCode": "DOI-USGS1",
+    "grantsTopAgency": {
+      "code": "DOI",
+      "name": "Department of the Interior"
+    },
+    "grantsAln": [
+      {
+        "code": "15.821",
+        "title": "USGS Cooperative Landslide Hazard Mapping and Assessment Program"
+      }
+    ],
+    "grantsCategory": {
+      "code": "D",
+      "description": "Discretionary"
+    },
+    "grantsFundingInstruments": [
+      {
+        "id": "G",
+        "description": "Grant"
+      }
+    ],
+    "grantsActivityCategories": [
+      {
+        "id": "ST",
+        "description": "Science and Technology and other Research and Development"
+      }
+    ],
+    "grantsEstimatedValueBasis": "totalProgramFunding",
+    "grantsEstimatedTotalFunding": {
+      "amount": 1000000,
+      "currency": "USD"
+    },
+    "grantsAwardCeiling": {
+      "amount": 150000,
+      "currency": "USD"
+    },
+    "grantsAwardFloor": {
+      "amount": 10000,
+      "currency": "USD"
+    },
+    "grantsExpectedAwards": 10,
+    "grantsCostSharing": false,
+    "grantsEligibility": {
+      "applicantTypes": [
+        {
+          "id": "02",
+          "description": "City or township governments"
+        },
+        {
+          "id": "04",
+          "description": "Special district governments"
+        },
+        {
+          "id": "00",
+          "description": "State governments"
+        },
+        {
+          "id": "01",
+          "description": "County governments"
+        },
+        {
+          "id": "07",
+          "description": "Native American tribal governments (Federally recognized)"
+        },
+        {
+          "id": "25",
+          "description": "Others (see text field entitled \"Additional Information on Eligibility\" for clarification)"
+        }
+      ],
+      "additionalInfo": "This Notice of Funding Opportunity is open to state, Tribal, territorial, and local governments. A university may submit a proposal on behalf of a state geological survey or other state office if they are organized under a university system. Direct any questions about eligibility to the USGS Project Officer."
+    },
+    "grantsForecast": null,
+    "grantsArchiveDate": "2027-02-02",
+    "grantsLastUpdated": "2026-11-02",
+    "grantsAttachments": [
+      {
+        "name": "FY27 LHP Grant NOFO_Final.pdf",
+        "folder": "Full Announcement",
+        "mimeType": "application/pdf",
+        "sizeBytes": 1064350,
+        "url": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355512"
+      },
+      {
+        "name": "Landslide grant attachement NOFO 2027 v2.0.docx",
+        "folder": "Other Supporting Documents",
+        "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "sizeBytes": 6739726,
+        "url": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355513"
+      }
+    ],
+    "grantsContact": null,
+    "grantsDetailsIncluded": true
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "grants-gov",
+    "sourceId": "364202",
+    "url": "https://www.grants.gov/search-results-detail/364202",
+    "documentUrls": {
+      "html": "https://www.grants.gov/search-results-detail/364202",
+      "pdf": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355519",
+      "xml": null
+    },
+    "noticeType": "contract-notice",
+    "noticeTypeCode": "synopsis",
+    "procedureType": null,
+    "contractNature": null,
+    "title": "FY27 Guidelines for Brownfield Cleanup Grants",
+    "description": "This notice announces the availability of funds and solicits applications from eligible entities to carry out cleanup activities at brownfield sites owned by the applicant. Eligible entities include government organizations, Federally recognized Tribes, and nonprofit organizations. Please see Section 2.A. for the complete list of eligible entities. Applications must meet all threshold eligibility criteria in Section 2.B. and the 20% cost share requirement in Section 2.C. to be considered eligible to receive a Cleanup Grant. Refer to the FY27 Brownfields Frequently Asked Questions (FAQs) for additional information. An applicant may only submit ONE Cleanup Grant application in the FY27 competition cycle. Applicants may request up to $500,000 to clean up one brownfield site or to allocate up to $500,000 among multiple sites. An applicant may request funding to address hazardous substances and/or petroleum contamination at one or more brownfield sites. The applicant must be the sole owner of the site(s) that is the subject of its Cleanup Grant application and must own the site(s) by January 21, 2027, to be eligible to receive a Cleanup Grant. An applicant cannot propose an alternate site if a site identified in the application is determined by EPA to be ineligible for funding. EPA strongly recommends contacting the Regional Brownfields Contact listed in Section 1.E. to ensure the proposed site(s) is eligible for funding prior to submitting your application. The Comprehensive…",
+    "language": "en",
+    "buyer": {
+      "name": "Environmental Protection Agency",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": {
+      "amount": 14000000,
+      "currency": "USD"
+    },
+    "lots": null,
+    "publicationDate": "2026-11-02",
+    "submissionDeadline": "2027-01-21",
+    "awardInfo": null,
+    "placeOfPerformance": null,
+    "scrapedAt": "2026-11-05T07:44:14+00:00",
+    "grantsOpportunityNumber": "EPA-OLEM-OBLR-26-06",
+    "grantsStatus": "posted",
+    "grantsAgencyCode": "EPA",
+    "grantsTopAgency": {
+      "code": "EPA",
+      "name": "Environmental Protection Agency"
+    },
+    "grantsAln": [
+      {
+        "code": "66.818",
+        "title": "Brownfields Multipurpose, Assessment, Revolving Loan Fund, and Cleanup Cooperative Agreements"
+      }
+    ],
+    "grantsCategory": {
+      "code": "D",
+      "description": "Discretionary"
+    },
+    "grantsFundingInstruments": [
+      {
+        "id": "CA",
+        "description": "Cooperative Agreement"
+      }
+    ],
+    "grantsActivityCategories": [
+      {
+        "id": "ENV",
+        "description": "Environment"
+      }
+    ],
+    "grantsEstimatedValueBasis": "totalProgramFunding",
+    "grantsEstimatedTotalFunding": {
+      "amount": 14000000,
+      "currency": "USD"
+    },
+    "grantsAwardCeiling": {
+      "amount": 500000,
+      "currency": "USD"
+    },
+    "grantsAwardFloor": null,
+    "grantsExpectedAwards": 28,
+    "grantsCostSharing": true,
+    "grantsEligibility": {
+      "applicantTypes": [
+        {
+          "id": "25",
+          "description": "Others (see text field entitled \"Additional Information on Eligibility\" for clarification)"
+        }
+      ],
+      "additionalInfo": "See Section 2 of the full announcement for eligibility details."
+    },
+    "grantsForecast": null,
+    "grantsArchiveDate": "2027-02-20",
+    "grantsLastUpdated": "2026-11-02",
+    "grantsAttachments": [
+      {
+        "name": "FY27 BF Cleanup NOFO_Final_v1.pdf",
+        "folder": "Full Announcement",
+        "mimeType": "application/pdf",
+        "sizeBytes": 1061760,
+        "url": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355519"
+      }
+    ],
+    "grantsContact": null,
+    "grantsDetailsIncluded": true
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "grants-gov",
+    "sourceId": "364201",
+    "url": "https://www.grants.gov/search-results-detail/364201",
+    "documentUrls": {
+      "html": "https://www.grants.gov/search-results-detail/364201",
+      "pdf": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355518",
+      "xml": null
+    },
+    "noticeType": "contract-notice",
+    "noticeTypeCode": "synopsis",
+    "procedureType": null,
+    "contractNature": null,
+    "title": "FY27 Guidelines for Brownfield Revolving Loan Fund Grants",
+    "description": "This notice announces the availability of funds and solicits applications from eligible entities to capitalize a revolving loan fund (RLF) to provide loans and subgrants to carry out cleanup activities at brownfield sites. Eligible entities include government organizations, Federally recognized Tribes, and 501(c)(3) nonprofit organizations. Please see Section 2.A. for the complete list of eligible entities. Applications must meet all threshold eligibility criteria in Section 2.B. and the 20% cost share requirement in Section 2.C. to be considered eligible to receive an RLF Grant. RLF programs provide loans and subgrants to eligible entities to carry out cleanup activities at brownfield sites contaminated with hazardous substances1 and/or petroleum.2 EPA will determine site eligibility after the award of the grant throughout the project period, prior to expending grant funds at any site. Sites where hazardous substances and petroleum contamination are distinguishable must meet eligibility requirements for both contaminants. See Section 3.A.1. for RLF Grant features and Section 3.A.2. on the requirement to use 50% or more of the total award amount (EPA funds plus the applicant’s cost share) to provide loans and associated eligible programmatic costs. The Comprehensive Environmental Response, Compensation and Liability Act (CERCLA) requires applicants to provide a 20% cost share of the federal funds for RLF Grants. For example, a $1,000,000 RLF Grant awarded by EPA will require…",
+    "language": "en",
+    "buyer": {
+      "name": "Environmental Protection Agency",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": {
+      "amount": 10000000,
+      "currency": "USD"
+    },
+    "lots": null,
+    "publicationDate": "2026-11-02",
+    "submissionDeadline": "2027-01-21",
+    "awardInfo": null,
+    "placeOfPerformance": null,
+    "scrapedAt": "2026-11-05T07:44:14+00:00",
+    "grantsOpportunityNumber": "EPA-OLEM-OBLR-26-05",
+    "grantsStatus": "posted",
+    "grantsAgencyCode": "EPA",
+    "grantsTopAgency": {
+      "code": "EPA",
+      "name": "Environmental Protection Agency"
+    },
+    "grantsAln": [
+      {
+        "code": "66.818",
+        "title": "Brownfields Multipurpose, Assessment, Revolving Loan Fund, and Cleanup Cooperative Agreements"
+      }
+    ],
+    "grantsCategory": {
+      "code": "D",
+      "description": "Discretionary"
+    },
+    "grantsFundingInstruments": [
+      {
+        "id": "CA",
+        "description": "Cooperative Agreement"
+      }
+    ],
+    "grantsActivityCategories": [
+      {
+        "id": "ENV",
+        "description": "Environment"
+      }
+    ],
+    "grantsEstimatedValueBasis": "totalProgramFunding",
+    "grantsEstimatedTotalFunding": {
+      "amount": 10000000,
+      "currency": "USD"
+    },
+    "grantsAwardCeiling": {
+      "amount": 1000000,
+      "currency": "USD"
+    },
+    "grantsAwardFloor": null,
+    "grantsExpectedAwards": 10,
+    "grantsCostSharing": false,
+    "grantsEligibility": {
+      "applicantTypes": [
+        {
+          "id": "25",
+          "description": "Others (see text field entitled \"Additional Information on Eligibility\" for clarification)"
+        }
+      ],
+      "additionalInfo": "See Section 2 of the full announcement for eligibility information."
+    },
+    "grantsForecast": null,
+    "grantsArchiveDate": "2027-02-20",
+    "grantsLastUpdated": "2026-11-02",
+    "grantsAttachments": [
+      {
+        "name": "FY27 BF RLF NOFO_Final_v1.pdf",
+        "folder": "Full Announcement",
+        "mimeType": "application/pdf",
+        "sizeBytes": 950211,
+        "url": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355518"
+      }
+    ],
+    "grantsContact": null,
+    "grantsDetailsIncluded": true
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "grants-gov",
+    "sourceId": "364195",
+    "url": "https://www.grants.gov/search-results-detail/364195",
+    "documentUrls": {
+      "html": "https://www.grants.gov/search-results-detail/364195",
+      "pdf": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355510",
+      "xml": null
+    },
+    "noticeType": "contract-notice",
+    "noticeTypeCode": "synopsis",
+    "procedureType": null,
+    "contractNature": null,
+    "title": "Endowments for Advancing the Humanities",
+    "description": "These awards provide funds for 20-year term endowments to support long-term work in the humanities on college and university campuses and at independent educational and research institutions.",
+    "language": "en",
+    "buyer": {
+      "name": "National Endowment for the Humanities",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": {
+      "amount": 10000000,
+      "currency": "USD"
+    },
+    "lots": null,
+    "publicationDate": "2026-11-02",
+    "submissionDeadline": "2027-01-13",
+    "awardInfo": null,
+    "placeOfPerformance": null,
+    "scrapedAt": "2026-11-05T07:44:14+00:00",
+    "grantsOpportunityNumber": "20270113-CHE",
+    "grantsStatus": "posted",
+    "grantsAgencyCode": "NEH",
+    "grantsTopAgency": {
+      "code": "NEH",
+      "name": "National Endowment for the Humanities"
+    },
+    "grantsAln": [
+      {
+        "code": "45.043",
+        "title": "National Endowment for the Humanities: Endowments for Advancing the Humanities"
+      }
+    ],
+    "grantsCategory": {
+      "code": "D",
+      "description": "Discretionary"
+    },
+    "grantsFundingInstruments": [
+      {
+        "id": "O",
+        "description": "Other"
+      }
+    ],
+    "grantsActivityCategories": [
+      {
+        "id": "HU",
+        "description": "Humanities"
+      }
+    ],
+    "grantsEstimatedValueBasis": "totalProgramFunding",
+    "grantsEstimatedTotalFunding": {
+      "amount": 10000000,
+      "currency": "USD"
+    },
+    "grantsAwardCeiling": {
+      "amount": 3100000,
+      "currency": "USD"
+    },
+    "grantsAwardFloor": {
+      "amount": 1000000,
+      "currency": "USD"
+    },
+    "grantsExpectedAwards": 5,
+    "grantsCostSharing": true,
+    "grantsEligibility": {
+      "applicantTypes": [
+        {
+          "id": "07",
+          "description": "Native American tribal governments (Federally recognized)"
+        },
+        {
+          "id": "20",
+          "description": "Private institutions of higher education"
+        },
+        {
+          "id": "02",
+          "description": "City or township governments"
+        },
+        {
+          "id": "06",
+          "description": "Public and State controlled institutions of higher education"
+        },
+        {
+          "id": "01",
+          "description": "County governments"
+        },
+        {
+          "id": "00",
+          "description": "State governments"
+        },
+        {
+          "id": "12",
+          "description": "Nonprofits having a 501(c)(3) status with the IRS, other than institutions of higher education"
+        },
+        {
+          "id": "04",
+          "description": "Special district governments"
+        }
+      ],
+      "additionalInfo": null
+    },
+    "grantsForecast": null,
+    "grantsArchiveDate": null,
+    "grantsLastUpdated": "2026-11-02",
+    "grantsAttachments": [
+      {
+        "name": "EATH NOFO 2027.pdf",
+        "folder": "Full Announcement",
+        "mimeType": "application/octet-stream",
+        "sizeBytes": 520701,
+        "url": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355510"
+      },
+      {
+        "name": "NEH General Application Guide.pdf",
+        "folder": "Full Announcement",
+        "mimeType": "application/octet-stream",
+        "sizeBytes": 731714,
+        "url": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355511"
+      }
+    ],
+    "grantsContact": null,
+    "grantsDetailsIncluded": true
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "grants-gov",
+    "sourceId": "364190",
+    "url": "https://www.grants.gov/search-results-detail/364190",
+    "documentUrls": {
+      "html": "https://www.grants.gov/search-results-detail/364190",
+      "pdf": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355481",
+      "xml": null
+    },
+    "noticeType": "contract-notice",
+    "noticeTypeCode": "synopsis",
+    "procedureType": null,
+    "contractNature": null,
+    "title": "Cooperative Agreement for affiliated Partner with Rocky Mountain Cooperative Ecosystem Studies Unit",
+    "description": "The U.S. Geological Survey is offering a funding opportunity to a CESU partner to develop scientific tools to collaborative research that evaluates ecological and population risks across western rangelands and alpine ecosystems. This research to understanding animal-habitat relationships, assessing resource selection and population demography of birds and ungulates within grassland, shrubland, and alpine ecosystems. This work could focuses on how sage-grouse and sagebrush and grassland songbirds respond to land-use changes, ranging from vegetation treatments and other disturbances, helping inform conservation and a management and planning efforts of sagebrush habitats and wildlife species of conservation concern. Proposed work could also build upon ongoing work that has also modeled resource selection and population dynamics of ungulates, helping to assess spread of diseases like CWD. Such research could expand current efforts using simulation modeling and expand to new geographies. Work is also require to maintain long-term research in the alpine of Colorado to assess population dynamics and resource needs for white-tailed ptarmigan across seasons, as well as assessing plasticity and potential for genetic adaptation, assessing the risk of threats to these species.",
+    "language": "en",
+    "buyer": {
+      "name": "Geological Survey",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": {
+      "amount": 490000,
+      "currency": "USD"
+    },
+    "lots": null,
+    "publicationDate": "2026-11-02",
+    "submissionDeadline": "2026-12-02",
+    "awardInfo": null,
+    "placeOfPerformance": null,
+    "scrapedAt": "2026-11-05T07:44:14+00:00",
+    "grantsOpportunityNumber": "G27AS00038",
+    "grantsStatus": "posted",
+    "grantsAgencyCode": "DOI-USGS1",
+    "grantsTopAgency": {
+      "code": "DOI",
+      "name": "Department of the Interior"
+    },
+    "grantsAln": [
+      {
+        "code": "15.808",
+        "title": "U.S. Geological Survey Research and Data Collection"
+      }
+    ],
+    "grantsCategory": {
+      "code": "D",
+      "description": "Discretionary"
+    },
+    "grantsFundingInstruments": [
+      {
+        "id": "CA",
+        "description": "Cooperative Agreement"
+      }
+    ],
+    "grantsActivityCategories": [
+      {
+        "id": "ST",
+        "description": "Science and Technology and other Research and Development"
+      }
+    ],
+    "grantsEstimatedValueBasis": "totalProgramFunding",
+    "grantsEstimatedTotalFunding": {
+      "amount": 490000,
+      "currency": "USD"
+    },
+    "grantsAwardCeiling": {
+      "amount": 490000,
+      "currency": "USD"
+    },
+    "grantsAwardFloor": {
+      "amount": 1,
+      "currency": "USD"
+    },
+    "grantsExpectedAwards": 1,
+    "grantsCostSharing": false,
+    "grantsEligibility": {
+      "applicantTypes": [
+        {
+          "id": "25",
+          "description": "Others (see text field entitled \"Additional Information on Eligibility\" for clarification)"
+        }
+      ],
+      "additionalInfo": "This financial assistance opportunity is being issued under a Cooperative Ecosystem Studies Units (CESU) Program. CESU's are partnerships that provide research, technical assistance, and education. Eligible recipients must be a participating partner of the Rocky Mountain Cooperative Ecosystem Studies Unit."
+    },
+    "grantsForecast": null,
+    "grantsArchiveDate": null,
+    "grantsLastUpdated": "2026-11-02",
+    "grantsAttachments": [
+      {
+        "name": "ATTACHMENT A - Biographical-sketch-common-form-doi-omb-3145-0279 3..pdf",
+        "folder": "Other Supporting Documents",
+        "mimeType": "application/pdf",
+        "sizeBytes": 221571,
+        "url": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355481"
+      },
+      {
+        "name": "ATTACHMENT B - Common-form current-and-pending-support-doi-omb-3145-0279 3..pdf",
+        "folder": "Other Supporting Documents",
+        "mimeType": "application/pdf",
+        "sizeBytes": 204142,
+        "url": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355482"
+      },
+      {
+        "name": "ATTACHMENT C - Project Abstract Summary Requirement..docx",
+        "folder": "Other Supporting Documents",
+        "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "sizeBytes": 13650,
+        "url": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355483"
+      },
+      {
+        "name": "ATTACHMENT D - Geospatial Data Instructions..docx",
+        "folder": "Other Supporting Documents",
+        "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "sizeBytes": 15008,
+        "url": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355484"
+      }
+    ],
+    "grantsContact": null,
+    "grantsDetailsIncluded": true
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "grants-gov",
+    "sourceId": "364134",
+    "url": "https://www.grants.gov/search-results-detail/364134",
+    "documentUrls": {
+      "html": "https://www.grants.gov/search-results-detail/364134",
+      "pdf": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355495",
+      "xml": null
+    },
+    "noticeType": "contract-notice",
+    "noticeTypeCode": "synopsis",
+    "procedureType": null,
+    "contractNature": null,
+    "title": "Residential Services for Unaccompanied Alien Children",
+    "description": "The Residential Services for Unaccompanied Alien Children funding opportunity is intended to support organizations that can provide high-quality, child-centered care that promotes children's safety and well-being. Funded providers must offer services 24 hours a day, 7 days a week, and have the capacity to accept children at any time, when it is safe to do so and consistent with state licensing requirements. Although children in ORR care are in the federal government's legal custody due to their immigration status, care providers are responsible for their day-to-day physical care. At the time of application, providers must be licensed, in accordance with state requirements, to provide group home, shelter, or transitional foster care services for children, including any required child placement or related licenses. ORR is particularly interested in projects that provide residential facility beds and transitional foster care in states and localities near the U.S. southern border with Mexico. Standard ORR care providers must be licensed by an appropriate State agency, or meet the State's licensing requirements if located in a State that does not allow State licensing of programs providing or proposing to provide care and services to unaccompanied children. See 45 CFR 410.1302(a).",
+    "language": "en",
+    "buyer": {
+      "name": "Administration for Children and Families - ORR",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": {
+      "amount": 280000000,
+      "currency": "USD"
+    },
+    "lots": null,
+    "publicationDate": "2026-10-30",
+    "submissionDeadline": "2026-12-29",
+    "awardInfo": null,
+    "placeOfPerformance": null,
+    "scrapedAt": "2026-11-05T07:44:14+00:00",
+    "grantsOpportunityNumber": "HHS-2027-ACF-ORR-ZU-0045",
+    "grantsStatus": "posted",
+    "grantsAgencyCode": "HHS-ACF-ORR",
+    "grantsTopAgency": {
+      "code": "HHS",
+      "name": "Department of Health and Human Services"
+    },
+    "grantsAln": [
+      {
+        "code": "93.676",
+        "title": "Unaccompanied Children Program"
+      }
+    ],
+    "grantsCategory": {
+      "code": "D",
+      "description": "Discretionary"
+    },
+    "grantsFundingInstruments": [
+      {
+        "id": "CA",
+        "description": "Cooperative Agreement"
+      }
+    ],
+    "grantsActivityCategories": [
+      {
+        "id": "ISS",
+        "description": "Income Security and Social Services"
+      }
+    ],
+    "grantsEstimatedValueBasis": "totalProgramFunding",
+    "grantsEstimatedTotalFunding": {
+      "amount": 280000000,
+      "currency": "USD"
+    },
+    "grantsAwardCeiling": {
+      "amount": 5600000,
+      "currency": "USD"
+    },
+    "grantsAwardFloor": {
+      "amount": 2000000,
+      "currency": "USD"
+    },
+    "grantsExpectedAwards": 50,
+    "grantsCostSharing": false,
+    "grantsEligibility": {
+      "applicantTypes": [
+        {
+          "id": "06",
+          "description": "Public and State controlled institutions of higher education"
+        },
+        {
+          "id": "22",
+          "description": "For profit organizations other than small businesses"
+        },
+        {
+          "id": "08",
+          "description": "Public housing authorities/Indian housing authorities"
+        },
+        {
+          "id": "20",
+          "description": "Private institutions of higher education"
+        },
+        {
+          "id": "00",
+          "description": "State governments"
+        },
+        {
+          "id": "05",
+          "description": "Independent school districts"
+        },
+        {
+          "id": "11",
+          "description": "Native American tribal organizations (other than Federally recognized tribal governments)"
+        },
+        {
+          "id": "13",
+          "description": "Nonprofits that do not have a 501(c)(3) status with the IRS, other than institutions of higher education"
+        },
+        {
+          "id": "23",
+          "description": "Small businesses"
+        },
+        {
+          "id": "01",
+          "description": "County governments"
+        },
+        {
+          "id": "12",
+          "description": "Nonprofits having a 501(c)(3) status with the IRS, other than institutions of higher education"
+        },
+        {
+          "id": "07",
+          "description": "Native American tribal governments (Federally recognized)"
+        },
+        {
+          "id": "02",
+          "description": "City or township governments"
+        },
+        {
+          "id": "04",
+          "description": "Special district governments"
+        }
+      ],
+      "additionalInfo": "Current RecipientsCurrent recipients in the final year of their project period must check when their project period ends. If the project period end date aligns with this funding opportunity\"s projected award date, and the current recipient wants to apply to continue providing services, they must apply for this funding opportunity.Current recipients who are not in the final year of their project period and want to apply for this funding opportunity must propose services in a new facility and new location from where they are currently funded. ACF does not fund multiple projects that offer the same type of service in the same location. Applications from individuals (including sole proprietorships), federal entities, and foreign entities are not eligible and will be disqualified from the merit review and funding under this funding opportunity. Faith-based and community organizations that meet the eligibility requirements are eligible for awards under this funding opportunity."
+    },
+    "grantsForecast": null,
+    "grantsArchiveDate": null,
+    "grantsLastUpdated": "2026-10-30",
+    "grantsAttachments": [
+      {
+        "name": "Full Announcement_HHS-2027-ACF-ORR-ZU-0045.pdf",
+        "folder": "Full Announcement",
+        "mimeType": "application/pdf",
+        "sizeBytes": 412749,
+        "url": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355495"
+      }
+    ],
+    "grantsContact": null,
+    "grantsDetailsIncluded": true
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "grants-gov",
+    "sourceId": "364174",
+    "url": "https://www.grants.gov/search-results-detail/364174",
+    "documentUrls": {
+      "html": "https://www.grants.gov/search-results-detail/364174",
+      "pdf": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355417",
+      "xml": null
+    },
+    "noticeType": "contract-notice",
+    "noticeTypeCode": "synopsis",
+    "procedureType": null,
+    "contractNature": null,
+    "title": "Grid Supply Chain Alternatives to Lead Energy Dominance (SCALED)",
+    "description": "Grid Supply Chain Alternatives to Lead Energy Dominance (SCALED) This initiative will deploy a multi-faceted approach to bolster domestic capabilities to withstand supply chain shocks, ensure a reliable energy infrastructure, and position the U.S. as a global leader in foundational grid technologies.",
+    "language": "en",
+    "buyer": {
+      "name": "National Energy Technology Laboratory",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": {
+      "amount": 237000000,
+      "currency": "USD"
+    },
+    "lots": null,
+    "publicationDate": "2026-10-30",
+    "submissionDeadline": "2027-02-08",
+    "awardInfo": null,
+    "placeOfPerformance": null,
+    "scrapedAt": "2026-11-05T07:44:14+00:00",
+    "grantsOpportunityNumber": "DE-FOA-0003641",
+    "grantsStatus": "posted",
+    "grantsAgencyCode": "DOE-NETL",
+    "grantsTopAgency": {
+      "code": "DOE",
+      "name": "Department of Energy"
+    },
+    "grantsAln": [
+      {
+        "code": "81.122",
+        "title": "Electricity Research, Development and Analysis"
+      }
+    ],
+    "grantsCategory": {
+      "code": "D",
+      "description": "Discretionary"
+    },
+    "grantsFundingInstruments": [
+      {
+        "id": "CA",
+        "description": "Cooperative Agreement"
+      }
+    ],
+    "grantsActivityCategories": [
+      {
+        "id": "EN",
+        "description": "Energy"
+      }
+    ],
+    "grantsEstimatedValueBasis": "totalProgramFunding",
+    "grantsEstimatedTotalFunding": {
+      "amount": 237000000,
+      "currency": "USD"
+    },
+    "grantsAwardCeiling": {
+      "amount": 237000000,
+      "currency": "USD"
+    },
+    "grantsAwardFloor": {
+      "amount": 1,
+      "currency": "USD"
+    },
+    "grantsExpectedAwards": 70,
+    "grantsCostSharing": true,
+    "grantsEligibility": {
+      "applicantTypes": [
+        {
+          "id": "99",
+          "description": "Unrestricted (i.e., open to any type of entity above), subject to any clarification in text field entitled \"Additional Information on Eligibility\""
+        }
+      ],
+      "additionalInfo": null
+    },
+    "grantsForecast": null,
+    "grantsArchiveDate": "2027-03-10",
+    "grantsLastUpdated": "2026-10-30",
+    "grantsAttachments": [
+      {
+        "name": "FundOpp_DE-FOA-0003641.pdf",
+        "folder": "Full Announcement",
+        "mimeType": "application/octet-stream",
+        "sizeBytes": 1505176,
+        "url": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355417"
+      },
+      {
+        "name": "DE-FOA-0003641_SCALED_NOFO_Part 2.pdf",
+        "folder": "Full Announcement",
+        "mimeType": "application/octet-stream",
+        "sizeBytes": 1048694,
+        "url": "https://apply07.grants.gov/grantsws/rest/opportunity/att/download/355416"
+      }
+    ],
+    "grantsContact": null,
+    "grantsDetailsIncluded": true
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "grants-gov",
+    "sourceId": "364188",
+    "url": "https://www.grants.gov/search-results-detail/364188",
+    "documentUrls": {
+      "html": "https://www.grants.gov/search-results-detail/364188",
+      "pdf": null,
+      "xml": null
+    },
+    "noticeType": "contract-notice",
+    "noticeTypeCode": "synopsis",
+    "procedureType": null,
+    "contractNature": null,
+    "title": "Established Program to Stimulate Competitive Research (EPSCoR) Basic Research",
+    "description": "This solicitation seeks proposals that are expected to establish research activities that will make significant contributions to NASA’s strategic research and technology development priorities and contribute to the overall research infrastructure, science and technology capabilities of higher education and economic development of the jurisdiction receiving funding.",
+    "language": "en",
+    "buyer": {
+      "name": "National Aeronautics and Space Administration",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": {
+      "amount": 21000000,
+      "currency": "USD"
+    },
+    "lots": null,
+    "publicationDate": "2026-10-30",
+    "submissionDeadline": "2027-02-01",
+    "awardInfo": null,
+    "placeOfPerformance": null,
+    "scrapedAt": "2026-11-05T07:44:14+00:00",
+    "grantsOpportunityNumber": "NNH27ZHA001C",
+    "grantsStatus": "posted",
+    "grantsAgencyCode": "NASA",
+    "grantsTopAgency": {
+      "code": "NASA",
+      "name": "National Aeronautics and Space Administration"
+    },
+    "grantsAln": [
+      {
+        "code": "43.016",
+        "title": "Established Program to Stimulate Competitive Research"
+      }
+    ],
+    "grantsCategory": {
+      "code": "D",
+      "description": "Discretionary"
+    },
+    "grantsFundingInstruments": [
+      {
+        "id": "CA",
+        "description": "Cooperative Agreement"
+      }
+    ],
+    "grantsActivityCategories": [
+      {
+        "id": "ST",
+        "description": "Science and Technology and other Research and Development"
+      }
+    ],
+    "grantsEstimatedValueBasis": "totalProgramFunding",
+    "grantsEstimatedTotalFunding": {
+      "amount": 21000000,
+      "currency": "USD"
+    },
+    "grantsAwardCeiling": {
+      "amount": 750000,
+      "currency": "USD"
+    },
+    "grantsAwardFloor": null,
+    "grantsExpectedAwards": 28,
+    "grantsCostSharing": true,
+    "grantsEligibility": {
+      "applicantTypes": [
+        {
+          "id": "25",
+          "description": "Others (see text field entitled \"Additional Information on Eligibility\" for clarification)"
+        }
+      ],
+      "additionalInfo": "The National Science Foundation (NSF) determines overall jurisdiction eligibility for NASA EPSCoR. The latest available NSF eligibility tables are used to determine overall jurisdiction eligibility for NASA EPSCoR. The NSF eligibility table is available at: https://www.nsf.gov/funding/initiatives/epscor/epscor-criteria-eligibility"
+    },
+    "grantsForecast": null,
+    "grantsArchiveDate": "2027-03-03",
+    "grantsLastUpdated": "2026-10-30",
+    "grantsAttachments": [],
+    "grantsContact": null,
+    "grantsDetailsIncluded": true
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "grants-gov",
+    "sourceId": "364173",
+    "url": "https://www.grants.gov/search-results-detail/364173",
+    "documentUrls": {
+      "html": "https://www.grants.gov/search-results-detail/364173",
+      "pdf": null,
+      "xml": null
+    },
+    "noticeType": "prior-information",
+    "noticeTypeCode": "forecast",
+    "procedureType": null,
+    "contractNature": null,
+    "title": "First Responders-Comprehensive Addiction and Recovery Act",
+    "description": "The purpose of this program is to train first responders and communities in administering and distributing opioid overdose reversal medications (OORM).",
+    "language": "en",
+    "buyer": {
+      "name": "Substance Abuse and Mental Health Services Adminis",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": {
+      "amount": 20000000,
+      "currency": "USD"
+    },
+    "lots": null,
+    "publicationDate": "2026-10-30",
+    "submissionDeadline": null,
+    "awardInfo": null,
+    "placeOfPerformance": null,
+    "scrapedAt": "2026-11-05T07:44:27+00:00",
+    "grantsOpportunityNumber": "TI-27-006",
+    "grantsStatus": "forecasted",
+    "grantsAgencyCode": "HHS-SAMHS-SAMHSA",
+    "grantsTopAgency": {
+      "code": "HHS",
+      "name": "Department of Health and Human Services"
+    },
+    "grantsAln": [
+      {
+        "code": "93.490",
+        "title": "Center for Substance Abuse Treatment Projects of Regional and National Significance"
+      }
+    ],
+    "grantsCategory": {
+      "code": "D",
+      "description": "Discretionary"
+    },
+    "grantsFundingInstruments": [
+      {
+        "id": "CA",
+        "description": "Cooperative Agreement"
+      }
+    ],
+    "grantsActivityCategories": [
+      {
+        "id": "HL",
+        "description": "Health"
+      }
+    ],
+    "grantsEstimatedValueBasis": "totalProgramFunding",
+    "grantsEstimatedTotalFunding": {
+      "amount": 20000000,
+      "currency": "USD"
+    },
+    "grantsAwardCeiling": null,
+    "grantsAwardFloor": null,
+    "grantsExpectedAwards": 40,
+    "grantsCostSharing": true,
+    "grantsEligibility": {
+      "applicantTypes": [
+        {
+          "id": "25",
+          "description": "Others (see text field entitled \"Additional Information on Eligibility\" for clarification)"
+        }
+      ],
+      "additionalInfo": "Eligibility for this program is statutorily limited (Section 546 of the Public Health Service Act [42 USC 290ee-1], as amended) to states, local governmental entities, and Indian Tribes and Tribal organizations (as defined in section 4 of the Indian Self-Determination and Education Assistance Act)."
+    },
+    "grantsForecast": {
+      "fiscalYear": 2027,
+      "estimatedPostingDate": "2026-12-15",
+      "estimatedApplicationDeadline": null,
+      "estimatedAwardDate": "2027-09-30",
+      "estimatedProjectStartDate": null
+    },
+    "grantsArchiveDate": null,
+    "grantsLastUpdated": "2026-10-30",
+    "grantsAttachments": [],
+    "grantsContact": null,
+    "grantsDetailsIncluded": true
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "grants-gov",
+    "sourceId": "364156",
+    "url": "https://www.grants.gov/search-results-detail/364156",
+    "documentUrls": {
+      "html": "https://www.grants.gov/search-results-detail/364156",
+      "pdf": null,
+      "xml": null
+    },
+    "noticeType": "prior-information",
+    "noticeTypeCode": "forecast",
+    "procedureType": null,
+    "contractNature": null,
+    "title": "National Center for Law and Elder Rights",
+    "description": "Section 420(a)(1) of the Older Americans Act (OAA) requires a national legal assistance support system which provides, develops, and supports legal assistance activities for older individuals, including case consultations, training, the provision of substantive legal advice and assistance, and assistance in the design, implementation, and administration of legal assistance delivery systems to local providers of legal assistance to older individuals. Through this Notice of Funding Opportunity, the Administration for Community Living plans to award up to four (4) cooperative agreements to organizations that will collaborate and collectively function as the National Center for Law and Elder Rights.",
+    "language": "en",
+    "buyer": {
+      "name": "Administration for Community Living",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": {
+      "amount": 1500000,
+      "currency": "USD"
+    },
+    "lots": null,
+    "publicationDate": "2026-10-27",
+    "submissionDeadline": null,
+    "awardInfo": null,
+    "placeOfPerformance": null,
+    "scrapedAt": "2026-11-05T07:44:27+00:00",
+    "grantsOpportunityNumber": "HHS-2027-ACL-AOA-LMRC-0019",
+    "grantsStatus": "forecasted",
+    "grantsAgencyCode": "HHS-ACL",
+    "grantsTopAgency": {
+      "code": "HHS",
+      "name": "Department of Health and Human Services"
+    },
+    "grantsAln": [
+      {
+        "code": "93.048",
+        "title": "Special Programs for the Aging, Title IV, and Title II, Discretionary Projects"
+      }
+    ],
+    "grantsCategory": {
+      "code": "D",
+      "description": "Discretionary"
+    },
+    "grantsFundingInstruments": [
+      {
+        "id": "CA",
+        "description": "Cooperative Agreement"
+      }
+    ],
+    "grantsActivityCategories": [
+      {
+        "id": "ISS",
+        "description": "Income Security and Social Services"
+      }
+    ],
+    "grantsEstimatedValueBasis": "totalProgramFunding",
+    "grantsEstimatedTotalFunding": {
+      "amount": 1500000,
+      "currency": "USD"
+    },
+    "grantsAwardCeiling": {
+      "amount": 400000,
+      "currency": "USD"
+    },
+    "grantsAwardFloor": {
+      "amount": 250000,
+      "currency": "USD"
+    },
+    "grantsExpectedAwards": 4,
+    "grantsCostSharing": true,
+    "grantsEligibility": {
+      "applicantTypes": [
+        {
+          "id": "12",
+          "description": "Nonprofits having a 501(c)(3) status with the IRS, other than institutions of higher education"
+        },
+        {
+          "id": "13",
+          "description": "Nonprofits that do not have a 501(c)(3) status with the IRS, other than institutions of higher education"
+        }
+      ],
+      "additionalInfo": "Pursuant Section 420(c) of the Older Americans Act, applicants must be nonprofit organizations experienced in providing support and technical assistance on a nationwide basis to States, area agencies on aging, legal assistance providers, ombudsmen, elder abuse prevention programs, and other organizations interested in the legal rights of older individuals. Individuals, foreign entities, and sole proprietorship organizations are not eligible to compete for, or receive, awards made under this announcement. Foreign entities are not eligible to compete for, or receive, awards made under this announcement. Faith-based and community organizations that meet the eligibility requirements are eligible to receive awards under this funding opportunity announcement."
+    },
+    "grantsForecast": {
+      "fiscalYear": 2027,
+      "estimatedPostingDate": "2027-01-05",
+      "estimatedApplicationDeadline": "2027-03-05",
+      "estimatedAwardDate": "2027-05-01",
+      "estimatedProjectStartDate": "2027-05-01"
+    },
+    "grantsArchiveDate": null,
+    "grantsLastUpdated": "2026-10-27",
+    "grantsAttachments": [],
+    "grantsContact": null,
+    "grantsDetailsIncluded": true
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "grants-gov",
+    "sourceId": "364150",
+    "url": "https://www.grants.gov/search-results-detail/364150",
+    "documentUrls": {
+      "html": "https://www.grants.gov/search-results-detail/364150",
+      "pdf": null,
+      "xml": null
+    },
+    "noticeType": "prior-information",
+    "noticeTypeCode": "forecast",
+    "procedureType": null,
+    "contractNature": null,
+    "title": "University Centers for Developmental Disabilities in Educaction, Research, and Service",
+    "description": "AoD's Office of Intellectual and Developmental Disabilities (OIDD) within the Administration for Community Living (ACL), U.S. Department of Health and Human Services (HHS) forecasts the availability of Fiscal Year (FY) 2026 funds to make five-year grants to up to 42 entities designated as University Centers for Excellence in Developmental Disabilities Education, Research, and Service (UCEDD). These grantees carry out four core functions: (1) interdisciplinary pre-service preparation and continuing education of students; (2) community services, including training, technical assistance, and/or demonstration and model activities; (3) research; and (4) dissemination of information. UCEDDs are interdisciplinary education, research and public service units of universities, or public or not-for-profit entities associated with universities that implement the four core functions addressing, directly or indirectly, one or more of the areas of emphasis (e.g., quality assurance, education and early intervention, child care, health, employment, housing, transportation, recreation and other services available or offered to individuals in a community, including formal and informal community supports, that affect their quality of life). Funds made available under this proposed funding opportunity will be used to pay for the Federal share of the cost of the administration and operation of programs.",
+    "language": "en",
+    "buyer": {
+      "name": "Administration for Community Living",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": {
+      "amount": 26419764,
+      "currency": "USD"
+    },
+    "lots": null,
+    "publicationDate": "2026-10-26",
+    "submissionDeadline": null,
+    "awardInfo": null,
+    "placeOfPerformance": null,
+    "scrapedAt": "2026-11-05T07:44:27+00:00",
+    "grantsOpportunityNumber": "HHS-2027-ACL-AOD-DDUC-0001",
+    "grantsStatus": "forecasted",
+    "grantsAgencyCode": "HHS-ACL",
+    "grantsTopAgency": {
+      "code": "HHS",
+      "name": "Department of Health and Human Services"
+    },
+    "grantsAln": [
+      {
+        "code": "93.632",
+        "title": "University Centers for Excellence in Developmental Disabilities Education, Research, and Service"
+      }
+    ],
+    "grantsCategory": {
+      "code": "D",
+      "description": "Discretionary"
+    },
+    "grantsFundingInstruments": [
+      {
+        "id": "G",
+        "description": "Grant"
+      }
+    ],
+    "grantsActivityCategories": [
+      {
+        "id": "ISS",
+        "description": "Income Security and Social Services"
+      }
+    ],
+    "grantsEstimatedValueBasis": "totalProgramFunding",
+    "grantsEstimatedTotalFunding": {
+      "amount": 26419764,
+      "currency": "USD"
+    },
+    "grantsAwardCeiling": {
+      "amount": 629042,
+      "currency": "USD"
+    },
+    "grantsAwardFloor": {
+      "amount": 619042,
+      "currency": "USD"
+    },
+    "grantsExpectedAwards": 42,
+    "grantsCostSharing": true,
+    "grantsEligibility": {
+      "applicantTypes": [
+        {
+          "id": "25",
+          "description": "Others (see text field entitled \"Additional Information on Eligibility\" for clarification)"
+        }
+      ],
+      "additionalInfo": "Section 151(a) of the DD Act states that appropriations authorized under section 156(a)(1) of the DD Act shall be used to make five-year grants to entities in each state designated as UCEDDs. Only UCEDD grantees awarded five-year core funds in FY 2022 may apply. Foreign entities are not eligible to compete for, or receive, awards made under this announcement."
+    },
+    "grantsForecast": {
+      "fiscalYear": 2027,
+      "estimatedPostingDate": "2026-12-01",
+      "estimatedApplicationDeadline": "2027-02-01",
+      "estimatedAwardDate": "2027-07-01",
+      "estimatedProjectStartDate": "2027-07-01"
+    },
+    "grantsArchiveDate": "2027-08-30",
+    "grantsLastUpdated": "2026-10-26",
+    "grantsAttachments": [],
+    "grantsContact": null,
+    "grantsDetailsIncluded": true
+  },
+  {
+    "schemaVersion": "1.0",
+    "source": "grants-gov",
+    "sourceId": "364123",
+    "url": "https://www.grants.gov/search-results-detail/364123",
+    "documentUrls": {
+      "html": "https://www.grants.gov/search-results-detail/364123",
+      "pdf": null,
+      "xml": null
+    },
+    "noticeType": "prior-information",
+    "noticeTypeCode": "forecast",
+    "procedureType": null,
+    "contractNature": null,
+    "title": "Learning Disabilities Research Centers",
+    "description": "The Eunice Kennedy Shriver National Institute of Child Health and Human Development (NICHD) seeks to support transdisciplinary research centers to improve outcomes for children and youth at risk for, or diagnosed with, specific learning disabilities (SLDs) impacting mathematics, reading and writing. These centers will focus on improving the identification and classification of SLDs, deepen understanding of their genetic and neurobiological underpinnings, and advance testing of innovative screening and intervention approaches. The proposed centers will use their funded research infrastructure to collaborate with key stakeholders and provide project-based mentorship for the next generation of SLD researchers. Grant authorities that allow the Eunice Kennedy Shriver National Institute of Child Health and Human Development to forecast this opportunity are as follows: 42 U.S.C. 281 (Sec. 401); 42 U.S.C. 285g (Sec. 448); 42 USC 284h (Sec. 409D).",
+    "language": "en",
+    "buyer": {
+      "name": "National Institutes of Health",
+      "country": "US",
+      "city": null,
+      "nutsCode": null,
+      "buyerType": "central-government"
+    },
+    "cpvCodes": [],
+    "mainCpv": null,
+    "mainCpvDivision": null,
+    "estimatedValue": null,
+    "lots": null,
+    "publicationDate": "2026-10-20",
+    "submissionDeadline": null,
+    "awardInfo": null,
+    "placeOfPerformance": null,
+    "scrapedAt": "2026-11-05T07:44:27+00:00",
+    "grantsOpportunityNumber": "RFA-HD-28-006",
+    "grantsStatus": "forecasted",
+    "grantsAgencyCode": "HHS-NIH11",
+    "grantsTopAgency": {
+      "code": "HHS",
+      "name": "Department of Health and Human Services"
+    },
+    "grantsAln": [
+      {
+        "code": "93.865",
+        "title": "Child Health and Human Development Extramural Research"
+      }
+    ],
+    "grantsCategory": {
+      "code": "D",
+      "description": "Discretionary"
+    },
+    "grantsFundingInstruments": [
+      {
+        "id": "G",
+        "description": "Grant"
+      }
+    ],
+    "grantsActivityCategories": [
+      {
+        "id": "HL",
+        "description": "Health"
+      }
+    ],
+    "grantsEstimatedValueBasis": null,
+    "grantsEstimatedTotalFunding": null,
+    "grantsAwardCeiling": null,
+    "grantsAwardFloor": null,
+    "grantsExpectedAwards": null,
+    "grantsCostSharing": false,
+    "grantsEligibility": {
+      "applicantTypes": [
+        {
+          "id": "07",
+          "description": "Native American tribal governments (Federally recognized)"
+        },
+        {
+          "id": "25",
+          "description": "Others (see text field entitled \"Additional Information on Eligibility\" for clarification)"
+        },
+        {
+          "id": "05",
+          "description": "Independent school districts"
+        },
+        {
+          "id": "11",
+          "description": "Native American tribal organizations (other than Federally recognized tribal governments)"
+        },
+        {
+          "id": "12",
+          "description": "Nonprofits having a 501(c)(3) status with the IRS, other than institutions of higher education"
+        },
+        {
+          "id": "04",
+          "description": "Special district governments"
+        },
+        {
+          "id": "06",
+          "description": "Public and State controlled institutions of higher education"
+        },
+        {
+          "id": "01",
+          "description": "County governments"
+        },
+        {
+          "id": "08",
+          "description": "Public housing authorities/Indian housing authorities"
+        },
+        {
+          "id": "22",
+          "description": "For profit organizations other than small businesses"
+        },
+        {
+          "id": "00",
+          "description": "State governments"
+        },
+        {
+          "id": "20",
+          "description": "Private institutions of higher education"
+        },
+        {
+          "id": "23",
+          "description": "Small businesses"
+        },
+        {
+          "id": "13",
+          "description": "Nonprofits that do not have a 501(c)(3) status with the IRS, other than institutions of higher education"
+        },
+        {
+          "id": "02",
+          "description": "City or township governments"
+        }
+      ],
+      "additionalInfo": "Other Eligible ApplicantsIndian/Native American Tribal Governments (Other than Federally Recognized);Eligible Agencies of the Federal Government;U.S. Territory or Possession;Faith-based or Community-based Organizations;Regional Organizations;Non-domestic (non-U.S.) Entities (Foreign Institutions)."
+    },
+    "grantsForecast": {
+      "fiscalYear": 2028,
+      "estimatedPostingDate": "2027-07-24",
+      "estimatedApplicationDeadline": "2027-10-01",
+      "estimatedAwardDate": "2028-07-01",
+      "estimatedProjectStartDate": "2028-07-01"
+    },
+    "grantsArchiveDate": null,
+    "grantsLastUpdated": "2026-10-20",
+    "grantsAttachments": [],
+    "grantsContact": null,
+    "grantsDetailsIncluded": true
+  }
+]

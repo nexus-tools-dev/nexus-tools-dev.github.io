@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>French company data (SIRENE) as JSON or CSV: API guide with Python</title>
+<meta name="description" content="How to get French company data from the free recherche-entreprises.api.gouv.fr (SIRENE) API as JSON or CSV: 7 requests per second, the 10,000-result window, exact NAF codes, GDPR traps, Python code and a 20-record sample without personal data.">
+<link rel="canonical" href="https://nexus-tools-dev.github.io/guides/france-companies-sirene-json/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Nexus Tools">
+<meta property="og:title" content="French company data (SIRENE) as JSON or CSV: API guide with Python">
+<meta property="og:description" content="How to get French company data from the free recherche-entreprises.api.gouv.fr (SIRENE) API as JSON or CSV: 7 requests per second, the 10,000-result window, exact NAF codes, GDPR traps, Python code and a 20-record sample without personal data.">
+<meta property="og:url" content="https://nexus-tools-dev.github.io/guides/france-companies-sirene-json/">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "French company data as JSON or CSV: the recherche-entreprises (SIRENE) API, its limits, a Python example and a free sample", "description": "How to get French company data from the free recherche-entreprises.api.gouv.fr (SIRENE) API as JSON or CSV: 7 requests per second, the 10,000-result window, exact NAF codes, GDPR traps, Python code and a 20-record sample without personal data.", "inLanguage": "en", "datePublished": "2026-11-05", "dateModified": "2026-11-05", "url": "https://nexus-tools-dev.github.io/guides/france-companies-sirene-json/", "mainEntityOfPage": "https://nexus-tools-dev.github.io/guides/france-companies-sirene-json/", "keywords": "SIRENE API, recherche-entreprises API, French company data JSON, NAF code, SIREN SIRET, Python, open data", "author": {"@type": "Organization", "name": "Nexus Tools", "url": "https://nexus-tools-dev.github.io/"}, "publisher": {"@type": "Organization", "name": "Nexus Tools", "url": "https://nexus-tools-dev.github.io/"}}</script>
+<style>
+  :root { --bg:#f6f7f9; --panel:#fff; --text:#16181d; --muted:#5f6672; --line:#d9dde3; --accent:#1f5fd1; --code:#eef0f4; color-scheme: light dark; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#14161a; --panel:#1d2026; --text:#eceef2; --muted:#a2a9b5; --line:#343944; --accent:#6ea0ff; --code:#252932; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.65 system-ui,"Segoe UI",Roboto,sans-serif; }
+  main { max-width: 780px; margin: 0 auto; padding: 40px 20px 64px; }
+  h1 { font-size: 28px; line-height:1.25; margin: 8px 0 8px; }
+  h2 { font-size: 21px; margin: 40px 0 8px; }
+  h3 { font-size: 17px; margin: 24px 0 4px; }
+  .lead { color: var(--muted); margin: 0 0 8px; }
+  .meta { color: var(--muted); font-size: 14px; }
+  a { color: var(--accent); }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px 18px; margin: 16px 0; }
+  pre, code { font: 13.5px/1.5 ui-monospace,SFMono-Regular,Consolas,Menlo,monospace; }
+  code { background: var(--code); padding: 1px 5px; border-radius: 4px; }
+  pre { background: var(--code); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; overflow-x: auto; margin: 12px 0; }
+  pre code { background: none; padding: 0; }
+  .tw { overflow-x: auto; margin: 12px 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { text-align: left; border-bottom: 1px solid var(--line); padding: 6px 8px; vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; white-space: nowrap; }
+  td.n { white-space: nowrap; }
+  ul, ol { padding-left: 22px; }
+  li { margin: 4px 0; }
+  .note { border-left: 3px solid var(--accent); padding: 2px 0 2px 14px; color: var(--muted); }
+  footer { margin-top: 48px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); padding-top: 16px; }
+  p code, li code, td code { overflow-wrap: anywhere; }</style>
+</head>
+<body>
+<main>
+<p class="meta"><a href="../../">Nexus Tools</a> / Data guides</p>
+
+<h1>French company data as JSON or CSV: the recherche-entreprises (SIRENE) API, its limits, a Python example and a free sample</h1>
+<p class="lead">How to pull French company records from the official open API yourself, which limits and filter traps to expect, what to do about directors and sole traders under the GDPR, and when a normalized feed is worth paying for.</p>
+<p class="meta">Updated: November 2026. API behaviour below was tested live on 5 November 2026.</p>
+
+
+<h2>The short version</h2>
+<ul>
+<li>France publishes company data as open data (INSEE's SIRENE register, the RNE trade register and more). The official, free, keyless search API is <a href="https://recherche-entreprises.api.gouv.fr/docs/">recherche-entreprises.api.gouv.fr</a>: <code>GET /search</code>, JSON out, maintained by the Annuaire des Entreprises team.</li>
+<li>The rules that matter: <strong>7 requests per second per IP</strong> (HTTP 429 above), <strong>25 results per page and a 10,000-result window</strong>, and <strong>exact NAF codes only</strong> (no prefixes, no NAF 2025). Location filters match any establishment, not just the head office.</li>
+<li>The response includes <strong>named directors who are natural persons</strong> (name, first names, birth date). That is personal data under the GDPR. The sample on this page has none, and no sole traders either, because a sole trader's business name is a person's name.</li>
+</ul>
+
+<h2>1. The recherche-entreprises API</h2>
+<p>Base URL: <code>https://recherche-entreprises.api.gouv.fr</code>. The interactive documentation is at <code>/docs/</code> and the OpenAPI file at <code>/openapi.json</code> (it declares API version 1.0.0 and the MIT licence for the API software). No key or login.</p>
+<pre><code>curl -s "https://recherche-entreprises.api.gouv.fr/search?q=buffalo+grill&amp;per_page=1"</code></pre>
+
+<h3>Limits and errors, as we saw them on 5 November 2026</h3>
+<ul>
+<li><strong>Rate limit: 7 requests per second per IP,</strong> and 30 per second per ASN (the docs warn that public clouds will probably hit the ASN limit). Above it the server answers <code>HTTP 429</code>. The docs call these maximums, not guaranteed throughput.</li>
+<li><strong><code>per_page</code> is 1 to 25.</strong> <code>per_page=26</code> returns <code>HTTP 400</code> with the French message "indiquer un paramètre per_page entre 1 et 25". The default is 10.</li>
+<li><strong>10,000 results at most per query.</strong> <code>page * per_page</code> must not exceed 10,000, and <code>total_results</code> itself is capped: <code>q=boulangerie</code> returned <code>total_results: 10000</code>. Page 401 with <code>per_page=25</code> is <code>HTTP 400</code>. To go beyond, split the query by department, NAF code, size band or legal form.</li>
+<li><strong>At least one search parameter is mandatory</strong> (<code>HTTP 400</code>, "Veuillez indiquer au moins un paramètre de recherche"). The free-text <code>q</code> needs at least 3 characters.</li>
+<li><strong>Errors are JSON</strong> with a single key <code>erreur</code>, in French.</li>
+</ul>
+
+<h3>Filters</h3>
+<div class="tw"><table>
+<tr><th>Goal</th><th>Parameter</th><th>Trap</th></tr>
+<tr><td>Activity</td><td><code>activite_principale=62.01Z,62.02A</code></td><td><strong>Exact NAF rev. 2 codes only.</strong> <code>56.1</code> returns <code>HTTP 400</code> and the error lists the valid codes. No prefix search, and NAF 2025 codes are not accepted (the response has both: <code>activite_principale</code> and <code>activite_principale_naf25</code>).</td></tr>
+<tr><td>Location</td><td><code>departement</code>, <code>region</code>, <code>code_postal</code>, <code>code_commune</code></td><td>Matches companies with <em>any</em> establishment there; the head office can be elsewhere.</td></tr>
+<tr><td>Size</td><td><code>tranche_effectif_salarie</code>, <code>categorie_entreprise</code> (PME, ETI, GE)</td><td>Workforce band codes, not numbers.</td></tr>
+<tr><td>Status and form</td><td><code>etat_administratif=A</code> (active) or <code>C</code> (ceased), <code>nature_juridique</code></td><td>-</td></tr>
+<tr><td>Revenue</td><td><code>ca_min</code>, <code>ca_max</code>, <code>resultat_net_min</code>, <code>resultat_net_max</code></td><td>Only companies that filed accounts have figures.</td></tr>
+<tr><td>Flags</td><td><code>est_ess</code>, <code>est_association</code>, <code>est_entrepreneur_individuel</code>, <code>est_rge</code>, <code>est_qualiopi</code> and others</td><td>-</td></tr>
+<tr><td>Output size</td><td><code>minimal=true&amp;include=siege,finances,dirigeants</code></td><td>Without it, every record is large.</td></tr>
+</table></div>
+<p>There is no creation-date filter: <code>date_creation</code> is an output field only, so "companies created last month" cannot be asked of this API.</p>
+
+<h3>What the records look like</h3>
+<ul>
+<li><strong>Identifiers:</strong> <code>siren</code> (9 digits, the company), <code>siege.siret</code> (14 digits, an establishment). The EU VAT number is derived from the SIREN (<code>tva</code>).</li>
+<li><strong>Finances</strong> come as <code>{"2024": {"ca": ..., "resultat_net": ...}}</code>, keyed by year: use the maximum key for the latest year. In our 20-company sample, 17 have a latest revenue figure.</li>
+<li><strong>Partial diffusion.</strong> When the owner (typically a sole trader) restricts diffusion, the API replaces address and similar fields by the literal string <code>[NON-DIFFUSIBLE]</code>. In four pages of sole traders in the Rhône we counted 192 such strings. Fully non-diffusible companies are not served at all, and neither are companies whose trade-register registration was refused.</li>
+<li><strong>Commercial prospecting flag:</strong> <code>opposition_diffusion_commerciale</code> is true when the business objected to being used for commercial prospecting. 14 of the 20 companies in our sample have it set, so large companies use it too.</li>
+<li><strong>Directors:</strong> <code>dirigeants</code> mixes legal entities (<code>personne morale</code>: SIREN and denomination) and natural persons (<code>personne physique</code>), whose entries carry <code>nom</code>, <code>prenoms</code>, <code>date_de_naissance</code> and <code>nationalite</code>.</li>
+<li><strong>Freshness:</strong> <code>date_mise_a_jour</code> was within the day for the companies we checked; INSEE and trade-register fields have their own update dates (<code>date_mise_a_jour_insee</code>, <code>date_mise_a_jour_rne</code>).</li>
+<li><strong>This is a search API, not the full SIRENE base.</strong> The docs say it cannot give the complete SIRENE data; for the full stock files use the data.gouv.fr dataset (section 5).</li>
+</ul>
+
+<h2>2. DIY: companies to CSV in Python</h2>
+<p>This script (tested on 5 November 2026: 10,000 matches for two software NAF codes in Paris, 100 written) pages through results under the rate limit, retries on 429 and 5xx, leaves sole traders out and flattens the head-office address and the latest revenue. It needs <code>pip install requests</code>. Directors are deliberately not read.</p>
+<pre><code>import csv
+import time
+
+import requests
+
+URL = &quot;https://recherche-entreprises.api.gouv.fr/search&quot;
+# activite_principale takes EXACT NAF rev. 2 codes (e.g. 62.01Z). &quot;62&quot; or &quot;62.0&quot; is HTTP 400
+# and the error lists the 732 valid codes. NAF 2025 codes are not accepted.
+NAF = [&quot;62.01Z&quot;, &quot;62.02A&quot;]
+PARAMS = {
+    &quot;activite_principale&quot;: &quot;,&quot;.join(NAF),
+    &quot;departement&quot;: &quot;75&quot;,                       # matches companies with ANY establishment in Paris, not only head offices
+    &quot;etat_administratif&quot;: &quot;A&quot;,                 # active only
+    &quot;est_entrepreneur_individuel&quot;: &quot;false&quot;,    # leave sole traders out: their business name is a person&#x27;s name
+    &quot;per_page&quot;: 25,                            # 1-25, above is HTTP 400
+}
+MAX_WINDOW = 10_000                            # page * per_page must not exceed this, whatever total_results says
+
+rows, page = [], 1
+while page * PARAMS[&quot;per_page&quot;] &lt;= MAX_WINDOW and len(rows) &lt; 100:     # demo: 100 companies
+    for attempt in range(5):
+        r = requests.get(URL, params={**PARAMS, &quot;page&quot;: page}, timeout=30)
+        if r.status_code in (429, 500, 502, 503, 504):
+            time.sleep(int(r.headers.get(&quot;Retry-After&quot;, 2 ** attempt)))
+            continue
+        r.raise_for_status()                   # 400 = JSON {&quot;erreur&quot;: &quot;...&quot;}
+        break
+    data = r.json()
+    if page == 1:
+        print(data[&quot;total_results&quot;], &quot;matches (capped at 10000)&quot;)
+    for c in data[&quot;results&quot;]:
+        s = c.get(&quot;siege&quot;) or {}
+        fin = (c.get(&quot;finances&quot;) or {})
+        last = max(fin) if fin else None       # {&quot;2024&quot;: {&quot;ca&quot;: ..., &quot;resultat_net&quot;: ...}}
+        rows.append({
+            &quot;siren&quot;: c[&quot;siren&quot;], &quot;name&quot;: c[&quot;nom_complet&quot;], &quot;naf&quot;: s.get(&quot;activite_principale&quot;),
+            &quot;legal_form&quot;: c.get(&quot;nature_juridique&quot;), &quot;employees_band&quot;: c.get(&quot;tranche_effectif_salarie&quot;),
+            &quot;category&quot;: c.get(&quot;categorie_entreprise&quot;), &quot;created&quot;: c.get(&quot;date_creation&quot;),
+            &quot;hq_city&quot;: s.get(&quot;libelle_commune&quot;), &quot;hq_postcode&quot;: s.get(&quot;code_postal&quot;),
+            &quot;revenue&quot;: fin[last].get(&quot;ca&quot;) if last else None, &quot;revenue_year&quot;: last,
+            &quot;url&quot;: f&quot;https://annuaire-entreprises.data.gouv.fr/entreprise/{c[&#x27;siren&#x27;]}&quot;,
+        })
+    if page &gt;= data[&quot;total_pages&quot;]:
+        break
+    page += 1
+    time.sleep(0.2)                            # stay far below 7 requests per second per IP
+
+with open(&quot;companies_fr.csv&quot;, &quot;w&quot;, newline=&quot;&quot;, encoding=&quot;utf-8&quot;) as f:
+    w = csv.DictWriter(f, fieldnames=rows[0].keys())
+    w.writeheader()
+    w.writerows(rows)
+print(len(rows), &quot;companies written&quot;)
+</code></pre>
+
+<h2>3. When the Actor saves time</h2>
+<p>For a one-off list, the script is enough and free. The Apify Actor <a href="https://apify.com/nexus-scrapers/france-company-search">France Company Search</a> (by Nexus Scrapers) wraps the same official API. It pays off when you would otherwise maintain that code:</p>
+<ul>
+<li><strong>NAF prefixes and NAF 2025.</strong> You pass <code>62</code> or <code>62.0</code> and the Actor expands it into the exact rev. 2 codes; NAF 2025 codes are mapped back to rev. 2 through INSEE's correspondence table. Both NAF versions are in the output, with official labels for NAF, legal form, size band, region and department.</li>
+<li><strong>A flat, stable record:</strong> head office as one object, latest and historical revenue, labels as a list, SIREN-based VAT number, source link, null for hidden values (<code>[NON-DIFFUSIBLE]</code> is converted to <code>null</code> and the record says <code>diffusionStatus: partial</code>).</li>
+<li><strong>Privacy defaults:</strong> natural-person directors are dropped in memory and never reach the dataset; legal-entity directors are kept. An <code>includeDirectors</code> option exists, adds personal data and makes you responsible for it; it is never applied to partial-diffusion companies. There are inputs to exclude sole traders and companies that objected to commercial prospecting.</li>
+<li><strong>Lookups by SIREN or SIRET</strong> in bulk, input validation, retries and pacing (4 requests per second, below the limit).</li>
+<li><strong>Scheduling and integrations</strong> through Apify: runs into Slack, e-mail, Google Sheets or a webhook; export as JSON, CSV or Excel; API and MCP access.</li>
+</ul>
+<p>Pricing is pay per result; the Actor page shows the current price.</p>
+<p class="note">Limits: it inherits the API's 10,000-result window (split by department or NAF to go beyond), the establishment-level location filter, the lack of a creation-date filter and the absence of non-diffusible companies. It has no beneficial-owner data and no filed accounts documents. For a single list, use the script.</p>
+
+<h2>4. Real sample: 20 normalized records</h2>
+<p>These 20 records were produced on 5 November 2026 by running the Actor's own code locally on live API responses (no Apify platform involved): 12 software-programming companies (NAF 62.01Z) with an establishment in Paris and 50 to 249 employees, 4 restaurant companies (56.10A) with an establishment in the Rhône and 4 supermarket companies (47.11D) with an establishment in Occitanie, largest first. Because of the establishment-level location filter, several head offices are elsewhere, and the workforce band is that of the company, so a few show no employees at all. They are the first matches in that order, not hand-picked for quality.</p>
+<p><strong>No natural-person data.</strong> Sole traders were excluded with the Actor's own filter, natural-person directors are dropped by default (the only directors kept are legal entities), and there are no contacts. A scrub pass over all text fields found no e-mail address or phone number. The names are company names; the head-office address is the registered business address.</p>
+<p>Download: <a href="sample.json">sample.json</a> (full records, UTF-8) and <a href="sample.csv">sample.csv</a> (flattened, lists joined with <code> | </code>, opens in Excel). Free to use under the licence in section 5.</p>
+<div class="tw"><table>
+<tr><th>SIREN</th><th>Name</th><th>NAF</th><th>Legal form</th><th>Size</th><th>Head office</th><th>Revenue</th></tr>
+<tr><td class="n"><a href="https://annuaire-entreprises.data.gouv.fr/entreprise/387495799">387495799</a></td><td>VISIATIV SOLUTIONS ENTREPRISE</td><td class="n">62.01Z</td><td>SAS</td><td class="n">GE</td><td>CHARBONNIERES-LES-BAINS</td><td class="n">84,495,737 EUR (2024)</td></tr>
+<tr><td class="n"><a href="https://annuaire-entreprises.data.gouv.fr/entreprise/851035329">851035329</a></td><td>CHAPSVISION</td><td class="n">62.01Z</td><td>SAS</td><td class="n">ETI</td><td>SURESNES</td><td class="n">156,671,000 EUR (2024)</td></tr>
+<tr><td class="n"><a href="https://annuaire-entreprises.data.gouv.fr/entreprise/519037253">519037253</a></td><td>TRUSTTEAM (TRUSTTEAM)</td><td class="n">62.01Z</td><td>SAS</td><td class="n">PME</td><td>MAXEVILLE</td><td class="n">8,904,988 EUR (2022)</td></tr>
+<tr><td class="n"><a href="https://annuaire-entreprises.data.gouv.fr/entreprise/823393764">823393764</a></td><td>CLUB EMPLOYES</td><td class="n">62.01Z</td><td>SAS</td><td class="n">PME</td><td>SAINTE-FOY-LES-LYON</td><td class="n">76,199,037 EUR (2025)</td></tr>
+<tr><td class="n"><a href="https://annuaire-entreprises.data.gouv.fr/entreprise/439737222">439737222</a></td><td>ORISHA PROPERTY MANAGEMENT (O…</td><td class="n">62.01Z</td><td>SAS</td><td class="n">ETI</td><td>SAINT-DENIS</td><td class="n">33,767,618 EUR (2025)</td></tr>
+<tr><td class="n"><a href="https://annuaire-entreprises.data.gouv.fr/entreprise/820334951">820334951</a></td><td>LITTLE WORKER</td><td class="n">62.01Z</td><td>SAS</td><td class="n">PME</td><td>BORDEAUX</td><td class="n">21,698,113 EUR (2021)</td></tr>
+<tr><td class="n"><a href="https://annuaire-entreprises.data.gouv.fr/entreprise/487549693">487549693</a></td><td>ALTRAN PROTOTYPES AUTOMOBILES</td><td class="n">62.01Z</td><td>SAS</td><td class="n">GE</td><td>ISSY-LES-MOULINEAUX</td><td class="n">44,021,000 EUR (2025)</td></tr>
+<tr><td class="n"><a href="https://annuaire-entreprises.data.gouv.fr/entreprise/518892211">518892211</a></td><td>SILAE</td><td class="n">62.01Z</td><td>SAS</td><td class="n">ETI</td><td>AIX-EN-PROVENCE</td><td class="n">56,508,017 EUR (2022)</td></tr>
+<tr><td class="n"><a href="https://annuaire-entreprises.data.gouv.fr/entreprise/813754389">813754389</a></td><td>UNITY TECHNOLOGIES SARL</td><td class="n">62.01Z</td><td>Société à responsabil…</td><td class="n">PME</td><td>PARIS</td><td class="n">19,496,273 EUR (2025)</td></tr>
+<tr><td class="n"><a href="https://annuaire-entreprises.data.gouv.fr/entreprise/817451313">817451313</a></td><td>GALADRIM</td><td class="n">62.01Z</td><td>SAS</td><td class="n">PME</td><td>PARIS</td><td class="n">-</td></tr>
+<tr><td class="n"><a href="https://annuaire-entreprises.data.gouv.fr/entreprise/400300190">400300190</a></td><td>GLOBANT FRANCE (PENTALOG FRAN…</td><td class="n">62.01Z</td><td>SAS</td><td class="n">ETI</td><td>PARIS</td><td class="n">66,074,854 EUR (2024)</td></tr>
+<tr><td class="n"><a href="https://annuaire-entreprises.data.gouv.fr/entreprise/752946863">752946863</a></td><td>LEARNINGSHELTER</td><td class="n">62.01Z</td><td>SA à conseil d&#x27;admini…</td><td class="n">PME</td><td>PARIS</td><td class="n">16,398,933 EUR (2025)</td></tr>
+<tr><td class="n"><a href="https://annuaire-entreprises.data.gouv.fr/entreprise/318906443">318906443</a></td><td>BUFFALO GRILL</td><td class="n">56.10A</td><td>SAS</td><td class="n">ETI</td><td>MONTROUGE</td><td class="n">305,303,715 EUR (2025)</td></tr>
+<tr><td class="n"><a href="https://annuaire-entreprises.data.gouv.fr/entreprise/305836033">305836033</a></td><td>SERARE</td><td class="n">56.10A</td><td>SAS</td><td class="n">-</td><td>EVRY-COURCOURONNES</td><td class="n">189,805,347 EUR (2018)</td></tr>
+<tr><td class="n"><a href="https://annuaire-entreprises.data.gouv.fr/entreprise/888796430">888796430</a></td><td>NEW COURT</td><td class="n">56.10A</td><td>SAS</td><td class="n">ETI</td><td>MONTROUGE</td><td class="n">119,852,026 EUR (2022)</td></tr>
+<tr><td class="n"><a href="https://annuaire-entreprises.data.gouv.fr/entreprise/311160592">311160592</a></td><td>SODEXO SPORTS ET LOISIRS</td><td class="n">56.10A</td><td>SAS</td><td class="n">GE</td><td>GUYANCOURT</td><td class="n">196,083,975 EUR (2025)</td></tr>
+<tr><td class="n"><a href="https://annuaire-entreprises.data.gouv.fr/entreprise/343262622">343262622</a></td><td>LIDL (LIDL)</td><td class="n">47.11D</td><td>Société en nom collec…</td><td class="n">GE</td><td>CHATENAY-MALABRY</td><td class="n">-</td></tr>
+<tr><td class="n"><a href="https://annuaire-entreprises.data.gouv.fr/entreprise/410409015">410409015</a></td><td>AUCHAN SUPERMARCHE</td><td class="n">47.11D</td><td>SAS</td><td class="n">GE</td><td>VILLENEUVE-D&#x27;ASCQ</td><td class="n">3,016,900,000 EUR (2024)</td></tr>
+<tr><td class="n"><a href="https://annuaire-entreprises.data.gouv.fr/entreprise/493318067">493318067</a></td><td>ALDI MARCHE TOULOUSE</td><td class="n">47.11D</td><td>Société à responsabil…</td><td class="n">GE</td><td>SAINT-SULPICE-LA-POINTE</td><td class="n">726,383,284 EUR (2024)</td></tr>
+<tr><td class="n"><a href="https://annuaire-entreprises.data.gouv.fr/entreprise/929781524">929781524</a></td><td>A+SUPER</td><td class="n">47.11D</td><td>SAS</td><td class="n">GE</td><td>LILLE</td><td class="n">-</td></tr>
+</table></div>
+<p>One record in full. Note that the head office of this "Paris" company is in the Rhône, because the department filter matches any establishment:</p>
+<pre><code>{
+  &quot;schemaVersion&quot;: &quot;1.0&quot;,
+  &quot;siren&quot;: &quot;387495799&quot;,
+  &quot;name&quot;: &quot;VISIATIV SOLUTIONS ENTREPRISE&quot;,
+  &quot;legalName&quot;: &quot;VISIATIV SOLUTIONS ENTREPRISE&quot;,
+  &quot;acronym&quot;: null,
+  &quot;legalFormCode&quot;: &quot;5710&quot;,
+  &quot;legalForm&quot;: &quot;SAS, société par actions simplifiée&quot;,
+  &quot;nafCode&quot;: &quot;62.01Z&quot;,
+  &quot;nafLabel&quot;: &quot;Programmation informatique&quot;,
+  &quot;naf2025Code&quot;: &quot;62.20H&quot;,
+  &quot;naf2025Label&quot;: &quot;Gestion d&#x27;installations informatiques et maintenance de systèmes et d&#x27;applications informatiques&quot;,
+  &quot;activitySection&quot;: &quot;J&quot;,
+  &quot;activitySectionLabel&quot;: &quot;Information et communication&quot;,
+  &quot;creationDate&quot;: &quot;1992-05-04&quot;,
+  &quot;closureDate&quot;: null,
+  &quot;status&quot;: &quot;active&quot;,
+  &quot;employeeBandCode&quot;: &quot;22&quot;,
+  &quot;employeeBand&quot;: &quot;100 à 199 salariés&quot;,
+  &quot;employeeBandYear&quot;: 2024,
+  &quot;category&quot;: &quot;GE&quot;,
+  &quot;categoryYear&quot;: 2024,
+  &quot;isEmployer&quot;: false,
+  &quot;establishmentsCount&quot;: 48,
+  &quot;openEstablishmentsCount&quot;: 15,
+  &quot;headOffice&quot;: {
+    &quot;siret&quot;: &quot;38749579900067&quot;,
+    &quot;address&quot;: &quot;26 RUE BENOIT BENNIER 69260 CHARBONNIERES-LES-BAINS&quot;,
+    &quot;postalCode&quot;: &quot;69260&quot;,
+    &quot;city&quot;: &quot;CHARBONNIERES-LES-BAINS&quot;,
+    &quot;communeCode&quot;: &quot;69044&quot;,
+    &quot;department&quot;: &quot;69&quot;,
+    &quot;region&quot;: &quot;84&quot;,
+    &quot;latitude&quot;: 45.776120571,
+    &quot;longitude&quot;: 4.7489782507,
+    &quot;departmentName&quot;: &quot;Rhône&quot;,
+    &quot;regionName&quot;: &quot;Auvergne-Rhône-Alpes&quot;,
+    &quot;tradeNames&quot;: null
+  },
+  &quot;latestFinancialYear&quot;: 2024,
+  &quot;latestRevenue&quot;: 84495737,
+  &quot;latestNetIncome&quot;: 3817639,
+  &quot;financials&quot;: [
+    {
+      &quot;year&quot;: 2024,
+      &quot;revenue&quot;: 84495737,
+      &quot;netIncome&quot;: 3817639
+    }
+  ],
+  &quot;labels&quot;: [
+    &quot;QUALIOPI&quot;,
+    &quot;ORGANISME_FORMATION&quot;
+  ],
+  &quot;isSoleTrader&quot;: false,
+  &quot;isAssociation&quot;: false,
+  &quot;isPublicService&quot;: null,
+  &quot;collectiveAgreements&quot;: [
+    &quot;1486&quot;
+  ],
+  &quot;vatNumber&quot;: &quot;FR27387495799&quot;,
+  &quot;diffusionStatus&quot;: &quot;full&quot;,
+  &quot;commercialUseOpposition&quot;: true,
+  &quot;corporateDirectors&quot;: [
+    {
+      &quot;siren&quot;: &quot;395008246&quot;,
+      &quot;name&quot;: &quot;VISIATIV&quot;,
+      &quot;role&quot;: &quot;Président de SAS&quot;
+    }
+  ],
+  &quot;updatedAt&quot;: &quot;2026-11-04T11:24:43&quot;,
+  &quot;sourceUrl&quot;: &quot;https://annuaire-entreprises.data.gouv.fr/entreprise/387495799&quot;,
+  &quot;source&quot;: &quot;recherche-entreprises.api.gouv.fr&quot;,
+  &quot;scrapedAt&quot;: &quot;2026-11-05T07:50:40+00:00&quot;
+}</code></pre>
+
+<h2>5. Data licence and terms</h2>
+<p>The underlying register data is open data. The <a href="https://www.data.gouv.fr/fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret/">SIRENE dataset on data.gouv.fr</a> (publisher: INSEE) is under the <a href="https://www.etalab.gouv.fr/licence-ouverte-open-licence/">Licence Ouverte / Open Licence 2.0</a> (Etalab): free reuse, commercial included, if you credit the source and the date of the last update. The API's own page on api.gouv.fr says "Licence non renseignée", and its OpenAPI file declares MIT for the software, so the data licence is the one of the sources, not of the API. Credit "INSEE, base Sirene" and the Annuaire des Entreprises, and say when you downloaded the data.</p>
+<p>Two obligations sit outside the licence. <strong>Diffusion restrictions:</strong> the API already hides what owners asked to hide, and you must not try to recover it from other fields. <strong>Personal data:</strong> a sole trader's name and the names and birth dates of directors are personal data under the GDPR even though they are public; reuse needs your own lawful basis and information duties. Businesses may also object to commercial prospecting (<code>opposition_diffusion_commerciale</code>); respect it when you build marketing lists. This is a summary, not legal advice.</p>
+
+
+<h2>Links</h2>
+<ul>
+<li><a href="https://apify.com/nexus-scrapers/france-company-search">France Company Search Actor on Apify</a></li>
+<li><a href="https://recherche-entreprises.api.gouv.fr/docs/">Official recherche-entreprises API documentation</a></li>
+<li><a href="https://www.etalab.gouv.fr/licence-ouverte-open-licence/">Licence Ouverte / Open Licence 2.0</a></li>
+<li><a href="../ted-tenders-json/">The same kind of guide for EU public tenders (TED)</a></li>
+</ul>
+
+<footer>Independent guide by Nexus Tools. Not affiliated with or endorsed by INSEE, the French State, data.gouv.fr or Apify. Contact: <a href="mailto:nexusscrapers.dev@gmail.com">nexusscrapers.dev@gmail.com</a></footer>
+</main>
+</body>
+</html>

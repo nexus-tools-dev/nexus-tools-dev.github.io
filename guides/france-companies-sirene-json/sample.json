@@ -1,0 +1,1616 @@
+[
+  {
+    "schemaVersion": "1.0",
+    "siren": "387495799",
+    "name": "VISIATIV SOLUTIONS ENTREPRISE",
+    "legalName": "VISIATIV SOLUTIONS ENTREPRISE",
+    "acronym": null,
+    "legalFormCode": "5710",
+    "legalForm": "SAS, société par actions simplifiée",
+    "nafCode": "62.01Z",
+    "nafLabel": "Programmation informatique",
+    "naf2025Code": "62.20H",
+    "naf2025Label": "Gestion d'installations informatiques et maintenance de systèmes et d'applications informatiques",
+    "activitySection": "J",
+    "activitySectionLabel": "Information et communication",
+    "creationDate": "1992-05-04",
+    "closureDate": null,
+    "status": "active",
+    "employeeBandCode": "22",
+    "employeeBand": "100 à 199 salariés",
+    "employeeBandYear": 2024,
+    "category": "GE",
+    "categoryYear": 2024,
+    "isEmployer": false,
+    "establishmentsCount": 48,
+    "openEstablishmentsCount": 15,
+    "headOffice": {
+      "siret": "38749579900067",
+      "address": "26 RUE BENOIT BENNIER 69260 CHARBONNIERES-LES-BAINS",
+      "postalCode": "69260",
+      "city": "CHARBONNIERES-LES-BAINS",
+      "communeCode": "69044",
+      "department": "69",
+      "region": "84",
+      "latitude": 45.776120571,
+      "longitude": 4.7489782507,
+      "departmentName": "Rhône",
+      "regionName": "Auvergne-Rhône-Alpes",
+      "tradeNames": null
+    },
+    "latestFinancialYear": 2024,
+    "latestRevenue": 84495737,
+    "latestNetIncome": 3817639,
+    "financials": [
+      {
+        "year": 2024,
+        "revenue": 84495737,
+        "netIncome": 3817639
+      }
+    ],
+    "labels": [
+      "QUALIOPI",
+      "ORGANISME_FORMATION"
+    ],
+    "isSoleTrader": false,
+    "isAssociation": false,
+    "isPublicService": null,
+    "collectiveAgreements": [
+      "1486"
+    ],
+    "vatNumber": "FR27387495799",
+    "diffusionStatus": "full",
+    "commercialUseOpposition": true,
+    "corporateDirectors": [
+      {
+        "siren": "395008246",
+        "name": "VISIATIV",
+        "role": "Président de SAS"
+      }
+    ],
+    "updatedAt": "2026-11-04T11:24:43",
+    "sourceUrl": "https://annuaire-entreprises.data.gouv.fr/entreprise/387495799",
+    "source": "recherche-entreprises.api.gouv.fr",
+    "scrapedAt": "2026-11-05T07:50:40+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "siren": "851035329",
+    "name": "CHAPSVISION",
+    "legalName": "CHAPSVISION",
+    "acronym": null,
+    "legalFormCode": "5710",
+    "legalForm": "SAS, société par actions simplifiée",
+    "nafCode": "62.01Z",
+    "nafLabel": "Programmation informatique",
+    "naf2025Code": "62.10Y",
+    "naf2025Label": "Activités de programmation informatique",
+    "activitySection": "J",
+    "activitySectionLabel": "Information et communication",
+    "creationDate": "2019-05-16",
+    "closureDate": null,
+    "status": "active",
+    "employeeBandCode": "22",
+    "employeeBand": "100 à 199 salariés",
+    "employeeBandYear": 2024,
+    "category": "ETI",
+    "categoryYear": 2024,
+    "isEmployer": true,
+    "establishmentsCount": 15,
+    "openEstablishmentsCount": 14,
+    "headOffice": {
+      "siret": "85103532900024",
+      "address": "4 RUE DU PORT AUX VINS 92150 SURESNES",
+      "postalCode": "92150",
+      "city": "SURESNES",
+      "communeCode": "92073",
+      "department": "92",
+      "region": "11",
+      "latitude": 48.8704428626219,
+      "longitude": 2.23015155310976,
+      "departmentName": "Hauts-de-Seine",
+      "regionName": "Île-de-France",
+      "tradeNames": null
+    },
+    "latestFinancialYear": 2024,
+    "latestRevenue": 156671000,
+    "latestNetIncome": -38221000,
+    "financials": [
+      {
+        "year": 2024,
+        "revenue": 156671000,
+        "netIncome": -38221000
+      }
+    ],
+    "labels": [
+      "QUALIOPI",
+      "ORGANISME_FORMATION",
+      "EGAPRO"
+    ],
+    "isSoleTrader": false,
+    "isAssociation": false,
+    "isPublicService": null,
+    "collectiveAgreements": [
+      "1486"
+    ],
+    "vatNumber": "FR39851035329",
+    "diffusionStatus": "full",
+    "commercialUseOpposition": true,
+    "corporateDirectors": [
+      {
+        "siren": "383724168",
+        "name": "EUREDIT",
+        "role": "Commissaire aux comptes titulaire"
+      },
+      {
+        "siren": "632013843",
+        "name": "GRANT THORNTON",
+        "role": "Commissaire aux comptes titulaire"
+      },
+      {
+        "siren": "784824153",
+        "name": "FORVIS MAZARS SA",
+        "role": "Commissaire aux comptes titulaire"
+      },
+      {
+        "siren": "850407511",
+        "name": "CHAPS HOLDING",
+        "role": "Président de SAS"
+      }
+    ],
+    "updatedAt": "2026-11-04T11:42:01",
+    "sourceUrl": "https://annuaire-entreprises.data.gouv.fr/entreprise/851035329",
+    "source": "recherche-entreprises.api.gouv.fr",
+    "scrapedAt": "2026-11-05T07:50:40+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "siren": "519037253",
+    "name": "TRUSTTEAM (TRUSTTEAM)",
+    "legalName": "TRUSTTEAM",
+    "acronym": null,
+    "legalFormCode": "5710",
+    "legalForm": "SAS, société par actions simplifiée",
+    "nafCode": "62.01Z",
+    "nafLabel": "Programmation informatique",
+    "naf2025Code": "62.20H",
+    "naf2025Label": "Gestion d'installations informatiques et maintenance de systèmes et d'applications informatiques",
+    "activitySection": "J",
+    "activitySectionLabel": "Information et communication",
+    "creationDate": "2009-12-23",
+    "closureDate": null,
+    "status": "active",
+    "employeeBandCode": "22",
+    "employeeBand": "100 à 199 salariés",
+    "employeeBandYear": 2024,
+    "category": "PME",
+    "categoryYear": 2024,
+    "isEmployer": false,
+    "establishmentsCount": 14,
+    "openEstablishmentsCount": 12,
+    "headOffice": {
+      "siret": "51903725300043",
+      "address": "PARC D'ACTIVITES SAINT JACQUES 41 RUE ALBERT EINSTEIN 54320 MAXEVILLE",
+      "postalCode": "54320",
+      "city": "MAXEVILLE",
+      "communeCode": "54357",
+      "department": "54",
+      "region": "44",
+      "latitude": 48.7006371,
+      "longitude": 6.1223250588,
+      "departmentName": "Meurthe-et-Moselle",
+      "regionName": "Grand Est",
+      "tradeNames": [
+        "DSOFT"
+      ]
+    },
+    "latestFinancialYear": 2022,
+    "latestRevenue": 8904988,
+    "latestNetIncome": 1603916,
+    "financials": [
+      {
+        "year": 2022,
+        "revenue": 8904988,
+        "netIncome": 1603916
+      }
+    ],
+    "labels": [
+      "EGAPRO"
+    ],
+    "isSoleTrader": false,
+    "isAssociation": false,
+    "isPublicService": null,
+    "collectiveAgreements": [
+      "1486",
+      "0804"
+    ],
+    "vatNumber": "FR65519037253",
+    "diffusionStatus": "full",
+    "commercialUseOpposition": false,
+    "corporateDirectors": [
+      {
+        "siren": "399166222",
+        "name": "YZICO AUDIT",
+        "role": "Commissaire aux comptes titulaire"
+      },
+      {
+        "siren": null,
+        "name": "TRUSTTEAM NV",
+        "role": "Président de SAS"
+      }
+    ],
+    "updatedAt": "2026-11-04T11:37:19",
+    "sourceUrl": "https://annuaire-entreprises.data.gouv.fr/entreprise/519037253",
+    "source": "recherche-entreprises.api.gouv.fr",
+    "scrapedAt": "2026-11-05T07:50:40+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "siren": "823393764",
+    "name": "CLUB EMPLOYES",
+    "legalName": "CLUB EMPLOYES",
+    "acronym": null,
+    "legalFormCode": "5710",
+    "legalForm": "SAS, société par actions simplifiée",
+    "nafCode": "62.01Z",
+    "nafLabel": "Programmation informatique",
+    "naf2025Code": "62.10Y",
+    "naf2025Label": "Activités de programmation informatique",
+    "activitySection": "J",
+    "activitySectionLabel": "Information et communication",
+    "creationDate": "2016-10-11",
+    "closureDate": null,
+    "status": "active",
+    "employeeBandCode": "31",
+    "employeeBand": "200 à 249 salariés",
+    "employeeBandYear": 2024,
+    "category": "PME",
+    "categoryYear": 2024,
+    "isEmployer": true,
+    "establishmentsCount": 16,
+    "openEstablishmentsCount": 11,
+    "headOffice": {
+      "siret": "82339376400019",
+      "address": "39 AVENUE VALIOUD 69110 SAINTE-FOY-LES-LYON",
+      "postalCode": "69110",
+      "city": "SAINTE-FOY-LES-LYON",
+      "communeCode": "69202",
+      "department": "69",
+      "region": "84",
+      "latitude": 45.7459673711705,
+      "longitude": 4.80986251757566,
+      "departmentName": "Rhône",
+      "regionName": "Auvergne-Rhône-Alpes",
+      "tradeNames": null
+    },
+    "latestFinancialYear": 2025,
+    "latestRevenue": 76199037,
+    "latestNetIncome": -1531764,
+    "financials": [
+      {
+        "year": 2025,
+        "revenue": 76199037,
+        "netIncome": -1531764
+      }
+    ],
+    "labels": [
+      "EGAPRO"
+    ],
+    "isSoleTrader": false,
+    "isAssociation": false,
+    "isPublicService": null,
+    "collectiveAgreements": [
+      "1486"
+    ],
+    "vatNumber": "FR62823393764",
+    "diffusionStatus": "full",
+    "commercialUseOpposition": true,
+    "corporateDirectors": [
+      {
+        "siren": "348461443",
+        "name": "BM&A",
+        "role": "Commissaire aux comptes titulaire"
+      },
+      {
+        "siren": "920867934",
+        "name": "SIROM CAPITAL",
+        "role": "Président de SAS"
+      },
+      {
+        "siren": "920869526",
+        "name": "PIMA CAPITAL",
+        "role": "Directeur Général"
+      }
+    ],
+    "updatedAt": "2026-11-04T11:12:22",
+    "sourceUrl": "https://annuaire-entreprises.data.gouv.fr/entreprise/823393764",
+    "source": "recherche-entreprises.api.gouv.fr",
+    "scrapedAt": "2026-11-05T07:50:40+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "siren": "439737222",
+    "name": "ORISHA PROPERTY MANAGEMENT (ORISHA REAL ESTATE)",
+    "legalName": "ORISHA PROPERTY MANAGEMENT",
+    "acronym": null,
+    "legalFormCode": "5710",
+    "legalForm": "SAS, société par actions simplifiée",
+    "nafCode": "62.01Z",
+    "nafLabel": "Programmation informatique",
+    "naf2025Code": "58.29Y",
+    "naf2025Label": "Édition d'autres logiciels",
+    "activitySection": "J",
+    "activitySectionLabel": "Information et communication",
+    "creationDate": "2001-10-01",
+    "closureDate": null,
+    "status": "active",
+    "employeeBandCode": "21",
+    "employeeBand": "50 à 99 salariés",
+    "employeeBandYear": 2024,
+    "category": "ETI",
+    "categoryYear": 2024,
+    "isEmployer": true,
+    "establishmentsCount": 18,
+    "openEstablishmentsCount": 9,
+    "headOffice": {
+      "siret": "43973722200091",
+      "address": "206 BOULEVARD ANATOLE FRANCE 93200 SAINT-DENIS",
+      "postalCode": "93200",
+      "city": "SAINT-DENIS",
+      "communeCode": "93066",
+      "department": "93",
+      "region": "11",
+      "latitude": 48.918130614,
+      "longitude": 2.3411792119,
+      "departmentName": "Seine-Saint-Denis",
+      "regionName": "Île-de-France",
+      "tradeNames": [
+        "ORISHA REAL ESTATE"
+      ]
+    },
+    "latestFinancialYear": 2025,
+    "latestRevenue": 33767618,
+    "latestNetIncome": 6277844,
+    "financials": [
+      {
+        "year": 2025,
+        "revenue": 33767618,
+        "netIncome": 6277844
+      }
+    ],
+    "labels": [
+      "QUALIOPI",
+      "ORGANISME_FORMATION",
+      "EGAPRO"
+    ],
+    "isSoleTrader": false,
+    "isAssociation": false,
+    "isPublicService": null,
+    "collectiveAgreements": [
+      "1486"
+    ],
+    "vatNumber": "FR38439737222",
+    "diffusionStatus": "full",
+    "commercialUseOpposition": true,
+    "corporateDirectors": [
+      {
+        "siren": "808583058",
+        "name": "OPEFIN' HOLDING",
+        "role": "Commissaire aux comptes titulaire"
+      },
+      {
+        "siren": "930667019",
+        "name": "TANGO BIDCO",
+        "role": "Président de SAS"
+      }
+    ],
+    "updatedAt": "2026-11-04T10:38:50",
+    "sourceUrl": "https://annuaire-entreprises.data.gouv.fr/entreprise/439737222",
+    "source": "recherche-entreprises.api.gouv.fr",
+    "scrapedAt": "2026-11-05T07:50:40+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "siren": "820334951",
+    "name": "LITTLE WORKER",
+    "legalName": "LITTLE WORKER",
+    "acronym": null,
+    "legalFormCode": "5710",
+    "legalForm": "SAS, société par actions simplifiée",
+    "nafCode": "62.01Z",
+    "nafLabel": "Programmation informatique",
+    "naf2025Code": "71.12Y",
+    "naf2025Label": "Activités d'ingénierie et de conseil technique connexe",
+    "activitySection": "J",
+    "activitySectionLabel": "Information et communication",
+    "creationDate": "2016-05-12",
+    "closureDate": null,
+    "status": "active",
+    "employeeBandCode": "22",
+    "employeeBand": "100 à 199 salariés",
+    "employeeBandYear": 2024,
+    "category": "PME",
+    "categoryYear": 2024,
+    "isEmployer": true,
+    "establishmentsCount": 13,
+    "openEstablishmentsCount": 7,
+    "headOffice": {
+      "siret": "82033495100028",
+      "address": "19 RUE LEYTEIRE 33000 BORDEAUX",
+      "postalCode": "33000",
+      "city": "BORDEAUX",
+      "communeCode": "33063",
+      "department": "33",
+      "region": "75",
+      "latitude": 44.834528277,
+      "longitude": -0.569573454,
+      "departmentName": "Gironde",
+      "regionName": "Nouvelle-Aquitaine",
+      "tradeNames": null
+    },
+    "latestFinancialYear": 2021,
+    "latestRevenue": 21698113,
+    "latestNetIncome": -999674,
+    "financials": [
+      {
+        "year": 2021,
+        "revenue": 21698113,
+        "netIncome": -999674
+      }
+    ],
+    "labels": [
+      "RGE",
+      "EGAPRO"
+    ],
+    "isSoleTrader": false,
+    "isAssociation": false,
+    "isPublicService": null,
+    "collectiveAgreements": [
+      "1486"
+    ],
+    "vatNumber": "FR17820334951",
+    "diffusionStatus": "full",
+    "commercialUseOpposition": true,
+    "corporateDirectors": [
+      {
+        "siren": "331191825",
+        "name": "ENDRIX IDF",
+        "role": "Commissaire aux comptes titulaire"
+      },
+      {
+        "siren": "839043130",
+        "name": "AQUITI GESTION",
+        "role": "Autre"
+      }
+    ],
+    "updatedAt": "2026-11-04T11:08:06",
+    "sourceUrl": "https://annuaire-entreprises.data.gouv.fr/entreprise/820334951",
+    "source": "recherche-entreprises.api.gouv.fr",
+    "scrapedAt": "2026-11-05T07:50:40+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "siren": "487549693",
+    "name": "ALTRAN PROTOTYPES AUTOMOBILES",
+    "legalName": "ALTRAN PROTOTYPES AUTOMOBILES",
+    "acronym": null,
+    "legalFormCode": "5710",
+    "legalForm": "SAS, société par actions simplifiée",
+    "nafCode": "62.01Z",
+    "nafLabel": "Programmation informatique",
+    "naf2025Code": "62.10Y",
+    "naf2025Label": "Activités de programmation informatique",
+    "activitySection": "J",
+    "activitySectionLabel": "Information et communication",
+    "creationDate": "2005-12-01",
+    "closureDate": null,
+    "status": "active",
+    "employeeBandCode": "31",
+    "employeeBand": "200 à 249 salariés",
+    "employeeBandYear": 2024,
+    "category": "GE",
+    "categoryYear": 2024,
+    "isEmployer": true,
+    "establishmentsCount": 14,
+    "openEstablishmentsCount": 7,
+    "headOffice": {
+      "siret": "48754969300108",
+      "address": "145-151 145 QUAI DU PRESIDENT ROOSEVELT 92130 ISSY-LES-MOULINEAUX",
+      "postalCode": "92130",
+      "city": "ISSY-LES-MOULINEAUX",
+      "communeCode": "92040",
+      "department": "92",
+      "region": "11",
+      "latitude": 48.8281656413907,
+      "longitude": 2.26091392849637,
+      "departmentName": "Hauts-de-Seine",
+      "regionName": "Île-de-France",
+      "tradeNames": null
+    },
+    "latestFinancialYear": 2025,
+    "latestRevenue": 44021000,
+    "latestNetIncome": -3052000,
+    "financials": [
+      {
+        "year": 2025,
+        "revenue": 44021000,
+        "netIncome": -3052000
+      }
+    ],
+    "labels": [],
+    "isSoleTrader": false,
+    "isAssociation": false,
+    "isPublicService": null,
+    "collectiveAgreements": [
+      "1486",
+      "9999"
+    ],
+    "vatNumber": "FR59487549693",
+    "diffusionStatus": "full",
+    "commercialUseOpposition": true,
+    "corporateDirectors": [
+      {
+        "siren": "784824153",
+        "name": "FORVIS MAZARS SA",
+        "role": "Commissaire aux comptes titulaire"
+      }
+    ],
+    "updatedAt": "2026-11-04T11:05:26",
+    "sourceUrl": "https://annuaire-entreprises.data.gouv.fr/entreprise/487549693",
+    "source": "recherche-entreprises.api.gouv.fr",
+    "scrapedAt": "2026-11-05T07:50:40+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "siren": "518892211",
+    "name": "SILAE",
+    "legalName": "SILAE",
+    "acronym": null,
+    "legalFormCode": "5710",
+    "legalForm": "SAS, société par actions simplifiée",
+    "nafCode": "62.01Z",
+    "nafLabel": "Programmation informatique",
+    "naf2025Code": "62.10Y",
+    "naf2025Label": "Activités de programmation informatique",
+    "activitySection": "J",
+    "activitySectionLabel": "Information et communication",
+    "creationDate": "2009-11-24",
+    "closureDate": null,
+    "status": "active",
+    "employeeBandCode": "22",
+    "employeeBand": "100 à 199 salariés",
+    "employeeBandYear": 2024,
+    "category": "ETI",
+    "categoryYear": 2024,
+    "isEmployer": true,
+    "establishmentsCount": 10,
+    "openEstablishmentsCount": 6,
+    "headOffice": {
+      "siret": "51889221100039",
+      "address": "BATIMENT D5 ZI DES MILLES EUROPARC DE 1330 AV J R G GAUTIER DE LA LAUZIERE 13080 AIX-EN-PROVENCE",
+      "postalCode": "13080",
+      "city": "AIX-EN-PROVENCE",
+      "communeCode": "13001",
+      "department": "13",
+      "region": "93",
+      "latitude": 43.478603707,
+      "longitude": 5.3703066448,
+      "departmentName": "Bouches-du-Rhône",
+      "regionName": "Provence-Alpes-Côte d'Azur",
+      "tradeNames": null
+    },
+    "latestFinancialYear": 2022,
+    "latestRevenue": 56508017,
+    "latestNetIncome": 44858949,
+    "financials": [
+      {
+        "year": 2022,
+        "revenue": 56508017,
+        "netIncome": 44858949
+      }
+    ],
+    "labels": [
+      "EGAPRO",
+      "BILAN_GES"
+    ],
+    "isSoleTrader": false,
+    "isAssociation": false,
+    "isPublicService": null,
+    "collectiveAgreements": [
+      "1486"
+    ],
+    "vatNumber": "FR81518892211",
+    "diffusionStatus": "full",
+    "commercialUseOpposition": true,
+    "corporateDirectors": [
+      {
+        "siren": "632013843",
+        "name": "GRANT THORNTON",
+        "role": "Commissaire aux comptes titulaire"
+      },
+      {
+        "siren": "887837169",
+        "name": "SEINE HOLDCO SAS",
+        "role": "Président de SAS"
+      }
+    ],
+    "updatedAt": "2026-11-04T11:37:08",
+    "sourceUrl": "https://annuaire-entreprises.data.gouv.fr/entreprise/518892211",
+    "source": "recherche-entreprises.api.gouv.fr",
+    "scrapedAt": "2026-11-05T07:50:40+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "siren": "813754389",
+    "name": "UNITY TECHNOLOGIES SARL",
+    "legalName": "UNITY TECHNOLOGIES SARL",
+    "acronym": null,
+    "legalFormCode": "5499",
+    "legalForm": "Société à responsabilité limitée (sans autre indication)",
+    "nafCode": "62.01Z",
+    "nafLabel": "Programmation informatique",
+    "naf2025Code": "62.10Y",
+    "naf2025Label": "Activités de programmation informatique",
+    "activitySection": "J",
+    "activitySectionLabel": "Information et communication",
+    "creationDate": "2015-10-01",
+    "closureDate": null,
+    "status": "active",
+    "employeeBandCode": "22",
+    "employeeBand": "100 à 199 salariés",
+    "employeeBandYear": 2024,
+    "category": "PME",
+    "categoryYear": 2024,
+    "isEmployer": true,
+    "establishmentsCount": 6,
+    "openEstablishmentsCount": 5,
+    "headOffice": {
+      "siret": "81375438900035",
+      "address": "83-85 83 BOULEVARD VINCENT AURIOL 75013 PARIS",
+      "postalCode": "75013",
+      "city": "PARIS",
+      "communeCode": "75113",
+      "department": "75",
+      "region": "11",
+      "latitude": 48.833862598,
+      "longitude": 2.3669044882,
+      "departmentName": "Paris",
+      "regionName": "Île-de-France",
+      "tradeNames": null
+    },
+    "latestFinancialYear": 2025,
+    "latestRevenue": 19496273,
+    "latestNetIncome": 897927,
+    "financials": [
+      {
+        "year": 2025,
+        "revenue": 19496273,
+        "netIncome": 897927
+      }
+    ],
+    "labels": [
+      "EGAPRO"
+    ],
+    "isSoleTrader": false,
+    "isAssociation": false,
+    "isPublicService": null,
+    "collectiveAgreements": [
+      "1486"
+    ],
+    "vatNumber": "FR62813754389",
+    "diffusionStatus": "full",
+    "commercialUseOpposition": false,
+    "corporateDirectors": [
+      {
+        "siren": "344366315",
+        "name": "ERNST & YOUNG AUDIT",
+        "role": "Commissaire aux comptes titulaire"
+      }
+    ],
+    "updatedAt": "2026-11-04T11:01:48",
+    "sourceUrl": "https://annuaire-entreprises.data.gouv.fr/entreprise/813754389",
+    "source": "recherche-entreprises.api.gouv.fr",
+    "scrapedAt": "2026-11-05T07:50:40+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "siren": "817451313",
+    "name": "GALADRIM",
+    "legalName": "GALADRIM",
+    "acronym": null,
+    "legalFormCode": "5710",
+    "legalForm": "SAS, société par actions simplifiée",
+    "nafCode": "62.01Z",
+    "nafLabel": "Programmation informatique",
+    "naf2025Code": "62.10Y",
+    "naf2025Label": "Activités de programmation informatique",
+    "activitySection": "J",
+    "activitySectionLabel": "Information et communication",
+    "creationDate": "2015-12-17",
+    "closureDate": null,
+    "status": "active",
+    "employeeBandCode": "21",
+    "employeeBand": "50 à 99 salariés",
+    "employeeBandYear": 2024,
+    "category": "PME",
+    "categoryYear": 2024,
+    "isEmployer": true,
+    "establishmentsCount": 6,
+    "openEstablishmentsCount": 4,
+    "headOffice": {
+      "siret": "81745131300016",
+      "address": "3 RUE DES ACACIAS 75017 PARIS",
+      "postalCode": "75017",
+      "city": "PARIS",
+      "communeCode": "75117",
+      "department": "75",
+      "region": "11",
+      "latitude": 48.876289439,
+      "longitude": 2.2899941293,
+      "departmentName": "Paris",
+      "regionName": "Île-de-France",
+      "tradeNames": null
+    },
+    "latestFinancialYear": 2025,
+    "latestRevenue": 0,
+    "latestNetIncome": 2301038,
+    "financials": [
+      {
+        "year": 2025,
+        "revenue": 0,
+        "netIncome": 2301038
+      }
+    ],
+    "labels": [
+      "QUALIOPI",
+      "ORGANISME_FORMATION",
+      "EGAPRO",
+      "BILAN_GES"
+    ],
+    "isSoleTrader": false,
+    "isAssociation": false,
+    "isPublicService": null,
+    "collectiveAgreements": [
+      "1486"
+    ],
+    "vatNumber": "FR48817451313",
+    "diffusionStatus": "full",
+    "commercialUseOpposition": true,
+    "corporateDirectors": [
+      {
+        "siren": "941231557",
+        "name": "DMCEA",
+        "role": "Commissaire aux comptes titulaire"
+      }
+    ],
+    "updatedAt": "2026-11-04T11:04:13",
+    "sourceUrl": "https://annuaire-entreprises.data.gouv.fr/entreprise/817451313",
+    "source": "recherche-entreprises.api.gouv.fr",
+    "scrapedAt": "2026-11-05T07:50:40+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "siren": "400300190",
+    "name": "GLOBANT FRANCE (PENTALOG FRANCE)",
+    "legalName": "GLOBANT FRANCE",
+    "acronym": null,
+    "legalFormCode": "5710",
+    "legalForm": "SAS, société par actions simplifiée",
+    "nafCode": "62.01Z",
+    "nafLabel": "Programmation informatique",
+    "naf2025Code": "62.10Y",
+    "naf2025Label": "Activités de programmation informatique",
+    "activitySection": "J",
+    "activitySectionLabel": "Information et communication",
+    "creationDate": "1995-03-10",
+    "closureDate": null,
+    "status": "active",
+    "employeeBandCode": "21",
+    "employeeBand": "50 à 99 salariés",
+    "employeeBandYear": 2024,
+    "category": "ETI",
+    "categoryYear": 2024,
+    "isEmployer": true,
+    "establishmentsCount": 11,
+    "openEstablishmentsCount": 4,
+    "headOffice": {
+      "siret": "40030019000107",
+      "address": "124 RUE REAUMUR 75002 PARIS",
+      "postalCode": "75002",
+      "city": "PARIS",
+      "communeCode": "75102",
+      "department": "75",
+      "region": "11",
+      "latitude": 48.8682597009195,
+      "longitude": 2.34431065519371,
+      "departmentName": "Paris",
+      "regionName": "Île-de-France",
+      "tradeNames": null
+    },
+    "latestFinancialYear": 2024,
+    "latestRevenue": 66074854,
+    "latestNetIncome": -1047007,
+    "financials": [
+      {
+        "year": 2024,
+        "revenue": 66074854,
+        "netIncome": -1047007
+      }
+    ],
+    "labels": [],
+    "isSoleTrader": false,
+    "isAssociation": false,
+    "isPublicService": null,
+    "collectiveAgreements": [
+      "1486"
+    ],
+    "vatNumber": "FR36400300190",
+    "diffusionStatus": "full",
+    "commercialUseOpposition": false,
+    "corporateDirectors": [
+      {
+        "siren": "632013843",
+        "name": "GRANT THORNTON",
+        "role": "Commissaire aux comptes titulaire"
+      }
+    ],
+    "updatedAt": "2026-11-04T11:38:42",
+    "sourceUrl": "https://annuaire-entreprises.data.gouv.fr/entreprise/400300190",
+    "source": "recherche-entreprises.api.gouv.fr",
+    "scrapedAt": "2026-11-05T07:50:40+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "siren": "752946863",
+    "name": "LEARNINGSHELTER",
+    "legalName": "LEARNINGSHELTER",
+    "acronym": null,
+    "legalFormCode": "5599",
+    "legalForm": "SA à conseil d'administration (s.a.i.)",
+    "nafCode": "62.01Z",
+    "nafLabel": "Programmation informatique",
+    "naf2025Code": "62.10Y",
+    "naf2025Label": "Activités de programmation informatique",
+    "activitySection": "J",
+    "activitySectionLabel": "Information et communication",
+    "creationDate": "2012-07-02",
+    "closureDate": null,
+    "status": "active",
+    "employeeBandCode": "21",
+    "employeeBand": "50 à 99 salariés",
+    "employeeBandYear": 2024,
+    "category": "PME",
+    "categoryYear": 2024,
+    "isEmployer": false,
+    "establishmentsCount": 10,
+    "openEstablishmentsCount": 4,
+    "headOffice": {
+      "siret": "75294686300046",
+      "address": "10 RUE DE PENTHIEVRE 75008 PARIS",
+      "postalCode": "75008",
+      "city": "PARIS",
+      "communeCode": "75108",
+      "department": "75",
+      "region": "11",
+      "latitude": 48.873053731,
+      "longitude": 2.3165925738,
+      "departmentName": "Paris",
+      "regionName": "Île-de-France",
+      "tradeNames": null
+    },
+    "latestFinancialYear": 2025,
+    "latestRevenue": 16398933,
+    "latestNetIncome": 2137436,
+    "financials": [
+      {
+        "year": 2025,
+        "revenue": 16398933,
+        "netIncome": 2137436
+      }
+    ],
+    "labels": [
+      "QUALIOPI",
+      "ORGANISME_FORMATION",
+      "EGAPRO"
+    ],
+    "isSoleTrader": false,
+    "isAssociation": false,
+    "isPublicService": null,
+    "collectiveAgreements": [
+      "1486"
+    ],
+    "vatNumber": "FR49752946863",
+    "diffusionStatus": "full",
+    "commercialUseOpposition": false,
+    "corporateDirectors": [
+      {
+        "siren": "377652938",
+        "name": "AUDITEX",
+        "role": "Commissaire aux comptes suppléant"
+      },
+      {
+        "siren": "508804507",
+        "name": "ISAI GESTION",
+        "role": "Administrateur"
+      },
+      {
+        "siren": "509104725",
+        "name": "IMPACT PARTNERS",
+        "role": "Administrateur"
+      },
+      {
+        "siren": "752095430",
+        "name": "RING",
+        "role": "Administrateur"
+      },
+      {
+        "siren": "775726417",
+        "name": "KPMG S.A.",
+        "role": "Commissaire aux comptes titulaire"
+      },
+      {
+        "siren": "830409629",
+        "name": "EDUCAPITAL",
+        "role": "Administrateur"
+      }
+    ],
+    "updatedAt": "2026-11-04T10:22:59",
+    "sourceUrl": "https://annuaire-entreprises.data.gouv.fr/entreprise/752946863",
+    "source": "recherche-entreprises.api.gouv.fr",
+    "scrapedAt": "2026-11-05T07:50:40+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "siren": "318906443",
+    "name": "BUFFALO GRILL",
+    "legalName": "BUFFALO GRILL",
+    "acronym": null,
+    "legalFormCode": "5710",
+    "legalForm": "SAS, société par actions simplifiée",
+    "nafCode": "56.10A",
+    "nafLabel": "Restauration traditionnelle",
+    "naf2025Code": "56.11G",
+    "naf2025Label": "Restauration traditionnelle",
+    "activitySection": "I",
+    "activitySectionLabel": "Hébergement et restauration",
+    "creationDate": "1993-09-21",
+    "closureDate": null,
+    "status": "active",
+    "employeeBandCode": "51",
+    "employeeBand": "2 000 à 4 999 salariés",
+    "employeeBandYear": 2024,
+    "category": "ETI",
+    "categoryYear": 2024,
+    "isEmployer": true,
+    "establishmentsCount": 326,
+    "openEstablishmentsCount": 213,
+    "headOffice": {
+      "siret": "31890644302868",
+      "address": "9 BOULEVARD DU GENERAL DE GAULLE 92120 MONTROUGE",
+      "postalCode": "92120",
+      "city": "MONTROUGE",
+      "communeCode": "92049",
+      "department": "92",
+      "region": "11",
+      "latitude": 48.8163905794333,
+      "longitude": 2.32720669340181,
+      "departmentName": "Hauts-de-Seine",
+      "regionName": "Île-de-France",
+      "tradeNames": null
+    },
+    "latestFinancialYear": 2025,
+    "latestRevenue": 305303715,
+    "latestNetIncome": -5964809,
+    "financials": [
+      {
+        "year": 2025,
+        "revenue": 305303715,
+        "netIncome": -5964809
+      }
+    ],
+    "labels": [
+      "QUALIOPI",
+      "ORGANISME_FORMATION",
+      "ALIM_CONFIANCE",
+      "EGAPRO",
+      "BILAN_GES"
+    ],
+    "isSoleTrader": false,
+    "isAssociation": false,
+    "isPublicService": null,
+    "collectiveAgreements": [
+      "1979"
+    ],
+    "vatNumber": "FR96318906443",
+    "diffusionStatus": "full",
+    "commercialUseOpposition": true,
+    "corporateDirectors": [
+      {
+        "siren": "315172445",
+        "name": "BEAS",
+        "role": "Commissaire aux comptes suppléant"
+      },
+      {
+        "siren": "512802489",
+        "name": "KPMG AUDIT ID",
+        "role": "Commissaire aux comptes suppléant"
+      },
+      {
+        "siren": "572028041",
+        "name": "DELOITTE & ASSOCIES",
+        "role": "Commissaire aux comptes titulaire"
+      },
+      {
+        "siren": "775726417",
+        "name": "KPMG S.A",
+        "role": "Commissaire aux comptes titulaire"
+      },
+      {
+        "siren": "834364911",
+        "name": "BUFFALO GRILL HOLDINGS",
+        "role": "Président de SAS"
+      }
+    ],
+    "updatedAt": "2026-11-04T10:36:01",
+    "sourceUrl": "https://annuaire-entreprises.data.gouv.fr/entreprise/318906443",
+    "source": "recherche-entreprises.api.gouv.fr",
+    "scrapedAt": "2026-11-05T07:50:40+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "siren": "305836033",
+    "name": "SERARE",
+    "legalName": "SERARE",
+    "acronym": null,
+    "legalFormCode": "5710",
+    "legalForm": "SAS, société par actions simplifiée",
+    "nafCode": "56.10A",
+    "nafLabel": "Restauration traditionnelle",
+    "naf2025Code": "56.11G",
+    "naf2025Label": "Restauration traditionnelle",
+    "activitySection": "I",
+    "activitySectionLabel": "Hébergement et restauration",
+    "creationDate": "1976-05-13",
+    "closureDate": null,
+    "status": "active",
+    "employeeBandCode": "NN",
+    "employeeBand": "Unité non employeuse (pas de salarié au cours de l'année de référence et pas d'effectif au 31/12)",
+    "employeeBandYear": null,
+    "category": null,
+    "categoryYear": null,
+    "isEmployer": true,
+    "establishmentsCount": 235,
+    "openEstablishmentsCount": 197,
+    "headOffice": {
+      "siret": "30583603301820",
+      "address": "101 RUE DU PELVOUX 91000 EVRY-COURCOURONNES",
+      "postalCode": "91000",
+      "city": "EVRY-COURCOURONNES",
+      "communeCode": "91228",
+      "department": "91",
+      "region": "11",
+      "latitude": 48.613078308,
+      "longitude": 2.4297221206,
+      "departmentName": "Essonne",
+      "regionName": "Île-de-France",
+      "tradeNames": null
+    },
+    "latestFinancialYear": 2018,
+    "latestRevenue": 189805347,
+    "latestNetIncome": -6049617,
+    "financials": [
+      {
+        "year": 2018,
+        "revenue": 189805347,
+        "netIncome": -6049617
+      }
+    ],
+    "labels": [
+      "EGAPRO",
+      "BILAN_GES"
+    ],
+    "isSoleTrader": false,
+    "isAssociation": false,
+    "isPublicService": null,
+    "collectiveAgreements": null,
+    "vatNumber": null,
+    "diffusionStatus": "full",
+    "commercialUseOpposition": false,
+    "corporateDirectors": [
+      {
+        "siren": "398478750",
+        "name": "CISANE",
+        "role": "Commissaire aux comptes suppléant"
+      },
+      {
+        "siren": "642010045",
+        "name": "CONSTANTIN ASSOCIES",
+        "role": "Commissaire aux comptes titulaire"
+      },
+      {
+        "siren": "672006483",
+        "name": "PRICEWATERHOUSECOOPERS AUDIT",
+        "role": "Commissaire aux comptes titulaire"
+      }
+    ],
+    "updatedAt": "2026-11-04T10:25:34",
+    "sourceUrl": "https://annuaire-entreprises.data.gouv.fr/entreprise/305836033",
+    "source": "recherche-entreprises.api.gouv.fr",
+    "scrapedAt": "2026-11-05T07:50:40+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "siren": "888796430",
+    "name": "NEW COURT",
+    "legalName": "NEW COURT",
+    "acronym": null,
+    "legalFormCode": "5710",
+    "legalForm": "SAS, société par actions simplifiée",
+    "nafCode": "56.10A",
+    "nafLabel": "Restauration traditionnelle",
+    "naf2025Code": "56.11G",
+    "naf2025Label": "Restauration traditionnelle",
+    "activitySection": "I",
+    "activitySectionLabel": "Hébergement et restauration",
+    "creationDate": "2020-09-09",
+    "closureDate": null,
+    "status": "active",
+    "employeeBandCode": "NN",
+    "employeeBand": "Unité non employeuse (pas de salarié au cours de l'année de référence et pas d'effectif au 31/12)",
+    "employeeBandYear": null,
+    "category": "ETI",
+    "categoryYear": 2024,
+    "isEmployer": false,
+    "establishmentsCount": 157,
+    "openEstablishmentsCount": 151,
+    "headOffice": {
+      "siret": "88879643000013",
+      "address": "9 BOULEVARD DU GENERAL DE GAULLE 92120 MONTROUGE",
+      "postalCode": "92120",
+      "city": "MONTROUGE",
+      "communeCode": "92049",
+      "department": "92",
+      "region": "11",
+      "latitude": 48.8163905794333,
+      "longitude": 2.32720669340181,
+      "departmentName": "Hauts-de-Seine",
+      "regionName": "Île-de-France",
+      "tradeNames": null
+    },
+    "latestFinancialYear": 2022,
+    "latestRevenue": 119852026,
+    "latestNetIncome": -47307980,
+    "financials": [
+      {
+        "year": 2022,
+        "revenue": 119852026,
+        "netIncome": -47307980
+      }
+    ],
+    "labels": [
+      "EGAPRO"
+    ],
+    "isSoleTrader": false,
+    "isAssociation": false,
+    "isPublicService": null,
+    "collectiveAgreements": null,
+    "vatNumber": null,
+    "diffusionStatus": "full",
+    "commercialUseOpposition": false,
+    "corporateDirectors": [
+      {
+        "siren": "572028041",
+        "name": "DELOITTE & ASSOCIES",
+        "role": "Commissaire aux comptes titulaire"
+      },
+      {
+        "siren": "775726417",
+        "name": "KPMG S.A",
+        "role": "Commissaire aux comptes titulaire"
+      },
+      {
+        "siren": "834364911",
+        "name": "NAPAQARO SAS",
+        "role": "Président de SAS"
+      }
+    ],
+    "updatedAt": "2026-11-04T10:14:41",
+    "sourceUrl": "https://annuaire-entreprises.data.gouv.fr/entreprise/888796430",
+    "source": "recherche-entreprises.api.gouv.fr",
+    "scrapedAt": "2026-11-05T07:50:40+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "siren": "311160592",
+    "name": "SODEXO SPORTS ET LOISIRS",
+    "legalName": "SODEXO SPORTS ET LOISIRS",
+    "acronym": null,
+    "legalFormCode": "5710",
+    "legalForm": "SAS, société par actions simplifiée",
+    "nafCode": "56.10A",
+    "nafLabel": "Restauration traditionnelle",
+    "naf2025Code": "56.11G",
+    "naf2025Label": "Restauration traditionnelle",
+    "activitySection": "I",
+    "activitySectionLabel": "Hébergement et restauration",
+    "creationDate": "1977-01-01",
+    "closureDate": null,
+    "status": "active",
+    "employeeBandCode": "41",
+    "employeeBand": "500 à 999 salariés",
+    "employeeBandYear": 2024,
+    "category": "GE",
+    "categoryYear": 2024,
+    "isEmployer": true,
+    "establishmentsCount": 270,
+    "openEstablishmentsCount": 79,
+    "headOffice": {
+      "siret": "31116059201555",
+      "address": "6 RUE DE LA REDOUTE 78280 GUYANCOURT",
+      "postalCode": "78280",
+      "city": "GUYANCOURT",
+      "communeCode": "78297",
+      "department": "78",
+      "region": "11",
+      "latitude": 48.7831330544049,
+      "longitude": 2.05789106513844,
+      "departmentName": "Yvelines",
+      "regionName": "Île-de-France",
+      "tradeNames": null
+    },
+    "latestFinancialYear": 2025,
+    "latestRevenue": 196083975,
+    "latestNetIncome": -4035748,
+    "financials": [
+      {
+        "year": 2025,
+        "revenue": 196083975,
+        "netIncome": -4035748
+      }
+    ],
+    "labels": [
+      "ALIM_CONFIANCE",
+      "ENTREPRENEUR_SPECTACLE",
+      "EGAPRO"
+    ],
+    "isSoleTrader": false,
+    "isAssociation": false,
+    "isPublicService": null,
+    "collectiveAgreements": [
+      "1979"
+    ],
+    "vatNumber": "FR57311160592",
+    "diffusionStatus": "full",
+    "commercialUseOpposition": true,
+    "corporateDirectors": [
+      {
+        "siren": "775726417",
+        "name": "KPMG S.A",
+        "role": "Commissaire aux comptes titulaire"
+      }
+    ],
+    "updatedAt": "2026-11-04T10:29:15",
+    "sourceUrl": "https://annuaire-entreprises.data.gouv.fr/entreprise/311160592",
+    "source": "recherche-entreprises.api.gouv.fr",
+    "scrapedAt": "2026-11-05T07:50:40+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "siren": "343262622",
+    "name": "LIDL (LIDL)",
+    "legalName": "LIDL",
+    "acronym": null,
+    "legalFormCode": "5202",
+    "legalForm": "Société en nom collectif",
+    "nafCode": "47.11D",
+    "nafLabel": "Supermarchés",
+    "naf2025Code": "47.11J",
+    "naf2025Label": "Commerce de détail non spécialisé à prédominance alimentaire en magasin de 400 à 2500 m² (supermarché)",
+    "activitySection": "G",
+    "activitySectionLabel": "Commerce; réparation d'automobiles et de motocycles",
+    "creationDate": "1987-12-17",
+    "closureDate": null,
+    "status": "active",
+    "employeeBandCode": "53",
+    "employeeBand": "10 000 salariés et plus",
+    "employeeBandYear": 2024,
+    "category": "GE",
+    "categoryYear": 2024,
+    "isEmployer": true,
+    "establishmentsCount": 2806,
+    "openEstablishmentsCount": 1743,
+    "headOffice": {
+      "siret": "34326262226433",
+      "address": "1 RUE DE HANOVRE 92290 CHATENAY-MALABRY",
+      "postalCode": "92290",
+      "city": "CHATENAY-MALABRY",
+      "communeCode": "92019",
+      "department": "92",
+      "region": "11",
+      "latitude": 48.7626585275797,
+      "longitude": 2.29080795814814,
+      "departmentName": "Hauts-de-Seine",
+      "regionName": "Île-de-France",
+      "tradeNames": [
+        "LIDL"
+      ]
+    },
+    "latestFinancialYear": null,
+    "latestRevenue": null,
+    "latestNetIncome": null,
+    "financials": [],
+    "labels": [
+      "BIO",
+      "ALIM_CONFIANCE",
+      "EGAPRO",
+      "BILAN_GES"
+    ],
+    "isSoleTrader": false,
+    "isAssociation": false,
+    "isPublicService": null,
+    "collectiveAgreements": [
+      "2216"
+    ],
+    "vatNumber": "FR85343262622",
+    "diffusionStatus": "full",
+    "commercialUseOpposition": true,
+    "corporateDirectors": [
+      {
+        "siren": "348600990",
+        "name": "FORVIS MAZARS",
+        "role": "Commissaire aux comptes titulaire"
+      },
+      {
+        "siren": null,
+        "name": "LIDL INTERNATIONAL SERVICES GMBH",
+        "role": null
+      }
+    ],
+    "updatedAt": "2026-11-04T11:02:31",
+    "sourceUrl": "https://annuaire-entreprises.data.gouv.fr/entreprise/343262622",
+    "source": "recherche-entreprises.api.gouv.fr",
+    "scrapedAt": "2026-11-05T07:50:41+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "siren": "410409015",
+    "name": "AUCHAN SUPERMARCHE",
+    "legalName": "AUCHAN SUPERMARCHE",
+    "acronym": null,
+    "legalFormCode": "5710",
+    "legalForm": "SAS, société par actions simplifiée",
+    "nafCode": "47.11D",
+    "nafLabel": "Supermarchés",
+    "naf2025Code": "47.11J",
+    "naf2025Label": "Commerce de détail non spécialisé à prédominance alimentaire en magasin de 400 à 2500 m² (supermarché)",
+    "activitySection": "G",
+    "activitySectionLabel": "Commerce; réparation d'automobiles et de motocycles",
+    "creationDate": "1997-01-03",
+    "closureDate": null,
+    "status": "active",
+    "employeeBandCode": "52",
+    "employeeBand": "5 000 à 9 999 salariés",
+    "employeeBandYear": 2024,
+    "category": "GE",
+    "categoryYear": 2024,
+    "isEmployer": false,
+    "establishmentsCount": 415,
+    "openEstablishmentsCount": 247,
+    "headOffice": {
+      "siret": "41040901504099",
+      "address": "200 RUE DE LA RECHERCHE 59491 VILLENEUVE-D'ASCQ",
+      "postalCode": "59491",
+      "city": "VILLENEUVE-D'ASCQ",
+      "communeCode": "59009",
+      "department": "59",
+      "region": "32",
+      "latitude": 50.649843572,
+      "longitude": 3.1512107022,
+      "departmentName": "Nord",
+      "regionName": "Hauts-de-France",
+      "tradeNames": null
+    },
+    "latestFinancialYear": 2024,
+    "latestRevenue": 3016900000,
+    "latestNetIncome": -8300000,
+    "financials": [
+      {
+        "year": 2024,
+        "revenue": 3016900000,
+        "netIncome": -8300000
+      }
+    ],
+    "labels": [
+      "BIO",
+      "ALIM_CONFIANCE",
+      "EGAPRO",
+      "BILAN_GES"
+    ],
+    "isSoleTrader": false,
+    "isAssociation": false,
+    "isPublicService": null,
+    "collectiveAgreements": [
+      "2216"
+    ],
+    "vatNumber": "FR43410409015",
+    "diffusionStatus": "full",
+    "commercialUseOpposition": true,
+    "corporateDirectors": [
+      {
+        "siren": "481986446",
+        "name": "AUCHAN RETAIL FRANCE",
+        "role": "Président de SAS"
+      },
+      {
+        "siren": "672006483",
+        "name": "PRICEWATERHOUSECOOPERS AUDIT",
+        "role": "Commissaire aux comptes titulaire"
+      },
+      {
+        "siren": "775726417",
+        "name": "KPMG S.A.",
+        "role": "Commissaire aux comptes titulaire"
+      },
+      {
+        "siren": null,
+        "name": "INTERNATIONAL SUPERMARKET STORES",
+        "role": "Président de SAS"
+      }
+    ],
+    "updatedAt": "2026-11-04T10:08:40",
+    "sourceUrl": "https://annuaire-entreprises.data.gouv.fr/entreprise/410409015",
+    "source": "recherche-entreprises.api.gouv.fr",
+    "scrapedAt": "2026-11-05T07:50:41+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "siren": "493318067",
+    "name": "ALDI MARCHE TOULOUSE",
+    "legalName": "ALDI MARCHE TOULOUSE",
+    "acronym": null,
+    "legalFormCode": "5499",
+    "legalForm": "Société à responsabilité limitée (sans autre indication)",
+    "nafCode": "47.11D",
+    "nafLabel": "Supermarchés",
+    "naf2025Code": "47.11J",
+    "naf2025Label": "Commerce de détail non spécialisé à prédominance alimentaire en magasin de 400 à 2500 m² (supermarché)",
+    "activitySection": "G",
+    "activitySectionLabel": "Commerce; réparation d'automobiles et de motocycles",
+    "creationDate": "2006-11-24",
+    "closureDate": null,
+    "status": "active",
+    "employeeBandCode": "42",
+    "employeeBand": "1 000 à 1 999 salariés",
+    "employeeBandYear": 2024,
+    "category": "GE",
+    "categoryYear": 2024,
+    "isEmployer": true,
+    "establishmentsCount": 312,
+    "openEstablishmentsCount": 171,
+    "headOffice": {
+      "siret": "49331806700029",
+      "address": "ZAE LES CADAUX 1005 AVENUE PIERRE OTTAVIOLI 81370 SAINT-SULPICE-LA-POINTE",
+      "postalCode": "81370",
+      "city": "SAINT-SULPICE-LA-POINTE",
+      "communeCode": "81271",
+      "department": "81",
+      "region": "76",
+      "latitude": 43.763127609,
+      "longitude": 1.7085260559,
+      "departmentName": "Tarn",
+      "regionName": "Occitanie",
+      "tradeNames": [
+        "ALDI MARCHE"
+      ]
+    },
+    "latestFinancialYear": 2024,
+    "latestRevenue": 726383284,
+    "latestNetIncome": -55155748,
+    "financials": [
+      {
+        "year": 2024,
+        "revenue": 726383284,
+        "netIncome": -55155748
+      }
+    ],
+    "labels": [
+      "ESS",
+      "BIO",
+      "ALIM_CONFIANCE",
+      "EGAPRO",
+      "BILAN_GES"
+    ],
+    "isSoleTrader": false,
+    "isAssociation": false,
+    "isPublicService": null,
+    "collectiveAgreements": [
+      "2216"
+    ],
+    "vatNumber": "FR90493318067",
+    "diffusionStatus": "full",
+    "commercialUseOpposition": true,
+    "corporateDirectors": [
+      {
+        "siren": "334591724",
+        "name": "COMPAGNIE FIDUCIAIRE FRANCO-ALLEMANDE",
+        "role": "Commissaire aux comptes titulaire"
+      },
+      {
+        "siren": "572028041",
+        "name": "DELOITTE & ASSOCIES",
+        "role": "Commissaire aux comptes titulaire"
+      }
+    ],
+    "updatedAt": "2026-11-04T11:12:32",
+    "sourceUrl": "https://annuaire-entreprises.data.gouv.fr/entreprise/493318067",
+    "source": "recherche-entreprises.api.gouv.fr",
+    "scrapedAt": "2026-11-05T07:50:41+00:00"
+  },
+  {
+    "schemaVersion": "1.0",
+    "siren": "929781524",
+    "name": "A+SUPER",
+    "legalName": "A+SUPER",
+    "acronym": null,
+    "legalFormCode": "5710",
+    "legalForm": "SAS, société par actions simplifiée",
+    "nafCode": "47.11D",
+    "nafLabel": "Supermarchés",
+    "naf2025Code": "47.11J",
+    "naf2025Label": "Commerce de détail non spécialisé à prédominance alimentaire en magasin de 400 à 2500 m² (supermarché)",
+    "activitySection": "G",
+    "activitySectionLabel": "Commerce; réparation d'automobiles et de motocycles",
+    "creationDate": "2024-05-31",
+    "closureDate": null,
+    "status": "active",
+    "employeeBandCode": "NN",
+    "employeeBand": "Unité non employeuse (pas de salarié au cours de l'année de référence et pas d'effectif au 31/12)",
+    "employeeBandYear": null,
+    "category": "GE",
+    "categoryYear": 2024,
+    "isEmployer": false,
+    "establishmentsCount": 170,
+    "openEstablishmentsCount": 168,
+    "headOffice": {
+      "siret": "92978152400020",
+      "address": "15 T RUE DES JARDINS 59800 LILLE",
+      "postalCode": "59800",
+      "city": "LILLE",
+      "communeCode": "59350",
+      "department": "59",
+      "region": "32",
+      "latitude": 50.6392045544222,
+      "longitude": 3.06806456653201,
+      "departmentName": "Nord",
+      "regionName": "Hauts-de-France",
+      "tradeNames": null
+    },
+    "latestFinancialYear": null,
+    "latestRevenue": null,
+    "latestNetIncome": null,
+    "financials": [],
+    "labels": [
+      "BIO"
+    ],
+    "isSoleTrader": false,
+    "isAssociation": false,
+    "isPublicService": null,
+    "collectiveAgreements": [
+      "2216"
+    ],
+    "vatNumber": "FR71929781524",
+    "diffusionStatus": "full",
+    "commercialUseOpposition": true,
+    "corporateDirectors": [
+      {
+        "siren": "775726417",
+        "name": "KPMG S.A",
+        "role": "Commissaire aux comptes titulaire"
+      }
+    ],
+    "updatedAt": "2026-11-04T10:58:35",
+    "sourceUrl": "https://annuaire-entreprises.data.gouv.fr/entreprise/929781524",
+    "source": "recherche-entreprises.api.gouv.fr",
+    "scrapedAt": "2026-11-05T07:50:41+00:00"
+  }
+]

@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ClinicalTrials.gov API v2: clinical trials as JSON or CSV (Python)</title>
+<meta name="description" content="How to get clinical trial data from the ClinicalTrials.gov API v2 as JSON or CSV: query and Essie filter syntax, paging, field selection, the data terms (attribution, processing date, modifications, no marketing e-mails), Python code and a sample without contacts.">
+<link rel="canonical" href="https://nexus-tools-dev.github.io/guides/clinicaltrials-gov-api-json/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Nexus Tools">
+<meta property="og:title" content="ClinicalTrials.gov API v2: clinical trials as JSON or CSV (Python)">
+<meta property="og:description" content="How to get clinical trial data from the ClinicalTrials.gov API v2 as JSON or CSV: query and Essie filter syntax, paging, field selection, the data terms (attribution, processing date, modifications, no marketing e-mails), Python code and a sample without contacts.">
+<meta property="og:url" content="https://nexus-tools-dev.github.io/guides/clinicaltrials-gov-api-json/">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Clinical trials as JSON or CSV: the ClinicalTrials.gov API v2, a Python example, the terms of use and a free sample", "description": "How to get clinical trial data from the ClinicalTrials.gov API v2 as JSON or CSV: query and Essie filter syntax, paging, field selection, the data terms (attribution, processing date, modifications, no marketing e-mails), Python code and a sample without contacts.", "inLanguage": "en", "datePublished": "2026-11-05", "dateModified": "2026-11-05", "url": "https://nexus-tools-dev.github.io/guides/clinicaltrials-gov-api-json/", "mainEntityOfPage": "https://nexus-tools-dev.github.io/guides/clinicaltrials-gov-api-json/", "keywords": "ClinicalTrials.gov API, clinical trials JSON, API v2, Essie, NCT, Python, clinical trial data terms", "author": {"@type": "Organization", "name": "Nexus Tools", "url": "https://nexus-tools-dev.github.io/"}, "publisher": {"@type": "Organization", "name": "Nexus Tools", "url": "https://nexus-tools-dev.github.io/"}}</script>
+<style>
+  :root { --bg:#f6f7f9; --panel:#fff; --text:#16181d; --muted:#5f6672; --line:#d9dde3; --accent:#1f5fd1; --code:#eef0f4; color-scheme: light dark; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#14161a; --panel:#1d2026; --text:#eceef2; --muted:#a2a9b5; --line:#343944; --accent:#6ea0ff; --code:#252932; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.65 system-ui,"Segoe UI",Roboto,sans-serif; }
+  main { max-width: 780px; margin: 0 auto; padding: 40px 20px 64px; }
+  h1 { font-size: 28px; line-height:1.25; margin: 8px 0 8px; }
+  h2 { font-size: 21px; margin: 40px 0 8px; }
+  h3 { font-size: 17px; margin: 24px 0 4px; }
+  .lead { color: var(--muted); margin: 0 0 8px; }
+  .meta { color: var(--muted); font-size: 14px; }
+  a { color: var(--accent); }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px 18px; margin: 16px 0; }
+  pre, code { font: 13.5px/1.5 ui-monospace,SFMono-Regular,Consolas,Menlo,monospace; }
+  code { background: var(--code); padding: 1px 5px; border-radius: 4px; }
+  pre { background: var(--code); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; overflow-x: auto; margin: 12px 0; }
+  pre code { background: none; padding: 0; }
+  .tw { overflow-x: auto; margin: 12px 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { text-align: left; border-bottom: 1px solid var(--line); padding: 6px 8px; vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; white-space: nowrap; }
+  td.n { white-space: nowrap; }
+  ul, ol { padding-left: 22px; }
+  li { margin: 4px 0; }
+  .note { border-left: 3px solid var(--accent); padding: 2px 0 2px 14px; color: var(--muted); }
+  footer { margin-top: 48px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); padding-top: 16px; }
+  p code, li code, td code { overflow-wrap: anywhere; }</style>
+</head>
+<body>
+<main>
+<p class="meta"><a href="../../">Nexus Tools</a> / Data guides</p>
+
+<h1>Clinical trials as JSON or CSV: the ClinicalTrials.gov API v2, a Python example, the terms of use and a free sample</h1>
+<p class="lead">How to pull clinical trial records from ClinicalTrials.gov yourself, which parameters and limits matter, what the terms of use require when you republish the data, and when a normalized feed is worth paying for.</p>
+<p class="meta">Updated: November 2026. API behaviour and the terms below were checked live on 5 November 2026.</p>
+
+
+<h2>The short version</h2>
+<ul>
+<li>ClinicalTrials.gov, run by the US National Library of Medicine, has a free <strong>REST API v2</strong> with no key: <code>GET https://clinicaltrials.gov/api/v2/studies</code>. It holds 610,285 studies (5 November 2026) and refreshes daily.</li>
+<li>The endpoint is friendly, but you need to know three things: ask only for the <code>fields</code> you need, page with <code>nextPageToken</code> (<code>pageSize</code> is capped at 1000), and filter with the Essie expression syntax in <code>filter.advanced</code> for phases and date ranges.</li>
+<li>The data comes with <strong>terms</strong> that are unusual for an open API: attribution, showing the processing date, describing your modifications, and never using extracted e-mail addresses for marketing. They are quoted in section 5.</li>
+</ul>
+
+<h2>1. The ClinicalTrials.gov API v2</h2>
+<p>Documentation: <a href="https://clinicaltrials.gov/data-api/api">clinicaltrials.gov/data-api/api</a> (an OpenAPI description sits behind it). <code>GET /api/v2/version</code> returned <code>apiVersion 2.0.5</code> and <code>dataTimestamp 2026-11-04T10:00:04</code> on 5 November 2026, which is the "date the data were processed" you are asked to show.</p>
+<pre><code>curl -s "https://clinicaltrials.gov/api/v2/studies?query.cond=diabetes&amp;filter.overallStatus=RECRUITING&amp;pageSize=2&amp;countTotal=true&amp;fields=NCTId|BriefTitle|OverallStatus"</code></pre>
+<p>Without any filter, <code>countTotal=true</code> returned <code>totalCount: 610285</code>; <code>query.cond=diabetes</code> matched 24,598 studies.</p>
+
+<h3>Query parameters that worked</h3>
+<div class="tw"><table>
+<tr><th>Goal</th><th>Parameter</th></tr>
+<tr><td>Condition, intervention, sponsor, free text, title</td><td><code>query.cond</code>, <code>query.intr</code>, <code>query.spons</code>, <code>query.term</code>, <code>query.titles</code></td></tr>
+<tr><td>Location</td><td><code>query.locn=Milan AND Italy</code> (1,736 recruiting studies matched in our test), or <code>filter.geo=distance(45.46,9.19,50km)</code></td></tr>
+<tr><td>Status</td><td><code>filter.overallStatus=RECRUITING,NOT_YET_RECRUITING</code> (comma list)</td></tr>
+<tr><td>Specific studies</td><td><code>filter.ids=NCT04000165,NCT05867927</code> (unknown IDs are silently dropped)</td></tr>
+<tr><td>Phase, dates, study type</td><td><code>filter.advanced=AREA[Phase](PHASE2 OR PHASE3) AND AREA[StartDate]RANGE[2025-01-01,MAX]</code>; <code>MIN</code> and <code>MAX</code> open a range</td></tr>
+<tr><td>Sort</td><td><code>sort=LastUpdatePostDate:desc</code>, <code>StudyFirstPostDate:desc</code>, <code>StartDate:desc</code> or <code>@relevance</code></td></tr>
+<tr><td>Payload size</td><td><code>fields=NCTId|BriefTitle|...</code> (module or piece names)</td></tr>
+<tr><td>Paging</td><td><code>pageSize</code> (maximum 1000), <code>pageToken</code> from the response's <code>nextPageToken</code>, <code>countTotal=true</code></td></tr>
+</table></div>
+
+<h3>Behaviour and limits we saw</h3>
+<ul>
+<li><strong>Errors are <code>HTTP 400</code> with a plain-text body,</strong> not JSON: <code>Unknown sort field</code>, <code>Incorrect pageToken format</code>. Do not retry them.</li>
+<li><strong><code>pageSize</code> is capped silently at 1000.</strong> Asking for 1001 or 5000 returned exactly 1000 studies with no error.</li>
+<li><strong>Payloads get big.</strong> 1,000 studies with the modules a catalogue needs weighed about 70 KB per 1,000 when only the NCT ID was requested; with identification, status, design, sponsor, conditions and locations modules it is roughly 8 MB (about 3 seconds). A full record with the <code>resultsSection</code> can be much larger. Request <code>fields</code> explicitly.</li>
+<li><strong>Paging by token</strong> is the way through a long result; the token changes on every page and is tied to the query.</li>
+<li><strong>Rate limit:</strong> we sent 70 back-to-back requests and saw no <code>429</code>. We could not find an official figure on the API pages we read (<code>/data-api/api</code>, <code>/data-api/about-api</code>), so we pace at one request per second and honour <code>Retry-After</code>; do the same.</li>
+<li><strong>Dates are published as they are.</strong> Many are <code>YYYY-MM</code> (month only), for example <code>"primaryCompletionDate": "2028-09"</code>; they sort as text but are not always full dates.</li>
+<li><strong>Nested JSON.</strong> Everything sits under <code>protocolSection.&lt;module&gt;</code> (for example <code>statusModule.startDateStruct.date</code>); dates come as <code>{date, type}</code> structs; phases are a list (<code>PHASE2</code> and <code>PHASE3</code> for a Phase 2/3 study) and are absent for observational studies.</li>
+<li><strong>Big trials have hundreds of sites:</strong> the studies in our sample range from 0 to 378 locations.</li>
+</ul>
+
+<h2>2. DIY: recruiting studies to CSV in Python</h2>
+<p>This script (tested on 5 November 2026: 99 recruiting Phase 3 breast cancer studies started since 2025, all written) pages through results, retries on transient errors, flattens the nested JSON and prints the data-processed stamp for attribution. It needs <code>pip install requests</code>.</p>
+<pre><code>import csv
+import time
+
+import requests
+
+BASE = &quot;https://clinicaltrials.gov/api/v2&quot;
+# Ask only for the modules you need: a full record can weigh tens of KB (results sections are huge).
+FIELDS = &quot;NCTId,BriefTitle,OverallStatus,Phase,StudyType,Condition,LeadSponsorName,LeadSponsorClass,&quot; \
+         &quot;EnrollmentCount,StartDate,PrimaryCompletionDate,LastUpdatePostDate,LocationCountry&quot;
+PARAMS = {
+    &quot;query.cond&quot;: &quot;breast cancer&quot;,
+    &quot;filter.overallStatus&quot;: &quot;RECRUITING&quot;,                       # comma list: RECRUITING,NOT_YET_RECRUITING
+    &quot;filter.advanced&quot;: &quot;AREA[Phase]PHASE3 AND AREA[StartDate]RANGE[2025-01-01,MAX]&quot;,   # Essie expression
+    &quot;sort&quot;: &quot;LastUpdatePostDate:desc&quot;,
+    &quot;fields&quot;: FIELDS,
+    &quot;pageSize&quot;: 200,                                            # 1000 is the maximum; a larger value is silently capped
+    &quot;countTotal&quot;: &quot;true&quot;,
+}
+
+
+def get(params):
+    for attempt in range(5):
+        r = requests.get(f&quot;{BASE}/studies&quot;, params=params, timeout=60)
+        if r.status_code in (429, 500, 502, 503, 504):
+            time.sleep(int(r.headers.get(&quot;Retry-After&quot;, 2 ** attempt)))
+            continue
+        r.raise_for_status()                                    # 400 = plain-text message (bad sort, fields, pageToken)
+        return r.json()
+    raise RuntimeError(&quot;ClinicalTrials.gov unavailable&quot;)
+
+
+stamp = requests.get(f&quot;{BASE}/version&quot;, timeout=30).json()[&quot;dataTimestamp&quot;]   # &quot;date the data were processed&quot;
+rows, token = [], None
+while len(rows) &lt; 400:                                          # demo cap
+    p = dict(PARAMS, **({&quot;pageToken&quot;: token} if token else {}))
+    data = get(p)
+    if token is None:
+        print(data[&quot;totalCount&quot;], &quot;studies match; data processed&quot;, stamp)
+    for s in data[&quot;studies&quot;]:
+        ps = s[&quot;protocolSection&quot;]
+        rows.append({
+            &quot;nct_id&quot;: ps[&quot;identificationModule&quot;][&quot;nctId&quot;],
+            &quot;title&quot;: ps[&quot;identificationModule&quot;].get(&quot;briefTitle&quot;),
+            &quot;status&quot;: ps[&quot;statusModule&quot;].get(&quot;overallStatus&quot;),
+            &quot;phases&quot;: &quot;;&quot;.join(ps.get(&quot;designModule&quot;, {}).get(&quot;phases&quot;, [])),
+            &quot;conditions&quot;: &quot;;&quot;.join(ps.get(&quot;conditionsModule&quot;, {}).get(&quot;conditions&quot;, [])),
+            &quot;sponsor&quot;: ps.get(&quot;sponsorCollaboratorsModule&quot;, {}).get(&quot;leadSponsor&quot;, {}).get(&quot;name&quot;),
+            &quot;enrollment&quot;: ps.get(&quot;designModule&quot;, {}).get(&quot;enrollmentInfo&quot;, {}).get(&quot;count&quot;),
+            &quot;start&quot;: ps[&quot;statusModule&quot;].get(&quot;startDateStruct&quot;, {}).get(&quot;date&quot;),   # &quot;2025-03&quot; or &quot;2025-03-14&quot;
+            &quot;last_update&quot;: ps[&quot;statusModule&quot;].get(&quot;lastUpdatePostDateStruct&quot;, {}).get(&quot;date&quot;),
+            &quot;url&quot;: f&quot;https://clinicaltrials.gov/study/{ps[&#x27;identificationModule&#x27;][&#x27;nctId&#x27;]}&quot;,
+        })
+    token = data.get(&quot;nextPageToken&quot;)
+    if not token:
+        break
+    time.sleep(1)
+
+with open(&quot;trials.csv&quot;, &quot;w&quot;, newline=&quot;&quot;, encoding=&quot;utf-8&quot;) as f:
+    w = csv.DictWriter(f, fieldnames=rows[0].keys())
+    w.writeheader()
+    w.writerows(rows)
+print(len(rows), &quot;studies written. Source: ClinicalTrials.gov, data processed&quot;, stamp)
+</code></pre>
+
+<h2>3. When the Actor saves time</h2>
+<p>For a one-off export the script is enough, and free. The Apify Actor <a href="https://apify.com/nexus-scrapers/clinical-trials-search">ClinicalTrials.gov Search</a> (by Nexus Scrapers) wraps the same official API. It pays off when you would otherwise maintain that code:</p>
+<ul>
+<li><strong>A flat study record</strong> with stable keys: NCT ID and link, titles, status, phases as a list, study type, summary, conditions, interventions (type and name), lead sponsor and class, collaborators, enrollment, start and completion dates, posting dates, total site count, distinct site countries and a capped site list, age and sex, healthy volunteers, and a has-results flag. Missing values are <code>null</code> or empty lists.</li>
+<li><strong>Filters as plain inputs</strong> instead of Essie strings: condition, intervention, sponsor, search term, statuses, phases, study types, country and city, a radius around a point, specific NCT IDs, only studies with results, and a sort choice. The default is recruiting and not-yet-recruiting studies, newest update first.</li>
+<li><strong>Retries, paging and pacing</strong> are handled (1 request per second, backoff, Retry-After).</li>
+<li><strong>Contacts are off by default.</strong> Study staff names, e-mails and phones are only added if you switch <code>includeContacts</code> on. Eligibility criteria and outcomes are opt-in too.</li>
+<li><strong>Scheduling and integrations</strong> through Apify: weekly runs into Slack, e-mail, Google Sheets or a webhook; export as JSON, CSV or Excel; API and MCP access.</li>
+</ul>
+<p>Pricing is pay per result; the Actor page shows the current price.</p>
+<p class="note">What it does not do: it does not return results data (outcome statistics, adverse events), arm details or the detailed description; there is no change tracking yet ("only new since last run"); runs are capped at 10,000 studies (split larger exports by date range); and it is not medical advice. The terms in section 5 apply to your use of the output as well. For a single list, use the script.</p>
+
+<h2>4. Real sample: 19 normalized records</h2>
+<p>These 19 records were produced on 5 November 2026 by running the Actor's own code locally on live API responses (no Apify platform involved). Data processed by ClinicalTrials.gov: <strong>2026-11-04 10:00:04</strong> (from <code>/api/v2/version</code>). Selection: the 13 most recently updated recruiting or not-yet-recruiting studies, 3 Phase 3 breast cancer studies recruiting in Italy and 3 completed diabetes studies with posted results, minus any study whose lead sponsor or collaborator is a named individual (one was skipped). They are the first matches in that order, not hand-picked for quality.</p>
+<p><strong>Contacts: none.</strong> The sample has no central contacts, no overall officials, no investigators and no e-mail address or phone number (we checked: zero <code>@</code> characters in the file, and a scrub pass over all text fields found nothing to remove).</p>
+<p><strong>Modifications we made, as the terms ask us to say:</strong> the nested JSON is flattened into one record per study; <code>locations</code> is cut to the first five sites while <code>locationsCount</code> and <code>locationCountries</code> are computed from all sites; contacts, results data, arm groups and the detailed description are left out; dates are as published; the rest of the text is unchanged. Attribution: source ClinicalTrials.gov, US National Library of Medicine.</p>
+<p>Download: <a href="sample.json">sample.json</a> (full records, UTF-8) and <a href="sample.csv">sample.csv</a> (flattened, lists joined with <code> | </code>, opens in Excel). Free to use under the terms in section 5; the records go stale, so check ClinicalTrials.gov before relying on a status.</p>
+<div class="tw"><table>
+<tr><th>Study</th><th>Status</th><th>Phase</th><th>Lead sponsor</th><th>Title</th><th>Enrol.</th><th>Updated</th></tr>
+<tr><td class="n"><a href="https://clinicaltrials.gov/study/NCT07807280">NCT07807280</a></td><td>recruiting</td><td class="n">NA</td><td>University of California, L…</td><td>C-Carbs: A CGM-guided Approach to Teaching Carb Awa…</td><td class="n">40</td><td class="n">2026-11-04</td></tr>
+<tr><td class="n"><a href="https://clinicaltrials.gov/study/NCT05867927">NCT05867927</a></td><td>recruiting</td><td class="n">-</td><td>Intuitive Surgical</td><td>GENERATE - Next GENERATion of GynEcological Surgery…</td><td class="n">1250</td><td class="n">2026-11-04</td></tr>
+<tr><td class="n"><a href="https://clinicaltrials.gov/study/NCT07719582">NCT07719582</a></td><td>recruiting</td><td class="n">NA</td><td>Dream Video LLC</td><td>Effectivity of P1821, a Novel Tongue Strengthening…</td><td class="n">100</td><td class="n">2026-11-04</td></tr>
+<tr><td class="n"><a href="https://clinicaltrials.gov/study/NCT07915284">NCT07915284</a></td><td>not yet recruiting</td><td class="n">-</td><td>Sohag University</td><td>Platelet Transfusion Thresholds in Non-Bleeding Pat…</td><td class="n">30</td><td class="n">2026-11-04</td></tr>
+<tr><td class="n"><a href="https://clinicaltrials.gov/study/NCT07703878">NCT07703878</a></td><td>recruiting</td><td class="n">P1</td><td>Gilead Sciences</td><td>A Study to Evaluate the Safety and Antitumor Activi…</td><td class="n">302</td><td class="n">2026-11-04</td></tr>
+<tr><td class="n"><a href="https://clinicaltrials.gov/study/NCT07226843">NCT07226843</a></td><td>recruiting</td><td class="n">P1</td><td>Eli Lilly and Company</td><td>A Study of LY4584180 in Adult Participants With Pre…</td><td class="n">460</td><td class="n">2026-11-04</td></tr>
+<tr><td class="n"><a href="https://clinicaltrials.gov/study/NCT07916558">NCT07916558</a></td><td>not yet recruiting</td><td class="n">-</td><td>Samsun University</td><td>Impact of Parasternal and Rectointercostal Blocks o…</td><td class="n">40</td><td class="n">2026-11-04</td></tr>
+<tr><td class="n"><a href="https://clinicaltrials.gov/study/NCT06362733">NCT06362733</a></td><td>recruiting</td><td class="n">NA</td><td>Stanford University</td><td>Modified Pivotal Response Treatment for Insistence…</td><td class="n">44</td><td class="n">2026-11-04</td></tr>
+<tr><td class="n"><a href="https://clinicaltrials.gov/study/NCT07770633">NCT07770633</a></td><td>not yet recruiting</td><td class="n">NA</td><td>The Cleveland Clinic</td><td>Negative Pressure Wound Therapy Devices in Total Kn…</td><td class="n">300</td><td class="n">2026-11-04</td></tr>
+<tr><td class="n"><a href="https://clinicaltrials.gov/study/NCT07917364">NCT07917364</a></td><td>recruiting</td><td class="n">-</td><td>University of Applied Scien…</td><td>Asprosin and miRNA Expression in Young Women With M…</td><td class="n">110</td><td class="n">2026-11-04</td></tr>
+<tr><td class="n"><a href="https://clinicaltrials.gov/study/NCT07915115">NCT07915115</a></td><td>not yet recruiting</td><td class="n">NA</td><td>Texas Christian University</td><td>Computer-Assisted Vocabulary Intervention for Spani…</td><td class="n">135</td><td class="n">2026-11-04</td></tr>
+<tr><td class="n"><a href="https://clinicaltrials.gov/study/NCT07139132">NCT07139132</a></td><td>recruiting</td><td class="n">NA</td><td>University of Wisconsin, Ma…</td><td>The AHA Oneida Study</td><td class="n">95</td><td class="n">2026-11-04</td></tr>
+<tr><td class="n"><a href="https://clinicaltrials.gov/study/NCT07144150">NCT07144150</a></td><td>recruiting</td><td class="n">NA</td><td>Cook Research Incorporated</td><td>EVERO Drug-coated Balloon (DCB) Randomized Trial</td><td class="n">410</td><td class="n">2026-11-04</td></tr>
+<tr><td class="n"><a href="https://clinicaltrials.gov/study/NCT07174336">NCT07174336</a></td><td>recruiting</td><td class="n">P3</td><td>Eli Lilly and Company</td><td>A Study of Tersolisib (LY4064809/STX-478) With Othe…</td><td class="n">800</td><td class="n">2026-11-04</td></tr>
+<tr><td class="n"><a href="https://clinicaltrials.gov/study/NCT07060807">NCT07060807</a></td><td>recruiting</td><td class="n">P3</td><td>Merck Sharp &amp; Dohme LLC</td><td>A Clinical Study of Patritumab Deruxtecan to Treat…</td><td class="n">1000</td><td class="n">2026-11-03</td></tr>
+<tr><td class="n"><a href="https://clinicaltrials.gov/study/NCT07173751">NCT07173751</a></td><td>recruiting</td><td class="n">P3</td><td>BioNTech SE</td><td>ROSETTA Breast-01: The Effects and Safety of Pumita…</td><td class="n">558</td><td class="n">2026-10-30</td></tr>
+<tr><td class="n"><a href="https://clinicaltrials.gov/study/NCT00679042">NCT00679042</a></td><td>completed</td><td class="n">P3</td><td>CellTrans Inc.</td><td>Islet Transplantation in Type 1 Diabetic Patients U…</td><td class="n">21</td><td class="n">2026-11-04</td></tr>
+<tr><td class="n"><a href="https://clinicaltrials.gov/study/NCT04828785">NCT04828785</a></td><td>completed</td><td class="n">NA</td><td>University of North Carolin…</td><td>Food As MedicinE for Diabetes</td><td class="n">215</td><td class="n">2026-11-03</td></tr>
+<tr><td class="n"><a href="https://clinicaltrials.gov/study/NCT05923827">NCT05923827</a></td><td>completed</td><td class="n">NA</td><td>Insulet Corporation</td><td>Omnipod® 5 With Libre 2 vs. MDI for Type 1 Diabetes…</td><td class="n">189</td><td class="n">2026-11-03</td></tr>
+</table></div>
+<p>One record, trimmed (two of the sites, no summary):</p>
+<pre><code>{
+  &quot;schemaVersion&quot;: &quot;1.0&quot;,
+  &quot;nctId&quot;: &quot;NCT07226843&quot;,
+  &quot;url&quot;: &quot;https://clinicaltrials.gov/study/NCT07226843&quot;,
+  &quot;briefTitle&quot;: &quot;A Study of LY4584180 in Adult Participants With Previously Treated Blood Cancers&quot;,
+  &quot;acronym&quot;: null,
+  &quot;overallStatus&quot;: &quot;RECRUITING&quot;,
+  &quot;whyStopped&quot;: null,
+  &quot;phases&quot;: [
+    &quot;PHASE1&quot;
+  ],
+  &quot;studyType&quot;: &quot;INTERVENTIONAL&quot;,
+  &quot;conditions&quot;: [
+    &quot;Lymphoma, Non-Hodgkin&#x27;s&quot;,
+    &quot;Lymphoma, Diffuse Large B-Cell&quot;,
+    &quot;Follicular Lymphoma&quot;
+  ],
+  &quot;interventions&quot;: [
+    {
+      &quot;type&quot;: &quot;DRUG&quot;,
+      &quot;name&quot;: &quot;LY4584180&quot;
+    },
+    {
+      &quot;type&quot;: &quot;DRUG&quot;,
+      &quot;name&quot;: &quot;Rituximab&quot;
+    }
+  ],
+  &quot;leadSponsor&quot;: &quot;Eli Lilly and Company&quot;,
+  &quot;leadSponsorClass&quot;: &quot;INDUSTRY&quot;,
+  &quot;collaborators&quot;: [],
+  &quot;enrollment&quot;: 460,
+  &quot;enrollmentType&quot;: &quot;ESTIMATED&quot;,
+  &quot;startDate&quot;: &quot;2026-04-17&quot;,
+  &quot;startDateType&quot;: &quot;ACTUAL&quot;,
+  &quot;primaryCompletionDate&quot;: &quot;2028-09&quot;,
+  &quot;completionDate&quot;: &quot;2030-02&quot;,
+  &quot;firstPostedDate&quot;: &quot;2025-11-12&quot;,
+  &quot;lastUpdatePostedDate&quot;: &quot;2026-11-04&quot;,
+  &quot;statusVerifiedDate&quot;: &quot;2026-11&quot;,
+  &quot;locationsCount&quot;: 46,
+  &quot;locationCountries&quot;: [
+    &quot;United States&quot;,
+    &quot;France&quot;,
+    &quot;Germany&quot;,
+    &quot;Italy&quot;,
+    &quot;Japan&quot;,
+    &quot;Poland&quot;,
+    &quot;Spain&quot;,
+    &quot;United Kingdom&quot;
+  ],
+  &quot;locations&quot;: [
+    {
+      &quot;facility&quot;: &quot;Mayo Clinic - Scottsdale&quot;,
+      &quot;city&quot;: &quot;Scottsdale&quot;,
+      &quot;state&quot;: &quot;Arizona&quot;,
+      &quot;country&quot;: &quot;United States&quot;,
+      &quot;status&quot;: &quot;RECRUITING&quot;
+    },
+    {
+      &quot;facility&quot;: &quot;City of Hope&quot;,
+      &quot;city&quot;: &quot;Duarte&quot;,
+      &quot;state&quot;: &quot;California&quot;,
+      &quot;country&quot;: &quot;United States&quot;,
+      &quot;status&quot;: &quot;RECRUITING&quot;
+    }
+  ],
+  &quot;minimumAge&quot;: &quot;18 Years&quot;,
+  &quot;maximumAge&quot;: null,
+  &quot;ageGroups&quot;: [
+    &quot;ADULT&quot;,
+    &quot;OLDER_ADULT&quot;
+  ],
+  &quot;sex&quot;: &quot;ALL&quot;,
+  &quot;healthyVolunteers&quot;: false,
+  &quot;hasResults&quot;: false,
+  &quot;scrapedAt&quot;: &quot;2026-11-05T07:48:30+00:00&quot;
+}</code></pre>
+
+<h2>5. Data licence and terms</h2>
+<p>The data is free for everyone, inside and outside the US, but it is not a standard open licence. The <a href="https://clinicaltrials.gov/about-site/terms-conditions">ClinicalTrials.gov Terms and Conditions</a> (last updated 31 January 2023, read on 5 November 2026) say they apply to all data obtained from ClinicalTrials.gov, in any format and by any method, and that downloading the data indicates acceptance. In any publication or distribution of the data, you should:</p>
+<ul>
+<li><strong>Attribute</strong> the source of the data as ClinicalTrials.gov;</li>
+<li><strong>Update</strong> the data so that they are current at all times;</li>
+<li><strong>Clearly display the date the data were processed</strong> by ClinicalTrials.gov (for the API, the <code>dataTimestamp</code> from <code>/api/v2/version</code>);</li>
+<li><strong>State any modifications</strong> made to the content, with a complete description of them.</li>
+</ul>
+<p>You must not assert proprietary rights to any part of the database, or represent it to anyone as other than a United States Government database. <strong>You must not use e-mail addresses extracted from the database for marketing or other promotional purposes</strong> (study contacts' addresses are exactly that). The data carry an international copyright outside the United States and its territories, and some data may be subject to the copyright of third parties, for which you should consult those entities. The US Government gives no warranties and accepts no liability for any use of the data. The terms stay in effect as long as you keep any of the data.</p>
+<p>This is a summary, not legal advice. Study records are written by sponsors; nothing here is medical advice, and the registry is not a substitute for talking to a clinician. Personal data: contacts and investigators are named staff, which is why the Actor leaves them out by default.</p>
+
+
+<h2>Links</h2>
+<ul>
+<li><a href="https://apify.com/nexus-scrapers/clinical-trials-search">ClinicalTrials.gov Search Actor on Apify</a></li>
+<li><a href="https://clinicaltrials.gov/data-api/api">Official ClinicalTrials.gov API documentation</a></li>
+<li><a href="https://clinicaltrials.gov/about-site/terms-conditions">ClinicalTrials.gov Terms and Conditions</a></li>
+<li><a href="../ted-tenders-json/">The same kind of guide for EU public tenders (TED)</a></li>
+</ul>
+
+<footer>Independent guide by Nexus Tools. Not affiliated with or endorsed by the US National Library of Medicine, the National Institutes of Health, ClinicalTrials.gov or Apify. Contact: <a href="mailto:nexusscrapers.dev@gmail.com">nexusscrapers.dev@gmail.com</a></footer>
+</main>
+</body>
+</html>
