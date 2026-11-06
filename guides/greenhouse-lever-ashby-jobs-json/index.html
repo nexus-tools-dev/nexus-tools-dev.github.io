@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Greenhouse, Lever and Ashby jobs as JSON or CSV: public API endpoints (Python)</title>
+<meta name="description" content="How to get a company&#x27;s job postings as JSON from the public Greenhouse, Lever and Ashby APIs: endpoints, how to recognise the ATS, salary, remote and date differences, limits, a tested Python script and a 20-job sample.">
+<link rel="canonical" href="https://nexus-tools-dev.github.io/guides/greenhouse-lever-ashby-jobs-json/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Nexus Tools">
+<meta property="og:title" content="Greenhouse, Lever and Ashby jobs as JSON or CSV: public API endpoints (Python)">
+<meta property="og:description" content="How to get a company&#x27;s job postings as JSON from the public Greenhouse, Lever and Ashby APIs: endpoints, how to recognise the ATS, salary, remote and date differences, limits, a tested Python script and a 20-job sample.">
+<meta property="og:url" content="https://nexus-tools-dev.github.io/guides/greenhouse-lever-ashby-jobs-json/">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Company job postings as JSON from the public Greenhouse, Lever and Ashby APIs: endpoints, field differences, a Python example and a free sample", "description": "How to get a company's job postings as JSON from the public Greenhouse, Lever and Ashby APIs: endpoints, how to recognise the ATS, salary, remote and date differences, limits, a tested Python script and a 20-job sample.", "inLanguage": "en", "datePublished": "2026-11-06", "dateModified": "2026-11-06", "url": "https://nexus-tools-dev.github.io/guides/greenhouse-lever-ashby-jobs-json/", "mainEntityOfPage": "https://nexus-tools-dev.github.io/guides/greenhouse-lever-ashby-jobs-json/", "keywords": "Greenhouse API, Lever API, Ashby API, job postings JSON, job board API, ATS, careers page, salary, Python", "author": {"@type": "Organization", "name": "Nexus Tools", "url": "https://nexus-tools-dev.github.io/"}, "publisher": {"@type": "Organization", "name": "Nexus Tools", "url": "https://nexus-tools-dev.github.io/"}}</script>
+<style>
+  :root { --bg:#f6f7f9; --panel:#fff; --text:#16181d; --muted:#5f6672; --line:#d9dde3; --accent:#1f5fd1; --code:#eef0f4; color-scheme: light dark; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#14161a; --panel:#1d2026; --text:#eceef2; --muted:#a2a9b5; --line:#343944; --accent:#6ea0ff; --code:#252932; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.65 system-ui,"Segoe UI",Roboto,sans-serif; }
+  main { max-width: 780px; margin: 0 auto; padding: 40px 20px 64px; }
+  h1 { font-size: 28px; line-height:1.25; margin: 8px 0 8px; }
+  h2 { font-size: 21px; margin: 40px 0 8px; }
+  h3 { font-size: 17px; margin: 24px 0 4px; }
+  .lead { color: var(--muted); margin: 0 0 8px; }
+  .meta { color: var(--muted); font-size: 14px; }
+  a { color: var(--accent); }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px 18px; margin: 16px 0; }
+  pre, code { font: 13.5px/1.5 ui-monospace,SFMono-Regular,Consolas,Menlo,monospace; }
+  code { background: var(--code); padding: 1px 5px; border-radius: 4px; }
+  pre { background: var(--code); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; overflow-x: auto; margin: 12px 0; }
+  pre code { background: none; padding: 0; }
+  .tw { overflow-x: auto; margin: 12px 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { text-align: left; border-bottom: 1px solid var(--line); padding: 6px 8px; vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; white-space: nowrap; }
+  td.n { white-space: nowrap; }
+  ul, ol { padding-left: 22px; }
+  li { margin: 4px 0; }
+  .note { border-left: 3px solid var(--accent); padding: 2px 0 2px 14px; color: var(--muted); }
+  footer { margin-top: 48px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); padding-top: 16px; }
+  p code, li code, td code { overflow-wrap: anywhere; }</style>
+</head>
+<body>
+<main>
+<p class="meta"><a href="../../">Nexus Tools</a> / Data guides</p>
+
+<h1>Company job postings as JSON from the public Greenhouse, Lever and Ashby APIs: endpoints, field differences, a Python example and a free sample</h1>
+<p class="lead">How to read the open jobs of a company that hires through Greenhouse, Lever or Ashby straight from the public JSON endpoints those systems offer for career pages, how to tell which one a company uses, how the fields differ (salary, remote, dates), where the limits are, and when an Actor saves you the code.</p>
+<p class="meta">Updated: November 2026. Everything below was tested live on 6 November 2026.</p>
+
+<h2>The short version</h2>
+<ul>
+<li>All three systems publish the jobs of a company as plain JSON over HTTPS, with no account, key or login: <code>boards-api.greenhouse.io/v1/boards/{token}/jobs</code>, <code>api.lever.co/v0/postings/{slug}</code> and <code>api.ashbyhq.com/posting-api/job-board/{name}</code>. They exist so that companies can show their jobs on their own site, and each returns the whole board in one response.</li>
+<li>The hard part is not the request, it is the differences: salary only appears if you pass the right flag (Greenhouse <code>pay_transparency=true</code>, Ashby <code>includeCompensation=true</code>), dates come in three formats, and "remote" is a free-text location, a workplace type or a boolean depending on the system.</li>
+<li>The one rate rule we found in writing is Lever's: its <code>robots.txt</code> says <code>Crawl-delay: 1</code>. Boards are big (Anthropic's Greenhouse board was 9.9 MB in one response), so fetch one company at a time and keep what you need.</li>
+<li>This page gives the endpoints with curl, one Python script (about 90 lines, tested today) that handles all three and writes a CSV, a field comparison, a normalized schema, and a free 20-job sample.</li>
+</ul>
+
+<h2>1. Which system does a company use?</h2>
+<p>Start from the careers URL. A hosted board has a recognizable host, and the first path segment is the id you need:</p>
+<div class="tw"><table>
+<tr><th>System</th><th>Careers URL</th><th>Id in the API</th></tr>
+<tr><td>Greenhouse</td><td><code>boards.greenhouse.io/airbnb</code> or <code>job-boards.greenhouse.io/airbnb</code></td><td>board token <code>airbnb</code></td></tr>
+<tr><td>Lever</td><td><code>jobs.lever.co/palantir</code></td><td>slug <code>palantir</code></td></tr>
+<tr><td>Ashby</td><td><code>jobs.ashbyhq.com/ramp</code></td><td>name <code>ramp</code></td></tr>
+</table></div>
+<p>Many companies hide the board behind their own domain. What we saw on 6 November 2026:</p>
+<ul>
+<li><code>boards.greenhouse.io/airbnb</code> answers <code>HTTP 200</code> after redirecting to <code>careers.airbnb.com/positions/</code>. The token still works in the API. Job links on that site carry <code>?gh_jid=8306554</code>, and the HTML of a job page includes a script <code>boards.greenhouse.io/embed/job_board/js?for=airbnb</code>: the <code>for=</code> value is the token. A <code>gh_jid</code> parameter in a job URL is a good Greenhouse hint.</li>
+<li>The static HTML of <code>discord.com/careers</code> contains JavaScript that calls <code>api.greenhouse.io/v1/boards/${board}/jobs?content=true</code> for a list of boards.</li>
+<li>The static HTML of <code>palantir.com/careers/</code> links to <code>jobs.lever.co/palantir</code>, and those of <code>notion.com/careers</code> and <code>linear.app/careers</code> link to <code>jobs.ashbyhq.com/notion</code> and <code>jobs.ashbyhq.com/Linear</code>.</li>
+<li>Some pages give no hint in the HTML you fetch: <code>stripe.com/jobs</code> and <code>spotifyjobs.com</code> showed nothing. Stripe's token <code>stripe</code> works in the Greenhouse API (766 jobs) and Spotify's slug <code>spotify</code> in Lever's (85 postings), but we only know that by trying. When the HTML is silent, open the browser developer tools on the careers page and look at the network requests for one of the hosts above.</li>
+<li>Guessing is cheap and safe: an unknown id returns <code>HTTP 404</code> on all three (Greenhouse <code>{"status":404,"error":"Job not found"}</code>, Lever <code>{"ok":false,"error":"Document not found"}</code>, Ashby the plain text <code>Not Found</code>). Ids are not always the brand name, so a 404 does not prove the company is on another system.</li>
+<li>Lever also has an EU region (<code>api.eu.lever.co</code>). We did not find a real EU account to test, so we cannot tell you how those slugs behave.</li>
+</ul>
+
+<h2>2. The three endpoints, with curl</h2>
+<h3>Greenhouse Job Board API</h3>
+<p>Documentation: <a href="https://docs.greenhouse.io/job-board.html">docs.greenhouse.io/job-board.html</a>. It states that Job Board data is public and that no authentication is needed for any GET endpoint (only the application-submission POST needs a key).</p>
+<pre><code># list: id, title, location, dates, URL (155,048 bytes for Airbnb's 202 jobs)
+curl -s "https://boards-api.greenhouse.io/v1/boards/airbnb/jobs"
+
+# the same list plus description HTML, departments and offices (2,909,857 bytes)
+curl -s "https://boards-api.greenhouse.io/v1/boards/airbnb/jobs?content=true"
+
+# salary ranges: add pay_transparency=true
+curl -s "https://boards-api.greenhouse.io/v1/boards/discord/jobs?content=true&amp;pay_transparency=true"
+
+# one job
+curl -s "https://boards-api.greenhouse.io/v1/boards/discord/jobs/{id}?pay_transparency=true"</code></pre>
+<ul>
+<li>The response is <code>{"jobs": [...], "meta": {"total": 202}}</code>: no paging, everything in one response (Anthropic: 673 jobs, 9,857,703 bytes with <code>content=true</code>).</li>
+<li><code>departments</code> and <code>offices</code> only appear with <code>content=true</code>. The <code>content</code> field is HTML <strong>escaped as entities</strong> (it starts with <code>&amp;lt;div</code>): unescape it before use.</li>
+<li><strong>Salary.</strong> Without <code>pay_transparency=true</code> we found no <code>pay_input_ranges</code> on any board. With it, Discord returned a range on 26 of 26 jobs and Anthropic on 584 of 673; Stripe on 0 of 766, because Stripe publishes none. Each range is <code>{"min_cents": 20000000, "max_cents": 22500000, "currency_type": "USD", "title": "Base Salary", "blurb": "..."}</code>. The documentation lists this parameter on the single-job endpoint; it also works on the list endpoint, as the Discord and Anthropic numbers show.</li>
+<li>Dates: <code>first_published</code> and <code>updated_at</code>, ISO 8601 with the company's UTC offset (<code>2026-10-28T10:52:05-04:00</code>).</li>
+<li>Remote: there is no field. <code>location.name</code> is free text ("San Francisco Bay Area or Remote (U.S.)"), and some boards add a custom <code>metadata</code> entry, e.g. Airbnb's <code>"Workplace Type": "Remote"</code>.</li>
+</ul>
+
+<h3>Lever Postings API</h3>
+<p>Documentation: <a href="https://github.com/lever/postings-api">github.com/lever/postings-api</a>.</p>
+<pre><code># every published posting of a company (Palantir: 311 postings, 6,089,826 bytes)
+curl -s "https://api.lever.co/v0/postings/palantir?mode=json"
+
+# paging and filters: limit, skip, and team / department / location / commitment
+curl -s "https://api.lever.co/v0/postings/outreach?mode=json&amp;limit=2&amp;skip=1"</code></pre>
+<ul>
+<li>The response is a JSON array. <code>limit</code> and <code>skip</code> work (we got 2 items back for <code>limit=2&amp;skip=1</code>); without them you get everything.</li>
+<li>Description as <code>description</code> (HTML) and <code>descriptionPlain</code>, plus <code>lists[]</code> (responsibilities, requirements) and <code>additional</code>/<code>additionalPlain</code>.</li>
+<li>Date: <code>createdAt</code> in <strong>epoch milliseconds</strong> (UTC). There is no update date.</li>
+<li><code>categories</code> holds <code>commitment</code> ("Full-time"), <code>department</code>, <code>team</code>, <code>location</code> and <code>allLocations</code>. <code>workplaceType</code> was <code>remote</code>, <code>hybrid</code> or <code>onsite</code> in every posting we looked at (Spotify: 28 remote, 45 hybrid, 12 onsite of 85).</li>
+<li>Salary: <code>salaryRange</code> <code>{"min": 123000, "max": 168000, "currency": "USD", "interval": "per-year-salary"}</code> plus <code>salaryDescriptionPlain</code>, only on postings where the company published one. Zoox: 216 of 238 postings; Outreach: 12 of 22; Palantir: 0 of 311; Spotify: 0 of 85. <code>interval</code> is a Lever string such as <code>per-year-salary</code>; Zoox also has an hourly posting (the Actor maps it to period <code>hour</code>, 43.25 to 52.5 USD).</li>
+<li><code>api.lever.co/robots.txt</code> says <code>User-agent: *</code>, <code>Allow: /</code>, <code>Crawl-delay: 1</code>. Honor it: at most one request per second, one at a time.</li>
+</ul>
+
+<h3>Ashby public job posting API</h3>
+<pre><code># every listed job, with compensation (Ramp: 168 jobs, 3,024,560 bytes)
+curl -s "https://api.ashbyhq.com/posting-api/job-board/ramp?includeCompensation=true"</code></pre>
+<ul>
+<li>The response is <code>{"apiVersion": ..., "jobs": [...]}</code>, everything in one response. Without <code>includeCompensation=true</code> the <code>compensation</code> key was absent from all 168 Ramp jobs; with it, present on all 168.</li>
+<li>Compensation is a structure: <code>compensationTierSummary</code> ("$211.4K &ndash; $290.6K &bull; Offers Equity"), <code>scrapeableCompensationSalarySummary</code> ("$211.4K - $290.6K") and <code>summaryComponents[]</code> with <code>compensationType</code> (Salary, EquityPercentage...), <code>interval</code> ("1 YEAR"), <code>currencyCode</code>, <code>minValue</code>, <code>maxValue</code>. The summary was non-empty on 157 of Ramp's 168 jobs.</li>
+<li>Date: <code>publishedAt</code>, ISO 8601 UTC with milliseconds. No update date.</li>
+<li>Remote: <code>isRemote</code> (boolean) <strong>and</strong> <code>workplaceType</code> (<code>Remote</code>, <code>Hybrid</code>, <code>OnSite</code>). They do not mean the same thing: of Ramp's 168 jobs, 134 were <code>Hybrid</code> with <code>isRemote: true</code>, 17 <code>Remote</code> with <code>true</code> and 17 <code>OnSite</code> with <code>false</code>. Trust <code>workplaceType</code> when you need a strict remote filter.</li>
+<li>Others: <code>employmentType</code> (<code>FullTime</code>, <code>Intern</code>, <code>Temporary</code>), <code>department</code>, <code>team</code>, <code>location</code> plus <code>secondaryLocations[]</code> with a postal address, <code>jobUrl</code>, <code>applyUrl</code>, <code>isListed</code>. Titles can carry a leading space (one Ramp title did), so strip them.</li>
+</ul>
+
+<h2>3. The three side by side</h2>
+<div class="tw"><table>
+<tr><th>Field</th><th>Greenhouse</th><th>Lever</th><th>Ashby</th></tr>
+<tr><td>Posted</td><td><code>first_published</code>, ISO with offset</td><td><code>createdAt</code>, epoch ms</td><td><code>publishedAt</code>, ISO UTC</td></tr>
+<tr><td>Updated</td><td><code>updated_at</code></td><td>none</td><td>none</td></tr>
+<tr><td>Salary</td><td><code>pay_input_ranges</code> (cents), only with <code>pay_transparency=true</code></td><td><code>salaryRange</code> (min, max, currency, interval)</td><td><code>compensation</code>, only with <code>includeCompensation=true</code></td></tr>
+<tr><td>Remote</td><td>none; free-text location, sometimes custom <code>metadata</code></td><td><code>workplaceType</code> (remote/hybrid/onsite)</td><td><code>isRemote</code> and <code>workplaceType</code></td></tr>
+<tr><td>Employment type</td><td>none</td><td><code>categories.commitment</code></td><td><code>employmentType</code></td></tr>
+<tr><td>Department / team</td><td><code>departments[]</code>, <code>offices[]</code> (with <code>content=true</code>)</td><td><code>categories.department</code>, <code>categories.team</code></td><td><code>department</code>, <code>team</code></td></tr>
+<tr><td>Locations</td><td><code>location.name</code> (free text)</td><td><code>categories.location</code>, <code>allLocations</code>, <code>country</code> code</td><td><code>location</code>, <code>secondaryLocations[]</code></td></tr>
+<tr><td>Description</td><td><code>content</code>, HTML as escaped entities</td><td><code>description</code>, <code>descriptionPlain</code>, <code>lists[]</code></td><td><code>descriptionHtml</code>, <code>descriptionPlain</code></td></tr>
+<tr><td>Paging</td><td>none (one response)</td><td><code>limit</code>, <code>skip</code></td><td>none (one response)</td></tr>
+<tr><td>robots.txt of the API host</td><td><code>Disallow: /embed/</code></td><td><code>Crawl-delay: 1</code></td><td>answers 401 with no rules</td></tr>
+</table></div>
+<p>A note on Ashby and <code>robots.txt</code>: <code>jobs.ashbyhq.com/robots.txt</code> disallows <code>/api/</code> on the careers site host, but the documented posting API lives on <code>api.ashbyhq.com</code>, whose <code>robots.txt</code> answers <code>401 Unauthorized</code> (no rules). We use the second host only.</p>
+
+<h2>4. A normalized schema</h2>
+<p>If you combine companies from several systems you need one record shape. This is the one the Actors below output (schema version 1.0), with the source field each value comes from:</p>
+<div class="tw"><table>
+<tr><th>Field</th><th>Meaning</th><th>Greenhouse / Lever / Ashby source</th></tr>
+<tr><td><code>jobId</code>, <code>ats</code>, <code>companyId</code>, <code>companyName</code></td><td>identity</td><td><code>id</code> / <code>id</code> / <code>id</code>; the board token or slug you requested</td></tr>
+<tr><td><code>title</code>, <code>department</code>, <code>team</code></td><td>as published, trimmed</td><td>see table above</td></tr>
+<tr><td><code>location</code>, <code>locations[]</code>, <code>country</code>, <code>countryCode</code></td><td>primary text, all locations, country when the system gives it</td><td><code>location.name</code> / <code>categories</code> + <code>country</code> code / <code>location</code> + <code>secondaryLocations</code></td></tr>
+<tr><td><code>isRemote</code>, <code>workplaceType</code></td><td>boolean or null; remote/hybrid/onsite or null</td><td>word "remote" in the location, custom workplace field / <code>workplaceType</code> / <code>isRemote</code>, <code>workplaceType</code></td></tr>
+<tr><td><code>employmentType</code></td><td><code>full_time</code>, <code>part_time</code>, <code>contract</code>, ...</td><td>- / <code>commitment</code> / <code>employmentType</code></td></tr>
+<tr><td><code>postedAt</code>, <code>updatedAt</code></td><td>ISO 8601 in UTC</td><td><code>first_published</code>, <code>updated_at</code> / <code>createdAt</code> / <code>publishedAt</code></td></tr>
+<tr><td><code>salary</code></td><td><code>{min, max, currency, period, raw}</code> or null</td><td><code>pay_input_ranges</code> / <code>salaryRange</code> / <code>compensation</code></td></tr>
+<tr><td><code>jobUrl</code>, <code>applyUrl</code></td><td>public page, application page</td><td><code>absolute_url</code> / <code>hostedUrl</code>, <code>applyUrl</code> / <code>jobUrl</code>, <code>applyUrl</code></td></tr>
+<tr><td><code>descriptionText</code>, <code>descriptionHtml</code></td><td>clean text and HTML</td><td><code>content</code> (unescaped) / <code>descriptionPlain</code>, <code>description</code> / <code>descriptionPlain</code>, <code>descriptionHtml</code></td></tr>
+<tr><td><code>scrapedAt</code>, <code>sourceUrl</code>, <code>extras</code></td><td>run time, API URL, system-specific leftovers</td><td>-</td></tr>
+</table></div>
+<p>Two rules keep it honest: a missing value is <code>null</code>, never a guess, and the word "remote" can make <code>isRemote</code> true but is never used to set it to false.</p>
+
+<h2>5. DIY: three systems to one CSV in Python</h2>
+<p>This script takes careers URLs, detects the system, fetches the board, reduces every job to eight columns and writes <code>jobs.csv</code>. Run on 6 November 2026 on Discord (Greenhouse), Zoox (Lever) and Ashby's Ramp it returned 432 rows (26 + 238 + 168), of which 399 had a salary range: 26 of 26 for Discord, 216 of 238 for Zoox, 157 of 168 for Ramp. It needs <code>pip install requests</code>. Put a real contact in the User-Agent.</p>
+<pre><code>import csv
+import re
+import time
+from datetime import datetime, timezone
+from urllib.parse import urlparse
+
+import requests
+
+HEADERS = {&quot;User-Agent&quot;: &quot;my-script/1.0 (contact: you@example.com)&quot;}
+
+
+def detect(url):
+    &quot;&quot;&quot;Careers URL -&gt; (ats, slug), or None if it is not a hosted board URL.&quot;&quot;&quot;
+    u = urlparse(url if &quot;//&quot; in url else &quot;https://&quot; + url)
+    host, parts = (u.hostname or &quot;&quot;).lower(), [p for p in u.path.split(&quot;/&quot;) if p]
+    if host in (&quot;boards.greenhouse.io&quot;, &quot;job-boards.greenhouse.io&quot;) and parts:
+        return &quot;greenhouse&quot;, parts[0]
+    if host == &quot;jobs.lever.co&quot; and parts:
+        return &quot;lever&quot;, parts[0]
+    if host == &quot;jobs.ashbyhq.com&quot; and parts:
+        return &quot;ashby&quot;, parts[0]
+    return None
+
+
+def get(url, **params):
+    r = requests.get(url, params=params, headers=HEADERS, timeout=60)
+    r.raise_for_status()
+    return r.json()
+
+
+def iso_ms(ms):
+    return datetime.fromtimestamp(ms / 1000, timezone.utc).isoformat(timespec=&quot;seconds&quot;)
+
+
+def job(ats, slug, title, loc, remote, posted, url, salary):
+    return {&quot;ats&quot;: ats, &quot;company&quot;: slug, &quot;title&quot;: (title or &quot;&quot;).strip(), &quot;location&quot;: loc,
+            &quot;remote&quot;: remote, &quot;posted&quot;: posted, &quot;url&quot;: url, &quot;salary&quot;: salary}
+
+
+def greenhouse(slug):
+    data = get(f&quot;https://boards-api.greenhouse.io/v1/boards/{slug}/jobs&quot;, pay_transparency=&quot;true&quot;)
+    for j in data[&quot;jobs&quot;]:
+        pr = (j.get(&quot;pay_input_ranges&quot;) or [None])[0]
+        sal = f&quot;{pr[&#x27;min_cents&#x27;] / 100:.0f}-{pr[&#x27;max_cents&#x27;] / 100:.0f} {pr[&#x27;currency_type&#x27;]}&quot; if pr else None
+        loc = (j.get(&quot;location&quot;) or {}).get(&quot;name&quot;)
+        yield job(&quot;greenhouse&quot;, slug, j[&quot;title&quot;], loc, None, j.get(&quot;first_published&quot;), j[&quot;absolute_url&quot;], sal)
+
+
+def lever(slug):
+    for j in get(f&quot;https://api.lever.co/v0/postings/{slug}&quot;, mode=&quot;json&quot;):
+        sr, cat = j.get(&quot;salaryRange&quot;), j.get(&quot;categories&quot;) or {}
+        sal = f&quot;{sr[&#x27;min&#x27;]}-{sr[&#x27;max&#x27;]} {sr[&#x27;currency&#x27;]} ({sr[&#x27;interval&#x27;]})&quot; if sr else None
+        remote = j.get(&quot;workplaceType&quot;) == &quot;remote&quot; if j.get(&quot;workplaceType&quot;) else None
+        yield job(&quot;lever&quot;, slug, j[&quot;text&quot;], cat.get(&quot;location&quot;), remote, iso_ms(j[&quot;createdAt&quot;]), j[&quot;hostedUrl&quot;], sal)
+
+
+def ashby(slug):
+    data = get(f&quot;https://api.ashbyhq.com/posting-api/job-board/{slug}&quot;, includeCompensation=&quot;true&quot;)
+    for j in data[&quot;jobs&quot;]:
+        sal = (j.get(&quot;compensation&quot;) or {}).get(&quot;scrapeableCompensationSalarySummary&quot;)
+        remote = j[&quot;workplaceType&quot;] == &quot;Remote&quot; if j.get(&quot;workplaceType&quot;) else None
+        yield job(&quot;ashby&quot;, slug, j[&quot;title&quot;], j.get(&quot;location&quot;), remote, j.get(&quot;publishedAt&quot;), j[&quot;jobUrl&quot;], sal)
+
+
+FETCH = {&quot;greenhouse&quot;: greenhouse, &quot;lever&quot;: lever, &quot;ashby&quot;: ashby}
+
+
+def main(urls):
+    rows = []
+    for url in urls:
+        found = detect(url)
+        if not found:
+            print(&quot;not a Greenhouse/Lever/Ashby board URL:&quot;, url)
+            continue
+        ats, slug = found
+        rows += list(FETCH[ats](slug))
+        print(ats, slug, len(rows), &quot;jobs so far&quot;)
+        if ats == &quot;lever&quot;:
+            time.sleep(1)          # Lever&#x27;s robots.txt asks for Crawl-delay: 1
+    with open(&quot;jobs.csv&quot;, &quot;w&quot;, newline=&quot;&quot;, encoding=&quot;utf-8-sig&quot;) as f:
+        w = csv.DictWriter(f, fieldnames=list(rows[0]))
+        w.writeheader()
+        w.writerows(rows)
+
+
+main([&quot;https://job-boards.greenhouse.io/discord&quot;,
+      &quot;https://jobs.lever.co/zoox&quot;,
+      &quot;https://jobs.ashbyhq.com/ramp&quot;])</code></pre>
+<p>Things the script does on purpose: it sleeps one second after each Lever company (the <code>Crawl-delay</code>), uses <code>workplaceType</code> and not Ashby's <code>isRemote</code> for the remote column, and leaves <code>remote</code> empty for Greenhouse because the API has no such field. Description fields are not kept; add <code>content=true</code> (Greenhouse) and read <code>descriptionPlain</code> (Lever, Ashby) if you need them.</p>
+<p class="note">Limits worth stating: we did not find a published rate limit for Greenhouse or Ashby and did not stress them. Boards are one response of up to several MB, so do not poll a hundred companies in parallel. Postings are what each employer chose to publish; unlisted or internal jobs are not in these feeds. The postings are the employers' content: do not use them to contact individuals, and check the employer's terms for your use.</p>
+
+<h2>6. When the Actors save time</h2>
+<p>For one company the script above is enough, and free. The Apify Actors by Nexus Scrapers run the same public endpoints and add what you would otherwise build:</p>
+<ul>
+<li><a href="https://apify.com/nexus-scrapers/greenhouse-jobs-scraper">Greenhouse Jobs Scraper</a>, <a href="https://apify.com/nexus-scrapers/lever-jobs-scraper">Lever Jobs Scraper</a> and <a href="https://apify.com/nexus-scrapers/ashby-jobs-scraper">Ashby Jobs Scraper</a>: one per system, for when you only need that one.</li>
+<li><a href="https://apify.com/nexus-scrapers/career-site-jobs">Career Site Jobs Scraper</a>: the same schema for Greenhouse, Lever, Ashby and also Workable, Recruitee, Personio and Workday (see our <a href="../workday-jobs-json/">Workday guide</a>).</li>
+</ul>
+<p>What they do:</p>
+<ul>
+<li><strong>Companies mode:</strong> give career URLs, <code>ats:id</code> entries (<code>lever:palantir</code>) or a company website (the Actor fetches that one page and looks for an embedded board, <code>robots.txt</code> respected; it finds nothing if the page builds its job list with JavaScript).</li>
+<li><strong>Discovery mode:</strong> leave the company list empty and it scans the bundled company directory (biggest boards first, up to <code>maxCompanies</code>, default 200) and filters live by title keyword, location, remote flag and posting date.</li>
+<li><strong>The normalized schema above</strong>, in JSON, CSV or Excel, with scheduling, webhooks and API/MCP access from Apify.</li>
+<li><strong>Politeness built in:</strong> honest User-Agent, <code>robots.txt</code> read per host, Lever limited to one request per second, retries with backoff on 429/5xx, no proxies, no browser.</li>
+<li>No personal data is extracted: no recruiter names or e-mail addresses are copied into fields.</li>
+</ul>
+<p>Pricing is pay per result; the Actor page shows the current price.</p>
+<p class="note">What they do not do, from the code and our own sample: the Greenhouse feed is requested without <code>pay_transparency</code>, so <code>salary</code> is empty for Greenhouse jobs (you saw above that the parameter matters; use the script if you need Greenhouse pay). Ashby's <code>isRemote</code> is passed through as published, so hybrid Ramp jobs show <code>isRemote: true</code> with <code>workplaceType: hybrid</code>; filter on <code>workplaceType</code>. There is no "only jobs new since the last run" mode yet: schedule runs and compare <code>jobId</code>s, or use <code>postedWithinDays</code>.</p>
+
+<h2>7. Real sample: 20 normalized jobs</h2>
+<p>These 20 jobs were produced on 6 November 2026 by running the Actor's own code locally on the live endpoints (no Apify platform involved): the newest postings of six public boards, Airbnb 4 and Discord 3 (Greenhouse), Outreach 4 and Zoox 3 (Lever), Ramp 3 and PostHog 3 (Ashby). They are the first postings in newest-first order, not hand-picked. Description text is cut at 1,500 characters and the HTML description is left out to keep the files small. A scrub pass for e-mail addresses ran over every text field and none remain in the files. Salary shows only where the board published one and the Actor read it (see the note above for Greenhouse).</p>
+<p>Download: <a href="sample.json">sample.json</a> (full records, UTF-8) and <a href="sample.csv">sample.csv</a> (flattened, lists joined with <code> | </code>, opens in Excel).</p>
+<div class="tw"><table>
+<tr><th>System</th><th>Company</th><th>Title</th><th>Location</th><th>Remote</th><th>Posted</th><th>Salary</th></tr>
+<tr><td>greenhouse</td><td>Airbnb</td><td><a href="https://careers.airbnb.com/positions/8357059?gh_jid=8357059">Business Operations and Growth Lead - DACH &amp; CEE</a></td><td>Berlin, Germany</td><td class="n">no</td><td class="n">2026-11-06</td><td class="n">-</td></tr>
+<tr><td>greenhouse</td><td>Airbnb</td><td><a href="https://careers.airbnb.com/positions/8220091?gh_jid=8220091">Senior Manager, Quality</a></td><td>Gurugram, India</td><td class="n">no</td><td class="n">2026-11-06</td><td class="n">-</td></tr>
+<tr><td>greenhouse</td><td>Airbnb</td><td><a href="https://careers.airbnb.com/positions/8349065?gh_jid=8349065">Senior Account Executive, Hotels</a></td><td>Tokyo, Japan</td><td class="n">no</td><td class="n">2026-11-05</td><td class="n">-</td></tr>
+<tr><td>greenhouse</td><td>Airbnb</td><td><a href="https://careers.airbnb.com/positions/8354382?gh_jid=8354382">Senior Manager, Business Technology Enablement</a></td><td>United States</td><td class="n">yes</td><td class="n">2026-11-04</td><td class="n">-</td></tr>
+<tr><td>greenhouse</td><td>Discord</td><td><a href="https://job-boards.greenhouse.io/discord/jobs/8910013002">Senior Machine Learning Engineer (Growth)</a></td><td>San Francisco Bay Area</td><td class="n">-</td><td class="n">2026-11-04</td><td class="n">-</td></tr>
+<tr><td>greenhouse</td><td>Discord</td><td><a href="https://job-boards.greenhouse.io/discord/jobs/8907804002">Senior Manager, Global Indirect Tax</a></td><td>San Francisco Bay Area</td><td class="n">-</td><td class="n">2026-11-03</td><td class="n">-</td></tr>
+<tr><td>greenhouse</td><td>Discord</td><td><a href="https://job-boards.greenhouse.io/discord/jobs/8917177002">Associate Commercial Counsel</a></td><td>San Francisco Bay Area or Rem…</td><td class="n">yes</td><td class="n">2026-11-03</td><td class="n">-</td></tr>
+<tr><td>lever</td><td>Outreach</td><td><a href="https://jobs.lever.co/outreach/565a94cf-8197-4f03-979c-e97dcda97b76">Staff Software Engineer, Mobile (Android and iO…</a></td><td>Hyderabad</td><td class="n">no</td><td class="n">2026-11-05</td><td class="n">-</td></tr>
+<tr><td>lever</td><td>Outreach</td><td><a href="https://jobs.lever.co/outreach/063dfa93-aa1b-4927-b865-093e960aaa39">Staff Software Engineer (Mobile, Android) - Hyd…</a></td><td>Hyderabad</td><td class="n">no</td><td class="n">2026-11-05</td><td class="n">-</td></tr>
+<tr><td>lever</td><td>Outreach</td><td><a href="https://jobs.lever.co/outreach/18e15790-4e2f-4d5f-b072-8ed74c604ad3">Staff Software Engineer (Mobile, iOS) - Hyderab…</a></td><td>Hyderabad</td><td class="n">no</td><td class="n">2026-11-05</td><td class="n">-</td></tr>
+<tr><td>lever</td><td>Outreach</td><td><a href="https://jobs.lever.co/outreach/f2707d54-16cb-4d5b-be8f-a50365e8a25c">Senior Staff Software Engineer, Mobile (Android…</a></td><td>Hyderabad</td><td class="n">no</td><td class="n">2026-11-04</td><td class="n">-</td></tr>
+<tr><td>lever</td><td>Zoox</td><td><a href="https://jobs.lever.co/zoox/86b340fe-0d63-4f03-9aec-72b958f96c7f">Staff Chassis Engineer, Steering and Braking Ac…</a></td><td>Banbury, UK</td><td class="n">no</td><td class="n">2026-11-06</td><td class="n">111,000-153,000 GBP/year</td></tr>
+<tr><td>lever</td><td>Zoox</td><td><a href="https://jobs.lever.co/zoox/a5483274-c09e-4338-b2e4-cf0b373655d1">Senior/Staff Technical Program Manager - Proces…</a></td><td>Foster City, CA</td><td class="n">no</td><td class="n">2026-11-05</td><td class="n">193,000-279,000 USD/year</td></tr>
+<tr><td>lever</td><td>Zoox</td><td><a href="https://jobs.lever.co/zoox/1f58ca3f-fedd-4156-baff-5fc2c1825112">Second Shift Lead, Senior Logistics Operations…</a></td><td>Hayward, CA</td><td class="n">no</td><td class="n">2026-11-04</td><td class="n">43.25-52.5 USD/hour</td></tr>
+<tr><td>ashby</td><td>Ramp</td><td><a href="https://jobs.ashbyhq.com/ramp/8d516dbd-e5b7-43da-922f-1417ead4d082">Account Executive, Inside Sales</a></td><td>New York, NY (HQ)</td><td class="n">yes</td><td class="n">2026-11-06</td><td class="n">165,000 USD/year</td></tr>
+<tr><td>ashby</td><td>Ramp</td><td><a href="https://jobs.ashbyhq.com/ramp/814edb3c-fa7a-452f-bde6-91daa9ffdd86">Manager, Account Manager | Growth</a></td><td>New York, NY (HQ)</td><td class="n">yes</td><td class="n">2026-11-05</td><td class="n">180,000-247,000 USD/year</td></tr>
+<tr><td>ashby</td><td>Ramp</td><td><a href="https://jobs.ashbyhq.com/ramp/af262319-1c4f-4a36-93bd-ef260cb02aed">Recruiting Coordinator (Fixed Term)</a></td><td>New York, NY (HQ)</td><td class="n">yes</td><td class="n">2026-11-04</td><td class="n">75,000-100,000 USD/year</td></tr>
+<tr><td>ashby</td><td>Posthog</td><td><a href="https://jobs.ashbyhq.com/posthog/4a8a1ee5-aa45-447e-a438-919b4577f14d">Animator &amp; Motion Graphics Designer</a></td><td>Remote</td><td class="n">yes</td><td class="n">2026-10-14</td><td class="n">-</td></tr>
+<tr><td>ashby</td><td>Posthog</td><td><a href="https://jobs.ashbyhq.com/posthog/82ef4227-e7a6-4e59-a128-2b3333951e21">Developer Marketer - Sales</a></td><td>Remote</td><td class="n">yes</td><td class="n">2026-10-07</td><td class="n">-</td></tr>
+<tr><td>ashby</td><td>Posthog</td><td><a href="https://jobs.ashbyhq.com/posthog/3c592b84-8b34-4ae4-ae23-cadce8f2212d">Product Manager, Observability (ex-founder or e…</a></td><td>Remote</td><td class="n">yes</td><td class="n">2026-10-06</td><td class="n">-</td></tr>
+</table></div>
+<p>"Remote" is the normalized <code>isRemote</code>: yes, no, or - when the system does not say.</p>
+
+<h2>8. Terms</h2>
+<p>These are public endpoints that each vendor offers for building career pages (Greenhouse and Lever document them for that purpose, Ashby calls its endpoint the public job posting API), but the postings belong to the employers and we reviewed no terms of service beyond that. Use job data to display or analyse openings, not to harvest personal data, and read the terms that apply to your use. This is not legal advice.</p>
+
+<h2>Links</h2>
+<ul>
+<li><a href="https://apify.com/nexus-scrapers/career-site-jobs">Career Site Jobs Scraper on Apify</a> (Greenhouse, Lever, Ashby, Workable, Recruitee, Personio, Workday)</li>
+<li><a href="https://apify.com/nexus-scrapers/greenhouse-jobs-scraper">Greenhouse Jobs Scraper</a>, <a href="https://apify.com/nexus-scrapers/lever-jobs-scraper">Lever Jobs Scraper</a>, <a href="https://apify.com/nexus-scrapers/ashby-jobs-scraper">Ashby Jobs Scraper</a></li>
+<li><a href="https://docs.greenhouse.io/job-board.html">Greenhouse Job Board API documentation</a></li>
+<li><a href="https://github.com/lever/postings-api">Lever Postings API documentation</a></li>
+<li><a href="../workday-jobs-json/">The companion guide: Workday career sites</a></li>
+<li><a href="../ted-tenders-json/">The same kind of guide for EU tenders (TED)</a></li>
+</ul>
+
+<footer>Independent guide by Nexus Tools. Not affiliated with or endorsed by Greenhouse, Lever, Ashby or Apify. Contact: <a href="mailto:nexusscrapers.dev@gmail.com">nexusscrapers.dev@gmail.com</a></footer>
+</main>
+</body>
+</html>

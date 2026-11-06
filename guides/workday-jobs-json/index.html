@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Workday career site jobs as JSON or CSV: the /wday/cxs endpoint (Python)</title>
+<meta name="description" content="How the public JSON behind Workday career sites (myworkdayjobs.com, /wday/cxs) works: building the URL, list and detail calls, the 20-per-page and 2,000 limits, why it is undocumented, a tested Python script and a 20-job sample.">
+<link rel="canonical" href="https://nexus-tools-dev.github.io/guides/workday-jobs-json/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Nexus Tools">
+<meta property="og:title" content="Workday career site jobs as JSON or CSV: the /wday/cxs endpoint (Python)">
+<meta property="og:description" content="How the public JSON behind Workday career sites (myworkdayjobs.com, /wday/cxs) works: building the URL, list and detail calls, the 20-per-page and 2,000 limits, why it is undocumented, a tested Python script and a 20-job sample.">
+<meta property="og:url" content="https://nexus-tools-dev.github.io/guides/workday-jobs-json/">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Workday career sites as JSON: the undocumented /wday/cxs endpoint behind myworkdayjobs.com, tested live, with a Python example and a free sample", "description": "How the public JSON behind Workday career sites (myworkdayjobs.com, /wday/cxs) works: building the URL, list and detail calls, the 20-per-page and 2,000 limits, why it is undocumented, a tested Python script and a 20-job sample.", "inLanguage": "en", "datePublished": "2026-11-06", "dateModified": "2026-11-06", "url": "https://nexus-tools-dev.github.io/guides/workday-jobs-json/", "mainEntityOfPage": "https://nexus-tools-dev.github.io/guides/workday-jobs-json/", "keywords": "Workday jobs API, myworkdayjobs.com, wday cxs, Workday career site JSON, job postings, Python", "author": {"@type": "Organization", "name": "Nexus Tools", "url": "https://nexus-tools-dev.github.io/"}, "publisher": {"@type": "Organization", "name": "Nexus Tools", "url": "https://nexus-tools-dev.github.io/"}}</script>
+<style>
+  :root { --bg:#f6f7f9; --panel:#fff; --text:#16181d; --muted:#5f6672; --line:#d9dde3; --accent:#1f5fd1; --code:#eef0f4; color-scheme: light dark; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#14161a; --panel:#1d2026; --text:#eceef2; --muted:#a2a9b5; --line:#343944; --accent:#6ea0ff; --code:#252932; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.65 system-ui,"Segoe UI",Roboto,sans-serif; }
+  main { max-width: 780px; margin: 0 auto; padding: 40px 20px 64px; }
+  h1 { font-size: 28px; line-height:1.25; margin: 8px 0 8px; }
+  h2 { font-size: 21px; margin: 40px 0 8px; }
+  h3 { font-size: 17px; margin: 24px 0 4px; }
+  .lead { color: var(--muted); margin: 0 0 8px; }
+  .meta { color: var(--muted); font-size: 14px; }
+  a { color: var(--accent); }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px 18px; margin: 16px 0; }
+  pre, code { font: 13.5px/1.5 ui-monospace,SFMono-Regular,Consolas,Menlo,monospace; }
+  code { background: var(--code); padding: 1px 5px; border-radius: 4px; }
+  pre { background: var(--code); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; overflow-x: auto; margin: 12px 0; }
+  pre code { background: none; padding: 0; }
+  .tw { overflow-x: auto; margin: 12px 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { text-align: left; border-bottom: 1px solid var(--line); padding: 6px 8px; vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; white-space: nowrap; }
+  td.n { white-space: nowrap; }
+  ul, ol { padding-left: 22px; }
+  li { margin: 4px 0; }
+  .note { border-left: 3px solid var(--accent); padding: 2px 0 2px 14px; color: var(--muted); }
+  footer { margin-top: 48px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); padding-top: 16px; }
+  p code, li code, td code { overflow-wrap: anywhere; }</style>
+</head>
+<body>
+<main>
+<p class="meta"><a href="../../">Nexus Tools</a> / Data guides</p>
+
+<h1>Workday career sites as JSON: the /wday/cxs endpoint behind myworkdayjobs.com, tested on NVIDIA, Salesforce and Adobe, with a Python example and a free sample</h1>
+<p class="lead">How the public JSON behind Workday career sites works, how to build the URL from a careers link, the list and detail calls, the 20-per-page and 2,000-result traps we hit, why it is not a documented API and what that means, and when an Actor saves you the code.</p>
+<p class="meta">Updated: November 2026. Everything below was tested live on 6 November 2026.</p>
+
+<h2>The short version</h2>
+<ul>
+<li>Workday career sites (<code>https://&lt;tenant&gt;.wd&lt;N&gt;.myworkdayjobs.com/&lt;site&gt;</code>) are single-page apps. The page loads its jobs from a JSON endpoint under <code>/wday/cxs/&lt;tenant&gt;/&lt;site&gt;/</code>: a POST for the list and a GET per job for the description. No login or key was needed on any tenant that answered.</li>
+<li><strong>This is not a documented API.</strong> Workday does not publish it for third parties; it is what the career site itself calls. It can change, throttle or disappear without notice, and some tenants refuse it (we got <code>HTTP 422</code> from two). Do not build anything you cannot afford to repair.</li>
+<li>Traps we measured: <code>limit</code> above 20 is rejected, <code>total</code> is reported on the first page only, the list stops at 2,000 jobs (NVIDIA has more), and the list carries no description and no real date, so those cost one extra request per job.</li>
+<li>This page gives the calls with curl, a Python script (about 60 lines, tested today) and a free 20-job sample in the normalized schema of our job Actors.</li>
+</ul>
+
+<h2>1. From a careers URL to the endpoint</h2>
+<p>Take the URL of the career site. Three parts matter: the <strong>tenant</strong> (first label of the host), the data-center number <strong><code>wdN</code></strong> (second label), and the <strong>site</strong> (first path segment, after an optional locale such as <code>en-US</code>):</p>
+<pre><code>https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite
+        ^tenant  ^wd5                  ^locale  ^site
+
+list:    POST https://nvidia.wd5.myworkdayjobs.com/wday/cxs/nvidia/NVIDIAExternalCareerSite/jobs
+detail:  GET  https://nvidia.wd5.myworkdayjobs.com/wday/cxs/nvidia/NVIDIAExternalCareerSite{externalPath}</code></pre>
+<p>Tenants and sites we confirmed on 6 November 2026 (company-chosen names, so copy them from the real URL, do not guess):</p>
+<div class="tw"><table>
+<tr><th>Company</th><th>Tenant / data center</th><th>Site</th><th>Jobs reported on the first page</th></tr>
+<tr><td>NVIDIA</td><td><code>nvidia.wd5</code></td><td><code>NVIDIAExternalCareerSite</code></td><td class="n">2,000 (see section 3)</td></tr>
+<tr><td>Salesforce</td><td><code>salesforce.wd12</code></td><td><code>External_Career_Site</code></td><td class="n">1,554</td></tr>
+<tr><td>Cisco</td><td><code>cisco.wd5</code></td><td><code>Cisco_Careers</code></td><td class="n">1,457</td></tr>
+<tr><td>Adobe</td><td><code>adobe.wd5</code></td><td><code>external_experienced</code></td><td class="n">281</td></tr>
+</table></div>
+<p>Workday itself (<code>workday.wd5/Workday</code>) also worked when read through the Actor. A wrong site name on a real tenant gave <code>HTTP 404</code>; a tenant host that does not exist gave <code>HTTP 422</code>. The same <code>422</code> came back for the two other big names we tried, Walmart and Dell, with the site names we guessed; we did not find out whether the sites or the request were wrong, so treat 422 as "not usable this way".</p>
+
+<h2>2. The calls, with curl</h2>
+<pre><code># list: 20 jobs per page; must send Content-Type: application/json
+curl -s -X POST "https://nvidia.wd5.myworkdayjobs.com/wday/cxs/nvidia/NVIDIAExternalCareerSite/jobs" \
+  -H "Content-Type: application/json" \
+  -d '{"appliedFacets":{},"limit":20,"offset":0,"searchText":""}'
+
+# full text search: searchText
+curl -s -X POST "https://nvidia.wd5.myworkdayjobs.com/wday/cxs/nvidia/NVIDIAExternalCareerSite/jobs" \
+  -H "Content-Type: application/json" \
+  -d '{"appliedFacets":{},"limit":20,"offset":0,"searchText":"data scientist"}'
+
+# one job: the externalPath taken from the list
+curl -s "https://nvidia.wd5.myworkdayjobs.com/wday/cxs/nvidia/NVIDIAExternalCareerSite/job/US-CA-Remote/Senior-Account-Manager--Hyperscale-and-AI-Native_JR2023413-1"</code></pre>
+<h3>What the list returns</h3>
+<pre><code>{
+  "total": 2000,
+  "jobPostings": [
+    {
+      "title": "Senior Account Manager, Hyperscale and AI Native",
+      "externalPath": "/job/US-CA-Remote/Senior-Account-Manager--Hyperscale-and-AI-Native_JR2023413-1",
+      "locationsText": "US, CA, Remote",
+      "postedOn": "Posted Today",
+      "bulletFields": ["JR2023413"]
+    }, ...
+  ],
+  "facets": [ {"facetParameter": "jobFamilyGroup", "descriptor": "Job Category", "values": [...]}, ... ],
+  "userAuthenticated": false
+}</code></pre>
+<ul>
+<li><strong>No description and no date.</strong> <code>postedOn</code> is a label ("Posted Today", "Posted Yesterday", "Posted 7 Days Ago", "Posted 30+ Days Ago"). <code>locationsText</code> becomes "2 Locations" as soon as a job has more than one. <code>bulletFields[0]</code> is the requisition id.</li>
+<li><code>searchText</code> works as a title and text search: "data scientist" gave 98 NVIDIA jobs.</li>
+<li>Order is roughly newest first, not guaranteed: at offset 400 the labels were "7 Days Ago", at offset 1000 "6 Days Ago".</li>
+</ul>
+<h3>What the detail returns</h3>
+<p>The detail is <code>{"jobPostingInfo": {...}, "hiringOrganization": {...}, "similarJobs": [...]}</code>. In <code>jobPostingInfo</code> we found, among others: <code>title</code>, <code>jobDescription</code> (HTML), <code>location</code>, <code>additionalLocations[]</code>, <code>startDate</code> (a date such as <code>2026-11-06</code>: the real posting date), <code>timeType</code> ("Full time"), <code>jobReqId</code>, <code>country.descriptor</code>, <code>jobRequisitionLocation.country.alpha2Code</code>, <code>externalUrl</code> (the public job page) and, on some tenants, <code>remoteType</code> (Cisco returned "Onsite Only" for one job it listed). There is no salary field; if a company publishes pay it is inside the description text. There is no department field either.</p>
+
+<h2>3. Limits and traps (measured)</h2>
+<ul>
+<li><strong>20 per request.</strong> <code>"limit": 21</code> returned <code>HTTP 400</code> with <code>{"errorCode":"HTTP_400",...}</code>. Page with <code>offset</code> in steps of 20.</li>
+<li><strong>Content-Type matters.</strong> The same POST without the JSON content type returned <code>HTTP 500</code>.</li>
+<li><strong><code>total</code> only on page one.</strong> On later pages it was <code>0</code>. Read it once, then page until a page returns fewer than 20 jobs.</li>
+<li><strong>The list stops at 2,000.</strong> NVIDIA's first page said <code>total: 2000</code>, yet one facet alone (Engineering, <code>jobFamilyGroup</code>) counted 1,780 and the job categories added up to 2,804. Asking for <code>offset: 2000</code> (or 2020, 2100) did not return an empty page: it returned the <strong>first page again</strong>. If you page blindly you collect duplicates. Split by facets instead: take a value <code>id</code> from <code>facets[].values[]</code> and send it back, e.g. <code>"appliedFacets": {"jobFamilyGroup": ["&lt;id&gt;"]}</code> (the Engineering id returned <code>total: 1780</code>).</li>
+<li><strong>Details cost a request per job.</strong> 2,000 jobs with descriptions means about 2,100 requests. Filter on title and location from the list first, and only then fetch details.</li>
+<li><strong>Be gentle.</strong> We spaced requests 0.3 s apart, one at a time per host. We found no published rate limit, which is not the same as there being none.</li>
+<li><strong>robots.txt.</strong> NVIDIA's host lists <code>Disallow: /refreshFacet/</code> and a few site paths (<code>/talentcommunity/</code>, <code>/NVIDIAExternalCareerSiteResearch/</code>, <code>/NVIDIARecruitAds/</code>), with <code>Allow: /NVIDIAExternalCareerSite/</code>; <code>/wday/</code> is not disallowed. Read the file of each host you use: Mastercard's, for instance, has extra disallowed paths.</li>
+</ul>
+
+<h2>4. DIY: one Workday site to CSV in Python</h2>
+<p>This script parses a careers URL, searches for a phrase, pages through the list, fetches each job's detail and writes <code>workday_jobs.csv</code>. Run on 6 November 2026 with <code>searchText</code> "data scientist" on NVIDIA it reported <code>total 98</code> and wrote 40 rows (the script's <code>max_jobs</code> limit). It needs <code>pip install requests</code>. Put a real contact in the User-Agent.</p>
+<pre><code>import csv
+import re
+import time
+from urllib.parse import urlparse
+
+import requests
+
+HEADERS = {&quot;User-Agent&quot;: &quot;my-script/1.0 (contact: you@example.com)&quot;}
+CAREERS_URL = &quot;https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite&quot;
+
+
+def parse(url):
+    &quot;&quot;&quot;https://&lt;tenant&gt;.&lt;wdN&gt;.myworkdayjobs.com/[locale/]&lt;site&gt;/... -&gt; (host, tenant, site)&quot;&quot;&quot;
+    u = urlparse(url)
+    m = re.match(r&quot;^([a-z0-9-]+)\.wd\d+\.myworkdayjobs\.com$&quot;, u.hostname or &quot;&quot;)
+    parts = [p for p in u.path.split(&quot;/&quot;) if p]
+    if parts and re.match(r&quot;^[a-z]{2}-[A-Z]{2}$&quot;, parts[0]):      # optional locale, e.g. en-US
+        parts = parts[1:]
+    if not m or not parts:
+        raise ValueError(&quot;not a myworkdayjobs.com career site URL&quot;)
+    return u.hostname, m.group(1), parts[0]
+
+
+def search(base, text=&quot;&quot;, max_jobs=40):
+    &quot;&quot;&quot;Yield list entries; the server accepts limit &lt;= 20 and returns `total` on the first page only.&quot;&quot;&quot;
+    offset = 0
+    while offset &lt; max_jobs:
+        r = requests.post(f&quot;{base}/jobs&quot;, headers=HEADERS, timeout=60,
+                          json={&quot;appliedFacets&quot;: {}, &quot;limit&quot;: 20, &quot;offset&quot;: offset, &quot;searchText&quot;: text})
+        r.raise_for_status()
+        data = r.json()
+        if offset == 0:
+            print(&quot;total reported:&quot;, data[&quot;total&quot;])
+        postings = data.get(&quot;jobPostings&quot;) or []
+        yield from postings
+        if len(postings) &lt; 20:
+            break
+        offset += 20
+        time.sleep(0.3)
+
+
+def detail(base, external_path):
+    r = requests.get(base + external_path, headers=HEADERS, timeout=60)
+    r.raise_for_status()
+    return r.json()[&quot;jobPostingInfo&quot;]
+
+
+host, tenant, site = parse(CAREERS_URL)
+base = f&quot;https://{host}/wday/cxs/{tenant}/{site}&quot;
+rows = []
+for p in search(base, text=&quot;data scientist&quot;, max_jobs=40):
+    d = detail(base, p[&quot;externalPath&quot;])
+    rows.append({&quot;id&quot;: d[&quot;jobReqId&quot;], &quot;title&quot;: d[&quot;title&quot;], &quot;location&quot;: d.get(&quot;location&quot;),
+                 &quot;country&quot;: (d.get(&quot;country&quot;) or {}).get(&quot;descriptor&quot;),
+                 &quot;time_type&quot;: d.get(&quot;timeType&quot;), &quot;start_date&quot;: d.get(&quot;startDate&quot;),
+                 &quot;url&quot;: d[&quot;externalUrl&quot;]})
+    time.sleep(0.3)
+
+with open(&quot;workday_jobs.csv&quot;, &quot;w&quot;, newline=&quot;&quot;, encoding=&quot;utf-8-sig&quot;) as f:
+    w = csv.DictWriter(f, fieldnames=list(rows[0]))
+    w.writeheader()
+    w.writerows(rows)
+print(len(rows), &quot;jobs written&quot;)</code></pre>
+<p>It does not split by facets, so on a site with more than 2,000 jobs run it per facet or per search term, and it does not retry on errors. If a tenant answers 422, stop: the endpoint is not usable there.</p>
+<p class="note">Remember what you are using: an undocumented endpoint of someone else's product, used by their own career site. Keep volumes small, identify yourself, and expect to fix the script when Workday changes it. The postings are the employers' content: do not use them to contact individuals.</p>
+
+<h2>5. When the Actor saves time</h2>
+<p>For one site and a one-off export, the script above is free and enough. The Apify Actor <a href="https://apify.com/nexus-scrapers/workday-jobs-scraper">Workday Jobs Scraper</a> (by Nexus Scrapers) does the same calls with the housekeeping built in, and the multi-system <a href="https://apify.com/nexus-scrapers/career-site-jobs">Career Site Jobs Scraper</a> adds Greenhouse, Lever, Ashby, Workable, Recruitee and Personio in the same schema (see the <a href="../greenhouse-lever-ashby-jobs-json/">Greenhouse, Lever and Ashby guide</a>).</p>
+<ul>
+<li><strong>Input as the URL form:</strong> <code>nvidia.wd5/NVIDIAExternalCareerSite</code> or the career URL, several sites per run.</li>
+<li><strong>The normalized schema:</strong> title, locations, country and ISO code, employment type, remote type when the site gives one, <code>postedAt</code>, description text and HTML, apply link, requisition id in <code>extras</code>. Missing values are <code>null</code>.</li>
+<li><strong>Filters as plain inputs:</strong> title keywords, excluded keywords, location text, remote only, posted within N days. Details are fetched only for the jobs that pass your title and location filters, at most <code>maxItems</code> per company, so a narrow search costs a few requests instead of thousands.</li>
+<li><strong>Politeness:</strong> honest User-Agent, <code>robots.txt</code> checked per host before every request, one request at a time per Workday host, 0.3 s apart, retries with backoff, no proxies, no browser. A site that answers 422 or 404 is skipped with a warning in the log; the run succeeds if at least one site was read.</li>
+<li>Scheduling, webhooks, JSON/CSV/Excel export and API/MCP access come with Apify.</li>
+</ul>
+<p>Pricing is pay per result; the Actor page shows the current price.</p>
+<p class="note">Limits, from the code and our own run: it reads at most the first 1,000 listings of each site, so it will not walk a 2,000-job list to the end (use keywords or several runs). With <code>includeDescription</code> off there is no detail call and <code>postedAt</code> is approximate, derived from the "Posted N days ago" label (<code>extras.postedAtApprox</code> says so). Salary is always empty for Workday, because the endpoint has none. A <code>remoteType</code> value such as Cisco's "Onsite Only" was not mapped in our sample (<code>workplaceType</code> and <code>isRemote</code> are null for those jobs). It relies on an undocumented endpoint, so it can break the day Workday changes it.</p>
+
+<h2>6. Real sample: 20 normalized jobs</h2>
+<p>These 20 jobs were produced on 6 November 2026 by running the Actor's own code locally on the live endpoints (no Apify platform involved): the first postings of five public Workday sites, NVIDIA 5, Salesforce 4, Adobe 4, Cisco 4 and Workday 3, in the list's order (roughly newest first), not hand-picked. <code>postedAt</code> is the date-only <code>startDate</code> of each job. Description text is cut at 1,500 characters and the HTML description is left out to keep the files small. A scrub pass for e-mail addresses ran over every text field and none remain in the files.</p>
+<p>Download: <a href="sample.json">sample.json</a> (full records, UTF-8) and <a href="sample.csv">sample.csv</a> (flattened, lists joined with <code> | </code>, opens in Excel).</p>
+<div class="tw"><table>
+<tr><th>Company</th><th>Title</th><th>Location</th><th>Req. id</th><th>Remote</th><th>Posted</th></tr>
+<tr><td>Nvidia</td><td><a href="https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/US-CA-Remote/Senior-Account-Manager--Hyperscale-and-AI-Native_JR2023413-1">Senior Account Manager, Hyperscale and AI Native</a></td><td>US, CA, Remote</td><td class="n">JR2023413</td><td class="n">yes</td><td class="n">2026-11-06</td></tr>
+<tr><td>Nvidia</td><td><a href="https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Industry-Development-Specialist--AI-Natives_JR2028623">Industry Development Specialist, AI Natives</a></td><td>US, CA, Santa Clara</td><td class="n">JR2028623</td><td class="n">-</td><td class="n">2026-11-06</td></tr>
+<tr><td>Nvidia</td><td><a href="https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Industry-Development-Specialist--NCP_JR2023422">Industry Development Specialist, NCP</a></td><td>US, CA, Santa Clara</td><td class="n">JR2023422</td><td class="n">-</td><td class="n">2026-11-06</td></tr>
+<tr><td>Nvidia</td><td><a href="https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/Taiwan-Taipei/System-Application-Engineer_JR2029384-1">System Application Engineer</a></td><td>Taiwan, Taipei</td><td class="n">JR2029384</td><td class="n">-</td><td class="n">2026-11-06</td></tr>
+<tr><td>Nvidia</td><td><a href="https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/Taiwan-Taipei/Senior-System-Software-Engineer---GPU-Server_JR2029291">Senior System Software Engineer - GPU Server</a></td><td>Taiwan, Taipei</td><td class="n">JR2029291</td><td class="n">-</td><td class="n">2026-11-06</td></tr>
+<tr><td>Salesforce</td><td><a href="https://salesforce.wd12.myworkdayjobs.com/External_Career_Site/job/Canada---Toronto/Recruiting-Coordinator--Contract-_JR367536">Recruiting Coordinator (Contract)</a></td><td>Canada - Toronto</td><td class="n">JR367536</td><td class="n">-</td><td class="n">2026-11-06</td></tr>
+<tr><td>Salesforce</td><td><a href="https://salesforce.wd12.myworkdayjobs.com/External_Career_Site/job/India---Hyderabad/Software-Engineering-AMTS_JR356580">Software Engineering AMTS</a></td><td>India - Hyderabad</td><td class="n">JR356580</td><td class="n">-</td><td class="n">2026-11-06</td></tr>
+<tr><td>Salesforce</td><td><a href="https://salesforce.wd12.myworkdayjobs.com/External_Career_Site/job/India---Bangalore/Product-Accessibility-Engineer_JR367595">Product Accessibility Engineer</a></td><td>India - Bangalore</td><td class="n">JR367595</td><td class="n">-</td><td class="n">2026-11-06</td></tr>
+<tr><td>Salesforce</td><td><a href="https://salesforce.wd12.myworkdayjobs.com/External_Career_Site/job/South-Africa---Johannesburg/Regional-Vice-President--Sales-Enterprise_JR367434">Regional Vice President, Sales Enterprise</a></td><td>South Africa - Johannesburg</td><td class="n">JR367434</td><td class="n">-</td><td class="n">2026-11-06</td></tr>
+<tr><td>Adobe</td><td><a href="https://adobe.wd5.myworkdayjobs.com/external_experienced/job/Washington-DC/Director-Cybersecurity-and-Fraud-Public-Policy_R173038">Director Cybersecurity and Fraud Public Policy</a></td><td>Washington D.C.</td><td class="n">R173038</td><td class="n">-</td><td class="n">2026-11-06</td></tr>
+<tr><td>Adobe</td><td><a href="https://adobe.wd5.myworkdayjobs.com/external_experienced/job/Paris/Regional-Security-and-Safety-Manager-for-Western---EMEA_R173261">Regional Security and Safety Manager for Wester…</a></td><td>Paris</td><td class="n">R173261</td><td class="n">-</td><td class="n">2026-11-05</td></tr>
+<tr><td>Adobe</td><td><a href="https://adobe.wd5.myworkdayjobs.com/external_experienced/job/London/Senior-Manager--Labor-Relations_R173441">Senior Manager, Labor Relations EMEA (Location:…</a></td><td>London</td><td class="n">R173441</td><td class="n">-</td><td class="n">2026-11-05</td></tr>
+<tr><td>Adobe</td><td><a href="https://adobe.wd5.myworkdayjobs.com/external_experienced/job/Noida/Group-Manager--Global-Customer-Operations---Growth_R171692">Group Manager, Global Customer Operations &amp; Gro…</a></td><td>Noida</td><td class="n">R171692</td><td class="n">-</td><td class="n">2026-11-05</td></tr>
+<tr><td>Cisco</td><td><a href="https://cisco.wd5.myworkdayjobs.com/Cisco_Careers/job/San-Jose-California-US/Embedded-Software-Engineer_2029178">Embedded Software Engineer</a></td><td>San Jose, California, US</td><td class="n">2029178</td><td class="n">-</td><td class="n">2026-11-05</td></tr>
+<tr><td>Cisco</td><td><a href="https://cisco.wd5.myworkdayjobs.com/Cisco_Careers/job/San-Jose-California-US/Senior-FPGA-Engineer_2027589">Senior FPGA Engineer</a></td><td>San Jose, California, US</td><td class="n">2027589</td><td class="n">-</td><td class="n">2026-11-05</td></tr>
+<tr><td>Cisco</td><td><a href="https://cisco.wd5.myworkdayjobs.com/Cisco_Careers/job/Milpitas-California-US/Lead-Performance---AI-Tools-Engineer--Hybrid_2030105">Lead Performance &amp; AI Tools Engineer, Hybrid</a></td><td>Milpitas, California, US</td><td class="n">2030105</td><td class="n">no</td><td class="n">2026-11-05</td></tr>
+<tr><td>Cisco</td><td><a href="https://cisco.wd5.myworkdayjobs.com/Cisco_Careers/job/Lysaker-Norway/Product-Designer---Collaboration-Devices---Workplaces_2028374">Product Designer - Collaboration Devices &amp; Work…</a></td><td>Lysaker, Norway</td><td class="n">2028374</td><td class="n">no</td><td class="n">2026-11-05</td></tr>
+<tr><td>Workday</td><td><a href="https://workday.wd5.myworkdayjobs.com/Workday/job/New-Zealand-Auckland/Incident-Manager_JR-0111310-1">Incident Manager</a></td><td>New Zealand, Auckland</td><td class="n">JR-0111310</td><td class="n">-</td><td class="n">2026-11-06</td></tr>
+<tr><td>Workday</td><td><a href="https://workday.wd5.myworkdayjobs.com/Workday/job/USA-CA-Pleasanton/Principal--Product-Manager_JR-0110096">Principal, Product Manager - Financial Reportin…</a></td><td>USA, CA, Pleasanton</td><td class="n">JR-0110096</td><td class="n">-</td><td class="n">2026-11-05</td></tr>
+<tr><td>Workday</td><td><a href="https://workday.wd5.myworkdayjobs.com/Workday/job/USA-CA-Pleasanton/Sr-Solution-Architect_JR-0111082">Sr Solution Architect</a></td><td>USA, CA, Pleasanton</td><td class="n">JR-0111082</td><td class="n">-</td><td class="n">2026-11-05</td></tr>
+</table></div>
+<p>"Remote" is the normalized <code>isRemote</code>: yes, no, or - when the site does not say. Note that <code>sourceUrl</code> in the records is the <code>/wday/cxs/</code> detail URL and <code>jobUrl</code> the public page.</p>
+
+<h2>7. Terms</h2>
+<p>There is no public API documentation or developer terms for this endpoint to cite; it is the interface of the employers' career sites. That is why we keep volumes small, honor <code>robots.txt</code> and say plainly that it is unsupported. The postings belong to the employers; read the terms that apply to your use. This is not legal advice.</p>
+
+<h2>Links</h2>
+<ul>
+<li><a href="https://apify.com/nexus-scrapers/workday-jobs-scraper">Workday Jobs Scraper on Apify</a></li>
+<li><a href="https://apify.com/nexus-scrapers/career-site-jobs">Career Site Jobs Scraper on Apify</a> (Greenhouse, Lever, Ashby, Workable, Recruitee, Personio, Workday)</li>
+<li><a href="../greenhouse-lever-ashby-jobs-json/">The companion guide: Greenhouse, Lever and Ashby</a></li>
+<li><a href="../ted-tenders-json/">The same kind of guide for EU tenders (TED)</a></li>
+</ul>
+
+<footer>Independent guide by Nexus Tools. Not affiliated with or endorsed by Workday, Inc., the companies named or Apify. Contact: <a href="mailto:nexusscrapers.dev@gmail.com">nexusscrapers.dev@gmail.com</a></footer>
+</main>
+</body>
+</html>
